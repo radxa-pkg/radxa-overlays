@@ -1,0 +1,224 @@
+## Introduction
+
+This document describes overlays provided in the kernel packages.
+For generic device tree overlays documentation please see
+https://wiki.radxa.com/Device-tree-overlays
+
+## Platform and Chips
+
+Amlogic
+- meson-g12a / S905Y2
+- meson-g12b / A311D
+
+### g12a
+
+#### usage
+
+Kernel provided DT overlay files are in
+  /boot/dtbs/$(uname -r)/amlogic/overlays/
+
+/boot/uEnv.txt contents:
+
+overlays=meson-g12a-i2c-ao-m0-gpioao-2-gpioao-3 meson-g12a-i2c-ee-m1-gpioh-6-gpioh-7 meson-g12a-i2c-ee-m3-gpioa-14-gpioa-15 meson-g12a-spi-spidev
+param_spidev_spi_bus=0
+param_spidev_max_freq=10000000
+
+Add names of overlays you want to activate to overlays= line in /boot/uEnv.txt, separated with spaces.
+Add required parameters with their values to /boot/uEnv.txt, one per line.
+Add optional parameters with their values to /boot/uEnv.txt if you want to change the default value, one per line.
+
+#### Meson Overlay details:
+
+- meson-g12a-i2c-ao-m0-gpioao-2-gpioao-3 meson-g12a-i2c-ee-m1-gpioh-6-gpioh-7 meson-g12a-i2c-ee-m1-gpiox-10-gpiox-11 meson-g12a-i2c-ee-m3-gpioa-14-gpioa-15
+- meson-g12a-pwmao-a-on-gpioao-11 meson-g12a-pwm-c-on-gpiox-8
+- meson-g12a-spi-spidev
+- meson-g12a-uart-ao-a-on-gpioao-0-gpioao-1 meson-g12a-uart-ao-b-on-gpioao-2-gpioao-3 meson-g12a-uart-ao-b-on-gpioao-8-gpioao-9 meson-g12a-uart-ee-c
+
+#### meson-g12a-i2c-ee-m1-gpioh-6-gpioh-7
+
+Activates I2C EE M1
+
+Device name: /dev/i2c-1
+
+Pins (SCL, SDA): GPIOH_7, GPIOH_6
+
+Usage: add one line in /boot/uEnv.txt
+overlays=meson-g12a-i2c-ee-m1-gpioh-6-gpioh-7
+
+#### meson-g12a-i2c-ee-m1-gpiox-10-gpiox-11
+
+Activates I2C EE M1
+
+Device name: /dev/i2c-1
+
+Pins (SCL, SDA): GPIOX_11, GPIOX_10
+
+Usage: add one line in /boot/uEnv.txt
+overlays=meson-g12a-i2c-ee-m1-gpiox-10-gpiox-11
+
+#### meson-g12a-i2c-ee-m3-gpioa-14-gpioa-15
+
+Activates I2C EE M3
+
+Device name: /dev/i2c-3
+
+Pins (SCL, SDA): GPIOA_15, GPIOA_14
+
+Usage: add one line in /boot/uEnv.txt
+overlays=meson-g12a-i2c-ee-m3-gpioa-14-gpioa-15
+
+#### meson-g12a-i2c-ao-m0-gpioao-2-gpioao-3
+
+Activates I2C AO M0
+
+Device name: /dev/i2c-4
+
+Pins (SCL, SDA): GPIOAO_2, GPIOAO_3
+
+Usage: add one line in /boot/uEnv.txt
+overlays=meson-g12a-i2c-ao-m0-gpioao-2-gpioao-3
+
+#### meson-g12a-uart-ao-a-on-gpioao-0-gpioao-1
+
+Activates UART AO A (/dev/ttyAML0)
+
+pins (RX, TX): GPIOAO_1, GPIOAO_0
+
+Usage: add one line in /boot/uEnv.txt
+overlays=meson-g12a-uart-ao-a-on-gpioao-0-gpioao-1
+
+This dtbo meson-g12a-uart-ao-a-on-gpioao-0-gpioao-1 enables us to use /dev/ttyAML0 as serial console or common serial communication.
+
+For usage of serial console, add the following lines to /boot/uEnv.txt
+
+console=ttyAML0,115200
+overlays=meson-g12a-uart-ao-a-on-gpioao-0-gpioao-1
+
+For usage of common serial communication, add the following line to /boot/uEnv.txt
+
+overlays=meson-g12a-uart-ao-a-on-gpioao-0-gpioao-1
+
+#### meson-g12a-uart-ao-b-on-gpioao-2-gpioao-3
+
+Activates UART AO B (/dev/ttyAML1)
+
+pins (RX, TX): GPIOAO_3, GPIOAO_2
+
+Usage: add one line in /boot/uEnv.txt
+overlays=meson-g12a-uart-ao-b-on-gpioao-2-gpioao-3
+
+#### meson-g12a-uart-ao-b-on-gpioao-8-gpioao-9
+
+Activates UART AO B (/dev/ttyAML1)
+
+pins (RX, TX): GPIOAO_9, GPIOAO_8
+
+Usage: add one line in /boot/uEnv.txt
+overlays=meson-g12a-uart-ao-b-on-gpioao-8-gpioao-9
+
+#### meson-g12a-uart-ee-c
+
+Activates UART EE C (/dev/ttyAML4)
+
+pins (RX, TX, RTS, CTS): GPIOH_6, GPIOH_7, GPIOH_4, GPIOH_5
+
+Usage: add one line in /boot/uEnv.txt
+overlays=meson-g12a-uart-ee-c
+
+#### meson-g12a-pwm-c-on-gpiox-8
+
+Activates PWM_C
+
+Pins: GPIOX_8
+
+#### meson-g12a-pwmao-a-on-gpioao-11
+
+Activates PWMAO_A
+
+Pins: GPIOAO_11
+
+#### meson-g12a-spi-spidev
+
+Activates SPIdev device node (/dev/spidevX.Y) for userspace SPI access,
+where X is the bus number and Y is the CS number
+
+SPI A bus
+    pins (SS0, SCLK, MOSI, MISO): GPIOX_10, GPIOX_11, GPIOX_8, GPIOX_9
+    device: /dev/spidev0.0
+
+SPI B bus
+    pins (SS0, SCLK, MOSI, MISO): GPIOH_6, GPIOH_7, GPIOH_4, GPIOH_5
+    device: /dev/spidev1.0
+
+Parameters:
+
+param_spidev_spi_bus (int)
+    SPI bus to activate SPIdev support on
+    Required
+    Supported values: 0, 1
+
+param_spidev_spi_cs (int)
+    SPI chip select number
+    Optional
+    Default: 0
+    Supported values: 0
+
+param_spidev_max_freq (int)
+    Maximum SPIdev frequency
+    Optional
+    Default: 10000000
+    Range: 3000 - 100000000
+
+### g12b
+
+#### Usage
+
+Kernel provided DT overlay files are in `/boot/dtbs/$(uname -r)/amlogic/overlays`
+
+`/boot/uEnv.txt` syntax:
+
+    overlays=<space-seprated-list-of-overlays>
+
+#### How to read the overlay file name
+
+The overlay file name follows the following convention:
+
+    <soc-family>-<soc-variant>-<function>-<location>-<gpio-bank>-<gpio-pins>
+
+- soc-family: must be `meson`
+- soc-variant: can be one of `g12a`, or `g12b`. For Radxa Zero2, use `g12b` variant.
+- function: can be one of `i2c`, `pwm`, `spi`, or `uart`
+- location: specify the exact controller that implements the function
+- gpio-bank & gpio-pins: specify the exact GPIO pins that is muxed with the function
+
+You can specify multiple overlays in `/boot/uEnv.txt`.
+However, for any given pin they can only have 1 function,
+and for any given function they can only have 1 set of pins.
+
+For example, you cannot specify both `meson-g12b-i2c-ee-m0-gpioz-0-1`
+and `meson-g12b-i2c-ee-m0-gpioz-1-7` at the same time,
+as that assigned the same `i2c-ee-m0` function to 2 different sets of pins.
+
+#### Available overlays
+
+##### I2C
+- meson-g12b-i2c-ee-m0-gpioz-0-1
+- meson-g12b-i2c-ee-m0-gpioz-1-7
+- meson-g12b-i2c-ee-m1-gpioh-6-7
+- meson-g12b-i2c-ee-m3-gpioa-14-15
+
+##### PWM
+- meson-g12b-pwm-b-gpioh-7
+- meson-g12b-pwm-b-gpioz-0
+- meson-g12b-pwm-c-gpioz-1
+- meson-g12b-pwm-d-gpioz-2
+- meson-g12b-pwm-c-d-gpioz-1-2
+- meson-g12b-pwm-f-gpioh-5
+
+##### SPI
+- meson-g12b-spi-b-gpioh-4-5-6-7
+
+##### UART
+- meson-g12b-uart-ao-a-gpioao-0-1
+- meson-g12b-uart-ao-b-gpioao-8-9
+- meson-g12b-uart-ee-c-gpioh-4-5-6-7
