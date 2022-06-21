@@ -1,0 +1,12 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	fragment@0 {
+		target = <&uart0>;
+
+		__overlay__ {
+			pinctrl-0 = <&uart0_xfer &uart0_cts &uart0_rts>;
+		};
+	};
+};
