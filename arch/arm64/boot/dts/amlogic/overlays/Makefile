@@ -6,6 +6,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
 	meson-g12a-i2c-ee-m3-gpioa-14-gpioa-15.dtbo \
 	meson-g12a-pwmao-a-on-gpioao-11.dtbo \
 	meson-g12a-pwm-c-on-gpiox-8.dtbo \
+	meson-g12a-spi-gpio-enc28j60.dtbo \
 	meson-g12a-spi-spidev.dtbo \
 	meson-g12a-uart-ao-a-on-gpioao-0-gpioao-1.dtbo \
 	meson-g12a-uart-ao-b-on-gpioao-2-gpioao-3.dtbo \
