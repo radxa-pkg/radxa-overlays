@@ -1,0 +1,48 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/gpio/meson-g12a-gpio.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+	compatible = "radxa,zero", "amlogic,g12a";
+
+	fragment@0 {
+		target = <&spicc1>;
+		__overlay__ {
+			pinctrl-0 = <&spicc1_pins>;
+			pinctrl-names = "default";
+			#address-cells = <1>;
+			#size-cells = <0>;
+			cs-gpios = <&gpio GPIOH_6 GPIO_ACTIVE_LOW>;
+			status = "okay";
+
+			ethernet: enc28j60@0 {
+				compatible = "microchip,enc28j60";
+				reg = <0>;
+				spi-max-frequency = <20000000>;
+
+				pinctrl-names = "default";
+				pinctrl-0 = <&enc28j60_int_pins>;
+
+				interrupt-parent = <&gpio_intc>;
+				interrupts = <85 IRQ_TYPE_EDGE_FALLING>;
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <&periphs_pinctrl>;
+		__overlay__ {
+			enc28j60_int_pins: enc28j60-int-pins@0 {
+				mux {
+					groups = "GPIOX_8";
+					function = "gpio_periphs";
+					bias-pull-up;
+					drive-strength-microamp = <4000>;
+				};
+    		};
+		};
+	};
+};

@@ -17,8 +17,9 @@
 				gpio-mosi = <&gpio4 RK_PD2 GPIO_ACTIVE_HIGH>;
 				gpio-miso = <&gpio4 RK_PD4 GPIO_ACTIVE_HIGH>;
 				gpio-sck = <&gpio4 RK_PA4 GPIO_ACTIVE_HIGH>;
-				cs-gpios = <&gpio4 RK_PA6 GPIO_ACTIVE_HIGH>;
+				cs-gpios = <&gpio4 RK_PA6 GPIO_ACTIVE_LOW>;
 				num-chipselects = <1>;
+				status = "okay";
 
 				ethernet: enc28j60@0 {
                     compatible = "microchip,enc28j60";
