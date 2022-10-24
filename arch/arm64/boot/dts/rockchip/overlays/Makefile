@@ -33,6 +33,10 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += \
 	uart7.dtbo \
 	uart8.dtbo \
 	uart9.dtbo
+	
+dtb-$(CONFIG_CLK_RK3588) += \
+	rock-5b-hdmi1-8k.dtbo \
+	rock-5b-hdmi2-8k.dtbo
 
 scr-$(CONFIG_ARCH_ROCKCHIP) += \
 	rockchip-fixup.scr
