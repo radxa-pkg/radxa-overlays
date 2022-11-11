@@ -15,6 +15,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += \
 	spi3.dtbo \
 	spi4.dtbo \
 	spi5.dtbo \
+	rk3399-spi-5-enc28j60.dtbo \
 	rk3399-spi-gpio-enc28j60.dtbo \
 	rk3588-camera-imx415.dtbo \
 	uart0-full-rk3399.dtbo \
