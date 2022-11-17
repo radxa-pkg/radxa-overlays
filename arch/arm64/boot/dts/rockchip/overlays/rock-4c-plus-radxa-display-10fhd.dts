@@ -1,0 +1,162 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/display/drm_mipi_dsi.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+	metadata {
+		title ="Enable Radxa Display 10FHD on ROCK 4C+";
+		compatible = "radxa,rock-4c-plus", "rockchip,rk3588";
+		category = "display";
+		description = "Enable Radxa Display 10FHD on ROCK 4C+";
+	};
+
+	fragment@0 {
+		target = <&backlight>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@1 {
+		target = <&pwm2>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@2 {
+		target = <&dsi>;
+
+		__overlay__ {
+			status = "okay";
+
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			ports {
+				#address-cells = <1>;
+				#size-cells = <0>;
+
+				port@1 {
+					reg = <1>;
+					dsi_out_panel: endpoint {
+						remote-endpoint = <&panel_in_dsi>;
+					};
+				};
+			};
+
+			dsi_panel: dsi-panel@0 {
+				status = "okay";
+				compatible = "simple-panel-dsi";
+				reg = <0>;
+
+				backlight = <&backlight>;
+				power-supply = <&lcd_3v3>;
+
+				reset-gpios = <&gpio1 RK_PC2 GPIO_ACTIVE_LOW>;
+
+				pinctrl-names = "default";
+				pinctrl-0 = <&lcd_panel_reset>;
+
+				prepare-delay-ms = <120>;
+				reset-delay-ms = <120>;
+				init-delay-ms = <120>;
+				enable-delay-ms = <100>;
+				disable-delay-ms = <120>;
+				unprepare-delay-ms = <120>;
+
+				width-mm = <62>;
+				height-mm = <110>;
+
+				dsi,flags = <(MIPI_DSI_MODE_VIDEO | MIPI_DSI_MODE_VIDEO_BURST |
+				MIPI_DSI_MODE_LPM | MIPI_DSI_MODE_EOT_PACKET)>;
+				dsi,format = <MIPI_DSI_FMT_RGB888>;
+				dsi,lanes = <4>;
+
+				panel-init-sequence = [
+					05 78 01 11
+					05 00 01 29
+				];
+
+				panel-exit-sequence = [
+					05 00 01 28
+					05 00 01 10
+				];
+
+				display-timings {
+					native-mode = <&timing0>;
+					timing0: timing0 {
+						clock-frequency = <160000000>;
+						hactive = <1200>;
+						vactive = <1920>;
+
+						vback-porch = <25>;
+						vfront-porch = <35>;
+
+						hback-porch = <60>;
+						hfront-porch = <80>;
+
+						hsync-len = <4>;
+						vsync-len = <4>;
+
+						vsync-active = <0>;
+						hsync-active = <0>;
+						de-active = <0>;
+						pixelclk-active = <0>;
+					};
+				};
+
+				ports {
+					#address-cells = <1>;
+					#size-cells = <0>;
+
+					port@0 {
+						reg = <0>;
+						panel_in_dsi: endpoint {
+							remote-endpoint = <&dsi_out_panel>;
+						};
+					};
+				};
+			};
+		};
+	};
+
+	fragment@3 {
+		target = <&vopl_out_dsi>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@4 {
+		target = <&dsi_in_vopl>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@5 {
+		target = <&dsi_in_vopb>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@6 {
+		target = <&route_dsi>;
+
+		__overlay__ {
+			status = "okay";
+			connect = <&vopl_out_dsi>;
+		};
+	};
+};
