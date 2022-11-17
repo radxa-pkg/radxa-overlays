@@ -30,13 +30,10 @@ dtb-$(CONFIG_ARCH_MESON) += \
 	meson-g12b-uart-ao-b-gpioao-8-9.dtbo \
 	meson-g12b-uart-ee-c-gpioh-4-5-6-7.dtbo
 
-scr-$(CONFIG_ARCH_MESON) += \
-	meson-fixup.scr
-
 dtbotxt-$(CONFIG_ARCH_MESON) += \
 	README.overlays
 
-targets += $(dtb-y) $(scr-y) $(dtbotxt-y)
+targets += $(dtb-y) $(dtbotxt-y)
 
-always-y		:= $(dtb-y) $(scr-y) $(dtbotxt-y)
+always-y		:= $(dtb-y) $(dtbotxt-y)
 clean-files		:= *.dtbo *.scr

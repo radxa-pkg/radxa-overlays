@@ -39,14 +39,11 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rock-5b-hdmi1-8k.dtbo \
 	rock-5b-hdmi2-8k.dtbo
 
-scr-$(CONFIG_ARCH_ROCKCHIP) += \
-	rockchip-fixup.scr
-
 dtbotxt-$(CONFIG_ARCH_ROCKCHIP) += \
 	README.overlays
 
-targets += $(dtb-y) $(scr-y) $(dtbotxt-y)
+targets += $(dtb-y) $(dtbotxt-y)
 
-always-y		:= $(dtb-y) $(scr-y) $(dtbotxt-y)
+always-y		:= $(dtb-y) $(dtbotxt-y)
 clean-files		:= *.dtbo *.scr
 
