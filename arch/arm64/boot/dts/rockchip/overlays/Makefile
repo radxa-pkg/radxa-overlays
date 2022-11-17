@@ -2,7 +2,9 @@
 dtb-$(CONFIG_CLK_RK3399) += \
 	rk3399-spi-5-enc28j60.dtbo \
 	rk3399-spi-gpio-enc28j60.dtbo \
-	rk3399-uart0.dtbo \
+	rk3399-uart0.dtbo
+
+dtb-$(CONFIG_CPU_RK3399) += \
 	rock-4c-plus-radxa-display-10fhd.dtbo \
 
 dtb-$(CONFIG_CLK_RK3588) += \
@@ -39,10 +41,12 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-uart7-m2.dtbo \
 	rock-5a-radxa-display-10fhd.dtbo \
 	rock-5ab-camera-imx415.dtbo \
-	rock-5b-hdmi1-8k.dtbo \
-	rock-5b-hdmi2-8k.dtbo \
 	rock-5b-radxa-display-10fhd.dtbo \
 	rock-5b-sata.dtbo
+
+dtb-$(CONFIG_CPU_RK3588) += \
+	rock-5b-hdmi1-8k.dtbo \
+	rock-5b-hdmi2-8k.dtbo
 
 dtbotxt-$(CONFIG_ARCH_ROCKCHIP) += \
 	README.overlays
