@@ -1,8 +1,10 @@
 # SPDX-License-Identifier: GPL-2.0
-dtb-$(CONFIG_ARCH_ROCKCHIP) += \
+dtb-$(CONFIG_CLK_RK3399) += \
 	rk3399-spi-5-enc28j60.dtbo \
 	rk3399-spi-gpio-enc28j60.dtbo \
-	rk3399-uart0.dtbo \
+	rk3399-uart0.dtbo
+
+dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-camera-imx415.dtbo \
 	rk3588-i2c0-m1.dtbo \
 	rk3588-i2c1-m0.dtbo \
@@ -40,11 +42,6 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += \
 	rock-5b-hdmi2-8k.dtbo \
 	rock-5b-radxa-display-10fhd.dtbo \
 	rock-5b-sata.dtbo
-
-
-dtb-$(CONFIG_CLK_RK3588) += \
-	rock-5b-hdmi1-8k.dtbo \
-	rock-5b-hdmi2-8k.dtbo
 
 dtbotxt-$(CONFIG_ARCH_ROCKCHIP) += \
 	README.overlays
