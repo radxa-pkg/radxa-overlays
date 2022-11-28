@@ -1,0 +1,18 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "rockchip,rk3568";
+
+	fragment@0 {
+		target = <&can1>;
+
+		__overlay__ {
+			status = "okay";
+			assigned-clocks = <&cru 323>;
+			assigned-clock-rates = <100000000>;
+			pinctrl-names = "default";
+			pinctrl-0 = <&can1m0_pins>;
+		};
+	};
+};

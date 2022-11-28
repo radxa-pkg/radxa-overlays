@@ -1,0 +1,31 @@
+// ROCK 3A usb3.0 host port to sata
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "rockchip,rk3568";
+
+	fragment@0 {
+		target = <&usbhost_dwc3>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@1 {
+		target = <&usbhost30>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@2 {
+		target = <&sata1>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+};

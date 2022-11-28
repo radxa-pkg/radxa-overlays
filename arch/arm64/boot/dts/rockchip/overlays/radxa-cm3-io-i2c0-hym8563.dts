@@ -1,0 +1,21 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "rockchip,rk3568";
+
+	fragment@0 {
+		target = <&i2c0>;
+
+		__overlay__ {
+			status = "okay";
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			hym8563: hym8563@51 {
+				compatible = "haoyu,hym8563";
+				reg = <0x51>;
+			};
+		};
+	};
+};

@@ -1,0 +1,56 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title ="Enable sata2";
+		compatible = "radxa,radxa-cm3-io";
+		category = "misc";
+		description = "Enable sata2. Note: When sata2 enabled, pcie2x1 cannot be enabled.";
+	};
+
+	fragment@0 {
+		target-path = "/";
+
+		__overlay__ {
+			vcc-ch482d2-regulator {
+				compatible = "regulator-fixed";
+				enable-active-high;
+				gpio = <&gpio3 0x16 0x00>;
+				pinctrl-names = "default";
+				pinctrl-0 = <&ch482d_en2>;
+				regulator-name = "vcc_ch482d1";
+				regulator-always-on;
+				regulator-boot-on;
+				status = "okay";
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <&pcie2x1>;
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@2 {
+		target = <&sata2>;
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@3 {
+		target = <&gpio_leds>;
+		__overlay__ {
+			sata2-led {
+				gpios = <&gpio0 0x12 0x00>;
+				linux,default-trigger = "nand-disk";
+				default-state = "on";
+				pinctrl-0 = <&sata2_led>;
+				status = "okay";
+			};
+		};
+	};
+};

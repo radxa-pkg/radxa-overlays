@@ -1,0 +1,37 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "rockchip,rk3568";
+
+	metadata {
+		title = "radxa-cm3i-gmac1 support for radxa-cm3i";
+		compatible = "rockchip,rk3568";
+		misc = "gmac";
+		description = "Provide overlay for radxa-cm3i gmac1.";
+	};
+
+	fragment@0 {
+		target = <&gmac1>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@1 {
+		target = <&mdio1>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@2 {
+		target = <&rgmii_phy1>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+};

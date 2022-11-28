@@ -1,0 +1,32 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "spi1m1_cs0 support for rk3568";
+		compatible = "rockchip,rk3568";
+		misc = "spi";
+		description = "Provide support for rk3568 spi1m1_cs0.";
+	};
+
+	fragment@1 {
+		target = <&spi1>;
+
+		__overlay__ {
+			status = "okay";
+			#address-cells = <1>;
+			#size-cells = <0>;
+			pinctrl-names = "default", "high_speed";
+			pinctrl-0 = <&spi1m1_cs0 &spi1m1_pins>;
+			pinctrl-1 = <&spi1m1_cs0 &spi1m1_pins_hs>;
+			max-freq = <50000000>;
+
+			spidev {
+				compatible = "rockchip,spidev";
+				status = "okay";
+				reg = <0>;
+				spi-max-frequency = <50000000>;
+			};
+		};
+	};
+};

@@ -1,0 +1,14 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "rockchip,rk3568";
+
+	fragment@0 {
+		target = <&hdmi>;
+
+		__overlay__ {
+			pinctrl-0 = <&hdmitx_scl &hdmitx_sda>;
+		};
+	};
+};

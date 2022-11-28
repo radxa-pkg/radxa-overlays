@@ -1,0 +1,27 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "rockchip,rk3568";
+
+	fragment@1 {
+		target = <&spi3>;
+
+		__overlay__ {
+			status = "okay";
+			#address-cells = <1>;
+			#size-cells = <0>;
+			pinctrl-names = "default", "high_speed";
+			pinctrl-0 = <&spi3m0_cs0 &spi3m0_pins>;
+			pinctrl-1 = <&spi3m0_cs0 &spi3m0_pins_hs>;
+			max-freq = <50000000>;
+
+			spidev {
+				compatible = "rockchip,spidev";
+				status = "okay";
+				reg = <0>;
+				spi-max-frequency = <50000000>;
+			};
+		};
+	};
+};

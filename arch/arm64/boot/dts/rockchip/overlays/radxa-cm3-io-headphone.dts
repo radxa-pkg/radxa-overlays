@@ -1,0 +1,36 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "rockchip,rk3566";
+
+	fragment@0 {
+		target-path = "/";
+
+		__overlay__ {
+			rk_headset: rk-headset {
+				compatible = "rockchip_headset";
+				headset_gpio = <&gpio4 0x14 0x01>;
+				pinctrl-names = "default";
+				pinctrl-0 = <&hp_det>;
+				io-channels = <&saradc 2>;
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <&rk817_sound>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@2 {
+		target = <&i2s1_8ch>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+};

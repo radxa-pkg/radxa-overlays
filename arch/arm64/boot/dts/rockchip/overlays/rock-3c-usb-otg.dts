@@ -1,0 +1,15 @@
+// ROCK 3C USB OTG
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "rockchip,rk3566";
+
+	fragment@0 {
+		target = <&usbdrd_dwc3>;
+
+		__overlay__ {
+			dr_mode = "otg";
+		};
+	};
+};

@@ -1,0 +1,20 @@
+// Definitions for w1-gpio module (without external pullup)
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "rockchip,rk3568";
+
+	fragment@0 {
+		target-path = "/";
+		__overlay__ {
+
+			w1: onewire@0 {
+				compatible = "w1-gpio";
+				pinctrl-names = "default";
+				gpios = <&gpio3 5 0 0xae>; // GPIO3_A5
+				status = "okay";
+			};
+		};
+	};
+};

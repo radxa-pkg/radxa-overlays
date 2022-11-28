@@ -1,0 +1,17 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "rockchip,rk3566";
+
+	fragment@0 {
+		target = <&pcie2x1>;
+
+		__overlay__ {
+			status = "okay";
+			reset-gpios = <&gpio0 0x0a 0x00>;
+			vpcie3v3-supply = <&vcc3v3_sys>;
+			pinctrl-0 = <&pcie20m2_pins>;
+		};
+	};
+};

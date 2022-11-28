@@ -1,0 +1,23 @@
+// ROCK 3A Pcie M.2 to sata
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "rockchip,rk3568";
+
+	fragment@0 {
+		target = <&pcie2x1>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@1 {
+		target = <&sata2>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+};

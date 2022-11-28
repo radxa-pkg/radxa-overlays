@@ -1,0 +1,25 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "rockchip,rk3568";
+
+	fragment@0 {
+		target = <&fiq_debugger>;
+
+		__overlay__ {
+			status = "okay";
+			rockchip,serial-id = <9>;
+			pinctrl-names = "default";
+			pinctrl-0 = <&uart9m1_xfer>;
+		};
+	};
+
+	fragment@1 {
+		target = <&uart9>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+};

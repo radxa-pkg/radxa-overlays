@@ -1,0 +1,65 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title ="Enable sata1";
+		compatible = "radxa,radxa-cm3-io";
+		category = "misc";
+		description = "Enable sata1. Note: When sata1 enabled, usb3.0 cannot be enabled.";
+	};
+
+	fragment@0 {
+		target-path = "/";
+
+		__overlay__ {
+			vcc-ch482d1-regulator {
+				compatible = "regulator-fixed";
+				enable-active-high;
+				gpio = <&gpio3 0x17 0x00>;
+				pinctrl-names = "default";
+				pinctrl-0 = <&ch482d_en1>;
+				regulator-name = "vcc_ch482d1";
+				regulator-always-on;
+				regulator-boot-on;
+				status = "okay";
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <&sata1>;
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@2 {
+		target = <&gpio_leds>;
+		__overlay__ {
+			sata1-led {
+				gpios = <&gpio4 0x10 0x00>;
+				linux,default-trigger = "nand-disk";
+				default-state = "on";
+				pinctrl-0 = <&sata1_led>;
+				status = "okay";
+			};
+		};
+	};
+
+	fragment@3 {
+		target = <&usbhost_dwc3>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@4 {
+		target = <&usbhost30>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+};

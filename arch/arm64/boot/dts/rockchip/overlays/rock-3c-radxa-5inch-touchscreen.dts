@@ -1,0 +1,114 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "radxa,rock-3c", "rockchip,rk3566";
+
+	fragment@0 {
+		target = <&vcc_mipi>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@1 {
+		target = <&video_phy1>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@2 {
+		target = <&dsi1>;
+
+		__overlay__ {
+			status = "okay";
+
+			dsi1_panel: dsi-panel@0 {
+				status = "okay";
+			};
+		};
+	};
+
+	fragment@3 {
+		target = <&dsi1_in_vp0>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@4 {
+		target = <&dsi1_in_vp1>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@5 {
+		target = <&route_dsi1>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@6 {
+		target = <&i2c3>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@7 {
+		target = <&rockpi_mcu>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@8 {
+		target = <&rockpi_ft5406>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@9 {
+		target = <&hdmi>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@10 {
+		target = <&hdmi_in_vp0>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@11 {
+		target = <&hdmi_sound>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@12 {
+		target = <&route_hdmi>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+};
