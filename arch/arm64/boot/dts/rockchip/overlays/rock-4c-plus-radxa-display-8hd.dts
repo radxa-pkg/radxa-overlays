@@ -1,0 +1,130 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+	metadata {
+		title ="Enable Radxa Display 8HD";
+		compatible = "radxa,rock-4c-plus";
+		category = "display";
+		description = "Enable Radxa Display 8HD on ROCK 4C+";
+	};
+
+	fragment@0 {
+		target = <&backlight>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@1 {
+		target = <&pwm2>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@2 {
+		target = <&dsi>;
+
+		__overlay__ {
+			status = "okay";
+
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			rockchip,lane-rate = <480>;
+
+			dsi_panel: panel@0 {
+				status = "okay";
+				compatible ="radxa,display-8hd";
+				reg = <0>;
+
+				backlight = <&backlight>;
+				power-supply = <&lcd_3v3>;
+
+				reset-gpios = <&gpio1 RK_PC2 GPIO_ACTIVE_HIGH>;
+
+				pinctrl-names = "default";
+				pinctrl-0 = <&lcd_panel_reset>;
+
+				ports {
+					#address-cells = <1>;
+					#size-cells = <0>;
+					port@0 {
+						reg = <0>;
+						panel_in_dsi: endpoint {
+						remote-endpoint = <&dsi_out_panel>;
+						};
+					};
+				};
+			};
+
+			ports {
+				#address-cells = <1>;
+				#size-cells = <0>;
+
+				port@1 {
+					reg = <1>;
+					dsi_out_panel: endpoint {
+						remote-endpoint = <&panel_in_dsi>;
+					};
+				};
+			};
+		};
+	};
+
+	fragment@3 {
+		target = <&vopl_out_dsi>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@4 {
+		target = <&dsi_in_vopl>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@5 {
+		target = <&dsi_in_vopb>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@6 {
+		target = <&route_dsi>;
+
+		__overlay__ {
+			status = "okay";
+			connect = <&vopl_out_dsi>;
+		};
+	};
+
+	fragment@7 {
+		target = <&i2c1>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@8 {
+		target = <&gt9xx>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+};
