@@ -5,7 +5,9 @@ dtb-$(CONFIG_CLK_RK3399) += \
 	rk3399-uart0.dtbo
 
 dtb-$(CONFIG_CPU_RK3399) += \
+	rock-4c-plus-radxa-display-8hd.dtbo \
 	rock-4c-plus-radxa-display-10fhd.dtbo \
+	rock-4c-plus-radxa-display-10hd.dtbo \
 
 dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-camera-imx415.dtbo \
