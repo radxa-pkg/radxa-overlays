@@ -1,0 +1,22 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title ="Set max CPU frequency to 1.8 GHz";
+		compatible = "radxa,rock-4se", "radxa,rock-4c-plus";
+		category = "misc";
+		description = "Allow Cortex-A72 cluster to run at 1.8 GHz.\nWarning: Overclocking may cause hardware damage and system instability.\nYou warrenty will be voided.";
+	};
+
+	fragment@0 {
+		target = <&cluster1_opp>;
+
+		__overlay__ {
+			opp07 {
+				opp-hz = /bits/ 64 <1800000000>;
+				opp-microvolt = <1250000 1250000 1250000>;
+			};
+		};
+	};
+};
