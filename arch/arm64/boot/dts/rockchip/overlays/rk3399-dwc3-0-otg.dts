@@ -1,0 +1,20 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title ="Set OTG port to OTG mode";
+		compatible = "rockchip,rk3399";
+		category = "misc";
+		description = "Set OTG port to OTG mode.\nThis is the default mode.";
+	};
+
+	fragment@0 {
+		target = <&usbdrd_dwc3_0>;
+
+		__overlay__ {
+			status = "okay";
+			dr_mode = "otg";
+		};
+	};
+};

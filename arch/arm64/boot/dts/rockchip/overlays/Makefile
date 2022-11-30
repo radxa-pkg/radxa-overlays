@@ -1,5 +1,8 @@
 # SPDX-License-Identifier: GPL-2.0
 dtb-$(CONFIG_CLK_RK3399) += \
+	rk3399-dwc3-0-host.dtbo \
+	rk3399-dwc3-0-otg.dtbo \
+	rk3399-dwc3-0-peripheral.dtbo \
 	rk3399-spi-5-enc28j60.dtbo \
 	rk3399-spi-gpio-enc28j60.dtbo \
 	rk3399-uart0.dtbo
