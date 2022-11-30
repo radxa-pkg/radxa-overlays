@@ -61,9 +61,11 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-spi3-m0-cs0-spidev.dtbo \
 	rk3568-spi3-m1-cs0-spidev.dtbo \
 	rk3568-uart0.dtbo \
+	rk3568-uart1-m1-full.dtbo \
 	rk3568-uart2-m0.dtbo \
 	rk3568-uart3-m0.dtbo \
 	rk3568-uart3-m1.dtbo \
+	rk3568-uart5-m0-full.dtbo \
 	rk3568-uart5-m1.dtbo \
 	rk3568-uart7-m1.dtbo \
 	rk3568-uart8-m1.dtbo \

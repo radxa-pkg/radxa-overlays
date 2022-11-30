@@ -1,0 +1,21 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title ="Enable UART1 M1 with flow control";
+		compatible = "radxa,radxa-cm3-io";
+		category = "misc";
+		description = "Enable UART5 M0 with flow control.";
+	};
+
+	fragment@0 {
+		target = <&uart1>;
+
+		__overlay__ {
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <&uart1m1_xfer &uart1m1_ctsn &uart1m1_rtsn>;
+		};
+	};
+};
