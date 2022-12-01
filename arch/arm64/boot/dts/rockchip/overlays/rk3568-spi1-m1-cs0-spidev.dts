@@ -21,7 +21,7 @@
 			pinctrl-1 = <&spi1m1_cs0 &spi1m1_pins_hs>;
 			max-freq = <50000000>;
 
-			spidev {
+			spidev@0 {
 				compatible = "rockchip,spidev";
 				status = "okay";
 				reg = <0>;
