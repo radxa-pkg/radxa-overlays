@@ -123,6 +123,7 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-spi0-m2-cs0-spidev.dtbo \
 	rk3588-spi0-m2-cs1-spidev.dtbo \
 	rk3588-spi1-m1-cs0-spidev.dtbo \
+	rk3588-spi1-m1-cs1-mcp2515-8mhz.dtbo \
 	rk3588-spi1-m1-cs1-spidev.dtbo \
 	rk3588-uart2-m0.dtbo \
 	rk3588-uart2-m2.dtbo \
