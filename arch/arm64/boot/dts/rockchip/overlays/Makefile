@@ -14,8 +14,8 @@ dtb-$(CONFIG_CLK_RK3399) += \
 	rk3399-pwm1.dtbo \
 	rk3399-spi-5-enc28j60.dtbo \
 	rk3399-spi-gpio-enc28j60.dtbo \
-	rk3399-spi1.dtbo \
-	rk3399-spi2.dtbo \
+	rk3399-spi1-cs0-spidev.dtbo \
+	rk3399-spi2-cs0-spidev.dtbo \
 	rk3399-uart0.dtbo \
 	rk3399-uart2.dtbo \
 	rk3399-uart4.dtbo \
