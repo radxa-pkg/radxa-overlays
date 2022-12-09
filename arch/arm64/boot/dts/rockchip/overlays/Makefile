@@ -19,8 +19,8 @@ dtb-$(CONFIG_CLK_RK3399) += \
 	rk3399-uart0.dtbo \
 	rk3399-uart2.dtbo \
 	rk3399-uart4.dtbo \
-	rk3399-w1-gpio4-d6.dtbo
-	rock-4-rpi-camera-v2.dtbo\
+	rk3399-w1-gpio4-d6.dtbo \
+	rock-4-rpi-camera-v2.dtbo
 
 
 
