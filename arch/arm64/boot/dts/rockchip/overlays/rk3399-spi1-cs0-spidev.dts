@@ -1,21 +1,23 @@
 /dts-v1/;
 /plugin/;
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
 
 /{
         metadata {
-                title = "Enable SPI2";
+                title = "Enable spidev on SPI1 CS0";
                 compatible = "rockchip,rk3399";
                 category = "misc";
-                description = "Enable SPI2";
+                description = "Enable SPI1";
         };
 
         fragment@0 {
-                target = <&spi2>;
+                target = <&spi1>;
 
                 __overlay__ {
                         status = "okay";
                         pinctrl-names = "default";
-                        pinctrl-0 = <&spi2_clk &spi2_cs0 &spi2_rx &spi2_tx>;
+                        pinctrl-0 = <&spi1_clk &spi1_cs0 &spi1_rx &spi1_tx>;
                         #address-cells = <1>;
                         #size-cells = <0>;
 

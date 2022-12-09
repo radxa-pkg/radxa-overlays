@@ -1,12 +1,14 @@
 /dts-v1/;
 /plugin/;
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
 
 / {
 		metadata {
-				title = "Enable i2c7";
+				title = "Enable I2C7";
 				compatible = "rockchip,rk3399";
 				category = "misc";
-				description = "Enable i2c7";
+				description = "Enable I2C7";
 		};
 
 		fragment@0 {
@@ -14,6 +16,8 @@
 
 				__overlay__ {
 						status = "okay";
+						pinctrl-names = "default";
+						pinctrl-0 = <&i2c7_xfer>;
 				};
 		};
 };

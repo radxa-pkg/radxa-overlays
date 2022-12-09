@@ -1,14 +1,14 @@
 /dts-v1/;
 /plugin/;
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
 
 / {
-        compatible = "rockchip,rk3399-pwm", "rockchip,rk3288-pwm";
-
         metadata {
-                title = "Enable pwm1";
+                title = "Enable PWM1";
                 compatible = "rockchip,rk3399";
                 category = "misc";
-                description = "Enable pwm1";
+                description = "Enable PWM1";
         };
 
         fragment@0 {

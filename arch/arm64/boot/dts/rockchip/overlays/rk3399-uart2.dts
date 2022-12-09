@@ -1,8 +1,9 @@
 /dts-v1/;
 /plugin/;
-/ {
-        compatible = "rockchip,rk3399-uart", "snps,dw-apb-uart";
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
 
+/ {
         metadata {
                 title = "Enable uart2";
                 compatible = "rockchip,rk3399";

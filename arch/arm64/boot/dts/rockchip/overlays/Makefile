@@ -3,24 +3,26 @@ dtb-$(CONFIG_CLK_RK3399) += \
 	rk3399-dwc3-0-host.dtbo \
 	rk3399-dwc3-0-otg.dtbo \
 	rk3399-dwc3-0-peripheral.dtbo \
+	rk3399-i2c2.dtbo \
+	rk3399-i2c6.dtbo \
+	rk3399-i2c7.dtbo \
 	rk3399-opp-1800.dtbo \
 	rk3399-opp-2000.dtbo \
 	rk3399-opp-2200.dtbo \
 	rk3399-opp-2400.dtbo \
-	rk3399-spi-5-enc28j60.dtbo \
-	rk3399-spi-gpio-enc28j60.dtbo \
-	rk3399-uart0.dtbo \
-	rock-4-rpi-camera-v2.dtbo\
-	rk3399-uart2.dtbo \
-	rk3399-uart4.dtbo \
-	rk3399-spi1.dtbo \
-	rk3399-spi2.dtbo \
 	rk3399-pwm0.dtbo \
 	rk3399-pwm1.dtbo \
-	rk3399-i2c2.dtbo \
-	rk3399-i2c6.dtbo \
-	rk3399-i2c7.dtbo \
-	rk3399-w1-gpio4-30.dtbo
+	rk3399-spi-5-enc28j60.dtbo \
+	rk3399-spi-gpio-enc28j60.dtbo \
+	rk3399-spi1.dtbo \
+	rk3399-spi2.dtbo \
+	rk3399-uart0.dtbo \
+	rk3399-uart2.dtbo \
+	rk3399-uart4.dtbo \
+	rk3399-w1-gpio4-d6.dtbo
+	rock-4-rpi-camera-v2.dtbo\
+
+
 
 dtb-$(CONFIG_CPU_RK3399) += \
 	rock-4c-plus-radxa-display-8hd.dtbo \

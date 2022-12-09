@@ -1,11 +1,13 @@
 /dts-v1/;
 /plugin/;
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
 
 / {
 		compatible = "rockchip,rockpi","rockchip,rk3399";
 
 		metadata {
-				title = "Enable w1";
+				title = "Enable 1-Wire on GPIO4_D6";
 				compatible = "rockchip,rk3399";
 				category = "misc";
 				description = "Enable w1";
@@ -18,7 +20,7 @@
 						w1: onewire@0 {
 								compatible = "w1-gpio";
 								pinctrl-names = "default";
-								gpios = <&gpio4 30 0>;
+								gpios = <&gpio4 RK_PD6 GPIO_ACTIVE_HIGH>;
 								status = "okay";
 						};
 				};
