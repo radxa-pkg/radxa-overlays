@@ -1,0 +1,26 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+		compatible = "rockchip,rockpi","rockchip,rk3399";
+
+		metadata {
+				title = "Enable w1";
+				compatible = "rockchip,rk3399";
+				category = "misc";
+				description = "Enable w1";
+		};
+
+		fragment@0 {
+				target-path = "/";
+
+				__overlay__ {
+						w1: onewire@0 {
+								compatible = "w1-gpio";
+								pinctrl-names = "default";
+								gpios = <&gpio4 30 0>;
+								status = "okay";
+						};
+				};
+		};
+};

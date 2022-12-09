@@ -1,0 +1,22 @@
+/dts-v1/;
+/plugin/;
+/ {
+        compatible = "rockchip,rk3399-uart", "snps,dw-apb-uart";
+
+        metadata {
+                title = "Enable uart4";
+                compatible = "rockchip,rk3399";
+                category = "misc";
+                description = "Enable uart2";
+        };
+
+        fragment@0 {
+                target = <&uart4>;
+
+                __overlay__ {
+                        status = "okay";
+                        pinctrl-names = "default";
+                        pinctrl-0 = <&uart4_xfer>;
+                };
+        };
+};
