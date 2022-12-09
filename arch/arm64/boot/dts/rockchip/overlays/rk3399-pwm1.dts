@@ -1,0 +1,19 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+        metadata {
+                title = "Enable PWM1";
+                compatible = "rockchip,rk3399";
+                category = "misc";
+                description = "Enable PWM1";
+        };
+
+        fragment@0 {
+                target = <&pwm1>;
+
+                __overlay__ {
+                        status = "okay";
+                };
+        };
+};
