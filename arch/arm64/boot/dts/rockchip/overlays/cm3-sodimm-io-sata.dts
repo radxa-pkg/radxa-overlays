@@ -1,10 +1,16 @@
 /dts-v1/;
 /plugin/;
+
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/pinctrl/rockchip.h>
 
 / {
-	compatible = "radxa,radxa-cm3-sodimm-io", "rockchip,rk3566";
+	metadata {
+		title = "Enable SATA2";
+		compatible = "radxa,radxa-cm3-sodimm-io";
+		category = "misc";
+		description = "Enable SATA2";
+	};
 
 	fragment@0 {
 		target-path = "/";

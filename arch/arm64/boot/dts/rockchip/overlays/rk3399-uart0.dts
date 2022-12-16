@@ -2,10 +2,21 @@
 /plugin/;
 
 / {
+	metadata {
+		title = "Enable UART0";
+		// This is not supported in ROCK 4
+		// compatible = "rockchip,rk3399";
+		compatible = "unknown";
+		category = "misc";
+		description = "Enable UART0";
+	};
+
 	fragment@0 {
 		target = <&uart0>;
 
 		__overlay__ {
+			status = "okay";
+			pinctrl-names = "default";
 			pinctrl-0 = <&uart0_xfer &uart0_cts &uart0_rts>;
 		};
 	};

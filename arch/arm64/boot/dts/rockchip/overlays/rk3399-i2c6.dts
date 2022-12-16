@@ -2,20 +2,20 @@
 /plugin/;
 
 / {
-		metadata {
-				title = "Enable I2C6";
-				compatible = "rockchip,rk3399";
-				category = "misc";
-				description = "Enable I2C6";
-		};
+	metadata {
+		title = "Enable I2C6";
+		compatible = "rockchip,rk3399";
+		category = "misc";
+		description = "Enable I2C6 on pin 29 & 31";
+	};
 
-		fragment@0 {
-				target = <&i2c6>;
+	fragment@0 {
+		target = <&i2c6>;
 
-				__overlay__ {
-						status = "okay";
-						pinctrl-names = "default";
-						pinctrl-0 = <&i2c2_xfer>;
-				};
+		__overlay__ {
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <&i2c2_xfer>;
 		};
+	};
 };

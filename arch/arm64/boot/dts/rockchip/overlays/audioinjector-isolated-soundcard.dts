@@ -1,4 +1,3 @@
-// Definitions for audioinjector.net audio isolated soundcard
 /dts-v1/;
 /plugin/;
 
@@ -6,7 +5,12 @@
 #include <dt-bindings/pinctrl/rockchip.h>
 
 / {
-	compatible = "brcm,bcm2835";
+	metadata {
+		title = "Enable Audio Injector Isolated Soundcard";
+		compatible = "unknown";
+		category = "misc";
+		description = "Enable Audio Injector Isolated Soundcard";
+	};
 
 	fragment@0 {
 		target = <&i2s3_2ch>;

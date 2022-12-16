@@ -10,7 +10,7 @@
 		title ="Enable Radxa Display 10HD";
 		compatible = "radxa,rock-4c-plus";
 		category = "display";
-		description = "Enable Radxa Display 10HD on ROCK 4C+";
+		description = "Enable Radxa Display 10HD";
 	};
 
 	fragment@0 {

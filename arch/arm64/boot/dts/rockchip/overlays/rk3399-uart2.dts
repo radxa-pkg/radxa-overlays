@@ -2,20 +2,20 @@
 /plugin/;
 
 / {
-        metadata {
-                title = "Enable uart2";
-                compatible = "rockchip,rk3399";
-                category = "misc";
-                description = "Enable uart2";
-        };
+	metadata {
+		title = "Enable UART2";
+		compatible = "rockchip,rk3399";
+		category = "misc";
+		description = "Enable UART2";
+	};
 
-        fragment@0 {
-                target = <&uart2>;
+	fragment@0 {
+		target = <&uart2>;
 
-                __overlay__ {
-                        status = "okay";
-                        pinctrl-names = "default";
-                        pinctrl-0 = <&uart2c_xfer>;
-                };
-        };
+		__overlay__ {
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <&uart2c_xfer>;
+		};
+	};
 };
