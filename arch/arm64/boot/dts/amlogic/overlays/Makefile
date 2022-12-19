@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0
 dtb-$(CONFIG_ARCH_MESON) += \
+	meson-g12-i2c-ee-m3-ds3231.dtbo \
 	meson-g12a-i2c-ao-m0-gpioao-2-gpioao-3.dtbo \
 	meson-g12a-i2c-ee-m1-gpioh-6-gpioh-7.dtbo \
 	meson-g12a-i2c-ee-m1-gpiox-10-gpiox-11.dtbo \
