@@ -21,9 +21,9 @@ dtb-$(CONFIG_CLK_RK3399) += \
 	rk3399-uart2.dtbo \
 	rk3399-uart4.dtbo \
 	rk3399-w1-gpio4-d6.dtbo \
+	rock-4-okdo-5mp-camera.dtbo \
+	rock-4-rpi-camera-v1_3.dtbo \
 	rock-4-rpi-camera-v2.dtbo
-
-
 
 dtb-$(CONFIG_CPU_RK3399) += \
 	rock-4c-plus-radxa-display-8hd.dtbo \

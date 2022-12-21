@@ -1,0 +1,43 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title ="Enable Raspberry Pi Camera v1.3";
+		compatible = "rockchip,rk3399";
+		category = "camera";
+		description = "Enable Raspberry Pi Camera v1.3";
+	};
+
+	fragment@0 {
+		target = <&camera_pwdn_gpio>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@1 {
+		target = <&clk_cam_25m>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@2 {
+		target = <&i2c4>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@3 {
+		target = <&camera_ov5647>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+};
