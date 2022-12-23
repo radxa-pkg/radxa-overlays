@@ -15,6 +15,7 @@
 		__overlay__ {
 			status = "okay";
 			dr_mode = "otg";
+			extcon = <&u2phy0>;
 		};
 	};
 };
