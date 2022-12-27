@@ -1,0 +1,41 @@
+/dts-v1/;
+/plugin/;
+
+/{
+	compatible = "rockchip,rk3399";
+
+	fragment@0 {
+		target-path = "/";
+		__overlay__ {
+			sc16is752_clk: sc16is752_spi2_0_clk {
+				compatible = "fixed-clock";
+				clock-frequency = <1475600>;
+				#clock-cells = <0>;
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <&spi2>;
+
+		__overlay__ {
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <&spi2_clk &spi2_cs0 &spi2_rx &spi2_tx>;
+			cs-gpios = <&gpio4 7 1>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			sc16is752: sc16is752@0 {
+				compatible = "nxp,sc16is752";
+				reg = <0>;
+				clocks = <&sc16is752_clk>;
+				interrupt-parent = <&gpio4>;
+				interrupts = <7 2>;
+				spi-max-frequency = <4000000>;
+				#gpio-controller;
+				#gpio-cells = <2>;
+			};
+		};
+	};
+};
