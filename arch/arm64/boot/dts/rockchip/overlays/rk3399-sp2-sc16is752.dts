@@ -1,7 +1,18 @@
 /dts-v1/;
 /plugin/;
 
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
 /{
+	metadata {
+		title = "Enable SC16is752 on SPI2";
+		compatible = "rockchip,rk3399";
+		category = "misc";
+		description = "Enable SC16is752 SPI on SPI2.\nINT=38";
+	};
+	
 	compatible = "rockchip,rk3399";
 
 	fragment@0 {
@@ -19,7 +30,19 @@
 		target = <&spi2>;
 
 		__overlay__ {
-			status = "okay";On 2>;
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <&spi2_clk &spi2_cs0 &spi2_rx &spi2_tx>;
+			cs-gpios = <&gpio2 RK_PB4 GPIO_ACTIVE_LOW>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			sc16is752: sc16is752@0 {
+				compatible = "nxp,sc16is752";
+				reg = <0>;
+				clocks = <&sc16is752_clk>;
+				interrupt-parent = <&gpio4>;
+				interrupts = <RK_PA6 IRQ_TYPE_EDGE_FALLING>;
 				spi-max-frequency = <4000000>;
 				#gpio-controller;
 				#gpio-cells = <2>;
