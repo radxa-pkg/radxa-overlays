@@ -1,0 +1,20 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title ="Set RGA frequency to 400 MHz";
+		compatible = "rockchip,rk3399";
+		category = "misc";
+		description = "Set RGA frequency to 400 MHz.\nThis is the top frequency mentioned in Rockchip_FAQ_RGA_CN.pdf.";
+	};
+
+	fragment@0 {
+		target = <&rga>;
+
+		__overlay__ {
+			assigned-clocks = <&cru ACLK_RGA>, <&cru SCLK_RGA>;
+			assigned-clock-rates = <400000000>, <400000000>;
+		};
+	};
+};
