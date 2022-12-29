@@ -8,7 +8,7 @@
 		title ="Set RGA frequency to 400 MHz";
 		compatible = "rockchip,rk3399";
 		category = "misc";
-		description = "Set RGA frequency to 400 MHz.\nThis is the top frequency mentioned in Rockchip_FAQ_RGA_CN.pdf.";
+		description = "Set RGA frequency to 400 MHz.\nThis is usually not needed.\nYou can check current clock speed with:\nsudo grep rga /sys/kernel/debug/clk/clk_summary";
 	};
 
 	fragment@0 {

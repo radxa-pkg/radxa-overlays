@@ -3,7 +3,7 @@
 
 / {
 	metadata {
-		title ="Set max CPU frequency to 2.0 GHz";
+		title ="Increase max CPU frequency to 2.0 GHz";
 		compatible = "radxa,rock-pi-4a", "radxa,rock-pi-4b", "radxa,rock-pi-4c";
 		category = "misc";
 		description = "Allow Cortex-A72 cluster to run at 2.0 GHz.\nWarning: Overclocking may cause hardware damage and system instability.\nYou warrenty will be voided.";
