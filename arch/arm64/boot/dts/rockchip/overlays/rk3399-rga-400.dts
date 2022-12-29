@@ -1,6 +1,8 @@
 /dts-v1/;
 /plugin/;
 
+#include <dt-bindings/clock/rk3399-cru.h>
+
 / {
 	metadata {
 		title ="Set RGA frequency to 400 MHz";
@@ -13,7 +15,7 @@
 		target = <&rga>;
 
 		__overlay__ {
-			assigned-clocks = <&cru ACLK_RGA>, <&cru SCLK_RGA>;
+			assigned-clocks = <&cru ACLK_RGA>, <&cru SCLK_RGA_CORE>;
 			assigned-clock-rates = <400000000>, <400000000>;
 		};
 	};
