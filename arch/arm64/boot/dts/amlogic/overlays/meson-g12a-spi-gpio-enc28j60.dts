@@ -6,7 +6,12 @@
 #include <dt-bindings/interrupt-controller/irq.h>
 
 / {
-	compatible = "radxa,zero", "amlogic,g12a";
+	metadata {
+		title = "Enable ENC28J60 on SPI-B using software emulation";
+		compatible = "radxa,zero";
+		category = "misc";
+		description = "Enable Microchip ENC28J60 SPI Ethernet controller on SPI-B.\nThis overlay uses spi-gpio driver, which is slower than hardware SPI.\nINT=18";
+	};
 
 	fragment@0 {
 		target-path = "/";
