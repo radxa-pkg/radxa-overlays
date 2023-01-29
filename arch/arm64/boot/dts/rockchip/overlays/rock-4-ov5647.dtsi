@@ -1,17 +1,7 @@
-/dts-v1/;
-/plugin/;
-
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/pinctrl/rockchip.h>
 
 / {
-	metadata {
-		title ="Enable Raspberry Pi Camera v2";
-		compatible = "rockchip,rk3399";
-		category = "camera";
-		description = "Enable Raspberry Pi Camera v2";
-	};
-
 	fragment@0 {
 		target-path = "/";
 
@@ -28,11 +18,11 @@
 				pinctrl-0 = <&cam_pwdn_gpio>;
 			};
 
-			clk_cam_24m: external-camera-clock-24m {
+			clk_cam_25m: external-camera-clock-25m {
 				status = "okay";
 				compatible = "fixed-clock";
-				clock-frequency = <24000000>;
-				clock-output-names = "clk_cam_24m";
+				clock-frequency = <25000000>;
+				clock-output-names = "clk_cam_25m";
 				#clock-cells = <0>;
 			};
 		};
@@ -46,17 +36,17 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			camera_imx219: camera-imx219@10 {
+			camera_ov5647: camera-ov5647@36 {
 				status = "okay";
-				compatible = "sony,imx219";
-				reg = <0x10>;
+				compatible = "ovti,ov5647";
+				reg = <0x36>;
 
-				clocks = <&clk_cam_24m>;
-				clock-names = "xvclk";
+				clocks = <&clk_cam_25m>;
+				clock-names = "xclk";
 
 				rockchip,camera-module-index = <0>;
 				rockchip,camera-module-facing = "back";
-				rockchip,camera-module-name = "rpi-camera-v2";
+				rockchip,camera-module-name = "OV5647";
 				rockchip,camera-module-lens-name = "default";
 
 				port {

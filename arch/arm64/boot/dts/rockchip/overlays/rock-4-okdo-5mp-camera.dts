@@ -1,6 +1,8 @@
 /dts-v1/;
 /plugin/;
 
+#include "rock-4-ov5647.dtsi"
+
 / {
 	metadata {
 		title ="Enable OKdo 5MP Camera";
@@ -8,36 +10,12 @@
 		category = "camera";
 		description = "Enable OKdo 5MP Camera";
 	};
-
-	fragment@0 {
-		target = <&camera_pwdn_gpio>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
-
-	fragment@1 {
-		target = <&clk_cam_25m>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
-
-	fragment@2 {
-		target = <&i2c4>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
-
-	fragment@3 {
+	
+	fragment@6 {
 		target = <&camera_ov5647>;
 
 		__overlay__ {
-			status = "okay";
+			rockchip,camera-module-name = "OKDO-5MP";
 		};
 	};
 };
