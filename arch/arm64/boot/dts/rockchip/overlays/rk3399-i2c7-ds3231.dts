@@ -2,26 +2,27 @@
 /plugin/;
 
 / {
-    metadata {
-    	title = "Enable DS3231 RTC on I2C7";
-    	compatible = "rockchip,rk3399";
-    	category = "misc";
-    	description = "Enable DS3231 RTC on I2C7";
-    };
+	metadata {
+		title = "Enable DS3231 RTC on I2C7";
+		compatible = "rockchip,rk3399";
+		category = "misc";
+		description = "Enable DS3231 RTC on I2C7";
+	};
 
-    fragment@0 {
-        target = <&i2c7>;   
-        __overlay__ {
-            status = "okay";
-            pinctrl-names = "default";
-            pinctrl-0 = <&i2c7_xfer>;
-            #address-cells = <1>;
-            #size-cells = <0>;  
-            ds3231: ds3231@68 {
-                compatible = "maxim,ds3231";
-                reg = <0x68>;
-                #clock-cells = <1>;
-            };      
-        };
-    };
+	fragment@0 {
+		target = <&i2c7>;   
+		__overlay__ {
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <&i2c7_xfer>;
+			#address-cells = <1>;
+			#size-cells = <0>;  
+
+			ds3231: ds3231@68 {
+				compatible = "maxim,ds3231";
+				reg = <0x68>;
+				#clock-cells = <1>;
+			};      
+		};
+	};
 };
