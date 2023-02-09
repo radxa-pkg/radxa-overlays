@@ -18,7 +18,7 @@
 		__overlay__ {
 			w1: onewire {
 				compatible = "w1-gpio";
-				gpios = <&gpio3 RK_PA5 GPIO_ACTIVE_HIGH>
+				gpios = <&gpio3 RK_PA5 GPIO_ACTIVE_HIGH>;
 				status = "okay";
 			};
 		};
