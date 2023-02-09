@@ -8,7 +8,7 @@
 		compatible = "radxa,rock-3a", "radxa,rock-3b";
 		category = "camera";
 		description = "Enable Raspberry Pi Camera v2.";
-	};;
+	};
 
 	fragment@0 {
 		target = <&ext_cam_clk_imx219>;
