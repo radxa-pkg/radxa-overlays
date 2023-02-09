@@ -2,7 +2,12 @@
 /plugin/;
 
 / {
-	compatible = "radxa,rock-3c", "rockchip,rk3566";
+	metadata {
+		title = "Enable Radxa 5-inch Touchscreen";
+		compatible = "radxa,rock-3c";
+		category = "display";
+		description = "Enable Radxa 5-inch Touchscreen.";
+	};
 
 	fragment@0 {
 		target = <&vcc_mipi>;
