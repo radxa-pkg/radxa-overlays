@@ -3,10 +3,10 @@
 
 / {
 	metadata {
-		title = "spi1m1_cs0 support for rk3568";
-		compatible = "rockchip,rk3568";
-		misc = "spi";
-		description = "Provide support for rk3568 spi1m1_cs0.";
+		title = "Enable spidev on SPI1-M1 over CS0";
+		compatible = "rockchip,rk3566", "rockchip,rk3568";
+		category = "misc";
+		description = "Enable spidev on SPI1-M1 over CS0.";
 	};
 
 	fragment@1 {

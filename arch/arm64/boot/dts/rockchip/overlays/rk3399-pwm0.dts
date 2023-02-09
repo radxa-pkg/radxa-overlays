@@ -6,7 +6,7 @@
 		title = "Enable PWM0";
 		compatible = "rockchip,rk3399";
 		category = "misc";
-		description = "Enable PWM0 on pin 11";
+		description = "Enable PWM0 on pin 11.";
 	};
 
 	fragment@0 {

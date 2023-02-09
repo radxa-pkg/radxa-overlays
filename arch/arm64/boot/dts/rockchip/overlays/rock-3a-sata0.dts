@@ -3,7 +3,12 @@
 /plugin/;
 
 / {
-	compatible = "rockchip,rk3568";
+	metadata {
+		title ="Enable SATA0";
+		compatible = "radxa,rock-3a";
+		category = "misc";
+		description = "Enable SATA0.\nWhen SATA0 is enabled, USB3.0 cannot be enabled on the same port.";
+	};
 
 	fragment@0 {
 		target = <&usbdrd_dwc3>;

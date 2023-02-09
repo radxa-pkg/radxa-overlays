@@ -2,7 +2,12 @@
 /plugin/;
 
 / {
-	compatible = "rockchip,rk3568";
+	metadata {
+		title = "Enable Raspiberry Pi 7-inch Touchscreen";
+		compatible = "radxa,rock-3a";
+		category = "display";
+		description = "Enable Raspiberry Pi 7-inch Touchscreen.";
+	};
 
 	fragment@0 {
 		target = <&video_phy1>;
@@ -89,14 +94,6 @@
 	};
 
 	fragment@6 {
-		target = <&vcc_mipi>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
-
-	fragment@7 {
 		target = <&i2c3>;
 
 		__overlay__ {
@@ -104,7 +101,7 @@
 		};
 	};
 
-	fragment@8 {
+	fragment@7 {
 		target = <&rockpi_mcu>;
 
 		__overlay__ {
@@ -112,11 +109,20 @@
 		};
 	};
 
-	fragment@9 {
+	fragment@8 {
 		target = <&rockpi_ft5406>;
 
 		__overlay__ {
 			status = "okay";
 		};
 	};
+
+	fragment@9 {
+		target = <&vcc_mipi>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
 };

@@ -8,7 +8,7 @@
 		// compatible = "rockchip,rk3399";
 		compatible = "unknown";
 		category = "misc";
-		description = "Enable UART0";
+		description = "Enable UART0.";
 	};
 
 	fragment@0 {

@@ -2,7 +2,12 @@
 /plugin/;
 
 / {
-	compatible = "rockchip,rk3568";
+	metadata {
+		title = "Enable PWM13-M0";
+		compatible = "rockchip,rk3566", "rockchip,rk3568";
+		category = "misc";
+		description = "Enable PWM13-M0.";
+	};
 
 	fragment@0 {
 		target = <&pwm13>;

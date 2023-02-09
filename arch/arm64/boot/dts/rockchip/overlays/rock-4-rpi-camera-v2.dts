@@ -9,7 +9,7 @@
 		title ="Enable Raspberry Pi Camera v2";
 		compatible = "rockchip,rk3399";
 		category = "camera";
-		description = "Enable Raspberry Pi Camera v2";
+		description = "Enable Raspberry Pi Camera v2.";
 	};
 
 	fragment@0 {

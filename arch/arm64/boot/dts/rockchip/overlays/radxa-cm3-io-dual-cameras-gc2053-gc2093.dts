@@ -2,13 +2,11 @@
 /plugin/;
 
 / {
-	compatible = "rockchip,rk3566";
-
 	metadata {
-		title = "DUAL CAMERAS GC2053-GC2093 for Radxa CM3 IO";
-		compatible = "rockchip,rk3566";
-		misc = "camera";
-		description = "Provide DUAL CAMERAS GC2053-GC2093 overlay for Radxa CM3 IO";
+		title = "Enable Dual Camera GC2053-GC2093";
+		compatible = "radxa,radxa-cm3-io";
+		category = "camera";
+		description = "Enable Dual Camera GC2053-GC2093.";
 	};
 
 	fragment@0 {

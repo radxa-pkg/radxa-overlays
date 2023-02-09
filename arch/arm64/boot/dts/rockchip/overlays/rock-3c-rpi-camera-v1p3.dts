@@ -6,8 +6,18 @@
 / {
 	metadata {
 		title ="Enable Raspberry Pi Camera v1.3";
-		compatible = "radxa,rock-3a", "radxa,rock-3b";
+		compatible = "radxa,rock-3c";
 		category = "camera";
 		description = "Enable Raspberry Pi Camera v1.3.";
+	};
+
+	/delete-node/ fragment@1;
+
+	fragment@1 {
+		target = <&i2c2>;
+
+		__overlay__ {
+			status = "okay";
+		};
 	};
 };

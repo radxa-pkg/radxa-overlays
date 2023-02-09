@@ -2,7 +2,12 @@
 /plugin/;
 
 / {
-	compatible = "rockchip,rk3568";
+	metadata {
+		title = "Enable FIQ Debugger on UART2-M0";
+		compatible = "rockchip,rk3566", "rockchip,rk3568";
+		category = "misc";
+		description = "Enable FIQ Debugger on UART2-M0.";
+	};
 
 	fragment@0 {
 		target = <&fiq_debugger>;

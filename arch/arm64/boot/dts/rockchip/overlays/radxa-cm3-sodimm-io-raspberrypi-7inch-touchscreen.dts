@@ -1,8 +1,15 @@
 /dts-v1/;
 /plugin/;
+
 #include <dt-bindings/display/rockchip_vop.h>
+
 / {
-	compatible = "rockchip,rk3566";
+	metadata {
+		title = "Enable Raspiberry Pi 7-inch Touchscreen";
+		compatible = "radxa,radxa-cm3-sodimm-io";
+		category = "display";
+		description = "Enable Raspiberry Pi 7-inch Touchscreen.";
+	};
 
 	fragment@0 {
 		target = <&video_phy1>;

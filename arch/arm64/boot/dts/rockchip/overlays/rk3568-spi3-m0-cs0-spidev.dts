@@ -2,7 +2,12 @@
 /plugin/;
 
 / {
-	compatible = "rockchip,rk3568";
+	metadata {
+		title = "Enable spidev on SPI3-M0 over CS0";
+		compatible = "rockchip,rk3566", "rockchip,rk3568";
+		category = "misc";
+		description = "Enable spidev on SPI3-M0 over CS0.";
+	};
 
 	fragment@1 {
 		target = <&spi3>;

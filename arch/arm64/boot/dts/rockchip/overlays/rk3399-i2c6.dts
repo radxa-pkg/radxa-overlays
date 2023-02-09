@@ -6,7 +6,7 @@
 		title = "Enable I2C6";
 		compatible = "rockchip,rk3399";
 		category = "misc";
-		description = "Enable I2C6 on pin 29 & 31";
+		description = "Enable I2C6 on pin 29 & 31.";
 	};
 
 	fragment@0 {

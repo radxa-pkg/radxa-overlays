@@ -2,7 +2,12 @@
 /plugin/;
 
 / {
-	compatible = "rockchip,rk3568";
+	metadata {
+		title = "Enable UART8-M1";
+		compatible = "rockchip,rk3566", "rockchip,rk3568";
+		category = "misc";
+		description = "Enable UART8-M1.";
+	};
 
 	fragment@0 {
 		target = <&uart8>;

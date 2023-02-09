@@ -2,7 +2,12 @@
 /plugin/;
 
 / {
-	compatible = "rockchip,rk3568";
+	metadata {
+		title = "Enable HYM8563 RTC on I2C0";
+		compatible = "radxa,radxa-cm3-io";
+		category = "misc";
+		description = "Enable HYM8563 RTC on I2C0.";
+	};
 
 	fragment@0 {
 		target = <&i2c0>;

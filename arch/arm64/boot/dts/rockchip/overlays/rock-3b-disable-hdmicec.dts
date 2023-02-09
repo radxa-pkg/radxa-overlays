@@ -2,7 +2,12 @@
 /plugin/;
 
 / {
-	compatible = "rockchip,rk3568";
+	metadata {
+		title ="Disable HDMI CEC";
+		compatible = "radxa,rock-3b";
+		category = "misc";
+		description = "Disable HDMI CEC.";
+	};
 
 	fragment@0 {
 		target = <&hdmi>;

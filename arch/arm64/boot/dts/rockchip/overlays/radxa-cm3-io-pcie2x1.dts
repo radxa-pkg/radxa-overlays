@@ -2,7 +2,12 @@
 /plugin/;
 
 / {
-	compatible = "rockchip,rk3566";
+	metadata {
+		title = "Enable PCIe";
+		compatible = "radxa,radxa-cm3-io";
+		category = "misc";
+		description = "Enable PCIe.\nWhen PCIe is enabled, SATA2 cannot be enabled on the same port.";
+	};
 
 	fragment@0 {
 		target = <&pcie2x1>;

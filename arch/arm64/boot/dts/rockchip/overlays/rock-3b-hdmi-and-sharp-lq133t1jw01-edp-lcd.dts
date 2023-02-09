@@ -2,7 +2,12 @@
 /plugin/;
 
 / {
-	compatible = "rockchip,rk3568";
+		metadata {
+		title = "Enable Sharp LQ133T1JW01 Display";
+		compatible = "radxa,radxa-cm3-io";
+		category = "display";
+		description = "Enable Sharp LQ133T1JW01 display.";
+	};
 
 	fragment@0 {
 		target = <&backlight_edp>;

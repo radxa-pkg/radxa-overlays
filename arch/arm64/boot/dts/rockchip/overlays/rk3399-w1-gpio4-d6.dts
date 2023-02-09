@@ -9,7 +9,7 @@
 		title = "Enable 1-Wire on pin 37";
 		compatible = "rockchip,rk3399";
 		category = "misc";
-		description = "Enable 1-Wire on pin 37";
+		description = "Enable 1-Wire on pin 37.";
 	};
 
 	fragment@0 {

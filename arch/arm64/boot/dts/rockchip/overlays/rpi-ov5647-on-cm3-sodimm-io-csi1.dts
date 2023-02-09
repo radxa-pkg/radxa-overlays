@@ -2,7 +2,12 @@
 /plugin/;
 
 / {
-	compatible = "rockchip,rk3568";
+	metadata {
+		title ="Enable Raspberry Pi Camera v1.3 on CSI1";
+		compatible = "radxa,radxa-cm3-sodimm-io";
+		category = "camera";
+		description = "Enable Raspberry Pi Camera v1.3 on CSI1.";
+	};
 
 	fragment@0 {
 		target = <&ext_cam_ov5647_clk>;

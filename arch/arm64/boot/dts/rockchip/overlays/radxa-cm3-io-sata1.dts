@@ -3,10 +3,10 @@
 
 / {
 	metadata {
-		title ="Enable sata1";
+		title ="Enable SATA1";
 		compatible = "radxa,radxa-cm3-io";
 		category = "misc";
-		description = "Enable sata1. Note: When sata1 enabled, usb3.0 cannot be enabled.";
+		description = "Enable SATA1.\nWhen SATA1 is enabled, USB3.0 cannot be enabled on the same port.";
 	};
 
 	fragment@0 {

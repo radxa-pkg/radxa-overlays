@@ -1,16 +1,6 @@
-/dts-v1/;
-/plugin/;
-
 / {
-	metadata {
-		title = "Enable HD101BOE9365 Display";
-		compatible = "radxa,radxa-cm3-io";
-		category = "display";
-		description = "Enable HD101BOE9365 display.";
-	};
-
 	fragment@0 {
-		target = <&vcc_mipi_lcd0>;
+		target = <&ext_cam_clk>;
 
 		__overlay__ {
 			status = "okay";
@@ -18,7 +8,7 @@
 	};
 
 	fragment@1 {
-		target = <&lcd0_backlight>;
+		target = <&i2c5>;
 
 		__overlay__ {
 			status = "okay";
@@ -26,7 +16,7 @@
 	};
 
 	fragment@2 {
-		target = <&pwm13>;
+		target = <&ov5647>;
 
 		__overlay__ {
 			status = "okay";
@@ -34,7 +24,7 @@
 	};
 
 	fragment@3 {
-		target = <&video_phy0>;
+		target = <&csi2_dphy_hw>;
 
 		__overlay__ {
 			status = "okay";
@@ -42,7 +32,7 @@
 	};
 
 	fragment@4 {
-		target = <&dsi0>;
+		target = <&csi2_dphy0>;
 
 		__overlay__ {
 			status = "okay";
@@ -50,7 +40,7 @@
 	};
 
 	fragment@5 {
-		target = <&dsi0_panel>;
+		target = <&rkisp_vir0>;
 
 		__overlay__ {
 			status = "okay";
@@ -58,15 +48,15 @@
 	};
 
 	fragment@6 {
-		target = <&dsi0_in_vp0>;
+		target = <&rkisp>;
 
 		__overlay__ {
-			status = "disabled";
+			status = "okay";
 		};
 	};
 
 	fragment@7 {
-		target = <&dsi0_in_vp1>;
+		target = <&rkisp_mmu>;
 
 		__overlay__ {
 			status = "okay";
@@ -74,15 +64,15 @@
 	};
 
 	fragment@8 {
-		target = <&vp0_out_dsi0>;
+		target = <&rkcif_mmu>;
 
 		__overlay__ {
-			status = "disabled";
+			status = "okay";
 		};
 	};
 
 	fragment@9 {
-		target = <&vp1_out_dsi0>;
+		target = <&rkcif>;
 
 		__overlay__ {
 			status = "okay";
@@ -90,11 +80,10 @@
 	};
 
 	fragment@10 {
-		target = <&route_dsi0>;
+		target = <&vcc_camera>;
 
 		__overlay__ {
 			status = "okay";
-			connect = <&vp1_out_dsi0>;
 		};
 	};
 };

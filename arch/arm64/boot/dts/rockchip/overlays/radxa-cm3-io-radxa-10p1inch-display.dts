@@ -2,13 +2,11 @@
 /plugin/;
 
 / {
-	compatible = "radxa,radxa-cm3-io", "rockchip,rk3566";
-
 	metadata {
-		title = "Radxa Display 10HD for Radxa CM3 IO";
-		compatible = "rockchip,rk3566";
-		misc = "display";
-		description = "Provide Radxa Display 10HD overlay for Radxa CM3 IO.";
+		title = "Enable Radxa Display 10HD";
+		compatible = "radxa,radxa-cm3-io";
+		category = "display";
+		description = "Enable Radxa Display 10HD.";
 	};
 
 	fragment@0 {

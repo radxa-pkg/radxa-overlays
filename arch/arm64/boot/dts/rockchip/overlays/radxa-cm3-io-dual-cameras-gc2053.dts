@@ -2,7 +2,12 @@
 /plugin/;
 
 / {
-	compatible = "rockchip,rk3568";
+	metadata {
+		title = "Enable Dual Camera GC2053";
+		compatible = "radxa,radxa-cm3-io";
+		category = "camera";
+		description = "Enable Dual Camera GC2053.";
+	};
 
 	fragment@0 {
 		target = <&i2c0>;

@@ -2,13 +2,11 @@
 /plugin/;
 
 / {
-	compatible = "rockchip,rk3568";
-
 	metadata {
-		title = "radxa-cm3i-gmac1 support for radxa-cm3i";
-		compatible = "rockchip,rk3568";
-		misc = "gmac";
-		description = "Provide overlay for radxa-cm3i gmac1.";
+		title = "Enable Ethernet";
+		compatible = "unknown";
+		category = "misc";
+		description = "Enable Ethernet.";
 	};
 
 	fragment@0 {

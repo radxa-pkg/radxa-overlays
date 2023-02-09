@@ -6,7 +6,7 @@
 		title = "Enable UART4";
 		compatible = "rockchip,rk3399";
 		category = "misc";
-		description = "Enable UART4";
+		description = "Enable UART4.";
 	};
 
 	fragment@0 {

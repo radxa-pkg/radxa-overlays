@@ -2,7 +2,12 @@
 /plugin/;
 
 / {
-	compatible = "rockchip,rk3566";
+	metadata {
+		title = "Enable Headphone";
+		compatible = "radxa,radxa-cm3-io";
+		category = "misc";
+		description = "Enable headphone.";
+	};
 
 	fragment@0 {
 		target-path = "/";

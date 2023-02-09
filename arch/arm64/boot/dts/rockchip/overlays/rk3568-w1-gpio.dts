@@ -1,9 +1,17 @@
-// Definitions for w1-gpio module (without external pullup)
 /dts-v1/;
 /plugin/;
 
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+
 / {
-	compatible = "rockchip,rk3568";
+	metadata {
+		title = "Enable 1-Wire on GPIO3_A5";
+		compatible = "rockchip,rk3566", "rockchip,rk3568";
+		category = "misc";
+		description = "Enable 1-Wire on GPIO3_A5.";
+	};
+
 
 	fragment@0 {
 		target-path = "/";
@@ -12,7 +20,7 @@
 			w1: onewire@0 {
 				compatible = "w1-gpio";
 				pinctrl-names = "default";
-				gpios = <&gpio3 5 0 0xae>; // GPIO3_A5
+				gpios = <&gpio3 RK_PA5 GPIO_ACTIVE_HIGH>
 				status = "okay";
 			};
 		};

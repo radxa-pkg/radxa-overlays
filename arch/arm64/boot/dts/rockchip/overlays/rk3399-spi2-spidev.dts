@@ -6,7 +6,7 @@
 		title = "Enable spidev on SPI2";
 		compatible = "rockchip,rk3399";
 		category = "misc";
-		description = "Enable spidev on SPI2 on pin 7, 29, 31 & 33";
+		description = "Enable spidev on SPI2 on pin 7, 29, 31 & 33.";
 	};
 
 	fragment@0 {

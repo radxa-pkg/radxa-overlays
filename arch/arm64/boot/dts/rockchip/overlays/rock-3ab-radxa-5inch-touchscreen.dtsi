@@ -1,12 +1,6 @@
-// ROCK 3C OV5647
-/dts-v1/;
-/plugin/;
-
 / {
-	compatible = "rockchip,rk3566";
-
 	fragment@0 {
-		target = <&ext_cam_clk>;
+		target = <&video_phy1>;
 
 		__overlay__ {
 			status = "okay";
@@ -14,7 +8,7 @@
 	};
 
 	fragment@1 {
-		target = <&i2c2>;
+		target = <&dsi1>;
 
 		__overlay__ {
 			status = "okay";
@@ -22,7 +16,7 @@
 	};
 
 	fragment@2 {
-		target = <&ov5647>;
+		target = <&dsi1_panel>;
 
 		__overlay__ {
 			status = "okay";
@@ -30,15 +24,15 @@
 	};
 
 	fragment@3 {
-		target = <&csi2_dphy_hw>;
+		target = <&dsi1_in_vp0>;
 
 		__overlay__ {
-			status = "okay";
+			status = "disabled";
 		};
 	};
 
 	fragment@4 {
-		target = <&csi2_dphy0>;
+		target = <&dsi1_in_vp1>;
 
 		__overlay__ {
 			status = "okay";
@@ -46,7 +40,7 @@
 	};
 
 	fragment@5 {
-		target = <&rkisp_vir0>;
+		target = <&route_dsi1>;
 
 		__overlay__ {
 			status = "okay";
@@ -54,7 +48,7 @@
 	};
 
 	fragment@6 {
-		target = <&rkisp>;
+		target = <&i2c3>;
 
 		__overlay__ {
 			status = "okay";
@@ -62,7 +56,7 @@
 	};
 
 	fragment@7 {
-		target = <&rkisp_mmu>;
+		target = <&rockpi_mcu>;
 
 		__overlay__ {
 			status = "okay";
@@ -70,7 +64,7 @@
 	};
 
 	fragment@8 {
-		target = <&rkcif_mmu>;
+		target = <&rockpi_ft5406>;
 
 		__overlay__ {
 			status = "okay";
@@ -78,18 +72,11 @@
 	};
 
 	fragment@9 {
-		target = <&rkcif>;
+		target = <&vcc_mipi>;
 
 		__overlay__ {
 			status = "okay";
 		};
 	};
 
-	fragment@10 {
-		target = <&vcc_camera>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
 };

@@ -5,9 +5,9 @@
 
 / {
 	metadata {
-		title ="Enable Raspberry Pi Camera v1.3";
+		title ="Enable OKdo 5MP Camera";
 		compatible = "radxa,rock-3a", "radxa,rock-3b";
 		category = "camera";
-		description = "Enable Raspberry Pi Camera v1.3.";
+		description = "Enable OKdo 5MP Camera.";
 	};
 };
