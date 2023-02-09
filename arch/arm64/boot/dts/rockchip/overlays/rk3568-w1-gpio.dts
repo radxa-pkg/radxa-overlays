@@ -12,14 +12,12 @@
 		description = "Enable 1-Wire on GPIO3_A5.";
 	};
 
-
 	fragment@0 {
 		target-path = "/";
-		__overlay__ {
 
-			w1: onewire@0 {
+		__overlay__ {
+			w1: onewire {
 				compatible = "w1-gpio";
-				pinctrl-names = "default";
 				gpios = <&gpio3 RK_PA5 GPIO_ACTIVE_HIGH>
 				status = "okay";
 			};
