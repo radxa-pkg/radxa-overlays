@@ -143,31 +143,31 @@ Activates SPIdev device node (/dev/spidevX.Y) for userspace SPI access,
 where X is the bus number and Y is the CS number
 
 SPI A bus
-    pins (SS0, SCLK, MOSI, MISO): GPIOX_10, GPIOX_11, GPIOX_8, GPIOX_9
-    device: /dev/spidev0.0
+	pins (SS0, SCLK, MOSI, MISO): GPIOX_10, GPIOX_11, GPIOX_8, GPIOX_9
+	device: /dev/spidev0.0
 
 SPI B bus
-    pins (SS0, SCLK, MOSI, MISO): GPIOH_6, GPIOH_7, GPIOH_4, GPIOH_5
-    device: /dev/spidev1.0
+	pins (SS0, SCLK, MOSI, MISO): GPIOH_6, GPIOH_7, GPIOH_4, GPIOH_5
+	device: /dev/spidev1.0
 
 Parameters:
 
 param_spidev_spi_bus (int)
-    SPI bus to activate SPIdev support on
-    Required
-    Supported values: 0, 1
+	SPI bus to activate SPIdev support on
+	Required
+	Supported values: 0, 1
 
 param_spidev_spi_cs (int)
-    SPI chip select number
-    Optional
-    Default: 0
-    Supported values: 0
+	SPI chip select number
+	Optional
+	Default: 0
+	Supported values: 0
 
 param_spidev_max_freq (int)
-    Maximum SPIdev frequency
-    Optional
-    Default: 10000000
-    Range: 3000 - 100000000
+	Maximum SPIdev frequency
+	Optional
+	Default: 10000000
+	Range: 3000 - 100000000
 
 ### g12b
 
@@ -177,13 +177,13 @@ Kernel provided DT overlay files are in `/boot/dtbs/$(uname -r)/amlogic/overlays
 
 `/boot/uEnv.txt` syntax:
 
-    overlays=<space-seprated-list-of-overlays>
+	overlays=<space-seprated-list-of-overlays>
 
 #### How to read the overlay file name
 
 The overlay file name follows the following convention:
 
-    <soc-family>-<soc-variant>-<function>-<location>-<gpio-bank>-<gpio-pins>
+	<soc-family>-<soc-variant>-<function>-<location>-<gpio-bank>-<gpio-pins>
 
 - soc-family: must be `meson`
 - soc-variant: can be one of `g12a`, or `g12b`. For Radxa Zero2, use `g12b` variant.

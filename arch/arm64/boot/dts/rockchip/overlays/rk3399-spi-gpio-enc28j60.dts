@@ -29,15 +29,15 @@
 				status = "okay";
 
 				ethernet: enc28j60@0 {
-                    compatible = "microchip,enc28j60";
-                    reg = <0>;
-                    spi-max-frequency = <20000000>;
+					compatible = "microchip,enc28j60";
+					reg = <0>;
+					spi-max-frequency = <20000000>;
 
-                    pinctrl-names = "default";
-                    pinctrl-0 = <&enc28j60_int_pin>;
+					pinctrl-names = "default";
+					pinctrl-0 = <&enc28j60_int_pin>;
 
-                    interrupt-parent = <&gpio4>;
-                    interrupts = <RK_PA7 IRQ_TYPE_EDGE_FALLING>;
+					interrupt-parent = <&gpio4>;
+					interrupts = <RK_PA7 IRQ_TYPE_EDGE_FALLING>;
 				};
 			};
 		};

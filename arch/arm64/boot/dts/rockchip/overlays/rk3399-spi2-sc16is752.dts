@@ -39,7 +39,7 @@
 				compatible = "nxp,sc16is752";
 				reg = <0>;
 				spi-max-frequency = <4000000>;
-				
+
 				interrupt-parent = <&gpio4>;
 				interrupts = <RK_PA6 IRQ_TYPE_EDGE_FALLING>;
 

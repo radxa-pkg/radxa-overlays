@@ -10,7 +10,7 @@
 		category = "camera";
 		description = "Enable OKdo 5MP Camera";
 	};
-	
+
 	fragment@6 {
 		target = <&camera_ov5647>;
 

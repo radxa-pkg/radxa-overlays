@@ -47,7 +47,7 @@
 					bias-pull-up;
 					drive-strength-microamp = <4000>;
 				};
-    		};
+			};
 		};
 	};
 };

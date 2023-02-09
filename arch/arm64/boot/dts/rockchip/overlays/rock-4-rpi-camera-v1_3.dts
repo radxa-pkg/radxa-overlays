@@ -10,7 +10,7 @@
 		category = "camera";
 		description = "Enable Raspberry Pi Camera v1.3";
 	};
-	
+
 	fragment@6 {
 		target = <&camera_ov5647>;
 

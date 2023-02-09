@@ -51,10 +51,10 @@
 		target-path = "/";
 		__overlay__ {
 			can0_osc: can0-osc {
-                compatible = "fixed-clock";
-                #clock-cells = <0>;
-                clock-frequency  = <8000000>;
-            };
+				compatible = "fixed-clock";
+				#clock-cells = <0>;
+				clock-frequency  = <8000000>;
+			};
 		};
 	};
 };

@@ -11,7 +11,7 @@
 			pinctrl-names = "default";
 			#address-cells = <1>;
 			#size-cells = <0>;
-            status = "okay";
+			status = "okay";
 			spidev@0 {
 				compatible = "linux,spidev";
 				status = "okay";
