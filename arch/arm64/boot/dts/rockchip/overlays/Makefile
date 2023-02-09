@@ -40,6 +40,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	cm3-sodimm-io-sata.dtbo \
 	radxa-5inch-touchscreen-on-rock-3a.dtbo \
 	radxa-5inch-touchscreen-on-rock-3b.dtbo \
+	radxa-cm3-io-dual-cameras-gc2053-gc2093.dtbo \
 	radxa-cm3-io-dual-cameras-gc2053.dtbo \
 	radxa-cm3-io-hd101boe9365-display.dtbo \
 	radxa-cm3-io-headphone.dtbo \

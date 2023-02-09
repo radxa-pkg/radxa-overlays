@@ -4,6 +4,13 @@
 / {
 	compatible = "radxa,radxa-cm3-io", "rockchip,rk3566";
 
+	metadata {
+		title = "Radxa Display 10HD for Radxa CM3 IO";
+		compatible = "rockchip,rk3566";
+		misc = "display";
+		description = "Provide Radxa Display 10HD overlay for Radxa CM3 IO.";
+	};
+
 	fragment@0 {
 		target = <&vcc_lcd_mipi1>;
 
@@ -56,7 +63,7 @@
 		target = <&dsi1_in_vp0>;
 
 		__overlay__ {
-			status = "disabled";
+			status = "okay";
 		};
 	};
 
@@ -64,7 +71,7 @@
 		target = <&dsi1_in_vp1>;
 
 		__overlay__ {
-			status = "okay";
+			status = "disabled";
 		};
 	};
 
@@ -72,7 +79,7 @@
 		target = <&vp0_out_dsi1>;
 
 		__overlay__ {
-			status = "disabled";
+			status = "okay";
 		};
 	};
 
@@ -80,7 +87,7 @@
 		target = <&vp1_out_dsi1>;
 
 		__overlay__ {
-			status = "okay";
+			status = "disabled";
 		};
 	};
 
@@ -89,7 +96,7 @@
 
 		__overlay__ {
 			status = "okay";
-			connect = <&vp1_out_dsi1>;
+			connect = <&vp0_out_dsi1>;
 		};
 	};
 
@@ -101,4 +108,53 @@
 			pinctrl-0 = <&i2c2m1_xfer>;
 		};
 	};
+
+	fragment@12 {
+		target = <&hdmi>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@13 {
+		target = <&hdmi_in_vp0>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@14 {
+		target = <&hdmi_sound>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@15 {
+		target = <&route_hdmi>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@18 {
+		target = <&focaltech>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@19 {
+		target = <&vcc_lcd_tp>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
 };
