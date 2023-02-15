@@ -3,7 +3,7 @@
 
 / {
 	metadata {
-		title ="Set OTG port to Peripheral mode";
+		title = "Set OTG port to Peripheral mode";
 		compatible = "rockchip,rk3399";
 		category = "misc";
 		description = "Set OTG port to Peripheral mode.\nUse this when you want to connect to another computer.";

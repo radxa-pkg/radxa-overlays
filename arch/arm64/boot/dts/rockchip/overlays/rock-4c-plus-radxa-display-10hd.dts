@@ -7,7 +7,7 @@
 
 / {
 	metadata {
-		title ="Enable Radxa Display 10HD";
+		title = "Enable Radxa Display 10HD";
 		compatible = "radxa,rock-4c-plus";
 		category = "display";
 		description = "Enable Radxa Display 10HD";
@@ -42,7 +42,7 @@
 
 			dsi_panel: panel@0 {
 				status = "okay";
-				compatible ="chongzhou,cz101b4001";
+				compatible = "chongzhou,cz101b4001";
 				reg = <0>;
 
 				backlight = <&backlight>;

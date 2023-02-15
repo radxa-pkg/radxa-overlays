@@ -8,7 +8,7 @@
 
 / {
 	metadata {
-		title ="Enable Radxa Display 10FHD";
+		title = "Enable Radxa Display 10FHD";
 		compatible = "radxa,rock-4c-plus";
 		category = "display";
 		description = "Enable Radxa Display 10FHD";

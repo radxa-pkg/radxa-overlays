@@ -7,7 +7,7 @@
 
 / {
 	metadata {
-		title ="Enable Radxa Display 8HD";
+		title = "Enable Radxa Display 8HD";
 		compatible = "radxa,rock-4c-plus";
 		category = "display";
 		description = "Enable Radxa Display 8HD";
@@ -42,7 +42,7 @@
 
 			dsi_panel: panel@0 {
 				status = "okay";
-				compatible ="radxa,display-8hd";
+				compatible = "radxa,display-8hd";
 				reg = <0>;
 
 				backlight = <&backlight>;

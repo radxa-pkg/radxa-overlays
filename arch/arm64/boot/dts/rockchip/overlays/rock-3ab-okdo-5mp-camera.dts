@@ -5,7 +5,7 @@
 
 / {
 	metadata {
-		title ="Enable OKdo 5MP Camera";
+		title = "Enable OKdo 5MP Camera";
 		compatible = "radxa,rock-3a", "radxa,rock-3b";
 		category = "camera";
 		description = "Enable OKdo 5MP Camera.";

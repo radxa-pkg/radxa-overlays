@@ -5,7 +5,7 @@
 
 / {
 	metadata {
-		title ="Enable Raspberry Pi Camera v1.3";
+		title = "Enable Raspberry Pi Camera v1.3";
 		compatible = "rockchip,rk3399";
 		category = "camera";
 		description = "Enable Raspberry Pi Camera v1.3.";

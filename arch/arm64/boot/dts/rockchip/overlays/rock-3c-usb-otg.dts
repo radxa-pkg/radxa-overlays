@@ -4,7 +4,7 @@
 
 / {
 	metadata {
-		title ="Set OTG port to OTG mode";
+		title = "Set OTG port to OTG mode";
 		compatible = "radxa,rock-3c";
 		category = "misc";
 		description = "Set OTG port to OTG mode.";

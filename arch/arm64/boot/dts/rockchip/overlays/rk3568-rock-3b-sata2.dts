@@ -3,7 +3,7 @@
 
 / {
 	metadata {
-		title ="Enable SATA2";
+		title = "Enable SATA2";
 		compatible = "radxa,radxa-3b";
 		category = "misc";
 		description = "Enable SATA2.";

@@ -3,7 +3,7 @@
 
 / {
 	metadata {
-		title ="Disable HDMI CEC";
+		title = "Disable HDMI CEC";
 		compatible = "radxa,rock-3b";
 		category = "misc";
 		description = "Disable HDMI CEC.";

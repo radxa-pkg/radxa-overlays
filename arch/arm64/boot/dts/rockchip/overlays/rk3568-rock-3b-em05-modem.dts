@@ -3,7 +3,7 @@
 
 / {
 	metadata {
-		title ="Enable Quectel EM05 Modem";
+		title = "Enable Quectel EM05 Modem";
 		compatible = "radxa,radxa-3b";
 		category = "misc";
 		description = "Enable Quectel EM05 Modem.";
