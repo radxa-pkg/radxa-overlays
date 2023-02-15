@@ -2,7 +2,6 @@
 /plugin/;
 
 #include <dt-bindings/display/rockchip_vop.h>
-#include "rock-3ab-radxa-5inch-touchscreen.dtsi"
 
 / {
 	metadata {
@@ -12,14 +11,32 @@
 		description = "Enable Radxa 5-inch Touchscreen.";
 	};
 
- 	/delete-node/ fragment@3;
- 	/delete-node/ fragment@4;
- 	/delete-node/ fragment@5;
- 	/delete-node/ fragment@6;
- 	/delete-node/ fragment@9;
+ 	fragment@0 {
+		target = <&video_phy0>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@1 {
+		target = <&dsi0>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@2 {
+		target = <&dsi0_panel>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
 
 	fragment@3 {
-		target = <&dsi1_in_vp0>;
+		target = <&dsi0_in_vp0>;
 
 		__overlay__ {
 			status = "okay";
@@ -27,7 +44,7 @@
 	};
 
 	fragment@4 {
-		target = <&dsi1_in_vp1>;
+		target = <&dsi0_in_vp1>;
 
 		__overlay__ {
 			status = "disabled";
@@ -35,7 +52,7 @@
 	};
 
 	fragment@5 {
-		target = <&route_dsi1>;
+		target = <&route_dsi0>;
 
 		__overlay__ {
 			status = "disabled";
@@ -44,6 +61,22 @@
 
 	fragment@6 {
 		target = <&i2c2>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@7 {
+		target = <&rockpi_mcu>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@8 {
+		target = <&rockpi_ft5406>;
 
 		__overlay__ {
 			status = "okay";

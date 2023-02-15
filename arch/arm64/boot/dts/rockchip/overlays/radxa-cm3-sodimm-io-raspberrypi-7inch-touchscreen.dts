@@ -12,7 +12,7 @@
 	};
 
 	fragment@0 {
-		target = <&video_phy1>;
+		target = <&video_phy0>;
 
 		__overlay__ {
 			status = "okay";
@@ -20,11 +20,14 @@
 	};
 
 	fragment@1 {
-		target = <&dsi1>;
+		target = <&dsi0>;
 
 		__overlay__ {
 			status = "okay";
-			dsi1_panel: dsi-panel@0 {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			dsi0_panel: dsi-panel@0 {
 				compatible = "raspits,tc358762";
 				reg = <0x0>;
 				status = "okay";
@@ -36,8 +39,8 @@
 					port@0 {
 						reg = <0>;
 
-						panel_in_dsi1: endpoint {
-							remote-endpoint = <&dsi1_out_panel>;
+						panel_in_dsi0: endpoint {
+							remote-endpoint = <&dsi0_out_panel>;
 						};
 					};
 				};
@@ -52,9 +55,9 @@
 					#address-cells = <1>;
 					#size-cells = <0>;
 
-					dsi1_out_panel: endpoint@0 {
+					dsi0_out_panel: endpoint@0 {
 						reg = <0>;
-						remote-endpoint = <&panel_in_dsi1>;
+						remote-endpoint = <&panel_in_dsi0>;
 					};
 				};
 			};
@@ -62,7 +65,7 @@
 	};
 
 	fragment@2 {
-		target = <&dsi1_panel>;
+		target = <&dsi0_panel>;
 
 		__overlay__ {
 			status = "okay";
@@ -70,7 +73,7 @@
 	};
 
 	fragment@3 {
-		target = <&dsi1_in_vp0>;
+		target = <&dsi0_in_vp0>;
 
 		__overlay__ {
 			status = "okay";
@@ -78,7 +81,7 @@
 	};
 
 	fragment@4 {
-		target = <&dsi1_in_vp1>;
+		target = <&dsi0_in_vp1>;
 
 		__overlay__ {
 			status = "disabled";
@@ -86,7 +89,7 @@
 	};
 
 	fragment@5 {
-		target = <&route_dsi1>;
+		target = <&route_dsi0>;
 
 		__overlay__ {
 			status = "disabled";
@@ -98,26 +101,31 @@
 
 		__overlay__ {
 			status = "okay";
+			pinctrl-0 = <&i2c2m1_xfer>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			chipone_icn8952: chipone_icn8952@30 {
+				compatible = "chipone_icn8505";
+				reg = <0x30>;
+				status = "okay";
+			};
+
+			rockpi_ft5406: rockpi_ft5406@38 {
+				compatible = "rockpi_ft5406";
+				reg = <0x38>;
+				status = "okay";
+			};
+
+			rockpi_mcu: rockpi-mcu@45 {
+				compatible = "rockpi_mcu";
+				reg = <0x45>;
+				status = "okay";
+			};
 		};
 	};
 
 	fragment@7 {
-		target = <&rockpi_mcu>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
-
-	fragment@8 {
-		target = <&rockpi_ft5406>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
-
-	fragment@9 {
 		target = <&vp0>;
 
 		__overlay__ {
@@ -126,7 +134,7 @@
 		};
 	};
 
-	fragment@10 {
+	fragment@8 {
 		target = <&hdmi>;
 
 		__overlay__ {
@@ -134,7 +142,7 @@
 		};
 	};
 
-	fragment@11 {
+	fragment@9 {
 		target = <&hdmi_in_vp0>;
 
 		__overlay__ {

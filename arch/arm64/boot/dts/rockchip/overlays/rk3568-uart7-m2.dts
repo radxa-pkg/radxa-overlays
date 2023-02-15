@@ -1,0 +1,20 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable UART7-M2";
+		compatible = "rockchip,rk3566", "rockchip,rk3568";
+		category = "misc";
+		description = "Enable UART7-M2.";
+	};
+
+	fragment@0 {
+		target = <&uart7>;
+
+		__overlay__ {
+			status = "okay";
+			pinctrl-0 = <&uart7m2_xfer>;
+		};
+	};
+};

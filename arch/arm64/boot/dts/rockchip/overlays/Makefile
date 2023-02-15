@@ -62,6 +62,10 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	radxa-cm3-io-sharp-lq133t1jw01-without-hdmi.dtbo \
 	radxa-cm3-raspcm4io-pcie2x1.dtbo \
 	radxa-cm3i-gmac1.dtbo \
+	radxa-cm3s-io-csi0-okdo-5mp-camera.dtbo \
+	radxa-cm3s-io-csi0-rpi-camera-v2.dtbo \
+	radxa-cm3s-io-csi1-okdo-5mp-camera.dtbo \
+	radxa-cm3s-io-csi1-rpi-camera-v2.dtbo \
 	rk3568-can1-m0.dtbo \
 	rk3568-can1-m1.dtbo \
 	rk3568-disable-gmac1.dtbo \
@@ -73,12 +77,16 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-fiq-debugger-uart7m1.dtbo \
 	rk3568-fiq-debugger-uart8m1.dtbo \
 	rk3568-fiq-debugger-uart9m1.dtbo \
+	rk3568-i2c1.dtbo \
 	rk3568-i2c2-m0.dtbo \
+	rk3568-i2c2-m1.dtbo \
 	rk3568-i2c3-m0.dtbo \
+	rk3568-i2c4-m0.dtbo \
 	rk3568-pwm0-m0.dtbo \
 	rk3568-pwm0-m1.dtbo \
 	rk3568-pwm1-m0.dtbo \
 	rk3568-pwm1-m1.dtbo \
+	rk3568-pwm11-m1.dtbo \
 	rk3568-pwm12-m0.dtbo \
 	rk3568-pwm12-m1.dtbo \
 	rk3568-pwm13-m0.dtbo \
@@ -89,14 +97,19 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-pwm15-m1.dtbo \
 	rk3568-pwm2-m0.dtbo \
 	rk3568-pwm2-m1.dtbo \
+	rk3568-pwm5.dtbo \
+	rk3568-pwm6.dtbo \
+	rk3568-pwm7.dtbo \
 	rk3568-pwm8-m0-fan.dtbo \
 	rk3568-pwm9-m0.dtbo \
 	rk3568-rock-3b-em05-modem.dtbo \
 	rk3568-rock-3b-sata2.dtbo \
+	rk3568-spi0-m0-cs0-spidev.dtbo \
 	rk3568-spi0-m1-cs0-spidev.dtbo \
 	rk3568-spi1-m1-cs0-spidev.dtbo \
 	rk3568-spi3-m0-cs0-spidev.dtbo \
 	rk3568-spi3-m1-cs0-spidev.dtbo \
+	rk3568-spi3m0-mcp2515.dtbo \
 	rk3568-uart0.dtbo \
 	rk3568-uart1-m1-full.dtbo \
 	rk3568-uart2-m0.dtbo \
@@ -105,6 +118,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-uart5-m0-full.dtbo \
 	rk3568-uart5-m1.dtbo \
 	rk3568-uart7-m1.dtbo \
+	rk3568-uart7-m2.dtbo \
 	rk3568-uart8-m1.dtbo \
 	rk3568-uart9-m1.dtbo \
 	rk3568-w1-gpio.dtbo \
@@ -122,9 +136,8 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rock-3c-radxa-5inch-touchscreen.dtbo \
 	rock-3c-raspberrypi-7inch-touchscreen.dtbo \
 	rock-3c-rpi-camera-v1p3.dtbo \
-	rock-3c-usb-otg.dtbo \
-	rpi-ov5647-on-cm3-sodimm-io-csi0.dtbo \
-	rpi-ov5647-on-cm3-sodimm-io-csi1.dtbo
+	rock-3c-rpi-camera-v2.dtbo \
+	rock-3c-usb-otg.dtbo
 
 dtb-$(CONFIG_CPU_RK3568) += \
 	radxa-5inch-touchscreen-on-cm3-sodimm-io.dtbo \
