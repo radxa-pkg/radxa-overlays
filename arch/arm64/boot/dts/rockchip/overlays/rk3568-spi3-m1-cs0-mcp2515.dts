@@ -6,7 +6,7 @@
 
 	metadata {
 		title = "Enable MCP2515 on SPI3-M1 CS0";
-		compatible = "rockchip,rk3566", "rockchip,rk3568";
+		compatible = "radxa,rock-3c";
 		category = "misc";
 		description = "Enable MCP2515 on SPI3-M1 CS0 with 12 MHz Crystal Oscillator.";
 	};

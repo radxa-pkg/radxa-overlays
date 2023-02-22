@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable UART5-M1";
-		compatible = "rockchip,rk3566", "rockchip,rk3568";
+		compatible = "radxa,rock-3c";
 		category = "misc";
 		description = "Enable UART5-M1.";
 	};
