@@ -6,7 +6,7 @@
 		title = "Enable CAN1-M0";
 		compatible = "rockchip,rk3566", "rockchip,rk3568";
 		category = "misc";
-		description = "Enable CAN1-M0.";
+		description = "Enable CAN1-M0.\nOn ROCK 3C this is RX pin 3 & TX pin 5.";
 	};
 
 	fragment@0 {

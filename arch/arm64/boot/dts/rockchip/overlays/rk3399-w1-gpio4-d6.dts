@@ -6,10 +6,10 @@
 
 / {
 	metadata {
-		title = "Enable 1-Wire on pin 37";
+		title = "Enable 1-Wire on GPIO4_D6";
 		compatible = "rockchip,rk3399";
 		category = "misc";
-		description = "Enable 1-Wire on pin 37.";
+		description = "Enable 1-Wire on GPIO4_D6.\nOn ROCK 4 this is pin 37.";
 	};
 
 	fragment@0 {

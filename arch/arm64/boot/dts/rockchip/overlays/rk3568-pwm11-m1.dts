@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable PWM11-M1";
-		compatible = "rockchip,rk3566", "rockchip,rk3568";
+		compatible = "unknown";
 		category = "misc";
 		description = "Enable PWM11-M1.";
 	};

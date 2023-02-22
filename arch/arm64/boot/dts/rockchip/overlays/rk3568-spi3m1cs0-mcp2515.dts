@@ -5,10 +5,10 @@
 / {
 
 	metadata {
-		title = "Enable MCP2515 on SPI3-M0";
+		title = "Enable MCP2515 on SPI3-M1 CS0";
 		compatible = "rockchip,rk3566", "rockchip,rk3568";
 		category = "misc";
-		description = "Enable MCP2515 on SPI3-M0 with 12 MHz Crystal Oscillator.";
+		description = "Enable MCP2515 on SPI3-M1 CS0 with 12 MHz Crystal Oscillator.";
 	};
 
 	fragment@0 {
@@ -43,8 +43,8 @@
 			max-freq = <10000000>;
 			#address-cells = <1>;
 			#size-cells = <0>;
-			pinctrl-0 = <&spi3m0_cs0 &spi3m0_pins>;
-			pinctrl-1 = <&spi3m0_cs0 &spi3m0_pins_hs>;
+			pinctrl-0 = <&spi3m1_cs0 &spi3m1_pins>;
+			pinctrl-1 = <&spi3m1_cs0 &spi3m1_pins_hs>;
 
 			can_mcp2515: can-mcp2515@0 {
 				status = "okay";

@@ -4,8 +4,6 @@
 / {
 	metadata {
 		title = "Enable UART0";
-		// This is not supported in ROCK 4
-		// compatible = "rockchip,rk3399";
 		compatible = "unknown";
 		category = "misc";
 		description = "Enable UART0.";

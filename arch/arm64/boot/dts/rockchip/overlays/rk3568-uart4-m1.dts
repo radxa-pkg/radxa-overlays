@@ -3,19 +3,19 @@
 
 / {
 	metadata {
-		title = "Enable I2C3-M0";
+		title = "Enable UART4-M1";
 		compatible = "rockchip,rk3566", "rockchip,rk3568";
 		category = "misc";
-		description = "Enable I2C3-M0.\nOn ROCK 3C this is SDA pin 3 and SCL pin 5.";
+		description = "Enable UART4-M1.";
 	};
 
 	fragment@0 {
-		target = <&i2c3>;
+		target = <&uart4>;
 
 		__overlay__ {
 			status = "okay";
 			pinctrl-names = "default";
-			pinctrl-0 = <&i2c3m0_xfer>;
+			pinctrl-0 = <&uart4m1_xfer>;
 		};
 	};
 };

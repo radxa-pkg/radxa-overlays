@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable PWM0-M0";
-		compatible = "rockchip,rk3566", "rockchip,rk3568";
+		compatible = "unknown";
 		category = "misc";
 		description = "Enable PWM0-M0.";
 	};

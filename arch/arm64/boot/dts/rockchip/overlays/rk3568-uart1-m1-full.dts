@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable UART1-M1 with Hardware Flow Control";
-		compatible = "rockchip,rk3566", "rockchip,rk3568";
+		compatible = "unknown";
 		category = "misc";
 		description = "Enable UART1-M1 with hardware flow control.";
 	};

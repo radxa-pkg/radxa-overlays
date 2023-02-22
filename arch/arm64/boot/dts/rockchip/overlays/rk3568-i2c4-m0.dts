@@ -6,7 +6,7 @@
 		title = "Enable I2C4-M0";
 		compatible = "rockchip,rk3566", "rockchip,rk3568";
 		category = "misc";
-		description = "Enable I2C4-M0.";
+		description = "Enable I2C4-M0.\nOn ROCK 3C this is SDA pin 27 and SCL pin 28.";
 	};
 
 	fragment@0 {

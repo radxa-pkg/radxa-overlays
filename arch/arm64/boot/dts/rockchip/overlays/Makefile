@@ -100,7 +100,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-pwm5.dtbo \
 	rk3568-pwm6.dtbo \
 	rk3568-pwm7.dtbo \
-	rk3568-pwm8-m0-fan.dtbo \
+	rk3568-pwm8-m0.dtbo \
 	rk3568-pwm9-m0.dtbo \
 	rk3568-rock-3b-em05-modem.dtbo \
 	rk3568-rock-3b-sata2.dtbo \
@@ -109,12 +109,13 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-spi1-m1-cs0-spidev.dtbo \
 	rk3568-spi3-m0-cs0-spidev.dtbo \
 	rk3568-spi3-m1-cs0-spidev.dtbo \
-	rk3568-spi3m0-mcp2515.dtbo \
+	rk3568-spi3m1cs0-mcp2515.dtbo \
 	rk3568-uart0.dtbo \
 	rk3568-uart1-m1-full.dtbo \
 	rk3568-uart2-m0.dtbo \
 	rk3568-uart3-m0.dtbo \
 	rk3568-uart3-m1.dtbo \
+	rk3568-uart4-m1.dtbo \
 	rk3568-uart5-m0-full.dtbo \
 	rk3568-uart5-m1.dtbo \
 	rk3568-uart7-m1.dtbo \
