@@ -3,10 +3,10 @@
 
 / {
 	metadata {
-		title = "Enable I2C4-m0";
-		compatible = "rockchip,rk3568";
+		title = "Enable I2C4-M0";
+		compatible = "unknown";
 		category = "misc";
-		description = "Enable I2C4-m0";
+		description = "Enable I2C4-m0 on pin 19 pin 23 of radxa e23";
 	};
 
 	fragment@0 {
@@ -14,6 +14,8 @@
 
 		__overlay__ {
 			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <&i2c4m0_xfer>;
 		};
 	};
 };
