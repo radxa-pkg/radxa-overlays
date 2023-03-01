@@ -3,10 +3,10 @@
 
 / {
 	metadata {
-		title = "Enable I2C4-M0";
-		compatible = "radxa,rock-3c";
+		title = "Enable I2C4-m0";
+		compatible = "rockchip,rk3568";
 		category = "misc";
-		description = "Enable I2C4-M0.\nOn ROCK 3C this is SDA pin 27 and SCL pin 28.";
+		description = "Enable I2C4-m0";
 	};
 
 	fragment@0 {
@@ -14,8 +14,6 @@
 
 		__overlay__ {
 			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&i2c4m0_xfer>;
 		};
 	};
 };
