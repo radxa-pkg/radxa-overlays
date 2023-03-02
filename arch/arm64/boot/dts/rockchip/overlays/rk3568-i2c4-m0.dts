@@ -6,8 +6,7 @@
 		title = "Enable I2C4-M0";
 		compatible = "radxa,rock-3c", "radxa,e23";
 		category = "misc";
-		description = "Enable I2C4-M0.\nOn ROCK 3C this is SDA pin 27 and SCL pin 28\n
-			On RADXA E23 and RADXA CM3 IO BOARD this is SDA pin 19 and SCL pin 23.";
+		description = "Enable I2C4-M0.\nOn ROCK 3C this is SDA pin 27 and SCL pin 28.\nOn RADXA E23 and RADXA CM3 IO BOARD this is SDA pin 19 and SCL pin 23.";
 	};
 
 	fragment@0 {

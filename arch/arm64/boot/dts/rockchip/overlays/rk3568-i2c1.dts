@@ -6,10 +6,7 @@
 		title = "Enable I2C1";
 		compatible = "radxa,rock-3a", "radxa,rock-3b", "radxa,e23", "radxa,e25";
 		category = "misc";
-		description = "Enable I2C1.\nOn ROCK 3A this is SDA pin 27 and SCL pin 28\n 
-			On ROCK 3B this is SDA pin 27 and SCL pin 28\n
-			On RADXA E23 this is SDA pin 36 and SCL pin 40\n
-			On RADXA E25 this is SDA pin 1 and SCL pin 10.";
+		description = "Enable I2C1.\nOn ROCK 3A this is SDA pin 27 and SCL pin 28.\nOn ROCK 3B this is SDA pin 27 and SCL pin 28.\nOn RADXA E23 this is SDA pin 36 and SCL pin 40.\nOn RADXA E25 this is SDA pin 1 and SCL pin 10.";
 	};
 
 	fragment@0 {
