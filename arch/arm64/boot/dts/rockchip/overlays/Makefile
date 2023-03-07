@@ -47,6 +47,7 @@ dtb-$(CONFIG_CPU_RK3399) += \
 
 dtb-$(CONFIG_CLK_RK3568) += \
 	audioinjector-isolated-soundcard.dtbo \
+	radxa-cm3s-io-pcie.dtbo \
 	radxa-cm3s-io-sata.dtbo \
 	radxa-5inch-touchscreen-on-rock-3a.dtbo \
 	radxa-5inch-touchscreen-on-rock-3b.dtbo \
