@@ -6,10 +6,10 @@
 
 / {
 	metadata {
-		title = "Enable PCIE2x1";
+		title = "Enable PCIe 2.0 x1";
 		compatible = "radxa,radxa-cm3-sodimm-io";
 		category = "misc";
-		description = "Enable PCIE2x1";
+		description = "Enable PCIe 2.0 x1\nThis will disable SATA2.";
 	};
 
 	fragment@0 {

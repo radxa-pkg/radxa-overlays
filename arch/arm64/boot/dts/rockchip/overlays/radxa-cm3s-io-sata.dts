@@ -9,7 +9,7 @@
 		title = "Enable SATA2";
 		compatible = "radxa,radxa-cm3-sodimm-io";
 		category = "misc";
-		description = "Enable SATA2";
+		description = "Enable SATA2\nThis will disable PCIe 2.0 x1.";
 	};
 
 	fragment@0 {
