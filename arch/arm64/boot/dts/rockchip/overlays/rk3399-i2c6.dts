@@ -15,7 +15,7 @@
 		__overlay__ {
 			status = "okay";
 			pinctrl-names = "default";
-			pinctrl-0 = <&i2c2_xfer>;
+			pinctrl-0 = <&i2c6_xfer>;
 		};
 	};
 };
