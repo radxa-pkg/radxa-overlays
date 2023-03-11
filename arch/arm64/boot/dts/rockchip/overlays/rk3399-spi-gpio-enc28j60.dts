@@ -8,7 +8,7 @@
 / {
 	metadata {
 		title = "Enable ENC28J60 on GPIO";
-		compatible = "rockchip,rk3399";
+		compatible = "unknown";
 		category = "misc";
 		description = "Provide support for Microchip ENC28J60 SPI Ethernet controller on GPIO pins.\nPin definition:\nMOSI=16 MISO=18 SCK=36 CS=38 INT=40";
 	};
