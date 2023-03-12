@@ -216,7 +216,8 @@
 		target = <&tcphy0>;
 
 		__overlay__ {
-			status = "disabled";
+			extcon = <0>;
+			status = "okay";
 		};
 	};
 
