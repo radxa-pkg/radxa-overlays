@@ -2,6 +2,13 @@
 /plugin/;
 
 / {
+	metadata {
+		title = "Enable UART3-M1";
+		compatible = "rockchip,rk3588";
+		category = "misc";
+		description = "Enable UART3-M1.";
+	};
+
 	fragment@0 {
 		target = <&uart3>;
 

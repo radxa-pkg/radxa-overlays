@@ -3,7 +3,12 @@
 /plugin/;
 
 / {
-	compatible = "radxa,rock-5a", "rockchip,rk3588";
+	metadata {
+		title = "Enable Radxa Display 10HD";
+		compatible = "radxa,rock-5a";
+		category = "camera";
+		description = "Enable Radxa Display 10HD.";
+	};
 
 	fragment@0 {
 		target = <&vcc_lcd_mipi0>;

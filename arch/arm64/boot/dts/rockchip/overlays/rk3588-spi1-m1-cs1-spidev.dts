@@ -2,6 +2,13 @@
 /plugin/;
 
 / {
+	metadata {
+		title = "Enable spidev on SPI1-M1 over CS1";
+		compatible = "rockchip,rk3588";
+		category = "misc";
+		description = "Enable spidev on SPI1-M1 over CS1.";
+	};
+
 	fragment@0 {
 		target = <&spi1>;
 

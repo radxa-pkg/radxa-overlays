@@ -3,6 +3,13 @@
 /plugin/;
 
 / {
+	metadata {
+		title = "Enable IMX415 Camera";
+		compatible = "rockchip,rk3588";
+		category = "camera";
+		description = "Enable IMX415 Camera.";
+	};
+
 	fragment@0 {
 		target = <&i2c3>;
 

@@ -2,6 +2,13 @@
 /plugin/;
 
 / {
+	metadata {
+		title = "Enable I2C3-M1";
+		compatible = "rockchip,rk3588";
+		category = "misc";
+		description = "Enable I2C3-M1.";
+	};
+
 	fragment@0 {
 		target = <&i2c3>;
 

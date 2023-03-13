@@ -2,6 +2,13 @@
 /plugin/;
 
 / {
+	metadata {
+		title = "Enable PWM15-M3";
+		compatible = "rockchip,rk3588";
+		category = "misc";
+		description = "Enable PWM15-M3.";
+	};
+
 	fragment@0 {
 		target = <&pwm15>;
 
