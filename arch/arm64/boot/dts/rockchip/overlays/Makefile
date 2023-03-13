@@ -146,7 +146,6 @@ dtb-$(CONFIG_CPU_RK3568) += \
 	radxa-cm3-sodimm-io-raspberrypi-7inch-touchscreen.dtbo
 
 dtb-$(CONFIG_CLK_RK3588) += \
-	rk3588-camera-imx415.dtbo \
 	rk3588-i2c0-m1.dtbo \
 	rk3588-i2c1-m0.dtbo \
 	rk3588-i2c3-m1.dtbo \
