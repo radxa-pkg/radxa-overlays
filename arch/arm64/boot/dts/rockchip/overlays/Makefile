@@ -49,8 +49,6 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	audioinjector-isolated-soundcard.dtbo \
 	radxa-cm3s-io-pcie.dtbo \
 	radxa-cm3s-io-sata.dtbo \
-	radxa-5inch-touchscreen-on-rock-3a.dtbo \
-	radxa-5inch-touchscreen-on-rock-3b.dtbo \
 	radxa-cm3-io-dual-cameras-gc2053-gc2093.dtbo \
 	radxa-cm3-io-dual-cameras-gc2053.dtbo \
 	radxa-cm3-io-hd101boe9365-display.dtbo \
@@ -129,6 +127,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rock-3a-sata1.dtbo \
 	rock-3a-sata2.dtbo \
 	rock-3ab-okdo-5mp-camera.dtbo \
+	rock-3ab-radxa-5inch-touchscreen.dtbo \
 	rock-3ab-rpi-camera-v1p3-ov5647.dtbo \
 	rock-3ab-rpi-camera-v2-imx219.dtbo \
 	rock-3b-disable-hdmicec.dtbo \

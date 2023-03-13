@@ -1,4 +1,14 @@
+/dts-v1/;
+/plugin/;
+
 / {
+	metadata {
+		title = "Enable Radxa 5-inch Touchscreen";
+		compatible = "radxa,rock-3a", "radxa,rock-3b";
+		category = "display";
+		description = "Enable Radxa 5-inch Touchscreen.";
+	};
+
 	fragment@0 {
 		target = <&video_phy1>;
 
