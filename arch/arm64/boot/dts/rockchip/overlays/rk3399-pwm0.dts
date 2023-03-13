@@ -6,6 +6,7 @@
 		title = "Enable PWM0";
 		compatible = "rockchip,rk3399";
 		category = "misc";
+		exclusive = "GPIO4_C2";
 		description = "Enable PWM0 on pin 11.";
 	};
 

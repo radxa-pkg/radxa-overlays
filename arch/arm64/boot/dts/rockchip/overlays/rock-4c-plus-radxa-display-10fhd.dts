@@ -10,6 +10,7 @@
 		title = "Enable Radxa Display 10FHD";
 		compatible = "unknown";
 		category = "display";
+		exclusive = "dsi";
 		description = "Enable Radxa Display 10FHD";
 	};
 

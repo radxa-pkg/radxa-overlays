@@ -6,6 +6,7 @@
 		title = "Enable UART2";
 		compatible = "rockchip,rk3399";
 		category = "misc";
+		exclusive = "GPIO4_C4", "GPIO4_C3";
 		description = "Enable UART2.";
 	};
 

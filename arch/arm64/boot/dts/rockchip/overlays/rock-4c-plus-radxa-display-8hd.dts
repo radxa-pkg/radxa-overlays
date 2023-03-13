@@ -10,6 +10,7 @@
 		title = "Enable Radxa Display 8HD";
 		compatible = "radxa,rock-4c-plus";
 		category = "display";
+		exclusive = "dsi";
 		description = "Enable Radxa Display 8HD";
 	};
 

@@ -6,6 +6,7 @@
 		title = "Enable spidev on SPI2";
 		compatible = "rockchip,rk3399";
 		category = "misc";
+		exclusive = "GPIO2_B3", "GPIO2_B2", "GPIO2_B1", "GPIO2_B4;
 		description = "Enable spidev on SPI2 on pin 7, 29, 31 & 33.";
 	};
 

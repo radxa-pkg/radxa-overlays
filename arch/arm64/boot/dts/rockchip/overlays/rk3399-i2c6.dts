@@ -6,6 +6,7 @@
 		title = "Enable I2C6";
 		compatible = "rockchip,rk3399";
 		category = "misc";
+		exclusive = "GPIO2_B2", "GPIO2_B1";
 		description = "Enable I2C6 on pin 29 & 31.";
 	};
 

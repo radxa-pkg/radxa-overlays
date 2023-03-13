@@ -6,6 +6,7 @@
 		title = "Set OTG port to Peripheral mode";
 		compatible = "rockchip,rk3399";
 		category = "misc";
+		exclusive = "usbdrd_dwc3_0-dr_mode";
 		description = "Set OTG port to Peripheral mode.\nUse this when you want to connect to another computer.";
 	};
 

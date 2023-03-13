@@ -6,6 +6,7 @@
 		title = "Enable I2C7";
 		compatible = "rockchip,rk3399";
 		category = "misc";
+		exclusive = "GPIO2_A7", "GPIO2_B0";
 		description = "Enable I2C7 on pin 3 & 5.";
 	};
 

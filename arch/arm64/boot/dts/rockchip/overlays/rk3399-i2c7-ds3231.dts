@@ -6,6 +6,7 @@
 		title = "Enable DS3231 RTC on I2C7";
 		compatible = "rockchip,rk3399";
 		category = "misc";
+		exclusive = "GPIO2_A7", "GPIO2_B0";
 		description = "Enable DS3231 RTC on I2C7.";
 	};
 
