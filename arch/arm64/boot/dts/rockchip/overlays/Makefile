@@ -77,6 +77,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-fiq-debugger-uart8m1.dtbo \
 	rk3568-fiq-debugger-uart9m1.dtbo \
 	rk3568-i2c1.dtbo \
+	rk3568-i2c2-m0-pca9555.dtbo \
 	rk3568-i2c2-m0.dtbo \
 	rk3568-i2c2-m1.dtbo \
 	rk3568-i2c3-m0.dtbo \
