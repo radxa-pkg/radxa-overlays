@@ -6,6 +6,7 @@
 		title = "Enable PWM11-M1";
 		compatible = "radxa,radxa-cm3-io", "radxa,radxa-cm3-sodimm-io";
 		category = "misc";
+        exclusive = "GPIO4_c0";
 		description = "Enable PWM11-M1.\nOn Radxa CM3 IO this is pin 32.\nOn Radxa CM3 SODIMM IO this is pin 33.";
 	};
 
