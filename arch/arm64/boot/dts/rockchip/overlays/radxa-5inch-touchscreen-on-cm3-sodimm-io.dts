@@ -1,6 +1,5 @@
 /dts-v1/;
 /plugin/;
-
 #include <dt-bindings/display/rockchip_vop.h>
 
 / {
@@ -8,10 +7,11 @@
 		title = "Enable Radxa 5-inch Touchscreen";
 		compatible = "radxa,radxa-cm3-sodimm-io";
 		category = "display";
+		exclusive = "dsi0";
 		description = "Enable Radxa 5-inch Touchscreen.";
 	};
 
- 	fragment@0 {
+	fragment@0 {
 		target = <&video_phy0>;
 
 		__overlay__ {
@@ -24,6 +24,43 @@
 
 		__overlay__ {
 			status = "okay";
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			dsi0_panel: dsi-panel@0 {
+				compatible = "raspits,tc358762";
+				reg = <0x0>;
+				status = "okay";
+
+				ports {
+					#address-cells = <1>;
+					#size-cells = <0>;
+
+					port@0 {
+						reg = <0>;
+
+						panel_in_dsi0: endpoint {
+							remote-endpoint = <&dsi0_out_panel>;
+						};
+					};
+				};
+			};
+
+			ports {
+				#address-cells = <1>;
+				#size-cells = <0>;
+
+				port@1 {
+					reg = <1>;
+					#address-cells = <1>;
+					#size-cells = <0>;
+
+					dsi0_out_panel: endpoint@0 {
+						reg = <0>;
+						remote-endpoint = <&panel_in_dsi0>;
+					};
+				};
+			};
 		};
 	};
 
@@ -64,26 +101,25 @@
 
 		__overlay__ {
 			status = "okay";
+			pinctrl-0 = <&i2c2m1_xfer>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			rockpi_ft5406: rockpi_ft5406@38 {
+				compatible = "rockpi_ft5406";
+				reg = <0x38>;
+				status = "okay";
+			};
+
+			rockpi_mcu: rockpi-mcu@45 {
+				compatible = "rockpi_mcu";
+				reg = <0x45>;
+				status = "okay";
+			};
 		};
 	};
 
 	fragment@7 {
-		target = <&rockpi_mcu>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
-
-	fragment@8 {
-		target = <&rockpi_ft5406>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
-
-	fragment@9 {
 		target = <&vp0>;
 
 		__overlay__ {
@@ -92,7 +128,7 @@
 		};
 	};
 
-	fragment@10 {
+	fragment@8 {
 		target = <&hdmi>;
 
 		__overlay__ {
@@ -100,7 +136,7 @@
 		};
 	};
 
-	fragment@11 {
+	fragment@9 {
 		target = <&hdmi_in_vp0>;
 
 		__overlay__ {
