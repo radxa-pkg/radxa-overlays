@@ -4,8 +4,9 @@
 / {
 	metadata {
 		title = "Enable spidev on SPI0-M0 over CS0";
-		compatible = "rockchip,rk3566", "rockchip,rk3568";
+		compatible = "radxa,radxa-cm3-sodimm-io";
 		category = "misc";
+		exclusive = "GPIO0_C0", "GPIO0_C7", "GPIO0_B5", "GPIO0_B6", "GPIO0_C6", "GPIO0_C5";
 		description = "Enable spidev on SPI0-M0 over CS0.";
 	};
 
