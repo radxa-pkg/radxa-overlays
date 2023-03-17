@@ -29,7 +29,7 @@
 				interrupt-controller;
 				#interrupt-cells = <2>;
 				interrupt-parent = <&gpio0>;
-				interrupt = <RK_PC7 IRQ_TYPE_LEVEL_HIGH>;
+				interrupts = <RK_PC7 IRQ_TYPE_LEVEL_HIGH>;
 				pinctrl-names = "default";
 				pinctrl-0 = <&pca_int>;
 				status = "okay";
