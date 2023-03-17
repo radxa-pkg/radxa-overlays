@@ -6,6 +6,7 @@
 		title = "Enable I2C2-M1";
 		compatible = "radxa,radxa-cm3-io", "radxa,radxa-cm3-sodimm-io";
 		category = "misc";
+        exclusive = "GPIO4_B4", "GPIO4_B5";
 		description = "Enable I2C2-M1.\nOn Radxa CM3 IO and Radxa CM3 SODIMM IO this is SDA pin 27 and SCL pin 28.\n";
 	};
 
