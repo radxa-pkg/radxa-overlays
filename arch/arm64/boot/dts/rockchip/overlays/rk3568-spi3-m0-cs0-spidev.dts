@@ -6,7 +6,7 @@
 		title = "Enable spidev on SPI3-M0 over CS0";
 		compatible = "radxa,radxa-cm3-sodimm-io";
 		category = "misc";
-        exclusive = "GPIO4_A6", "GPIO4_B0", "GPIO4_B2", "GPIO4_B3";
+		exclusive = "GPIO4_A6", "GPIO4_B0", "GPIO4_B2", "GPIO4_B3";
 		description = "Enable spidev on SPI3-M0 over CS0.";
 	};
 
