@@ -4,9 +4,9 @@
 / {
 	metadata {
 		title = "Enable I2C2-M1";
-		compatible = "rockchip,rk3566", "rockchip,rk3568";
+		compatible = "radxa,radxa-cm3-io", "radxa,radxa-cm3-sodimm-io";
 		category = "misc";
-		description = "Enable I2C2-M1.";
+		description = "Enable I2C2-M1.\nOn Radxa CM3 IO and Radxa CM3 SODIMM IO this is SDA pin 27 and SCL pin 28.\n";
 	};
 
 	fragment@0 {
