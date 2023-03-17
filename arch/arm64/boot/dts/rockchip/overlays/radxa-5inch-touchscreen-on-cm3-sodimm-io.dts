@@ -8,7 +8,7 @@
 		compatible = "radxa,radxa-cm3-sodimm-io";
 		category = "display";
 		exclusive = "dsi0";
-		description = "Enable Radxa 5 Inch TS on Radxa CM3S IO DSI0";
+		description = "Enable Radxa 5-inch Touchscreen.";
 	};
 
 	fragment@0 {
