@@ -6,7 +6,7 @@
 		title = "Enable FIQ Debugger on UART7-M2";
 		compatible = "radxa,radxa-cm3-sodimm-io";
 		category = "misc";
-        exclusive = "GPIO4_A2", "GPIO4_A3";
+		exclusive = "GPIO4_A2", "GPIO4_A3";
 		description = "Enable FIQ Debugger on UART7-M2.";
 	};
 
