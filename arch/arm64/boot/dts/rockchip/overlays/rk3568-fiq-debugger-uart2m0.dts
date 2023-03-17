@@ -4,8 +4,9 @@
 / {
 	metadata {
 		title = "Enable FIQ Debugger on UART2-M0";
-		compatible = "radxa,rock-3c";
+		compatible = "radxa,rock-3a", "radxa,rock-3b", "radxa,rock-3c", "radxa,radxa-cm3-io", "radxa,radxa-cm3-sodimm-io", "radxa,e23";
 		category = "misc";
+		exclusive = "GPIO0_D1", "GPIO0_D0";
 		description = "Enable FIQ Debugger on UART2-M0.";
 	};
 

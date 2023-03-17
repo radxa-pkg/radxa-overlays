@@ -1,0 +1,31 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable FIQ Debugger on UART7-M2";
+		compatible = "radxa,radxa-cm3-sodimm-io";
+		category = "misc";
+		exclusive = "GPIO4_A2", "GPIO4_A3";
+		description = "Enable FIQ Debugger on UART7-M2.";
+	};
+
+	fragment@0 {
+		target = <&fiq_debugger>;
+
+		__overlay__ {
+			status = "okay";
+			rockchip,serial-id = <7>;
+			pinctrl-names = "default";
+			pinctrl-0 = <&uart7m2_xfer>;
+		};
+	};
+
+	fragment@1 {
+		target = <&uart7>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+};

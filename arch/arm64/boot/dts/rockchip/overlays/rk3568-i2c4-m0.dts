@@ -4,9 +4,10 @@
 / {
 	metadata {
 		title = "Enable I2C4-M0";
-		compatible = "radxa,rock-3c", "radxa,e23";
+		compatible = "radxa,rock-3c", "radxa,radxa-cm3-io", "radxa,radxa-cm3-sodimm-io", "radxa,e23";
 		category = "misc";
-		description = "Enable I2C4-M0.\nOn ROCK 3C this is SDA pin 27 and SCL pin 28.\nOn RADXA E23 and RADXA CM3 IO BOARD this is SDA pin 19 and SCL pin 23.";
+		exclusive = "GPIO4_B2", "GPIO4_B3";
+		description = "Enable I2C4-M0.\nOn Radxa ROCK 3C this is SDA pin 27 and SCL pin 28.\nOn Radxa E23 and Radxa CM3 IO BOARD and Radxa CM3 SODIMM IO this is SDA pin 19 and SCL pin 23.";
 	};
 
 	fragment@0 {

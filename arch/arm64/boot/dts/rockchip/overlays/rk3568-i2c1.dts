@@ -4,9 +4,10 @@
 / {
 	metadata {
 		title = "Enable I2C1";
-		compatible = "radxa,rock-3a", "radxa,rock-3b", "radxa,e23", "radxa,e25";
+		compatible = "radxa,rock-3a", "radxa,rock-3b", "radxa,e23", "radxa,e25", "radxa,radxa-cm3-sodimm-io";
 		category = "misc";
-		description = "Enable I2C1.\nOn ROCK 3A this is SDA pin 27 and SCL pin 28.\nOn ROCK 3B this is SDA pin 27 and SCL pin 28.\nOn RADXA E23 this is SDA pin 36 and SCL pin 40.\nOn RADXA E25 this is SDA pin 1 and SCL pin 10.";
+		exclusive = "GPIO0_B4", "GPIO0_B3";
+		description = "Enable I2C1.\nOn Radxa ROCK 3A this is SDA pin 27 and SCL pin 28.\nOn Radxa ROCK 3B this is SDA pin 27 and SCL pin 28.\nOn Radxa E23 this is SDA pin 36 and SCL pin 40.\nOn Radxa E25 this is SDA pin 1 and SCL pin 10.\nOn Radxa CM3 SODIMM IO this is SDA pin3 and SCL pin 5";
 	};
 
 	fragment@0 {

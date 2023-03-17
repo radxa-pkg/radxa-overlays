@@ -4,9 +4,10 @@
 / {
 	metadata {
 		title = "Enable UART7-M2";
-		compatible = "rockchip,rk3566", "rockchip,rk3568";
+		compatible = "radxa,radxa-cm3-sodimm-io";
 		category = "misc";
-		description = "Enable UART7-M2.";
+		exclusive = "GPIO4_A2", "GPIO4_A3";
+		description = "Enable UART7-M2.\nOn Radxa CM3 SODIMM IO this TX pin 36 and RX pin 11.";
 	};
 
 	fragment@0 {

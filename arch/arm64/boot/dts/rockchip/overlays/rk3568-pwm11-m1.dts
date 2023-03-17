@@ -4,9 +4,10 @@
 / {
 	metadata {
 		title = "Enable PWM11-M1";
-		compatible = "rockchip,rk3566", "rockchip,rk3568";
+		compatible = "radxa,radxa-cm3-io", "radxa,radxa-cm3-sodimm-io";
 		category = "misc";
-		description = "Enable PWM11-M1.";
+		exclusive = "GPIO4_c0";
+		description = "Enable PWM11-M1.\nOn Radxa CM3 IO this is pin 32.\nOn Radxa CM3 SODIMM IO this is pin 33.";
 	};
 
 	fragment@0 {
