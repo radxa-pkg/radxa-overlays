@@ -6,6 +6,7 @@
 		title = "Enable spidev on SPI3-M1 over CS0";
 		compatible = "radxa,rock-3c";
 		category = "misc";
+		exclusive = "GPIO4_C2", "GPIO4_C3", "GPIO4_C5", "GPIO4_C6";
 		description = "Enable spidev on SPI3-M1 over CS0.";
 	};
 
