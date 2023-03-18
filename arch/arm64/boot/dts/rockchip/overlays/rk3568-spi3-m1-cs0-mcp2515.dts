@@ -1,14 +1,17 @@
 /dts-v1/;
 /plugin/;
+
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
 / {
 
 	metadata {
 		title = "Enable MCP2515 on SPI3-M1 CS0";
 		compatible = "radxa,rock-3c";
 		category = "misc";
-		description = "Enable MCP2515 on SPI3-M1 CS0 with 12 MHz Crystal Oscillator.";
+		description = "Enable MCP2515 on SPI3-M1 CS0 with 12 MHz Crystal Oscillator.\nINT=22";
 	};
 
 	fragment@0 {
@@ -17,7 +20,7 @@
 		__overlay__ {
 			mcp2515_int_pin {
 				mcp2515_int_pin: mcp2515_int_pin {
-					rockchip,pins = <3 RK_PD5 RK_FUNC_GPIO &pcfg_pull_none>;
+					rockchip,pins = <3 RK_PC1 RK_FUNC_GPIO &pcfg_pull_none>;
 				};
 			};
 		};
@@ -43,6 +46,7 @@
 			max-freq = <10000000>;
 			#address-cells = <1>;
 			#size-cells = <0>;
+			pinctrl-names = "default", "high_speed";
 			pinctrl-0 = <&spi3m1_cs0 &spi3m1_pins>;
 			pinctrl-1 = <&spi3m1_cs0 &spi3m1_pins_hs>;
 
@@ -51,7 +55,7 @@
 				compatible = "microchip,mcp2515";
 				reg = <0>;
 				interrupt-parent = <&gpio3>;
-				interrupts = <29 2>;      //2: IRQ_TYPE_EDGE_FALLING
+				interrupts = <RK_PC1 IRQ_TYPE_EDGE_FALLING>;
 				spi-max-frequency = <10000000>;
 				clocks = <&can_mcp2515_osc>;
 				vdd-supply = <&vcc3v3_sys>;
