@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Disable NPU";
-		compatible = "rockchip,rk3566", "rockchip,rk3568";
+		compatible = "unknown";
 		category = "misc";
 		description = "Disable NPU.";
 	};

@@ -3,17 +3,17 @@
 
 / {
 	metadata {
-		title = "Enable Ethernet";
+		title = "Disable Ethernet";
 		compatible = "rockchip,rk3566", "rockchip,rk3568";
 		category = "misc";
-		description = "Enable Ethernet.";
+		description = "Disable Ethernet.";
 	};
 
 	fragment@0 {
 		target = <&gmac1>;
 
 		__overlay__ {
-			status = "okay";
+			status = "disabled";
 		};
 	};
 
@@ -21,7 +21,7 @@
 		target = <&mdio1>;
 
 		__overlay__ {
-			status = "okay";
+			status = "disabled";
 		};
 	};
 
@@ -29,7 +29,7 @@
 		target = <&rgmii_phy1>;
 
 		__overlay__ {
-			status = "okay";
+			status = "disabled";
 		};
 	};
 };

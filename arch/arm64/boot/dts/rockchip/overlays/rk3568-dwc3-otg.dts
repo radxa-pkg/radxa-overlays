@@ -4,9 +4,10 @@
 
 / {
 	metadata {
-		title = "Set OTG port to OTG mode";
-		compatible = "radxa,rock-3c";
+		title = "Set OTG port to be controlled by hardware switch";
+		compatible = "rockchip,rk3566", "rockchip,rk3568";
 		category = "misc";
+		exclusive = "usbdrd_dwc3-dr_mode";
 		description = "Set OTG port to OTG mode.";
 	};
 
@@ -14,6 +15,7 @@
 		target = <&usbdrd_dwc3>;
 
 		__overlay__ {
+			status = "okay";
 			dr_mode = "otg";
 		};
 	};

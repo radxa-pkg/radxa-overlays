@@ -8,7 +8,7 @@
 /{
 	metadata {
 		title = "Enable NXP PCA9555 I2C GPIO multiplexer on I2C2-M0";
-		compatible = "rockchip,rk3566", "rockchip,rk3568";
+		compatible = "radxa,rock-3a", "radxa,rock-3b", "radxa,radxa-cm3-io", "radxa,radxa-cm3-sodimm-io", "radxa,e23";
 		category = "misc";
 		exclusive = "GPIO0_B5", "GPIO0_B6";
 		description = "Enable NXP PCA9555 I2C GPIO multiplexer on I2C2-M0.";

@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable CAN1-M1";
-		compatible = "radxa,rock-3c";
+		compatible = "unknown";
 		category = "misc";
 		description = "Enable CAN1-M1.\nOn ROCK 3C this is TX pin 19 & RX pin 23.";
 	};

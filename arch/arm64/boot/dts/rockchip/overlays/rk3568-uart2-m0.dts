@@ -19,4 +19,13 @@
 			pinctrl-0 = <&uart2m0_xfer>;
 		};
 	};
+
+	fragment@1 {
+		target = <&fiq_debugger>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
 };

@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable spidev on SPI0-M1 over CS0";
-		compatible = "rockchip,rk3566", "rockchip,rk3568";
+		compatible = "unknown";
 		category = "misc";
 		description = "Enable spidev on SPI0-M1 over CS0.";
 	};

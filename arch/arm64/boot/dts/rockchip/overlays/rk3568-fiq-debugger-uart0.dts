@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable FIQ Debugger on UART0";
-		compatible = "rockchip,rk3566", "rockchip,rk3568";
+		compatible = "unknown";
 		category = "misc";
 		description = "Enable FIQ Debugger on UART0.";
 	};

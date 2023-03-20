@@ -47,8 +47,6 @@ dtb-$(CONFIG_CPU_RK3399) += \
 
 dtb-$(CONFIG_CLK_RK3568) += \
 	audioinjector-isolated-soundcard.dtbo \
-	radxa-cm3s-io-pcie.dtbo \
-	radxa-cm3s-io-sata.dtbo \
 	radxa-cm3-io-dual-cameras-gc2053-gc2093.dtbo \
 	radxa-cm3-io-dual-cameras-gc2053.dtbo \
 	radxa-cm3-io-hd101boe9365-display.dtbo \
@@ -60,28 +58,33 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	radxa-cm3-io-sata2.dtbo \
 	radxa-cm3-io-sharp-lq133t1jw01-without-hdmi.dtbo \
 	radxa-cm3-raspcm4io-pcie2x1.dtbo \
-	radxa-cm3i-gmac1.dtbo \
 	radxa-cm3s-io-csi0-okdo-5mp-camera.dtbo \
 	radxa-cm3s-io-csi0-rpi-camera-v2.dtbo \
 	radxa-cm3s-io-csi1-okdo-5mp-camera.dtbo \
 	radxa-cm3s-io-csi1-rpi-camera-v2.dtbo \
 	rk3568-can1-m0.dtbo \
 	rk3568-can1-m1.dtbo \
-	rk3568-disable-gmac1.dtbo \
-	rk3568-disable-npu.dtbo \
+	rk3568-dwc3-host.dtbo \
+	rk3568-dwc3-otg.dtbo \
+	rk3568-dwc3-peripheral.dtbo \
 	rk3568-fiq-debugger-uart0.dtbo \
 	rk3568-fiq-debugger-uart2m0.dtbo \
 	rk3568-fiq-debugger-uart3m0.dtbo \
+	rk3568-fiq-debugger-uart4m1.dtbo \
 	rk3568-fiq-debugger-uart5m1.dtbo \
 	rk3568-fiq-debugger-uart7m1.dtbo \
 	rk3568-fiq-debugger-uart8m1.dtbo \
 	rk3568-fiq-debugger-uart9m1.dtbo \
+	rk3568-gmac1-disable.dtbo \
+	rk3568-gmac1-enable.dtbo \
 	rk3568-i2c1.dtbo \
 	rk3568-i2c2-m0-pca9555.dtbo \
 	rk3568-i2c2-m0.dtbo \
 	rk3568-i2c2-m1.dtbo \
 	rk3568-i2c3-m0.dtbo \
 	rk3568-i2c4-m0.dtbo \
+	rk3568-npu-disable.dtbo \
+	rk3568-npu-enable.dtbo \
 	rk3568-pwm0-m0.dtbo \
 	rk3568-pwm0-m1.dtbo \
 	rk3568-pwm1-m0.dtbo \
@@ -104,6 +107,8 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-pwm9-m0.dtbo \
 	rk3568-rock-3b-em05-modem.dtbo \
 	rk3568-rock-3b-sata2.dtbo \
+	rk3568-serdes2-pcie.dtbo \
+	rk3568-serdes2-sata.dtbo \
 	rk3568-spi0-m0-cs0-spidev.dtbo \
 	rk3568-spi0-m1-cs0-spidev.dtbo \
 	rk3568-spi1-m1-cs0-spidev.dtbo \
@@ -139,8 +144,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rock-3c-radxa-5inch-touchscreen.dtbo \
 	rock-3c-raspberrypi-7inch-touchscreen.dtbo \
 	rock-3c-rpi-camera-v1p3.dtbo \
-	rock-3c-rpi-camera-v2.dtbo \
-	rock-3c-usb-otg.dtbo
+	rock-3c-rpi-camera-v2.dtbo
 
 dtb-$(CONFIG_CPU_RK3568) += \
 	radxa-5inch-touchscreen-on-cm3-sodimm-io.dtbo \

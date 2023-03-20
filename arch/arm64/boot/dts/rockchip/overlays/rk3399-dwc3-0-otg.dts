@@ -3,11 +3,11 @@
 
 / {
 	metadata {
-		title = "Set OTG port to OTG mode";
+		title = "Set OTG port to be controlled by hardware switch";
 		compatible = "rockchip,rk3399";
 		category = "misc";
 		exclusive = "usbdrd_dwc3_0-dr_mode";
-		description = "Set OTG port to OTG mode.\nThis is the default mode.";
+		description = "Set OTG port to OTG mode.";
 	};
 
 	fragment@0 {

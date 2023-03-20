@@ -1,0 +1,35 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable Ethernet";
+		compatible = "unknown";
+		category = "misc";
+		description = "Enable Ethernet.";
+	};
+
+	fragment@0 {
+		target = <&gmac1>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@1 {
+		target = <&mdio1>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@2 {
+		target = <&rgmii_phy1>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+};
