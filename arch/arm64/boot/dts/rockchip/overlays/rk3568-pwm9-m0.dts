@@ -6,6 +6,7 @@
 		title = "Enable PWM9-M0";
 		compatible = "radxa,rock-3c";
 		category = "misc";
+		exclusive = "GPIO3_B2";
 		description = "Enable PWM9-M0.";
 	};
 

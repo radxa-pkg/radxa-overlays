@@ -6,6 +6,7 @@
 		title = "Enable PWM14-M0";
 		compatible = "radxa,rock-3c";
 		category = "misc";
+		exclusive = "GPIO3_C4";
 		description = "Enable PWM14-M0.";
 	};
 
