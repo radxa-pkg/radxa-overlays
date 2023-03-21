@@ -1,0 +1,32 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/gpio/meson-g12a-gpio.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+	metadata {
+		title = "Enable spidev on SPI-B";
+		compatible = "radxa,zero";
+		category = "misc";
+		description = "Enable spidev on SPI-B.";
+	};
+
+	fragment@0 {
+		target = <&spicc1>;
+		__overlay__ {
+			pinctrl-0 = <&spicc1_pins>;
+			pinctrl-names = "default";
+			cs-gpios = <&gpio GPIOH_6 GPIO_ACTIVE_LOW>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+			spidev@0 {
+				compatible = "spidev";
+				status = "okay";
+				reg = <0>;
+				spi-max-frequency = <10000000>;
+			};
+		};
+	};
+};

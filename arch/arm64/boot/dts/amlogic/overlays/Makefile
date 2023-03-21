@@ -8,10 +8,11 @@ dtb-$(CONFIG_ARCH_MESON) += \
 	meson-g12a-poweroff-gpioao-9.dtbo \
 	meson-g12a-pwmao-a-on-gpioao-11.dtbo \
 	meson-g12a-pwm-c-on-gpiox-8.dtbo \
+	meson-g12a-spi-a-spidev.dtbo \
 	meson-g12a-spi-b-enc28j60.dtbo \
 	meson-g12a-spi-b-mcp2515-8mhz.dtbo \
+	meson-g12a-spi-b-spidev.dtbo \
 	meson-g12a-spi-gpio-enc28j60.dtbo \
-	meson-g12a-spi-spidev.dtbo \
 	meson-g12a-uart-ao-a-on-gpioao-0-gpioao-1.dtbo \
 	meson-g12a-uart-ao-b-on-gpioao-2-gpioao-3.dtbo \
 	meson-g12a-uart-ao-b-on-gpioao-8-gpioao-9.dtbo \
