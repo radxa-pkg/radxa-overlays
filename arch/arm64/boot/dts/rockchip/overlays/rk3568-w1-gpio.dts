@@ -9,6 +9,7 @@
 		title = "Enable 1-Wire on GPIO3_A5";
 		compatible = "radxa,rock-3c";
 		category = "misc";
+		exclusive = "GPIO3_A5";
 		description = "Enable 1-Wire on GPIO3_A5.\nOn ROCK 3C this is pin 40.";
 	};
 

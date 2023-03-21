@@ -6,6 +6,7 @@
 		title = "Enable Ethernet";
 		compatible = "unknown";
 		category = "misc";
+		exclusive = "gmac1";
 		description = "Enable Ethernet.";
 	};
 

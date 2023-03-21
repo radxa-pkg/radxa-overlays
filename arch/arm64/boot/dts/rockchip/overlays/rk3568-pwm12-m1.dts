@@ -6,6 +6,7 @@
 		title = "Enable PWM12-M1";
 		compatible = "radxa,rock-3c";
 		category = "misc";
+		exclusive = "GPIO4_C5";
 		description = "Enable PWM12-M1.";
 	};
 

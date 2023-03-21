@@ -9,6 +9,7 @@
 		title = "Enable Raspberry Pi Camera v2 on CSI1";
 		compatible = "radxa,radxa-cm3-sodimm-io";
 		category = "camera";
+		exclusive = "csi2_dphy2";
 		description = "Enable Raspberry Pi Camera v2 on CSI1.";
 	};
 

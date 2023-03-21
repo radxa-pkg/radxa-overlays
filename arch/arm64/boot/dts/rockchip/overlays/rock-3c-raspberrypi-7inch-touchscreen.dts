@@ -9,6 +9,7 @@
 		title = "Enable Raspberry Pi 7-inch Touchscreen";
 		compatible = "radxa,rock-3c";
 		category = "display";
+		exclusive = "video_phy1";
 		description = "Enable Raspberry Pi 7-inch Touchscreen.";
 	};
 

@@ -8,6 +8,7 @@
 		title = "Enable Raspberry Pi Camera v1.3";
 		compatible = "radxa,rock-3c";
 		category = "camera";
+		exclusive = "csi2_dphy0";
 		description = "Enable Raspberry Pi Camera v1.3.";
 	};
 

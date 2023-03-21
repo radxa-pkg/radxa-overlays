@@ -9,6 +9,7 @@
 		title = "Enable Radxa 5-inch Touchscreen";
 		compatible = "radxa,rock-3c";
 		category = "display";
+		exclusive = "video_phy1";
 		description = "Enable Radxa 5-inch Touchscreen.";
 	};
 

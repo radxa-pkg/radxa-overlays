@@ -6,6 +6,7 @@
 		title = "Disable Ethernet";
 		compatible = "rockchip,rk3566", "rockchip,rk3568";
 		category = "misc";
+		exclusive = "gmac1";
 		description = "Disable Ethernet.";
 	};
 

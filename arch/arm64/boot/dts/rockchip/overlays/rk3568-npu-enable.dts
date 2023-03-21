@@ -6,6 +6,7 @@
 		title = "Enable NPU";
 		compatible = "rockchip,rk3566", "rockchip,rk3568";
 		category = "misc";
+		exclusive = "rknpu";
 		description = "Enable NPU.";
 	};
 
