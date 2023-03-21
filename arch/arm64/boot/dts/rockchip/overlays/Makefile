@@ -73,6 +73,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-fiq-debugger-uart4m1.dtbo \
 	rk3568-fiq-debugger-uart5m1.dtbo \
 	rk3568-fiq-debugger-uart7m1.dtbo \
+	rk3568-fiq-debugger-uart7m2.dtbo \
 	rk3568-fiq-debugger-uart8m1.dtbo \
 	rk3568-fiq-debugger-uart9m1.dtbo \
 	rk3568-gmac1-disable.dtbo \
