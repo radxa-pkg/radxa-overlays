@@ -25,7 +25,6 @@
 
 		__overlay__ {
 			memory-region = <&rknpu_reserved>;
-			rknpu-supply = <&vdd_npu>;
 			status = "okay";
 		};
 	};
