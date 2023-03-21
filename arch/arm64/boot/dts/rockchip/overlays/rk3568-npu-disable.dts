@@ -32,12 +32,4 @@
 			status = "disabled";
 		};
 	};
-
-	fragment@3 {
-		target = <&rknpu_reserved>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
 };

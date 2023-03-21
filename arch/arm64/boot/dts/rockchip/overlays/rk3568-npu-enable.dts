@@ -39,10 +39,22 @@
 	};
 
 	fragment@3 {
-		target = <&rknpu_reserved>;
+		target-path = "/";
 
 		__overlay__ {
-			status = "okay";
+			reserved-memory {
+				#address-cells = <2>;
+				#size-cells = <2>;
+				ranges;
+
+				rknpu_reserved: rknpu {
+					compatible = "shared-dma-pool";
+					inactive;
+					reusable;
+					size = <0x0 0x20000000>;
+					alignment = <0x0 0x1000>;
+				};
+			};
 		};
 	};
 };
