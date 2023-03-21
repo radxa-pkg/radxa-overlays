@@ -6,7 +6,7 @@
 		title = "Enable I2C2-M0";
 		compatible = "radxa,rock-3a", "radxa,rock-3b", "radxa,radxa-cm3-io", "radxa,radxa-cm3-sodimm-io", "radxa,e23";
 		category = "misc";
-		exclusive = "GPIO4_B2", "GPIO4_B3";
+		exclusive = "GPIO0_B5", "GPIO0_B6";
 		description = "Enable I2C2-M0.\nOn Radxa ROCK 3A hardware V1.2 and Radxa E23 this is SDA pin 27 and SCL pin 28.\nOn Radxa ROCK 3A hardware V1.3/1.31 and Radxa ROCK 3B this is SDA pin 16 and SCL pin 7.\nOn Radxa CM3 IO this is SDA pin 3 SCL pin 5.\nOn Radxa CM3 SODIMM IO this is SDA pin 27 and SCL pin 13.";
 	};
 
