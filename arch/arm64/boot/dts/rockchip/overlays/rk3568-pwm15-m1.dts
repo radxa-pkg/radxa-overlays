@@ -6,8 +6,8 @@
 		title = "Enable PWM15-M1";
 		compatible = "radxa,rock-3c";
 		category = "misc";
-		exclusive = "GPIO4_C3";
-		description = "Enable PWM15-M1.";
+		exclusive = "GPIO4_C3", "pwm15";
+		description = "Enable PWM15-M1.\nThis will disable onboard PWM fan control.";
 	};
 
 	fragment@0 {
@@ -17,6 +17,14 @@
 			status = "okay";
 			pinctrl-names = "active";
 			pinctrl-0 = <&pwm15m1_pins>;
+		};
+	};
+
+	fragment@1 {
+		target = <&fan0>;
+
+		__overlay__ {
+			status = "disabled";
 		};
 	};
 };
