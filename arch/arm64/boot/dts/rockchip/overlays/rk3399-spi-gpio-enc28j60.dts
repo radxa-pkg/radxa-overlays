@@ -35,7 +35,7 @@
 					spi-max-frequency = <20000000>;
 
 					pinctrl-names = "default";
-					pinctrl-0 = <&enc28j60_int_pin>;
+					pinctrl-0 = <&enc28j60_int_pins>;
 
 					interrupt-parent = <&gpio4>;
 					interrupts = <RK_PA7 IRQ_TYPE_EDGE_FALLING>;
