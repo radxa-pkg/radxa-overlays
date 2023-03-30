@@ -3,11 +3,11 @@
 
 / {
 	metadata {
-		title = "Enable Ethernet";
+		title = "Enable onboard Ethernet";
 		compatible = "unknown";
 		category = "misc";
 		exclusive = "gmac1";
-		description = "Enable Ethernet.";
+		description = "Enable onboard Ethernet.\nHas no affect on external Ethernet (for example USB adapter).";
 	};
 
 	fragment@0 {

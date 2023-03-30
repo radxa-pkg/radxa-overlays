@@ -3,11 +3,11 @@
 
 / {
 	metadata {
-		title = "Disable Ethernet";
-		compatible = "rockchip,rk3566", "rockchip,rk3568";
+		title = "Disable onboard Ethernet";
+		compatible = "radxa,rock-3c";
 		category = "misc";
 		exclusive = "gmac1";
-		description = "Disable Ethernet.";
+		description = "Disable onboard Ethernet.\nHas no affect on external Ethernet (for example USB adapter).";
 	};
 
 	fragment@0 {
