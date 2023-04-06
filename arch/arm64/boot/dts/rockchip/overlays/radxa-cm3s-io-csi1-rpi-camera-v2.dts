@@ -17,11 +17,11 @@
 		target-path = "/";
 
 		__overlay__ {
-			ext_cam_clk_imx219: ext-cam-clk-imx219 {
+			ext_cam_clk_imx219_1: ext-cam-clk-imx219-1 {
 				status = "okay";
 				compatible = "fixed-clock";
 				clock-frequency = <24000000>;
-				clock-output-names = "ext_cam_clk_imx219";
+				clock-output-names = "ext_cam_clk_imx219_1";
 				#clock-cells = <0>;
 			};
 		};
@@ -39,8 +39,8 @@
 				status = "okay";
 				compatible = "sony,imx219";
 				reg = <0x10>;
-				clocks = <&ext_cam_clk_imx219>;
-				clock-names = "ext_cam_clk_imx219";
+				clocks = <&ext_cam_clk_imx219_1>;
+				clock-names = "ext_cam_clk_imx219_1";
 				pwdn-gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_HIGH>;
 				rockchip,camera-module-index = <1>;
 				rockchip,camera-module-facing = "front";
