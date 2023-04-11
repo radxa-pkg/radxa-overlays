@@ -153,6 +153,10 @@ dtb-$(CONFIG_CPU_RK3568) += \
 	radxa-cm3-sodimm-io-raspberrypi-7inch-touchscreen.dtbo
 
 dtb-$(CONFIG_CLK_RK3588) += \
+	rk3588-fiq-debugger-uart4m2.dtbo \
+	rk3588-fiq-debugger-uart6m1.dtbo \
+	rk3588-fiq-debugger-uart7m2.dtbo \
+	rk3588-fiq-debugger-uart8m0.dtbo \
 	rk3588-i2c0-m1.dtbo \
 	rk3588-i2c1-m0.dtbo \
 	rk3588-i2c2-m4.dtbo \
