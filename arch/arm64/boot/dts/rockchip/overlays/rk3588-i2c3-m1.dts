@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable I2C3-M1";
-		compatible = "rockchip,rk3588";
+		compatible = "unknown";
 		category = "misc";
 		description = "Enable I2C3-M1.";
 	};

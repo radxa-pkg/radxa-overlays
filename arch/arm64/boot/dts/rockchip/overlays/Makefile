@@ -154,8 +154,13 @@ dtb-$(CONFIG_CPU_RK3568) += \
 dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-i2c0-m1.dtbo \
 	rk3588-i2c1-m0.dtbo \
+	rk3588-i2c2-m4.dtbo \
 	rk3588-i2c3-m1.dtbo \
+	rk3588-i2c4-m3.dtbo \
+	rk3588-i2c6-m0.dtbo \
+	rk3588-i2c6-m3.dtbo \
 	rk3588-i2c7-m3.dtbo \
+	rk3588-i2c8-m2.dtbo \
 	rk3588-i2c8-m4.dtbo \
 	rk3588-pwm2-m1.dtbo \
 	rk3588-pwm3-m1.dtbo \

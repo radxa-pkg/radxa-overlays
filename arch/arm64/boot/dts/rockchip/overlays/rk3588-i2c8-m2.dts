@@ -6,16 +6,16 @@
 		title = "Enable I2C1-M0";
 		compatible = "radxa,rock-5a";
 		category = "misc";
-		exclusive = "GPIO0_B5", "GPIO0_B6";
-		description = "Enable I2C1-M0.\nOn Radxa ROCK 5A this is SDA pin 10 and SCL pin 8.";
+		exclusive = "GPIO1_D6", "GPIO1_D7";
+		description = "Enable I2C8-M2.\nOn Radxa ROCK 5A this is SDA pin 3 and SCL pin 5.";
 	};
 
 	fragment@0 {
-		target = <&i2c1>;
+		target = <&i2c8>;
 
 		__overlay__ {
 			status = "okay";
-			pinctrl-0 = <&i2c1m0_xfer>;
+			pinctrl-0 = <&i2c8m2_xfer>;
 		};
 	};
 };
