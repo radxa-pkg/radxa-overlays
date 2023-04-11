@@ -7,7 +7,7 @@
 		compatible = "radxa,rock-5a";
 		category = "misc";
 		exclusive = "GPIO1_A2", "GPIO1_A3";
-		description = "Enable I2C4-M3.\nOn Radxa ROCK 5A this is SDA pin 23 and  SCL pin 24";
+		description = "Enable I2C4-M3.\nOn Radxa ROCK 5A this is SDA pin 23 and SCL pin 24.";
 	};
 
 	fragment@0 {
