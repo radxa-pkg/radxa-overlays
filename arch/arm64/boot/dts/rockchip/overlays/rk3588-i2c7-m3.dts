@@ -6,7 +6,7 @@
 		title = "Enable I2C7-M3";
 		compatible = "radxa,rock-5a";
 		category = "misc";
-		exclusive = "GPIO4_B2", "GPIO4_B3",
+		exclusive = "GPIO4_B2", "GPIO4_B3";
 		description = "Enable I2C7-M3.\nOn Radxa ROCK 5A this is SDA pin 11 and  SCL pin 13";
 	};
 
