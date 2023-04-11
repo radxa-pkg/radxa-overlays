@@ -7,7 +7,7 @@
 		compatible = "radxa,rock-5a";
 		category = "misc";
 		exclusive = "GPIO4_B4";
-		description = "Enable PWM11-M1.\nOn Radxa ROCK 5A this  is pin 15.";
+		description = "Enable PWM11-M1.\nOn Radxa ROCK 5A this is pin 15.";
 	};
 
 	fragment@0 {
