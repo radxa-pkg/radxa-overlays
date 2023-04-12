@@ -6,11 +6,11 @@
 
 / {
 	metadata {
-		title = "Enable 1-Wire on GPIO4_B2";
+		title = "Enable 1-Wire on GPIO4_B1";
 		compatible = "radxa,rock-5a", "radxa,rock-5b";
 		category = "misc";
-		exclusive = "GPIO4_B2";
-		description = "Enable 1-Wire on GPIO4_B2.\nOn Radxa ROCK 5a this is pin 13\nOn Radxa ROCK 5B this is pin 5.";
+		exclusive = "GPIO4_B1";
+		description = "Enable 1-Wire on GPIO4_B1.\nOn Radxa ROCK 5a this is pin 40.";
 	};
 
 	fragment@0 {
@@ -20,7 +20,7 @@
 			w1: onewire@0 {
 				compatible = "w1-gpio";
 				pinctrl-names = "default";
-				gpios = <&gpio4 RK_PB2 GPIO_ACTIVE_HIGH>;
+				gpios = <&gpio4 RK_PB1 GPIO_ACTIVE_HIGH>;
 				status = "okay";
 			};
 		};
