@@ -7,7 +7,7 @@
 / {
 	metadata {
 		title = "Enable 1-Wire on GPIO4_B2";
-		compatible = "radxa,rock-5a";
+		compatible = "radxa,rock-5a", "radxa,rock-5b";
 		category = "misc";
 		exclusive = "GPIO4_B2";
 		description = "Enable 1-Wire on GPIO4_B2.\nOn Radxa ROCK 5a this is pin 13\nOn Radxa ROCK 5B this is pin 5.";
