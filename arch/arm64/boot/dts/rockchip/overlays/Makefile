@@ -162,17 +162,23 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-i2c7-m3.dtbo \
 	rk3588-i2c8-m2.dtbo \
 	rk3588-i2c8-m4.dtbo \
+	rk3588-pwm0-m2.dtbo \
+	rk3588-pwm1-m2.dtbo \
 	rk3588-pwm2-m1.dtbo \
 	rk3588-pwm3-m1.dtbo \
 	rk3588-pwm5-m2.dtbo \
+	rk3588-pwm6-m0.dtbo \
 	rk3588-pwm6-m2.dtbo \
+	rk3588-pwm7-m0.dtbo \
 	rk3588-pwm7-m3.dtbo \
 	rk3588-pwm8-m0.dtbo \
+	rk3588-pwm11-m1.dtbo \
 	rk3588-pwm12-m0.dtbo \
 	rk3588-pwm13-m0.dtbo \
 	rk3588-pwm13-m2.dtbo \
 	rk3588-pwm14-m0.dtbo \
 	rk3588-pwm14-m1.dtbo \
+	rk3588-pwm14-m2.dtbo \
 	rk3588-pwm15-m0.dtbo \
 	rk3588-pwm15-m1.dtbo \
 	rk3588-pwm15-m3.dtbo \
