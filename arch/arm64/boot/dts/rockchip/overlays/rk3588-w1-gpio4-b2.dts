@@ -1,0 +1,28 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+
+/ {
+	metadata {
+		title = "Enable 1-Wire on GPIO4_B2";
+		compatible = "radxa,rock-5a";
+		category = "misc";
+		exclusive = "GPIO4_B2";
+		description = "Enable 1-Wire on GPIO4_B2.\nOn Radxa ROCK 5a this is pin 13\nOn Radxa ROCK 5B this is pin 5.";
+	};
+
+	fragment@0 {
+		target-path = "/";
+
+		__overlay__ {
+			w1: onewire@0 {
+				compatible = "w1-gpio";
+				pinctrl-names = "default";
+				gpios = <&gpio4 RK_PB2 GPIO_ACTIVE_HIGH>;
+				status = "okay";
+			};
+		};
+	};
+};
