@@ -6,7 +6,8 @@
 		title = "Enable UART8-M0 hardware follow control";
 		compatible = "radxa,rock-5a";
 		category = "misc";
-		description = "Enable UART8-M0 hardware follow control.";
+		exclusive = "GPIO4_B3", "GPIO4_B2", "GPIO4_B0", "GPIO4_B1";
+		description = "Enable UART8-M0 hardware follow control.\nOn Radxa ROCK 5A Hardware X1.1 this is CTSN pin 27 and this is RTSN pin 28 and this is TX pin 32 and this is RX pin 40\nOn Radxa ROCK 5A Hardware X1.2 this is CTSN pin 11 and this is RTSN pin 13 and this is TX pin 32 and this is RX pin 40.";
 	};
 
 	fragment@0 {
