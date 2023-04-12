@@ -1,0 +1,20 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable UART8-M0 hardware follow control";
+		compatible = "radxa,rock-5a";
+		category = "misc";
+		description = "Enable UART8-M0 hardware follow control.";
+	};
+
+	fragment@0 {
+		target = <&uart8>;
+
+		__overlay__ {
+			status = "okay";
+			pinctrl-0 = <&uart8m0_xfer &uart8m0_ctsn &uart8m0_rtsn>;
+		};
+	};
+};
