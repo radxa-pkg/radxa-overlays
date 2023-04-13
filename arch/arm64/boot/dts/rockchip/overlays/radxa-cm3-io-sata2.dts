@@ -1,12 +1,15 @@
 /dts-v1/;
 /plugin/;
 
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+
 / {
 	metadata {
-		title = "Enable SATA2";
+		title = "Enable SATA2 (SATA1 for Radxa CM3 IO <= v1.3) and disable PCIe";
 		compatible = "radxa,radxa-cm3-io";
 		category = "misc";
-		description = "Enable SATA2.\nWhen SATA2 is enabled, PCIe cannot be enabled on the same port.";
+		description = "Enable SATA2.\nWhen SATA2 is enabled, PCIe cannot be enabled on the same pin mux.\nRadxa CM3 IO  <= v1.3 contains incorrect label of this port.";
 	};
 
 	fragment@0 {
@@ -16,7 +19,7 @@
 			vcc-ch482d2-regulator {
 				compatible = "regulator-fixed";
 				enable-active-high;
-				gpio = <&gpio3 0x16 0x00>;
+				gpio = <&gpio3 RK_PC6 GPIO_ACTIVE_HIGH>;
 				pinctrl-names = "default";
 				pinctrl-0 = <&ch482d_en2>;
 				regulator-name = "vcc_ch482d1";
@@ -45,11 +48,22 @@
 		target = <&gpio_leds>;
 		__overlay__ {
 			sata2-led {
-				gpios = <&gpio0 0x12 0x00>;
+				gpios = <&gpio0 RK_PC2 GPIO_ACTIVE_HIGH>;
 				linux,default-trigger = "nand-disk";
 				default-state = "on";
 				pinctrl-0 = <&sata2_led>;
 				status = "okay";
+			};
+		};
+	};
+
+	fragment@4 {
+		target = <&pinctrl>;
+		__overlay__ {
+			ch482d {
+				ch482d_en2: ch482d-en2 {
+					rockchip,pins = <3 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
+				};
 			};
 		};
 	};
