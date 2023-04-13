@@ -7,6 +7,7 @@
 		title = "Enable Radxa Display 10HD";
 		compatible = "radxa,rock-5a";
 		category = "camera";
+		exclusive = "dsi";
 		description = "Enable Radxa Display 10HD.";
 	};
 

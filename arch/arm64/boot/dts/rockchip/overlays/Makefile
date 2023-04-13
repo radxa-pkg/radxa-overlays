@@ -198,6 +198,7 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-uart7-m2.dtbo \
 	rk3588-w1-gpio4-b1.dtbo \
 	rock-5a-radxa-display-10fhd.dtbo \
+	rock-5a-radxa-display-8hd.dtbo \
 	rock-5ab-camera-imx415.dtbo \
 	rock-5b-radxa-display-10fhd.dtbo \
 	rock-5b-sata.dtbo
