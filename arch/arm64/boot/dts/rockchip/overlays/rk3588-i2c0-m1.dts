@@ -4,9 +4,10 @@
 / {
 	metadata {
 		title = "Enable I2C0-M1";
-		compatible = "rockchip,rk3588";
+		compatible = "radxa,rock-5b";
 		category = "misc";
-		description = "Enable I2C0-M1.";
+		exclusive = "GPIO4_C6", "GPIO4_C5";
+		description = "Enable I2C0-M1.\nOn Radxa ROCK 5B this is SDA pin 27 and this is SCL pin 28.";
 	};
 
 	fragment@0 {
