@@ -130,12 +130,12 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-uart8-m1.dtbo \
 	rk3568-uart9-m1.dtbo \
 	rk3568-w1-gpio.dtbo \
-	rock-3a-raspberrypi-7inch-touchscreen.dtbo \
 	rock-3a-sata0.dtbo \
 	rock-3a-sata1.dtbo \
 	rock-3a-sata2.dtbo \
 	rock-3ab-okdo-5mp-camera.dtbo \
 	rock-3ab-radxa-5inch-touchscreen.dtbo \
+	rock-3ab-raspberrypi-7inch-touchscreen.dtbo \
 	rock-3ab-rpi-camera-v1p3-ov5647.dtbo \
 	rock-3ab-rpi-camera-v2-imx219.dtbo \
 	rock-3b-disable-hdmicec.dtbo \
