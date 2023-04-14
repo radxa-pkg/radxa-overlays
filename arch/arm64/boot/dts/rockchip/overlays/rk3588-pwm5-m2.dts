@@ -6,7 +6,8 @@
 		title = "Enable PWM5-M2";
 		compatible = "rockchip,rk3588";
 		category = "misc";
-		description = "Enable PWM5-M2.";
+		exclusive = "GPIO4_C4";
+		description = "Enable PWM5-M2.\nOn Radxa ROCK 5B this is pin 18.";
 	};
 
 	fragment@0 {
