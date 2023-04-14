@@ -7,7 +7,7 @@
 		compatible = "radxa,rock-5b";
 		category = "misc";
 		exclusive = "GPIO1_B2", "GPIO1_B3";
-		description = "Enable UART4-M2.\nOn Radxa ROCK 5B this is TX pin 23 and this is RX pin 19.";
+		description = "Enable UART4-M2.\nOn Radxa ROCK 5B this is TX pin 23 , RX pin 19.";
 	};
 
 	fragment@0 {
