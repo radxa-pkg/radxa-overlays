@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable PWM5-M2";
-		compatible = "rockchip,rk3588";
+		compatible = "radxa,rock-5b";
 		category = "misc";
 		exclusive = "GPIO4_C4";
 		description = "Enable PWM5-M2.\nOn Radxa ROCK 5B this is pin 18.";
