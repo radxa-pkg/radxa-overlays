@@ -11,7 +11,7 @@
 		title = "Enable Radxa Display 10HD";
 		compatible = "radxa,rock-3b";
 		category = "display";
-		exclusive = "dsi";
+		exclusive = "dsi0";
 		description = "Enable Radxa Display 10HD.";
 	};
 
