@@ -4,9 +4,10 @@
 / {
 	metadata {
 		title = "Enable PWM15-M0";
-		compatible = "rockchip,rk3588";
+		compatible = "radxa,rock-5b";
 		category = "misc";
-		description = "Enable PWM15-M0.";
+		exclusive = "GPIO3_C3";
+		description = "Enable PWM15-M0.\nOn Radxa ROCK 5B this is pin 7.";
 	};
 
 	fragment@0 {
