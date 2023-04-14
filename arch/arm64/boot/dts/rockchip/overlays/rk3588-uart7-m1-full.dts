@@ -6,7 +6,8 @@
 		title = "Enable UART7-M1 with Hardware Flow Control";
 		compatible = "rockchip,rk3588";
 		category = "misc";
-		description = "Enable UART7-M1 with hardware flow control.";
+		exclusive = "GPIO3_C3", , "GPIO3_C2", "GPIO3_C1", "GPIO3_C0";
+		description = "Enable UART7-M1 with hardware flow control.\nOn Radxa ROCK 5B this is CTSN pin 7 and this is RTSN pin 32 and this is TX pin 15 and this is RX pin 11.";
 	};
 
 	fragment@0 {
