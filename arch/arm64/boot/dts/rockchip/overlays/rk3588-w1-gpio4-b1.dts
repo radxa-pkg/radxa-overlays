@@ -19,7 +19,6 @@
 		__overlay__ {
 			w1: onewire@0 {
 				compatible = "w1-gpio";
-				pinctrl-names = "default";
 				gpios = <&gpio4 RK_PB1 GPIO_ACTIVE_HIGH>;
 				status = "okay";
 			};
