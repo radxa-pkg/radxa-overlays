@@ -3,7 +3,7 @@
 
 / {
 	metadata {
-		title = "Set OTG port to Peripheral mode";
+		title = "Set OTG port to Host mode";
 		compatible = "rockchip,rk3588";
 		category = "misc";
 		exclusive = "usbdrd_dwc3-dr_mode";
