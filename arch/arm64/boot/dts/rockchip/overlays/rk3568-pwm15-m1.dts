@@ -4,10 +4,10 @@
 / {
 	metadata {
 		title = "Enable PWM15-M1";
-		compatible = "radxa,rock-3c", "radxa,rock-3b";
+		compatible = "radxa,rock-3c";
 		category = "misc";
 		exclusive = "GPIO4_C3";
-		description = "Enable PWM15-M1.\nOn Radxa ROCK 3B this is pin 19.\nOn Radxa ROCK 3C this will disable onboard PWM fan control.";
+		description = "Enable PWM15-M1.\nOn Radxa ROCK 3B this is pin 19.";
 	};
 
 	fragment@0 {
@@ -17,14 +17,6 @@
 			status = "okay";
 			pinctrl-names = "active";
 			pinctrl-0 = <&pwm15m1_pins>;
-		};
-	};
-
-	fragment@1 {
-		target = <&fan0>;
-
-		__overlay__ {
-			status = "disabled";
 		};
 	};
 };
