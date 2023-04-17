@@ -6,7 +6,7 @@
 		title = "Enable PWM14-M1";
 		compatible = "radxa,rock-3c", "radxa,rock-3b";
 		category = "misc";
-		exclusive = "GPIO4_C2", "pwm14";
+		exclusive = "GPIO4_C2";
 		description = "Enable PWM14-M1.\nOn Radxa ROCK 3B this is pin 23.\nOn Radxa ROCK 3C this is pin 23.";
 	};
 

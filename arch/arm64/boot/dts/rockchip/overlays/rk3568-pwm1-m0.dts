@@ -6,7 +6,7 @@
 		title = "Enable PWM1-M0";
 		compatible = "radxa,rock-3b";
 		category = "misc";
-		exclusive = "GPIO0_C0", "pwm1";
+		exclusive = "GPIO0_C0";
 		description = "Enable PWM1-M0.\nOn Radxa ROCK 3B this is pin 15.";
 	};
 
