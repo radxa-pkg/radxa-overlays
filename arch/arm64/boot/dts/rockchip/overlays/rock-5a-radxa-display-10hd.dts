@@ -7,11 +7,11 @@
 
 / {
 	metadata {
-		title ="Enable Radxa Display 10HD on ROCK 5A";
+		title ="Enable Radxa Display 10HD";
 		compatible = "radxa,rock-5a";
 		category = "display";
-		exclusive = "csi";
-		description = "Enable Radxa Display 10HD on ROCK 5A.";
+		exclusive = "dsi0";
+		description = "Enable Radxa Display 10HD.";
 	};
 
 	fragment@0 {

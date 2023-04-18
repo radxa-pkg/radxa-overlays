@@ -8,11 +8,11 @@
 
 / {
 	metadata {
-		title ="Enable Radxa Camera 4K on ROCK 5A";
+		title ="Enable Radxa Camera 4K";
 		compatible = "radxa,rock-5a";
 		category = "camera";
-		exclusive = "csi";
-		description = "Enable Radxa Camera 4K on ROCK 5A.";
+		exclusive = "csi0";
+		description = "Enable Radxa Camera 4K.";
 	};
 
 	fragment@0 {
