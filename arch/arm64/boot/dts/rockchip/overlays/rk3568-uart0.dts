@@ -4,9 +4,9 @@
 / {
 	metadata {
 		title = "Enable UART0";
-		compatible = "unknown";
+		compatible = "radxa,rock-3b";
 		category = "misc";
-		description = "Enable UART0.";
+		description = "Enable UART0.\nOn Radxa ROCK 3B this is RX pin 15 and this is TX pin 22.";
 	};
 
 	fragment@0 {

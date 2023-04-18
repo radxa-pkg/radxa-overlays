@@ -4,9 +4,9 @@
 / {
 	metadata {
 		title = "Enable UART7-M1";
-		compatible = "unknown";
+		compatible = "radxa,rock-3b";
 		category = "misc";
-		description = "Enable UART7-M1.";
+		description = "Enable UART7-M1.\nOn Radxa ROCK 3B this is TX pin 11 and this is RX pin 13.";
 	};
 
 	fragment@0 {
