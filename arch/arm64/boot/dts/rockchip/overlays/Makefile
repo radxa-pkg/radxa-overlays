@@ -153,6 +153,10 @@ dtb-$(CONFIG_CPU_RK3568) += \
 	radxa-cm3-sodimm-io-raspberrypi-7inch-touchscreen.dtbo
 
 dtb-$(CONFIG_CLK_RK3588) += \
+	rk3588-fiq-debugger-uart4m2.dtbo \
+	rk3588-fiq-debugger-uart6m1.dtbo \
+	rk3588-fiq-debugger-uart7m2.dtbo \
+	rk3588-fiq-debugger-uart8m0.dtbo \
 	rk3588-i2c0-m1.dtbo \
 	rk3588-i2c1-m0.dtbo \
 	rk3588-i2c2-m4.dtbo \
@@ -194,9 +198,11 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-uart2-m2.dtbo \
 	rk3588-uart3-m1.dtbo \
 	rk3588-uart4-m2.dtbo \
+	rk3588-uart6-m1.dtbo \
 	rk3588-uart7-m1-ctsn-rtsn.dtbo \
 	rk3588-uart7-m1.dtbo \
 	rk3588-uart7-m2.dtbo \
+	rk3588-uart8-m0.dtbo \
 	rk3588-w1-gpio3-b3.dtbo \
 	rk3588-w1-gpio4-b1.dtbo \
 	rock-5a-radxa-display-10fhd.dtbo \
