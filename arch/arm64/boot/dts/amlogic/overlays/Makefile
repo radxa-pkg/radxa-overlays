@@ -28,7 +28,9 @@ dtb-$(CONFIG_ARCH_MESON) += \
 	meson-g12-usb-host.dtbo \
 	meson-g12-usb-otg.dtbo \
 	meson-g12-usb-peripheral.dtbo \
-	meson-g12-w1-gpioao-3.dtbo
+	meson-g12-w1-gpioao-3.dtbo \
+	radxa-zero-led-8-off.dtbo \
+	radxa-zero-led-10-off.dtbo
 
 dtbotxt-$(CONFIG_ARCH_MESON) += \
 	README.overlays
