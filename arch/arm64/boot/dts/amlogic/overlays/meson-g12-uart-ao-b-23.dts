@@ -1,0 +1,21 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable UART_AO-B on GPIOAO_2 and GPIOAO_3";
+		compatible = "radxa,zero", "radxa,zero2";
+		category = "misc";
+		exclusive = "uart_AO_B", "GPIOAO_2", "GPIOAO_3";
+		description = "Enable UART_AO-B on GPIOAO_2 and GPIOAO_3.";
+	};
+
+	fragment@0 {
+		target = <&uart_AO_B>;
+		__overlay__ {
+			status = "okay";
+			pinctrl-0 = <&uart_ao_b_2_3_pins>;
+			pinctrl-names = "default";
+		};
+	};
+};

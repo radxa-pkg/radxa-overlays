@@ -1,0 +1,21 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable I2C_EE-M1 on GPIOX_10 and GPIOX_11";
+		compatible = "radxa,zero", "radxa,zero2";
+		category = "misc";
+		exclusive = "i2c1", "GPIOX_10", "GPIOX_11";
+		description = "Enable I2C_EE-M1 on GPIOX_10 and GPIOX_11.";
+	};
+
+	fragment@0 {
+		target = <&i2c1>;
+		__overlay__ {
+			status = "okay";
+			pinctrl-0 = <&i2c1_sck_x_pins &i2c1_sda_x_pins>;
+			pinctrl-names = "default";
+		};
+	};
+};

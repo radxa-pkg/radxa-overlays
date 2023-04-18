@@ -1,0 +1,23 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable PWM-C on GPIOZ_1";
+		compatible = "radxa,zero2";
+		category = "misc";
+		exclusive = "pwm_cd", "GPIOZ_1";
+		description = "Enable PWM-C on GPIOZ_1.";
+	};
+
+	fragment@0 {
+		target = <&pwm_cd>;
+		__overlay__ {
+			pinctrl-0 = <&pwm_c_z_pins>;
+			pinctrl-names = "default";
+			clocks = <&xtal>;
+			clock-names = "clkin1";
+			status = "okay";
+		};
+	};
+};

@@ -1,0 +1,23 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable PWM_AO-A on GPIOAO_11";
+		compatible = "radxa,zero", "radxa,zero2";
+		category = "misc";
+		exclusive = "pwm_AO_ab", "GPIOAO_11";
+		description = "Enable PWM_AO-A on GPIOAO_11.";
+	};
+
+	fragment@0 {
+		target = <&pwm_AO_ab>;
+		__overlay__ {
+			status = "okay";
+			pinctrl-0 = <&pwm_ao_a_pins>;
+			pinctrl-names = "default";
+			clocks = <&xtal>;
+			clock-names = "clkin3";
+		};
+	};
+};
