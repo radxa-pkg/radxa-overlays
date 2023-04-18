@@ -6,11 +6,11 @@
 
 / {
 	metadata {
-		title ="Enable Raspberry Pi Camera V2 on ROCK 5A";
+		title ="Enable Raspberry Pi Camera V2";
 		compatible = "radxa,rock-5a";
 		category = "camera";
-		exclusive = "csi";
-		description = "Enable Raspberry Pi Camera V2 on ROCK 5A.";
+		exclusive = "csi2_dphy0";
+		description = "Enable Raspberry Pi Camera V2.";
 	};
 
 

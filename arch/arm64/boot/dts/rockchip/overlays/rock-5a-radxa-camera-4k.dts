@@ -11,7 +11,7 @@
 		title ="Enable Radxa Camera 4K";
 		compatible = "radxa,rock-5a";
 		category = "camera";
-		exclusive = "csi0";
+		exclusive = "csi2_dphy0";
 		description = "Enable Radxa Camera 4K.";
 	};
 
