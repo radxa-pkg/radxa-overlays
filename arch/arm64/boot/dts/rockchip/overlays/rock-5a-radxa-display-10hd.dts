@@ -7,11 +7,11 @@
 
 / {
 	metadata {
-		title ="Enable Radxa Display 8HD";
+		title ="Enable Radxa Display 10HD";
 		compatible = "radxa,rock-5a";
 		category = "display";
 		exclusive = "dsi0";
-		description = "Enable Radxa Display 8HD.";
+		description = "Enable Radxa Display 10HD.";
 	};
 
 	fragment@0 {
@@ -107,7 +107,7 @@
 
 			dsi0_panel: panel@0 {
 				status = "okay";
-				compatible ="radxa,display-8hd";
+				compatible = "radxa,display-10hd-ad001";
 				reg = <0>;
 				backlight = <&dsi0_backlight>;
 
@@ -188,18 +188,15 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			gt9xx: gt9xx@14 {
+			focaltech: focaltech@38 {
 				status = "okay";
-				compatible = "goodix,gt9xx";
-				reg = <0x14>;
+				compatible = "focaltech,fts";
+				reg = <0x38>;
 				pinctrl-names = "default";
-				pinctrl-0 = <&gt9xx_gpio>;
-				touch-gpio = <&gpio3 RK_PC6 IRQ_TYPE_LEVEL_HIGH>;
-				reset-gpio = <&gpio3 RK_PC5 GPIO_ACTIVE_HIGH>;
-				max-x = <800>;
-				max-y = <1280>;
-				tp-size = <9112>;
-				tp-supply = <&vcc_tp>;
+				pinctrl-0 = <&focaltech_gpio>;
+				focaltech,irq-gpio = <&gpio3 RK_PC6 IRQ_TYPE_LEVEL_LOW>;
+				focaltech,reset-gpio = <&gpio3 RK_PC5 GPIO_ACTIVE_HIGH>;
+				focaltech,display-coords = <0 0 799 1279>;
 			};
 		};
 	};
@@ -218,8 +215,8 @@
 				};
 			};
 
-			gt9xx {
-				gt9xx_gpio: gt9xx-gpio {
+			focaltech {
+				focaltech_gpio: focaltech-gpio {
 					rockchip,pins =
 						<3 RK_PC5 RK_FUNC_GPIO &pcfg_pull_none>,
 						<3 RK_PC6 RK_FUNC_GPIO &pcfg_pull_up>;
