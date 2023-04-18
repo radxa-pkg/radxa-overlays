@@ -7,7 +7,7 @@
 		compatible = "radxa,rock-5a";
 		category = "misc";
 		exclusive = "GPIO1_A1", "GPIO1_A0", "GPIO1_A2", "GPIO1_A3";
-		description = "Enable UART6-M1 hardware follow control.\nOn Radxa ROCK 5A this is CTSN pin 24 , RTSN pin 23 , TX pin 19 , and RX pin 21.";
+		description = "Enable UART6-M1 hardware follow control.\nOn Radxa ROCK 5A this is CTSN pin 24, RTSN pin 23, TX pin 19, and RX pin 21.";
 	};
 
 	fragment@0 {
