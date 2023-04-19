@@ -140,7 +140,6 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rock-3ab-rpi-camera-v2-imx219.dtbo \
 	rock-3b-disable-hdmicec.dtbo \
 	rock-3b-hdmi-and-sharp-lq133t1jw01-edp-lcd.dtbo \
-	rock-3b-radxa-10p1inch-display.dtbo \
 	rock-3c-okdo-5mp-camera.dtbo \
 	rock-3c-radxa-5inch-touchscreen.dtbo \
 	rock-3c-raspberrypi-7inch-touchscreen.dtbo \
@@ -150,7 +149,8 @@ dtb-$(CONFIG_CLK_RK3568) += \
 dtb-$(CONFIG_CPU_RK3568) += \
 	radxa-5inch-touchscreen-on-cm3-sodimm-io.dtbo \
 	radxa-cm3-sodimm-io-raspberrypi-7inch-touchscreen.dtbo \
-	rock-3b-radxa-8inch-display.dtbo
+	rock-3b-radxa-8inch-display.dtbo \
+	rock-3b-radxa-10p1inch-display.dtbo
 
 dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-fiq-debugger-uart4m2.dtbo \
