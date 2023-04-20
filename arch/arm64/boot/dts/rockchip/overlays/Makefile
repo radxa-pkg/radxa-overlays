@@ -199,10 +199,12 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-uart2-m2.dtbo \
 	rk3588-uart3-m1.dtbo \
 	rk3588-uart4-m2.dtbo \
+	rk3588-uart6-m1-full.dtbo \
 	rk3588-uart6-m1.dtbo \
 	rk3588-uart7-m1-ctsn-rtsn.dtbo \
 	rk3588-uart7-m1.dtbo \
 	rk3588-uart7-m2.dtbo \
+	rk3588-uart8-m0-full.dtbo \
 	rk3588-uart8-m0.dtbo \
 	rk3588-w1-gpio3-b3.dtbo \
 	rk3588-w1-gpio4-b1.dtbo \
