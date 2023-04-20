@@ -3,7 +3,7 @@
 
 / {
 	metadata {
-		title = "Enable I2C1-M0";
+		title = "Enable I2C8-M2";
 		compatible = "radxa,rock-5a";
 		category = "misc";
 		exclusive = "GPIO1_D6", "GPIO1_D7";
