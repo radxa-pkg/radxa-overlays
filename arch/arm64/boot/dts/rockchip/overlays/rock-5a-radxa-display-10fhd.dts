@@ -4,11 +4,11 @@
 
 / {
 	metadata {
-		title = "Enable Radxa Display 10HD";
-		compatible = "radxa,rock-5a";
+		title = "Enable Radxa Display 10FHD";
+		compatible = "unknown";
 		category = "display";
-		exclusive = "dsi";
-		description = "Enable Radxa Display 10HD.";
+		exclusive = "dsi0";
+		description = "Enable Radxa Display 10FHD.";
 	};
 
 	fragment@0 {
