@@ -1,21 +1,51 @@
 /dts-v1/;
 /plugin/;
 
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+
 / {
 	metadata {
 		title = "Enable Quectel EM05 Modem";
 		compatible = "radxa,rock-3b";
 		category = "misc";
+		exclusive = "sata2";
 		description = "Enable Quectel EM05 Modem.";
 	};
 
 	fragment@0 {
-		target = <&em05_modem>;
+		target-path = "/";
 
 		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&em05_power_en &em05_airplane_mode &em05_reset>;
+			em05_modem: em05-modem {
+				compatible = "lte-em05-modem-platdata";
+				pinctrl-names = "default";
+				pinctrl-0 = <&em05_power_en &em05_airplane_mode &em05_reset>;
+				em05,power-gpio = <&gpio0 RK_PC6 GPIO_ACTIVE_HIGH>;
+				em05,reset-gpio = <&gpio0 RK_PD6 GPIO_ACTIVE_HIGH>;
+				em05,airplane-gpio = <&gpio1 RK_PB0 GPIO_ACTIVE_HIGH>;
+				status = "okay";
+			};
+		};
+	};
+
+	fragment@2 {
+		target = <&pinctrl>;
+
+		__overlay__ {
+			lte-em05-modem {
+				em05_airplane_mode: em05-airplane-mode {
+					rockchip,pins = <1 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
+				};
+
+				em05_power_en: em05-power-en {
+					rockchip,pins = <0 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
+				};
+
+				em05_reset: em05-reset {
+					rockchip,pins = <0 RK_PD6 RK_FUNC_GPIO &pcfg_pull_none>;
+				};
+			};
 		};
 	};
 };
