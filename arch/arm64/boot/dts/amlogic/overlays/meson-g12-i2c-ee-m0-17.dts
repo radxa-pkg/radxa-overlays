@@ -1,0 +1,21 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable I2C_EE-M0 on GPIOZ_1 and GPIOZ_7";
+		compatible = "radxa,zero2";
+		category = "misc";
+		exclusive = "i2c0", "GPIOZ_1", "GPIOZ_7";
+		description = "Enable I2C_EE-M0 on GPIOZ_1 and GPIOZ_7.";
+	};
+
+	fragment@0 {
+		target = <&i2c0>;
+		__overlay__ {
+			status = "okay";
+			pinctrl-0 = <&i2c0_sck_z1_pins &i2c0_sda_z7_pins>;
+			pinctrl-names = "default";
+		};
+	};
+};

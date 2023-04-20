@@ -1,0 +1,21 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable UART_AO-A on GPIOAO_0 and GPIOAO_1";
+		compatible = "radxa,zero", "radxa,zero2";
+		category = "misc";
+		exclusive = "uart_AO", "GPIOAO_0", "GPIOAO_1";
+		description = "Enable UART_AO-A on GPIOAO_0 and GPIOAO_1.";
+	};
+
+	fragment@0 {
+		target = <&uart_AO>;
+		__overlay__ {
+			status = "okay";
+			pinctrl-0 = <&uart_ao_a_pins>;
+			pinctrl-names = "default";
+		};
+	};
+};

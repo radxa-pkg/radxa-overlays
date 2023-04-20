@@ -4,9 +4,10 @@
 / {
 	metadata {
 		title = "Enable UART4-M2";
-		compatible = "rockchip,rk3588";
+		compatible = "radxa,rock-5a";
 		category = "misc";
-		description = "Enable UART4-M2.";
+		exclusive= "GPIO1_B3", "GPIO1_B2";
+		description = "Enable UART4-M2.\nOn Radxa ROCK 5A this is TX pin 7 and RX pin 29.";
 	};
 
 	fragment@0 {

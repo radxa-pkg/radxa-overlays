@@ -1,0 +1,21 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable I2C_EE-M1 on GPIOH_6 and GPIOH_7";
+		compatible = "radxa,zero", "radxa,zero2";
+		category = "misc";
+		exclusive = "i2c1", "GPIOH_6", "GPIOH_7";
+		description = "Enable I2C_EE-M1 on GPIOH_6 and GPIOH_7.";
+	};
+
+	fragment@0 {
+		target = <&i2c1>;
+		__overlay__ {
+			status = "okay";
+			pinctrl-0 = <&i2c1_sck_h7_pins &i2c1_sda_h6_pins>;
+			pinctrl-names = "default";
+		};
+	};
+};

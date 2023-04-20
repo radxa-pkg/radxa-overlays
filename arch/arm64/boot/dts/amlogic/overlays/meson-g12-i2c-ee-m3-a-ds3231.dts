@@ -1,0 +1,47 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/gpio/meson-g12a-gpio.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+	metadata {
+		title = "Enable DS3231 RTC on I2C_EE-M3";
+		compatible = "radxa,zero", "radxa,zero2";
+		category = "misc";
+		exclusive = "GPIOAO_3";
+		description = "Enable DS3231 RTC on I2C_EE-M3.\nINT = GPIOAO_3";
+	};
+
+	fragment@0 {
+		target = <&i2c3>;
+		__overlay__ {
+			status = "okay";
+			pinctrl-0 = <&i2c3_sck_a_pins &i2c3_sda_a_pins>;
+			pinctrl-names = "default";
+
+			ds3231: ds3231@68 {
+				compatible = "maxim,ds3231";
+				reg = <0x68>;
+				#clock-cells = <1>;
+				interrupt-parent = <&gpio_intc>;
+				interrupts = <3 IRQ_TYPE_EDGE_FALLING>;
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <&ao_pinctrl>;
+		__overlay__ {
+			ds3231_int_pins: ds3231-int-pins@0 {
+				mux {
+					groups = "GPIOAO_3";
+					function = "gpio_aobus";
+					bias-pull-up;
+					drive-strength-microamp = <4000>;
+				};
+			};
+		};
+	};
+};

@@ -1,0 +1,21 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Set OTG port to Peripheral mode";
+		compatible = "radxa,zero", "radxa,zero2";
+		category = "misc";
+		exclusive = "usb";
+		description = "Set OTG port to Peripheral mode.\nUse this when you want to connect to another computer.";
+	};
+
+	fragment@0 {
+		target = <&usb>;
+
+		__overlay__ {
+			status = "okay";
+			dr_mode = "peripheral";
+		};
+	};
+};

@@ -4,10 +4,10 @@
 / {
 	metadata {
 		title = "Enable UART9-M1";
-		compatible = "radxa,rock-3c";
+		compatible = "radxa,rock-3b", "radxa,rock-3c";
 		category = "misc";
 		exclusive = "GPIO4_C5", "GPIO4_C6";
-		description = "Enable UART9-M1.";
+		description = "Enable UART9-M1.\nOn Radxa ROCK 3B this is TX pin 21 and this is RX pin 24.\nOn Radxa ROCK 3C this is TX pin 21 and this is RX pin 24.";
 	};
 
 	fragment@0 {

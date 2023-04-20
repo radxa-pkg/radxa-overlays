@@ -1,0 +1,19 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable GPIOAO_10 for hardware version 1.5 and before";
+		compatible = "radxa,zero";
+		category = "misc";
+		exclusive = "led_power_151";
+		description = "Enable GPIOAO_10 for hardware version 1.5 and before.\nThis is due to newer version uses this for Power LED.";
+	};
+
+	fragment@0 {
+		target = <&led_power_151>;
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+};

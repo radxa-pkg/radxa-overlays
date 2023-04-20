@@ -117,6 +117,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-spi3-m1-cs0-enc28j60.dtbo \
 	rk3568-spi3-m1-cs0-mcp2515.dtbo \
 	rk3568-spi3-m1-cs0-spidev.dtbo \
+	rk3568-spi3-m1-cs1-spidev.dtbo \
 	rk3568-uart0.dtbo \
 	rk3568-uart1-m1-full.dtbo \
 	rk3568-uart2-m0.dtbo \
@@ -130,17 +131,16 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-uart8-m1.dtbo \
 	rk3568-uart9-m1.dtbo \
 	rk3568-w1-gpio.dtbo \
-	rock-3a-raspberrypi-7inch-touchscreen.dtbo \
 	rock-3a-sata0.dtbo \
 	rock-3a-sata1.dtbo \
 	rock-3a-sata2.dtbo \
 	rock-3ab-okdo-5mp-camera.dtbo \
 	rock-3ab-radxa-5inch-touchscreen.dtbo \
+	rock-3ab-raspberrypi-7inch-touchscreen.dtbo \
 	rock-3ab-rpi-camera-v1p3-ov5647.dtbo \
 	rock-3ab-rpi-camera-v2-imx219.dtbo \
 	rock-3b-disable-hdmicec.dtbo \
 	rock-3b-hdmi-and-sharp-lq133t1jw01-edp-lcd.dtbo \
-	rock-3b-radxa-10p1inch-display.dtbo \
 	rock-3c-okdo-5mp-camera.dtbo \
 	rock-3c-radxa-5inch-touchscreen.dtbo \
 	rock-3c-raspberrypi-7inch-touchscreen.dtbo \
@@ -149,9 +149,15 @@ dtb-$(CONFIG_CLK_RK3568) += \
 
 dtb-$(CONFIG_CPU_RK3568) += \
 	radxa-5inch-touchscreen-on-cm3-sodimm-io.dtbo \
-	radxa-cm3-sodimm-io-raspberrypi-7inch-touchscreen.dtbo
+	radxa-cm3-sodimm-io-raspberrypi-7inch-touchscreen.dtbo \
+	rock-3b-radxa-8inch-display.dtbo \
+	rock-3b-radxa-10p1inch-display.dtbo
 
 dtb-$(CONFIG_CLK_RK3588) += \
+	rk3588-fiq-debugger-uart4m2.dtbo \
+	rk3588-fiq-debugger-uart6m1.dtbo \
+	rk3588-fiq-debugger-uart7m2.dtbo \
+	rk3588-fiq-debugger-uart8m0.dtbo \
 	rk3588-i2c0-m1.dtbo \
 	rk3588-i2c1-m0.dtbo \
 	rk3588-i2c2-m4.dtbo \
@@ -162,17 +168,23 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-i2c7-m3.dtbo \
 	rk3588-i2c8-m2.dtbo \
 	rk3588-i2c8-m4.dtbo \
+	rk3588-pwm0-m2.dtbo \
+	rk3588-pwm1-m2.dtbo \
 	rk3588-pwm2-m1.dtbo \
 	rk3588-pwm3-m1.dtbo \
 	rk3588-pwm5-m2.dtbo \
+	rk3588-pwm6-m0.dtbo \
 	rk3588-pwm6-m2.dtbo \
+	rk3588-pwm7-m0.dtbo \
 	rk3588-pwm7-m3.dtbo \
 	rk3588-pwm8-m0.dtbo \
+	rk3588-pwm11-m1.dtbo \
 	rk3588-pwm12-m0.dtbo \
 	rk3588-pwm13-m0.dtbo \
 	rk3588-pwm13-m2.dtbo \
 	rk3588-pwm14-m0.dtbo \
 	rk3588-pwm14-m1.dtbo \
+	rk3588-pwm14-m2.dtbo \
 	rk3588-pwm15-m0.dtbo \
 	rk3588-pwm15-m1.dtbo \
 	rk3588-pwm15-m3.dtbo \
@@ -188,16 +200,23 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-uart3-m1.dtbo \
 	rk3588-uart4-m2.dtbo \
 	rk3588-uart6-m1-full.dtbo \
+	rk3588-uart6-m1.dtbo \
 	rk3588-uart7-m1-ctsn-rtsn.dtbo \
 	rk3588-uart7-m1.dtbo \
 	rk3588-uart7-m2.dtbo \
 	rk3588-uart8-m0-full.dtbo \
+	rk3588-uart8-m0.dtbo \
+	rk3588-w1-gpio3-b3.dtbo \
+	rk3588-w1-gpio4-b1.dtbo \
 	rock-5a-radxa-display-10fhd.dtbo \
-	rock-5ab-camera-imx415.dtbo \
+	rock-5a-radxa-display-8hd.dtbo \
+	rock-5a-rpi-camera-v2.dtbo \
+	rock-5a-radxa-display-10hd.dtbo \
 	rock-5b-radxa-display-10fhd.dtbo \
 	rock-5b-sata.dtbo
 
 dtb-$(CONFIG_CPU_RK3588) += \
+	rock-5a-radxa-camera-4k.dtbo \
 	rock-5b-hdmi1-8k.dtbo \
 	rock-5b-hdmi2-8k.dtbo
 

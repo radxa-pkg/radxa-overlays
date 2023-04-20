@@ -4,10 +4,10 @@
 / {
 	metadata {
 		title = "Enable PWM15-M0";
-		compatible = "radxa,rock-3c";
+		compatible = "radxa,rock-3b";
 		category = "misc";
-		exclusive = "GPIO3_C5", "pwm15";
-		description = "Enable PWM15-M0.\nThis pin is used by onboard PWM fan, which should be controlled by thermal governor.";
+		exclusive = "GPIO3_C5";
+		description = "Enable PWM15-M0.\nOn Radxa ROCK 3B this is pin 13.";
 	};
 
 	fragment@0 {
@@ -17,14 +17,6 @@
 			status = "okay";
 			pinctrl-names = "active";
 			pinctrl-0 = <&pwm15m0_pins>;
-		};
-	};
-
-	fragment@1 {
-		target = <&fan0>;
-
-		__overlay__ {
-			status = "disabled";
 		};
 	};
 };

@@ -1,0 +1,21 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable UART_EE-C with Hardware Flow Control on GPIOH_4 - GPIOH_7";
+		compatible = "radxa,zero", "radxa,zero2";
+		category = "misc";
+		exclusive = "uart_C", "GPIOH_6", "GPIOH_7", "GPIOH_4", "GPIOH_5";
+		description = "Enable UART_EE-C with Hardware Flow Control on GPIOH_4 - GPIOH_7.";
+	};
+
+	fragment@0 {
+		target = <&uart_C>;
+		__overlay__ {
+			status = "okay";
+			pinctrl-0 = <&uart_c_pins &uart_c_cts_rts_pins>;
+			pinctrl-names = "default";
+		};
+	};
+};

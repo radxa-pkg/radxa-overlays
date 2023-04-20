@@ -4,9 +4,10 @@
 / {
 	metadata {
 		title = "Enable UART2-M0";
-		compatible = "rockchip,rk3588";
+		compatible = "radxa,rock-5a";
 		category = "misc";
-		description = "Enable UART2-M0.";
+		exclusive= "GPIO0_B5", "GPIO0_B6";
+		description = "Enable UART2-M0.\nOn Radxa ROCK 5A this is TX pin 8 and RX pin 10.";
 	};
 
 	fragment@0 {
@@ -15,6 +16,14 @@
 		__overlay__ {
 			status = "okay";
 			pinctrl-0 = <&uart2m0_xfer>;
+		};
+	};
+
+	fragment@1 {
+		target = <&fiq_debugger>;
+
+		__overlay__ {
+			status = "disabled";
 		};
 	};
 };
