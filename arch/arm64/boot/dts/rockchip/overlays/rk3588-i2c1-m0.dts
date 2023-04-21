@@ -11,6 +11,14 @@
 	};
 
 	fragment@0 {
+		target = <&fiq_debugger>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@1 {
 		target = <&i2c1>;
 
 		__overlay__ {
