@@ -154,6 +154,8 @@ dtb-$(CONFIG_CPU_RK3568) += \
 	rock-3b-radxa-10p1inch-display.dtbo
 
 dtb-$(CONFIG_CLK_RK3588) += \
+	rk3588-dwc3-host.dtbo \
+	rk3588-dwc3-peripheral.dtbo \
 	rk3588-fiq-debugger-uart2m2.dtbo \
 	rk3588-fiq-debugger-uart3m1.dtbo \
 	rk3588-fiq-debugger-uart4m2.dtbo \
