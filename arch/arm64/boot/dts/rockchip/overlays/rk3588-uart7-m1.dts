@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable UART7-M1";
-		compatible = "rockchip,rk3588";
+		compatible = "radxa,rock-5b";
 		category = "misc";
 		exclusive = "GPIO3_C1", "GPIO3_C0"; 
 		description = "Enable UART7-M1.\nOn Radxa ROCK 5B this is RX pin 11 and TX pin 15.";
