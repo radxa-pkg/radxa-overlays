@@ -1,0 +1,31 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable FIQ Debugger on UART2-M2";
+		compatible = "radxa,rock-5b";
+		category = "misc";
+		exclusive = "GPIO3_B1", "GPIO3_B2";
+		description = "Enable FIQ Debugger on UART2-M2.\nOn Radxa ROCK 5B this is TX pin 36 and this is RX pin 38.";
+	};
+
+	fragment@0 {
+		target = <&fiq_debugger>;
+
+		__overlay__ {
+			status = "okay";
+			rockchip,serial-id = <2>;
+			pinctrl-names = "default";
+			pinctrl-0 = <&uart2m2_xfer>;
+		};
+	};
+
+	fragment@1 {
+		target = <&uart2>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+};

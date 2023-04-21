@@ -154,8 +154,11 @@ dtb-$(CONFIG_CPU_RK3568) += \
 	rock-3b-radxa-10p1inch-display.dtbo
 
 dtb-$(CONFIG_CLK_RK3588) += \
+	rk3588-fiq-debugger-uart2m2.dtbo \
+	rk3588-fiq-debugger-uart3m1.dtbo \
 	rk3588-fiq-debugger-uart4m2.dtbo \
 	rk3588-fiq-debugger-uart6m1.dtbo \
+	rk3588-fiq-debugger-uart7m1.dtbo \
 	rk3588-fiq-debugger-uart7m2.dtbo \
 	rk3588-fiq-debugger-uart8m0.dtbo \
 	rk3588-i2c0-m1.dtbo \
