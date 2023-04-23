@@ -106,8 +106,6 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-pwm7.dtbo \
 	rk3568-pwm8-m0.dtbo \
 	rk3568-pwm9-m0.dtbo \
-	rk3568-rock-3b-em05-modem.dtbo \
-	rk3568-rock-3b-sata2.dtbo \
 	rk3568-serdes2-pcie.dtbo \
 	rk3568-serdes2-sata.dtbo \
 	rk3568-spi0-m0-cs0-spidev.dtbo \
