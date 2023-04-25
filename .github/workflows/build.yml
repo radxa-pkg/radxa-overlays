@@ -2,7 +2,13 @@ name: Build
 on:
   workflow_dispatch:
   push:
+    paths:
+      - '**.dts'
+      - '**Makefile'
   pull_request:
+    paths:
+      - '**.dts'
+      - '**Makefile'
 
 jobs:
   build:
