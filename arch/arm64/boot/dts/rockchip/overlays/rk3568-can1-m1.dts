@@ -1,12 +1,15 @@
 /dts-v1/;
 /plugin/;
 
+#include <dt-bindings/clock/rk3568-cru.h>
+
 / {
 	metadata {
 		title = "Enable CAN1-M1";
-		compatible = "unknown";
+		compatible = "radxa,rock-3b";
 		category = "misc";
-		description = "Enable CAN1-M1.\nOn ROCK 3C this is TX pin 19 & RX pin 23.";
+		exclusive = "GPIO4_C3", "GPIO4_C2";
+		description = "Enable CAN1-M1.\nOn Radxa ROCK 3B this is TX pin 19 & RX pin 23.";
 	};
 
 	fragment@0 {
@@ -14,8 +17,9 @@
 
 		__overlay__ {
 			status = "okay";
-			assigned-clocks = <&cru 323>;
-			assigned-clock-rates = <100000000>;
+			compatible = "rockchip,can-1.0";
+			assigned-clocks = <&cru CLK_CAN1>;
+			assigned-clock-rates = <200000000>;
 			pinctrl-names = "default";
 			pinctrl-0 = <&can1m1_pins>;
 		};
