@@ -7,10 +7,10 @@
 / {
 	metadata {
 		title = "Enable 1-Wire on GPIO3_A5";
-		compatible = "radxa,rock-3c";
+		compatible = "radxa,rock-3a", "radxa,rock-3b", "radxa,rock-3c";
 		category = "misc";
 		exclusive = "GPIO3_A5";
-		description = "Enable 1-Wire on GPIO3_A5.\nOn ROCK 3C this is pin 40.";
+		description = "Enable 1-Wire on GPIO3_A5.\nOn Radxa ROCK 3A this is pin 40.\nOn Radxa ROCK 3B this is pin 40.\nOn Radxa ROCK 3C this is pin 40.";
 	};
 
 	fragment@0 {
