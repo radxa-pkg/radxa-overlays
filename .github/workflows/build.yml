@@ -5,11 +5,21 @@ on:
   pull_request:
 
 jobs:
-  query:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y --no-install-recommends device-tree-compiler
       - name: Build
         run: |
           make -j$(nproc)
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dtbo
+          path: |
+            arch/**/*.dtbo
