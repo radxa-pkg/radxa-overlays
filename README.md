@@ -3,6 +3,22 @@ Additional device tree overlays to support different hardware on Radxa products
 
 This repo is supposed to be applied directly over Linux source tree. You will also need [this patch](https://github.com/radxa-repo/bsp/blob/main/linux/latest/0100-vendor/0001-VENDOR-Add-Radxa-overlays.patch) so they can be built with the kernel.
 
+## Build overlays locally
+
+First, make sure you have the running kernel header, `gcc`, and `device-tree-compiler` installed.
+
+You can then run the following command to build overlays:
+
+```bash
+make -j$(nproc)
+```
+
+To delete build artifacts, run the following command:
+
+```bash
+make clean
+```
+
 ## Metadata specs
 
 Currently we mandate a custom `metadata` node in overlays. This data is parsed by [`rsetup`](https://github.com/radxa-pkg/rsetup) to provide human readable description and conflict detection. Below is a sample `metadata` node with detailed guideline after:
