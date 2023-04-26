@@ -1,4 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0
+ifeq ($(strip $(CONFIG_CPU_RK3308)), y)
+	CONFIG_CLK_RK3308 ?= y
+endif
 ifeq ($(strip $(CONFIG_CPU_RK3399)), y)
 	CONFIG_CLK_RK3399 ?= y
 endif
@@ -8,6 +11,10 @@ endif
 ifeq ($(strip $(CONFIG_CPU_RK3588)), y)
 	CONFIG_CLK_RK3588 ?= y
 endif
+
+dtb-$(CONFIG_CLK_RK3308) += \
+	rk3308-bs-opp-1008.dtbo \
+	rk3308-bs-opp-1296.dtbo
 
 dtb-$(CONFIG_CLK_RK3399) += \
 	rk3399-dwc3-0-host.dtbo \

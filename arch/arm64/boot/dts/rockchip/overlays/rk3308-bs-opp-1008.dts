@@ -1,0 +1,15 @@
+// Based on Armbian overlays-11-add-rk3308bs.patch
+/dts-v1/;
+/plugin/;
+
+#include "rk3308-bs-opp.dtsi"
+
+/ {
+	metadata {
+		title = "Use RK3308B-S OPP table";
+		compatible = "rockchip,rk3308";
+		category = "misc";
+		exclusive = "cpu0_opp_table";
+		description = "RK3308B-S is a variant of RK3308B, that can operate at lower voltage, resulting in lower power consumption.\nEnable this overlay on regular RK3308 system may render it non-bootable.";
+	};
+};
