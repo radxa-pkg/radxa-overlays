@@ -3,17 +3,17 @@
 
 / {
 	metadata {
-		title = "Disable HDMI CEC";
+		title = "Enable HDMI CEC";
 		compatible = "radxa,rock-3b";
 		category = "misc";
-		description = "Disable HDMI CEC.";
+		description = "Enable HDMI CEC.";
 	};
 
 	fragment@0 {
 		target = <&hdmi>;
 
 		__overlay__ {
-			pinctrl-0 = <&hdmitx_scl &hdmitx_sda>;
+			pinctrl-0 = <&hdmitx_scl &hdmitx_sda &hdmitxm0_cec>;
 		};
 	};
 };
