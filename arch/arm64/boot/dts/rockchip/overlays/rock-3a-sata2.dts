@@ -5,7 +5,7 @@
 / {
 	metadata {
 		title = "Enable SATA2";
-		compatible = "radxa,rock-3b";
+		compatible = "radxa,rock-3a";
 		category = "misc";
 		description = "Enable SATA2.\nWhen SATA2 is enabled, PCIe cannot be enabled on the same port.";
 	};
