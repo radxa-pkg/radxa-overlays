@@ -226,6 +226,7 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rock-5a-radxa-display-10hd.dtbo \
 	rock-5a-sata.dtbo \
 	rock-5b-radxa-display-10fhd.dtbo \
+	rock-5b-radxa-display-10hd.dtbo \
 	rock-5b-rpi-camera-v2.dtbo \
 	rock-5b-sata.dtbo
 
