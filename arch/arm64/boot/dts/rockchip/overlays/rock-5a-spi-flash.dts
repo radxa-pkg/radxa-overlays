@@ -5,10 +5,11 @@
 / {
 
 	metadata {
-		title = "Enable SPI FLASH";
+		title = "Enable SPI flash";
 		compatible = "radxa,rock-5a";
 		category = "misc";
-		description = "Enable SPI FLASH.\nWhen SPI FLASH is enabled, EMMC cannot be enabled on the same port.";
+		exclusive = "sdhci", "sfc";
+		description = "Enable SPI flash.\nWhen SPI flash is enabled, eMMC cannot be enabled on the same port.";
 	};
 
 	fragment@0 {
