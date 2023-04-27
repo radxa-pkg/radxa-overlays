@@ -204,7 +204,7 @@
 		};
 	};
 
-	fragment@10 {
+	fragment@8 {
 		target = <&pinctrl>;
 
 		__overlay__ {
