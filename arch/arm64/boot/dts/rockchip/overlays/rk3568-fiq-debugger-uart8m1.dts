@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable FIQ Debugger on UART8-M1";
-		compatible = "radxa,rock-3b";
+		compatible = "unknown";
 		category = "misc";
 		description = "Enable FIQ Debugger on UART8-M1.\nOn Radxa ROCK 3B this is TX pin 29 and this is RX pin 31.";
 	};
