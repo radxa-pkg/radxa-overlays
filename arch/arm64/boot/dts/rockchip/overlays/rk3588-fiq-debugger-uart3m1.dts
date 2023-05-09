@@ -15,7 +15,7 @@
 
 		__overlay__ {
 			status = "okay";
-			rockchip,serial-id = <0>;
+			rockchip,serial-id = <3>;
 			pinctrl-names = "default";
 			pinctrl-0 = <&uart3m1_xfer>;
 		};
