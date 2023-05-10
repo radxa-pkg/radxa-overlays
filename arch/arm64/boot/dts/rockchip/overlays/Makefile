@@ -32,10 +32,10 @@ dtb-$(CONFIG_CLK_RK3399) += \
 	rk3399-pwm1.dtbo \
 	rk3399-rga-400.dtbo \
 	rk3399-spi-gpio-enc28j60.dtbo \
-	rk3399-spi1-jedec-nor.dtbo
+	rk3399-spi1-jedec-nor.dtbo \
 	rk3399-spi1-spidev.dtbo \
 	rk3399-spi2-enc28j60.dtbo \
-	rk3399-spi2-jedec-nor.dtbo
+	rk3399-spi2-jedec-nor.dtbo \
 	rk3399-spi2-sc16is752.dtbo \
 	rk3399-spi2-spidev.dtbo \
 	rk3399-spi5-enc28j60.dtbo \
