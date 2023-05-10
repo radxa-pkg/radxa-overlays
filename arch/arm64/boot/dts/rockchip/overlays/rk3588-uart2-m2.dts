@@ -11,6 +11,15 @@
 	};
 
 	fragment@0 {
+		target = <&fiq_debugger>;
+
+		__overlay__ {
+			status = "okay";
+			rockchip,serial-id = <0xffffffff>;
+		};
+	};
+
+	fragment1 {
 		target = <&uart2>;
 
 		__overlay__ {
