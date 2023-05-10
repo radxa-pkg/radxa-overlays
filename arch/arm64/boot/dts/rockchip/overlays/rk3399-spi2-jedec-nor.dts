@@ -13,8 +13,12 @@
 	fragment@0 {
 		target = <&spi2>;
 		__overlay__ {
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <&spi2_clk &spi2_cs0 &spi2_rx &spi2_tx>;
 			#address-cells = <1>;
 			#size-cells = <0>;
+
 			spiflash@0 {
 				compatible = "jedec,spi-nor";
 				reg = <0>;
