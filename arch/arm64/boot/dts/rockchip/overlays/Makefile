@@ -242,6 +242,7 @@ dtb-$(CONFIG_CPU_RK3588) += \
 	rk3588-can1-m0.dtbo \
 	rk3588-can1-m1.dtbo \
 	radxa-cm5-io-radxa-display-8hd.dtbo \
+	radxa-cm5-io-raspi-7inch-touchscreen.dtbo \
 	rock-5a-radxa-camera-4k.dtbo \
 	rock-5b-radxa-camera-4k.dtbo \
 	rock-5b-hdmi1-8k.dtbo \
