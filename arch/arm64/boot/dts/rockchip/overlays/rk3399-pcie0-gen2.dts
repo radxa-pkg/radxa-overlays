@@ -1,0 +1,20 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable PCI Express Gen 2 negotiation";
+		compatible = "radxa,rock-pi-4a", "radxa,rock-pi-4b", "radxa,rock-pi-4c", "radxa,rock-pi-4a-plus", "radxa,rock-pi-4b-plus", "radxa,rock-4se";
+		category = "misc";
+		exclusive = "pcie0_max-link-speed";
+		description = "Enable PCI Express Gen 2 negotiation.";
+	};
+
+	fragment@0 {
+		target = <&pcie0>;
+
+		__overlay__ {
+			max-link-speed = <2>;
+		};
+	};
+};
