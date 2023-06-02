@@ -51,7 +51,7 @@
 		target = <&sdhci>;
 
 		__overlay__ {
-			status = "disable";
+			status = "disabled";
 		};
 	};
 };
