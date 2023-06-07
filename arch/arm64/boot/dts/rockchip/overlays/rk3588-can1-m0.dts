@@ -1,0 +1,34 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/clock/rk3588-cru.h>
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/soc/rockchip,boot-mode.h>
+#include <dt-bindings/phy/phy.h>
+#include <dt-bindings/power/rk3588-power.h>
+#include <dt-bindings/soc/rockchip-system-status.h>
+
+/ {
+	metadata {
+		title = "Enable CAN1-M0";
+		compatible = "radxa,rock-5b";
+		category = "misc";
+		exclusive = "GPIO3_B5", "GPIO3_B6";
+		description = "Enable CAN1-M0.\nOn Radxa ROCK 5B this is RX pin 12 & TX pin 35.";
+	};
+
+    fragment@0 {
+        target = <&can1>;
+
+        __overlay__ {
+			status = "okay";
+			compatible = "rockchip,can-2.0";
+			assigned-clocks = <&cru CLK_CAN0>;
+			assigned-clock-rates = <200000000>;
+			pinctrl-names = "default";
+			pinctrl-0 = <&can1m0_pins>;
+		};
+    };
+};
