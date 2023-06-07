@@ -20,7 +20,7 @@ all: build
 build: $(DTBO)
 
 %.dtbo: %.dts
-	cpp -x assembler-with-cpp -E -I "/usr/src/linux-headers-$(shell uname -r)/include" -I "/usr/lib/modules/$(shell uname -r)/build/include" "$<" "$@.tmp"
+	cpp -nostdinc -undef -x assembler-with-cpp -E -I "/usr/src/linux-headers-$(shell uname -r)/include" -I "/usr/lib/modules/$(shell uname -r)/build/include" "$<" "$@.tmp"
 	dtc -q -@ -I dts -O dtb -o "$@" "$@.tmp"
 
 #
