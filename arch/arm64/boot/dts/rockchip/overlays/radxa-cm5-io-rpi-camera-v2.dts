@@ -6,11 +6,11 @@
 
 / {
 	metadata {
-		title ="Enable Raspberry Pi Camera V2";
+		title ="Enable Raspberry Pi Camera V2 on CSI0";
 		compatible = "radxa,cm5-io";
 		category = "camera";
 		exclusive = "csi2_dphy0";
-		description = "Enable Raspberry Pi Camera V2.";
+		description = "Enable Raspberry Pi Camera V2 on CSI1.";
 	};
 
 

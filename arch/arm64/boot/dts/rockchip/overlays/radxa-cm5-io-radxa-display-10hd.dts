@@ -8,11 +8,11 @@
 
 / {
 	metadata {
-		title ="Enable Radxa Display 10HD";
+		title ="Enable Radxa Display 10HD on DSI1";
 		compatible = "radxa,cm5-io";
 		category = "display";
 		exclusive = "dsi1";
-		description = "Enable Radxa Display 10HD.";
+		description = "Enable Radxa Display 10HD on DSI1.";
 	};
 
 	fragment@0 {

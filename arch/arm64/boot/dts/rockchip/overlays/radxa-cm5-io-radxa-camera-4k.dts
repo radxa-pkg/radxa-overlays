@@ -8,11 +8,11 @@
 
 / {
 	metadata {
-		title ="Enable Radxa Camera 4K";
+		title ="Enable Radxa Camera 4K on CSI1";
 		compatible = "radxa,cm5-io";
 		category = "camera";
 		exclusive = "csi2_dcphy0";
-		description = "Enable Radxa Camera 4K.";
+		description = "Enable Radxa Camera 4K on CSI1.";
 	};
 
 	fragment@0 {
