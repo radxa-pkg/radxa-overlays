@@ -158,6 +158,10 @@ dtb-$(CONFIG_CLK_RK3568) += \
 dtb-$(CONFIG_CPU_RK3568) += \
 	radxa-5inch-touchscreen-on-cm3-sodimm-io.dtbo \
 	radxa-cm3-sodimm-io-raspberrypi-7inch-touchscreen.dtbo \
+	radxa-e61-radxa-8inch-display.dtbo \
+	radxa-e61-edp-sharp-lq133t1jw01-lcd.dtbo \
+	radxa-e61-quectel-4g-module.dtbo \
+	radxa-e61-sata.dtbo \
 	rock-3b-radxa-8inch-display.dtbo \
 	rock-3b-radxa-10p1inch-display.dtbo
 
