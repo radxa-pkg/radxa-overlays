@@ -72,6 +72,7 @@ Currently, we mandate a custom `metadata` node in overlays. This data is parsed 
 1. `exclusive` should refer to the device tree node and property.
 2. For features that are muxed to a GPIO line, `exclusive` should be the GPIO ID.
 3. For features that use multiple GPIO lines, they should all be listed under `exclusive`.
+4. When there is no exclusive resource being used, special `null` resource should be used: `exclusive = "null";`
 
 ### E. Description (string)
 
