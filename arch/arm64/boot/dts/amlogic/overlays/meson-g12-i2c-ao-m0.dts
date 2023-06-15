@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable I2C_AO-M0 on GPIOAO_2 and GPIOAO_3";
-		compatible = "radxa,zero", "radxa,zero2";
+		compatible = "radxa,zero";
 		category = "misc";
 		exclusive = "i2c_AO", "GPIOAO_2", "GPIOAO_3";
 		description = "Enable I2C_AO-M0 on GPIOAO_2 and GPIOAO_3.";
