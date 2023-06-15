@@ -46,7 +46,7 @@ jobs:
               make -j$(nproc)
               ;;
             *)
-              make -j$(nproc) KERNEL_HEADER_VERSION=${{ matrix.version }}
+              make -j$(nproc) KERNEL_HEADER_VERSION=${{ matrix.version }} CONFIG_ARCH_MESON=n
               ;;
           esac
       - name: Upload artifacts
