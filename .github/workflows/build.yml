@@ -27,6 +27,7 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y --no-install-recommends device-tree-compiler
+          sudo dpkg --add-architecture arm64
           case "${{ matrix.version }}" in
             5.10.110-9-rockchip)
               wget https://github.com/radxa-pkg/linux-rockchip/releases/download/5.10.110-9/linux-headers-5.10.110-9-rockchip_5.10.110-9-dc49558b4_arm64.deb
