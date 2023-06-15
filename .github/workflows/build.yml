@@ -44,8 +44,11 @@ jobs:
             ubuntu-latest)
               make -j$(nproc)
               ;;
-            *)
-              make -j$(nproc) KERNEL_HEADER_VERSION=${{ matrix.version }} CONFIG_ARCH_MESON=n
+            5.10.110-9-rockchip)
+              make -j$(nproc) KERNEL_HEADER_VERSION=${{ matrix.version }} CONFIG_ARCH_MESON=n CONFIG_CPU_RK3399=rockchip CONFIG_CPU_RK3568=rockchip CONFIG_CPU_RK3588=rockchip
+              ;;
+            4.19.193-4-rk356x)
+              make -j$(nproc) KERNEL_HEADER_VERSION=${{ matrix.version }} CONFIG_ARCH_MESON=n CONFIG_CPU_RK3568=rockchip
               ;;
           esac
       - name: Upload artifacts
