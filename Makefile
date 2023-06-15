@@ -1,3 +1,5 @@
+KERNEL_HEADER_VERSION ?= $(shell uname -r)
+
 CONFIG_CLK_RK3308 ?= rockchip
 CONFIG_CLK_RK3399 ?= rockchip
 CONFIG_CLK_RK3568 ?= rockchip
@@ -20,7 +22,7 @@ all: build
 build: $(DTBO)
 
 %.dtbo: %.dts
-	cpp -nostdinc -undef -x assembler-with-cpp -E -I "/usr/src/linux-headers-$(shell uname -r)/include" -I "/usr/lib/modules/$(shell uname -r)/build/include" "$<" "$@.tmp"
+	cpp -nostdinc -undef -x assembler-with-cpp -E -I "/usr/src/linux-headers-$(KERNEL_HEADER_VERSION)/include" -I "/usr/lib/modules/$(KERNEL_HEADER_VERSION)/build/include" "$<" "$@.tmp"
 	dtc -q -@ -I dts -O dtb -o "$@" "$@.tmp"
 
 #

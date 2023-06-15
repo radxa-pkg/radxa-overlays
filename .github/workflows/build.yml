@@ -10,22 +10,38 @@ on:
       - '**.dts'
       - '**Makefile'
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [5.10.110-9-rockchip, 4.19.193-4-rk356x, default]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install dependencies
         run: |
-          sudo apt update
-          sudo apt install -y --no-install-recommends device-tree-compiler
-      - name: Build
+          sudo apt update && sudo apt install -y --no-install-recommends device-tree-compiler &
+          wget https://github.com/radxa-pkg/linux-rockchip/releases/download/5.10.110-9/linux-headers-5.10.110-9-rockchip_5.10.110-9-dc49558b4_arm64.deb &
+          wget https://github.com/radxa-pkg/linux-rk356x/releases/download/4.19.193-4/linux-headers-4.19.193-4-rk356x_4.19.193-4-24c58c676_arm64.deb &
+          wait
+          sudo apt install linux-headers-5.10.110-9-rockchip_5.10.110-9-dc49558b4_arm64.deb
+          sudo apt install linux-headers-4.19.193-4-rk356x_4.19.193-4-24c58c676_arm64.deb
+      - name: Build against Radxa header
+        if: ${{ matrix.version != 'default' }}
+        run: |
+          make -j$(nproc) KERNEL_HEADER_VERSION=${{ matrix.version }}
+      - name: Build against GitHub header
+        if: ${{ matrix.version == 'default' }}
         run: |
           make -j$(nproc)
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: dtbo
+          name: ${{ matrix.version }}
           path: |
             arch/**/*.dtbo
