@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [5.10.110-9-rockchip, 4.19.193-4-rk356x, default]
+        version: [5.10.110-9-rockchip, 4.19.193-4-rk356x, ubuntu-latest]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -39,10 +39,9 @@ jobs:
               ;;
           esac
       - name: Build
-        if: ${{ matrix.version != 'default' }}
         run: |
           case "${{ matrix.version }}" in
-            default)
+            ubuntu-latest)
               make -j$(nproc)
               ;;
             *)
