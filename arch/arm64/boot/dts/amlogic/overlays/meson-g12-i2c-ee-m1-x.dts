@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable I2C_EE-M1 on GPIOX_10 and GPIOX_11";
-		compatible = "radxa,zero", "radxa,zero2";
+		compatible = "radxa,zero";
 		category = "misc";
 		exclusive = "i2c1", "GPIOX_10", "GPIOX_11";
 		description = "Enable I2C_EE-M1 on GPIOX_10 and GPIOX_11.";
