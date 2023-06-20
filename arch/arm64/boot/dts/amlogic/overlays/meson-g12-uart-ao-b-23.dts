@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable UART_AO-B on GPIOAO_2 and GPIOAO_3";
-		compatible = "radxa,zero", "radxa,zero2";
+		compatible = "radxa,zero";
 		category = "misc";
 		exclusive = "uart_AO_B", "GPIOAO_2", "GPIOAO_3";
 		description = "Enable UART_AO-B on GPIOAO_2 and GPIOAO_3.";
