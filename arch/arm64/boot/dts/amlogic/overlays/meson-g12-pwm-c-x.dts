@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable PWM-C on GPIOX_8";
-		compatible = "radxa,zero", "radxa,zero2";
+		compatible = "radxa,zero";
 		category = "misc";
 		exclusive = "pwm_cd", "GPIOX_8";
 		description = "Enable PWM-C on GPIOX_8.";
