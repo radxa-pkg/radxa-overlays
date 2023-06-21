@@ -53,7 +53,8 @@ dtb-$(CONFIG_CLK_RK3399) += \
 dtb-$(CONFIG_CPU_RK3399) += \
 	rock-4c-plus-radxa-display-8hd.dtbo \
 	rock-4c-plus-radxa-display-10fhd.dtbo \
-	rock-4c-plus-radxa-display-10hd.dtbo
+	rock-4c-plus-radxa-display-10hd.dtbo \
+	rock-4se-radxa-display-8hd.dtbo
 
 dtb-$(CONFIG_CLK_RK3568) += \
 	audioinjector-isolated-soundcard.dtbo \
@@ -162,8 +163,10 @@ dtb-$(CONFIG_CPU_RK3568) += \
 	radxa-e61-edp-sharp-lq133t1jw01-lcd.dtbo \
 	radxa-e61-quectel-4g-module.dtbo \
 	radxa-e61-sata.dtbo \
+	rock-3a-radxa-display-8hd.dtbo \
 	rock-3b-radxa-8inch-display.dtbo \
-	rock-3b-radxa-10p1inch-display.dtbo
+	rock-3b-radxa-10p1inch-display.dtbo \
+	rock-3c-radxa-display-8hd.dtbo
 
 dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-dwc3-host.dtbo \
