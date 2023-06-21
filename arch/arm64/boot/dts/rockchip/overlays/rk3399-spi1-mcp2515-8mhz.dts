@@ -20,7 +20,7 @@
 					rockchip,pins = <4 29 0 &pcfg_pull_none>;
 				};
 			};
-		};		
+		};
 	};
 
 	fragment@1 {
