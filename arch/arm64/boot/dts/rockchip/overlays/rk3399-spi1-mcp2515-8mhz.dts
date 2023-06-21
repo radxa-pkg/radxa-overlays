@@ -2,7 +2,6 @@
 /plugin/;
 
 / {
-
 	metadata {
 		title = "Enable MCP2515 with 8MHz external clock on SPI1";
 		compatible = "radxa,rock-4c-plus";
