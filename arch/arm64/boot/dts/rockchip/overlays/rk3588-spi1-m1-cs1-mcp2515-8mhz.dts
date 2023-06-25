@@ -8,8 +8,9 @@
 / {
 	metadata {
 		title = "Enable MCP2515 with 8MHz external clock on SPI1-M1 over CS1";
-		compatible = "unknown";
+		compatible = "radxa,rock-5b";
 		category = "misc";
+		exclusive = "GPIO3_C3", "GPIO3_C1", "GPIO3_B7", "GPIO3_C0", "GPIO1_B2";
 		description = "Provide support for Microchip MCP2515 SPI CAN controller.\nAssumes 8MHz external clock.\nUses Pin 19 (GPIOI1_B2) for INT.";
 	};
 
@@ -19,11 +20,15 @@
 			status = "okay";
 			pinctrl-names = "default";
 			pinctrl-0 = <&spi1m1_pins &spi1m1_cs0 &spi1m1_cs1>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+			max-freq = <1000000>;
 
 			can0: mcp2515@1 {
+				status = "okay";
 				compatible = "microchip,mcp2515";
 				reg = <1>;
-				spi-max-frequency = <10000000>;
+				spi-max-frequency = <1000000>;
 
 				pinctrl-names = "default";
 				pinctrl-0 = <&mcp2515_int_pins>;
@@ -32,6 +37,8 @@
 				interrupts = <RK_PB2 IRQ_TYPE_EDGE_FALLING>;
 
 				clocks = <&can0_osc>;
+				vdd-supply = <&vcc_3v3_s3>;
+				xceiver-supply = <&vcc_3v3_s3>;
 			};
 		};
 	};
@@ -41,7 +48,7 @@
 		__overlay__ {
 			mcp2515 {
 				mcp2515_int_pins: mcp2515-int-pins {
-					rockchip,pins = <1 RK_PB2 RK_FUNC_GPIO &pcfg_pull_up>;
+					rockchip,pins = <1 RK_PB2 RK_FUNC_GPIO &pcfg_pull_none>;
 				};
 			};
 		};
