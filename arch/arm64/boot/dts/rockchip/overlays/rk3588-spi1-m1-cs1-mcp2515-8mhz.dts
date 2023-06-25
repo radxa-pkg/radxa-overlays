@@ -46,8 +46,8 @@
 	fragment@1 {
 		target = <&pinctrl>;
 		__overlay__ {
-			mcp2515_int_pins {
-				mcp2515_int_pins: mcp2515-int-pin {
+			mcp2515 {
+				mcp2515_int_pins: mcp2515-int-pins {
 					rockchip,pins = <1 RK_PB2 RK_FUNC_GPIO &pcfg_pull_none>;
 				};
 			};
