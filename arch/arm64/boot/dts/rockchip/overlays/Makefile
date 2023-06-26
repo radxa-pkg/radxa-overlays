@@ -211,6 +211,7 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-pwm15-m3.dtbo \
 	rk3588-spi0-m1-cs0-spidev.dtbo \
 	rk3588-spi0-m1-cs1-spidev.dtbo \
+	rk3588-spi0-m2-cs0-mcp2515-8hmz.dtbo \
 	rk3588-spi0-m2-cs0-spidev.dtbo \
 	rk3588-spi0-m2-cs1-spidev.dtbo \
 	rk3588-spi1-m1-cs0-spidev.dtbo \
