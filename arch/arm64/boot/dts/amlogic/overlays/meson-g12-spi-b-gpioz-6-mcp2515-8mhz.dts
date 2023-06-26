@@ -7,11 +7,11 @@
 
 / {
 	metadata {
-		title = "Enable MCP2515 with 8MHz external clock on SPI_B and GPIOX_8";
-		compatible = "radxa,zero";
+		title = "Enable MCP2515 with 8MHz external clock on SPI_B and GPIOZ_6";
+		compatible = "radxa,zero2";
 		category = "misc";
-		exclusive = "spicc1", "GPIOH_4", "GPIOH_5", "GPIOH_6", "GPIOH_7", "GPIOX_8";
-		description = "Provide support for Microchip MCP2515 SPI CAN controller.\nAssumes 8MHz external clock.\nUses Pin 18 (GPIOX_8) for INT.";
+		exclusive = "spicc1", "GPIOH_4", "GPIOH_5", "GPIOH_6", "GPIOH_7", "GPIOZ_6";
+		description = "Provide support for Microchip MCP2515 SPI CAN controller.\nAssumes 8MHz external clock.\nUses Pin 18 (GPIOZ_6) for INT.";
 	};
 
 	fragment@0 {
@@ -45,7 +45,7 @@
 		__overlay__ {
 			mcp2515_int_pins: mcp2515-int-pins@0 {
 				mux {
-					groups = "GPIOX_8";
+					groups = "GPIOZ_6";
 					function = "gpio_periphs";
 					bias-pull-up;
 					drive-strength-microamp = <4000>;
