@@ -1,0 +1,67 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/gpio/meson-g12a-gpio.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+	metadata {
+		title = "Enable MCP2515 with 8MHz external clock on SPI_B and GPIOX_8";
+		compatible = "radxa,zero";
+		category = "misc";
+		exclusive = "spicc1", "GPIOH_4", "GPIOH_5", "GPIOH_6", "GPIOH_7", "GPIOX_8";
+		description = "Provide support for Microchip MCP2515 SPI CAN controller.\nAssumes 8MHz external clock.\nUses Pin 18 (GPIOX_8) for INT.";
+	};
+
+	fragment@0 {
+		target = <&spicc1>;
+		__overlay__ {
+			pinctrl-names = "default";
+			pinctrl-0 = <&spicc1_pins>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+			cs-gpios = <&gpio GPIOH_6 GPIO_ACTIVE_LOW>;
+			status = "okay";
+
+			can0: mcp2515@0 {
+				compatible = "microchip,mcp2515";
+				reg = <0>;
+				spi-max-frequency = <10000000>;
+
+				pinctrl-names = "default";
+				pinctrl-0 = <&mcp2515_int_pins>;
+
+				interrupt-parent = <&gpio_intc>;
+				interrupts = <85 IRQ_TYPE_EDGE_FALLING>;
+
+				clocks = <&can0_osc>;
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <&periphs_pinctrl>;
+		__overlay__ {
+			mcp2515_int_pins: mcp2515-int-pins@0 {
+				mux {
+					groups = "GPIOX_8";
+					function = "gpio_periphs";
+					bias-pull-up;
+					drive-strength-microamp = <4000>;
+				};
+			};
+		};
+	};
+
+	fragment@2 {
+		target-path = "/";
+		__overlay__ {
+			can0_osc: can0-osc {
+				compatible = "fixed-clock";
+				#clock-cells = <0>;
+				clock-frequency  = <8000000>;
+			};
+		};
+	};
+};
