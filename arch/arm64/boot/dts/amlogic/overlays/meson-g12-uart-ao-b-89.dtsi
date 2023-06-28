@@ -1,0 +1,10 @@
+/ {
+	fragment@1 {
+		target = <&uart_AO_B>;
+		__overlay__ {
+			status = "okay";
+			pinctrl-0 = <&uart_ao_b_8_9_pins>;
+			pinctrl-names = "default";
+		};
+	};
+};

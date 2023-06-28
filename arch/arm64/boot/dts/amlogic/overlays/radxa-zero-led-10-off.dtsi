@@ -1,0 +1,8 @@
+/ {
+	fragment@0 {
+		target = <&led_power_151>;
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+};

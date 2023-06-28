@@ -33,6 +33,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
 	radxa-zero-enable-vddio_c.dtbo \
 	radxa-zero-led-8-off.dtbo \
 	radxa-zero-led-10-off.dtbo \
+	radxa-zero-uart-ao-b-89.dtbo \
 	radxa-zero2-enable-vddio_c.dtbo
 
 dtbotxt-$(CONFIG_ARCH_MESON) += \
