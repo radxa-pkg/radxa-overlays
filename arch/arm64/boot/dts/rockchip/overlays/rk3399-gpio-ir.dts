@@ -1,0 +1,45 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+
+/ {
+	metadata {
+		title = "Enable IR receiver on GPIO1_B1";
+		compatible = "rockchip,rk3399";
+		category = "misc";
+		exclusive = "GPIO1_B1";
+		description = "Enable IR receiver on GPIO1_B1.";
+	};
+
+	fragment@0 {
+		target-path = "/";
+		__overlay__ {
+			gpio_ir: gpio-ir {
+				compatible = "gpio-ir-receiver";
+				pinctrl-names = "default";
+				pinctrl-0 = <&gpio_ir_pins>;
+
+				// pin number, high or low
+				gpios = <&gpio1 RK_PB1 GPIO_ACTIVE_HIGH>;
+
+				// parameter for keymap name
+				linux,rc-map-name = "rc-rc6-mce";
+
+				status = "okay";
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <&pinctrl>;
+		__overlay__ {
+			gpio-ir {
+				gpio_ir_pins: gpio-ir-pins {
+					rockchip,pins = <1 RK_PB1 RK_FUNC_GPIO &pcfg_pull_up>;
+				};
+			};
+		};
+	};
+};
