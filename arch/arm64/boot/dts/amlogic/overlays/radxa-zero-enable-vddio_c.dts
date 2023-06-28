@@ -1,0 +1,24 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/gpio/meson-g12a-gpio.h>
+
+#include "meson-g12-vddio_c.dtsi"
+
+/ {
+	metadata {
+		title = "Enable 1.8V signaling for data microSD";
+		compatible = "radxa,zero";
+		category = "misc";
+		exclusive = "vddio_c";
+		description = "Enable 1.8V signaling for data microSD.\nThis will make reboot fail if booting from microSD.";
+	};
+
+	fragment@2 {
+		target = <&vddio_c>;
+		__overlay__ {
+			gpios = <&gpio_ao GPIOAO_7 GPIO_ACTIVE_HIGH>;
+		};
+	};
+};
