@@ -8,7 +8,7 @@
 / {
 	metadata {
 		title = "Enable ENC28J60 on SPI-B and GPIOX_8";
-		compatible = "radxa,zero", "radxa,zero2";
+		compatible = "radxa,zero";
 		category = "misc";
 		exclusive = "spicc1", "GPIOH_4", "GPIOH_5", "GPIOH_6", "GPIOH_7", "GPIOX_8";
 		description = "Enable Microchip ENC28J60 SPI Ethernet controller on SPI-B.\nINT=GPIOX_8";
