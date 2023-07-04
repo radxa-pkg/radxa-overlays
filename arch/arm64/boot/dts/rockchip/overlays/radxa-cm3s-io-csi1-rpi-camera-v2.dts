@@ -24,6 +24,16 @@
 				clock-output-names = "ext_cam_clk_imx219_1";
 				#clock-cells = <0>;
 			};
+
+			camera_pwdn_gpio: camera-pwdn-gpio {
+				status = "okay";
+				compatible = "regulator-fixed";
+				regulator-name = "camera_pwdn_gpio";
+				regulator-always-on;
+				regulator-boot-on;
+				enable-active-high;
+				gpio = <&gpio4 RK_PB6 GPIO_ACTIVE_HIGH>;
+			};
 		};
 	};
 
@@ -41,7 +51,6 @@
 				reg = <0x10>;
 				clocks = <&ext_cam_clk_imx219_1>;
 				clock-names = "ext_cam_clk_imx219_1";
-				pwdn-gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_HIGH>;
 				rockchip,camera-module-index = <1>;
 				rockchip,camera-module-facing = "front";
 				rockchip,camera-module-name = "rpi-camera-v2";
