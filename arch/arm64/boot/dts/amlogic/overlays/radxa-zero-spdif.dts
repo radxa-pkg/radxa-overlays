@@ -67,7 +67,7 @@
 	};
 
 	fragment@2 {
-		target-path = <&spdifout>;
+		target = <&spdifout>;
 
 		__overlay__ {
 			pinctrl-0 = <&spdif_out_h_pins>;
