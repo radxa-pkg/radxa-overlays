@@ -6,7 +6,7 @@
 / {
 	metadata {
 		title = "Enable SPDIF";
- 		compatible = "radxa,zero";
+ 		compatible = "radxa,zero2";
  		category = "misc";
  		exclusive = "spdif";
 		description = "Enable SPDIF on Pin 19.";
