@@ -9,7 +9,7 @@
  		compatible = "radxa,zero";
  		category = "misc";
  		exclusive = "spdif";
- 		description = "Enable SPDIF on Pin 19.";
+		description = "Enable SPDIF on Pin 19.";
 	};
 
 	fragment@0 {
