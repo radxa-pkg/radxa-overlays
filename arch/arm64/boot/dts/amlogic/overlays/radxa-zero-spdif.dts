@@ -1,13 +1,15 @@
 /dts-v1/;
 /plugin/;
 
+#include <dt-bindings/sound/meson-g12a-tohdmitx.h>
+
 / {
 	metadata {
 		title = "Enable SPDIF";
  		compatible = "radxa,zero";
  		category = "misc";
  		exclusive = "spdif";
- 		description = "Enable SPDIF on Radxa Zero";
+ 		description = "Enable SPDIF on Pin 19.";
 	};
 
 	fragment@0 {
