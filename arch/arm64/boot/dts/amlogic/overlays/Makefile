@@ -16,6 +16,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
 	meson-g12-pwm-c-z.dtbo \
 	meson-g12-pwm-d-z.dtbo \
 	meson-g12-pwm-f-h.dtbo \
+	meson-g12-spdif.dtbo \
 	meson-g12-spi-a-spidev.dtbo \
 	meson-g12-spi-b-enc28j60.dtbo \
 	meson-g12-spi-b-gpioz-6-mcp2515-8mhz.dtbo \
@@ -33,7 +34,6 @@ dtb-$(CONFIG_ARCH_MESON) += \
 	radxa-zero-enable-vddio_c.dtbo \
 	radxa-zero-led-8-off.dtbo \
 	radxa-zero-led-10-off.dtbo \
-	radxa-zero-spdif.dtbo \
 	radxa-zero-uart-ao-b-89.dtbo \
 	radxa-zero2-enable-vddio_c.dtbo
 
