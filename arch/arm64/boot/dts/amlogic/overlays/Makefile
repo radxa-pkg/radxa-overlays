@@ -35,8 +35,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
 	radxa-zero-led-10-off.dtbo \
 	radxa-zero-spdif.dtbo \
 	radxa-zero-uart-ao-b-89.dtbo \
-	radxa-zero2-enable-vddio_c.dtbo \
-	radxa-zero2-spdif.dtbo
+	radxa-zero2-enable-vddio_c.dtbo
 
 dtbotxt-$(CONFIG_ARCH_MESON) += \
 	README.overlays
