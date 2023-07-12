@@ -166,6 +166,9 @@ dtb-$(CONFIG_CPU_RK3568) += \
 	radxa-e61-edp-sharp-lq133t1jw01-lcd.dtbo \
 	radxa-e61-quectel-4g-module.dtbo \
 	radxa-e61-sata.dtbo \
+	radxa-zero-3w-external-antenna.dtbo \
+	radxa-zero-3w-rpi-camera-v1.3.dtbo \
+	radxa-zero-3w-rpi-camera-v2.dtbo \
 	rock-3a-radxa-display-8hd.dtbo \
 	rock-3b-radxa-8inch-display.dtbo \
 	rock-3b-radxa-10p1inch-display.dtbo \
