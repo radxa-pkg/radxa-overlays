@@ -72,6 +72,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	radxa-cm3-io-sata2.dtbo \
 	radxa-cm3-io-sharp-lq133t1jw01-without-hdmi.dtbo \
 	radxa-cm3-raspcm4io-pcie2x1.dtbo \
+	radxa-cm3-rpi-cm4-camera-v2-imx219.dtbo \
 	radxa-cm3s-io-csi0-okdo-5mp-camera.dtbo \
 	radxa-cm3s-io-csi0-rpi-camera-v2.dtbo \
 	radxa-cm3s-io-csi1-okdo-5mp-camera.dtbo \
