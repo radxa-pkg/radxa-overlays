@@ -4,10 +4,10 @@
 / {
 	metadata {
 		title = "Enable UART7-M2";
-		compatible = "radxa,radxa-cm3-sodimm-io";
+		compatible = "radxa,radxa-cm3s-io";
 		category = "misc";
 		exclusive = "GPIO4_A2", "GPIO4_A3";
-		description = "Enable UART7-M2.\nOn Radxa CM3 SODIMM IO this TX pin 36 and RX pin 11.";
+		description = "Enable UART7-M2.\nOn Radxa CM3S IO this TX pin 36 and RX pin 11.";
 	};
 
 	fragment@0 {
