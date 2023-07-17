@@ -1,5 +1,3 @@
-
-
 /dts-v1/;
 /plugin/;
 
@@ -12,7 +10,7 @@
 		compatible = "radxa,radxa-cm3-rpi-cm4-io";
 		category = "camera";
 		exclusive = "csi2_dphy1";
-		description = "Enable Raspberry Pi Camera v2 on CSI0.";
+		description = "Enable Raspberry Pi Camera v2 on CAM1.";
 	};
 
 	fragment@0 {
