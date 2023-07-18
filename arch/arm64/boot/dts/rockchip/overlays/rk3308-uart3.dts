@@ -1,0 +1,21 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable UART3";
+		compatible = "rockchip,rk3308";
+		category = "misc";
+		exclusive = "GPOI3_B4", "GPOI3_B5";
+		description = "Enable UART3.\nOn Radxa ROCK S v1.3 this RX pin 40 and this TX pin 39.";
+	};
+
+	fragment@1 {
+		target = <&uart3>;
+		__overlay__ {
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <&uart3_xfer>;
+		};
+	};
+};
