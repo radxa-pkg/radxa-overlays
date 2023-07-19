@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable Dual Camera GC2053";
-		compatible = "radxa,radxa-cm3-io";
+		compatible = "radxa,cm3-io";
 		category = "camera";
 		description = "Enable Dual Camera GC2053.";
 	};

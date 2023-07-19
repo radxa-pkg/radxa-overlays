@@ -7,7 +7,7 @@
 / {
 	metadata {
 		title = "Enable SATA2 (SATA1 for Radxa CM3 IO <= v1.3) and disable PCIe";
-		compatible = "radxa,radxa-cm3-io";
+		compatible = "radxa,cm3-io";
 		category = "misc";
 		description = "Enable SATA2.\nWhen SATA2 is enabled, PCIe cannot be enabled on the same pin mux.\nRadxa CM3 IO  <= v1.3 contains incorrect label of this port.";
 	};

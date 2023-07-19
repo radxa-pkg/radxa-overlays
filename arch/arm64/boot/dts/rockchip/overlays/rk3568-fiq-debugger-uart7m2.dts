@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable FIQ Debugger on UART7-M2";
-		compatible = "radxa,radxa-cm3s-io";
+		compatible = "radxa,cm3s-io";
 		category = "misc";
 		exclusive = "GPIO4_A2", "GPIO4_A3";
 		description = "Enable FIQ Debugger on UART7-M2.";

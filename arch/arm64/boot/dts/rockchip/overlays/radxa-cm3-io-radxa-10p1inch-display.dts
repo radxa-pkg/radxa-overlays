@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable Radxa Display 10HD";
-		compatible = "radxa,radxa-cm3-io";
+		compatible = "radxa,cm3-io";
 		category = "display";
 		description = "Enable Radxa Display 10HD.";
 	};
