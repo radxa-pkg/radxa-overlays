@@ -4,10 +4,10 @@
 / {
 	metadata {
 		title = "Enable PWM2-M1";
-		compatible = "radxa,rock-3a", "radxa,rock-3b", "radxa,cm3-io", "radxa,cm3s-io", "radxa,e23";
+		compatible = "radxa,rock-3a", "radxa,rock-3b", "radxa,cm3-io", "radxa,cm3-rpi-cm4-io", "radxa,cm3s-io", "radxa,e23";
 		category = "misc";
 		exclusive = "GPIO0_B6";
-		description = "Enable PWM2-M1.\nOn Radxa ROCK 3A hardware V1.2 and Radxa E23 this is pin 27.\nOn Radxa ROCK 3A hardware V1.3/V1.31 and Radxa ROCK 3B this is pin 16.\nOn Radxa CM3 IO this is pin 3.\nOn Radxa CM3S IO this is pin 37.";
+		description = "Enable PWM2-M1.\nOn Radxa ROCK 3A hardware V1.2 and Radxa E23 this is pin 27.\nOn Radxa ROCK 3A hardware V1.3/V1.31 and Radxa ROCK 3B this is pin 16.\nOn Radxa CM3 IO this is pin 3.\nOn Radxa CM3 RPI CM4 this is on pin 3.\nOn Radxa CM3S IO this is pin 37.";
 	};
 
 	fragment@0 {

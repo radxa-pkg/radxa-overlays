@@ -3,19 +3,20 @@
 
 / {
 	metadata {
-		title = "Enable PWM0-M1";
+		title = "Enable PWM4";
 		compatible = "radxa,cm3-rpi-cm4-io";
 		category = "misc";
-		description = "Enable PWM0-M1.\nOn Radxa CM3 RPI CM4 this is on pin 11.";
+		exclusive = "GPIO0_C3";
+		description = "Enable PWM4.\nOn Radxa CM3 RPI CM4 this is on pin 15.";
 	};
 
 	fragment@0 {
-		target = <&pwm0>;
+		target = <&pwm4>;
 
 		__overlay__ {
 			status = "okay";
 			pinctrl-names = "active";
-			pinctrl-0 = <&pwm0m1_pins>;
+			pinctrl-0 = <&pwm4_pins>;
 		};
 	};
 };
