@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable Sharp LQ133T1JW01 Display";
-		compatible = "radxa,radxa-cm3-io";
+		compatible = "radxa,cm3-io";
 		category = "display";
 		description = "Enable Sharp LQ133T1JW01 display.\nHDMI will be disabled.";
 	};
