@@ -145,6 +145,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-uart8-m1.dtbo \
 	rk3568-uart9-m1.dtbo \
 	rk3568-w1-gpio3-a5.dtbo \
+	rock-3a-radxa-5inch-touchscreen.dtbo \
 	rock-3a-sata0.dtbo \
 	rock-3a-sata1.dtbo \
 	rock-3a-sata2.dtbo \
