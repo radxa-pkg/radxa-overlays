@@ -7,7 +7,7 @@
 / {
 	metadata {
 		title = "Enable PCIe 2.0 x1 on SERDES2";
-		compatible = "radxa,cm3s-io";
+		compatible = "radxa,cm3s-io", "radxa,radxa-cm3-sodimm-io";
 		category = "misc";
 		exclusive = "vcc_ch482d", "sata2", "pcie2x1";
 		description = "Enable PCIe 2.0 x1 on SERDES2.\nThis will disable SATA2.";

@@ -5,7 +5,7 @@
 / {
 	metadata {
 		title = "Enable Radxa 5-inch Touchscreen";
-		compatible = "radxa,cm3s-io";
+		compatible = "radxa,cm3s-io", "radxa,radxa-cm3-sodimm-io";
 		category = "display";
 		exclusive = "dsi0";
 		description = "Enable Radxa 5-inch Touchscreen.";
