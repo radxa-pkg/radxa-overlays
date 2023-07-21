@@ -7,7 +7,7 @@
 / {
 	metadata {
 		title = "Enable 1-Wire on GPIOAO_3";
-		compatible = "radxa,zero", "radxa,zero2";
+		compatible = "radxa,zero";
 		category = "misc";
 		exclusive = "GPIOAO_3";
 		description = "Enable 1-Wire on GPIOAO_3.";
