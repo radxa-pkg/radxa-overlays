@@ -9,6 +9,7 @@ on:
     paths:
       - '**.dts'
       - '**Makefile'
+  merge_group:
 
 defaults:
   run:
