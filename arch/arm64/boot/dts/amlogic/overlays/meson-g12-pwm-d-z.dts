@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable PWM-D on GPIOZ_2";
-		compatible = "radxa,zero2";
+		compatible = "unknown";
 		category = "misc";
 		exclusive = "pwm_cd", "GPIOZ_2";
 		description = "Enable PWM-D on GPIOZ_2.";

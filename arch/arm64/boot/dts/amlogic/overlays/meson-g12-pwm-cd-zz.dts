@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable PWM-C on GPIOZ_1 and PWM-D on GPIOZ_2";
-		compatible = "radxa,zero2";
+		compatible = "unknown";
 		category = "misc";
 		exclusive = "pwm_cd", "GPIOZ_1", "GPIOZ_2";
 		description = "Enable PWM-C on GPIOZ_1 and PWM-D on GPIOZ_2.\nIndividual overlays of PWM-C and PWM-D cannot be applied at the same time.";
