@@ -7,7 +7,7 @@
 
 / {
 	metadata {
-		title = "Enable SPI-B on SPI-A on GPIOH_4 - GPIOH_7";
+		title = "Enable SPI-B on GPIOH_4 - GPIOH_7";
 		compatible = "radxa,zero", "radxa,zero2";
 		category = "misc";
 		exclusive = "spicc1", "GPIOH_4", "GPIOH_5", "GPIOH_6", "GPIOH_7";
@@ -23,7 +23,7 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 			spidev@0 {
-				compatible = "linux,spidev";
+				compatible = "armbian,spi-dev";
 				status = "okay";
 				spi-max-frequency = <10000000>;
 				reg = <0>;
