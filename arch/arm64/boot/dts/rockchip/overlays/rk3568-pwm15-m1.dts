@@ -7,7 +7,7 @@
 		compatible = "radxa,rock-3a", "radxa,rock-3b", "radxa,zero-3w";
 		category = "misc";
 		exclusive = "GPIO4_C3";
-		description = "Enable PWM15-M1.\nOn Radxa ROCK 3A <= v1.2 this is pin 19.\nOn Radxa ROCK 3A >= v1.3 this is pin 19.\nOn Radxa ROCK 3B this is pin 19.\nOn Radxa Zero 3W this is pin 19.";
+		description = "Enable PWM15-M1.\nOn Radxa ROCK 3A <= v1.2 this is pin 19.\nOn Radxa ROCK 3A >= v1.3 this is pin 19.\nOn Radxa ROCK 3B this is pin 19.\nOn Radxa ZERO 3W this is pin 19.";
 	};
 
 	fragment@0 {
