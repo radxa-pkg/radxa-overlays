@@ -4,9 +4,10 @@
 / {
 	metadata {
 		title = "Enable UART3-M1";
-		compatible = "unknown";
+		compatible = "radxa,rock-3a";
 		category = "misc";
-		description = "Enable UART3-M1.";
+		exclusive = "GPIO3_B7", "GPIO3_C0";
+		description = "Enable UART3-M1.\nOn Radxa ROCK 3A <= v1.2 this RX pin 37 and this TX pin 7.";
 	};
 
 	fragment@0 {
