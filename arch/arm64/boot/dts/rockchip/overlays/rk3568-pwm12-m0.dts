@@ -6,7 +6,7 @@
 		title = "Enable PWM12-M0";
 		compatible = "unknown";
 		category = "misc";
-		description = "Enable PWM12-M0.";
+		description = "Enable PWM12-M0.\nOn Radxa ROCK 3A <= v1.2 this is pin 7.";
 	};
 
 	fragment@0 {
