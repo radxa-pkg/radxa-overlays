@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [5.10.110-9-rockchip, 4.19.193-4-rk356x, ubuntu-latest]
+        version: [linux-rockchip, linux-rk356x, linux-stable]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -30,26 +30,26 @@ jobs:
           sudo apt install -y --no-install-recommends device-tree-compiler
           sudo dpkg --add-architecture arm64
           case "${{ matrix.version }}" in
-            5.10.110-9-rockchip)
-              wget https://github.com/radxa-pkg/linux-rockchip/releases/download/5.10.110-9/linux-headers-5.10.110-9-rockchip_5.10.110-9-dc49558b4_arm64.deb
-              sudo apt install ./linux-headers-5.10.110-9-rockchip_5.10.110-9-dc49558b4_arm64.deb
+            linux-rockchip)
+              wget https://github.com/radxa-pkg/linux-rockchip/releases/download/5.10.110-11/linux-headers-5.10.110-11-rockchip_5.10.110-11-8c4e8d205_arm64.deb
+              sudo apt install ./linux-headers-5.10.110-11-rockchip_5.10.110-11-8c4e8d205_arm64.deb
               ;;
-            4.19.193-4-rk356x)
-              wget https://github.com/radxa-pkg/linux-rk356x/releases/download/4.19.193-4/linux-headers-4.19.193-4-rk356x_4.19.193-4-24c58c676_arm64.deb
-              sudo apt install ./linux-headers-4.19.193-4-rk356x_4.19.193-4-24c58c676_arm64.deb
+            linux-rk356x)
+              wget https://github.com/radxa-pkg/linux-rk356x/releases/download/5.10.160-7/linux-headers-5.10.160-7-rk356x_5.10.160-7-fc20e0bcd_arm64.deb
+              sudo apt install ./linux-headers-5.10.160-7-rk356x_5.10.160-7-fc20e0bcd_arm64.deb
               ;;
           esac
       - name: Build
         run: |
           case "${{ matrix.version }}" in
-            ubuntu-latest)
+            linux-stable)
               make -j$(nproc)
               ;;
-            5.10.110-9-rockchip)
-              make -j$(nproc) KERNEL_HEADER_VERSION=${{ matrix.version }} CONFIG_ARCH_MESON=n CONFIG_CPU_RK3399=rockchip CONFIG_CPU_RK3568=rockchip CONFIG_CPU_RK3588=rockchip
+            linux-rockchip)
+              make -j$(nproc) KERNEL_HEADER_VERSION=5.10.110-11-rockchip CONFIG_ARCH_MESON=n CONFIG_CPU_RK3399=rockchip CONFIG_CPU_RK3568=rockchip CONFIG_CPU_RK3588=rockchip
               ;;
-            4.19.193-4-rk356x)
-              make -j$(nproc) KERNEL_HEADER_VERSION=${{ matrix.version }} CONFIG_ARCH_MESON=n CONFIG_CPU_RK3568=rockchip
+            linux-rk356x)
+              make -j$(nproc) KERNEL_HEADER_VERSION=5.10.160-7-rk356x CONFIG_ARCH_MESON=n CONFIG_CPU_RK3399=rockchip CONFIG_CPU_RK3568=rockchip CONFIG_CPU_RK3588=rockchip
               ;;
           esac
       - name: Upload artifacts
