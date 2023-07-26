@@ -9,7 +9,7 @@
 		compatible = "radxa,rock-3a", "radxa,rock-3b";
 		category = "misc";
 		exclusive = "GPIO4_C3", "GPIO4_C2";
-		description = "Enable CAN1-M1.\nOn Radxa ROCK 3A <= v1.2 this is RX pin 23 and this is TX pin 19.\nOn Radxa ROCK 3A >= v1.3 this is RX pin 23 and this is TX pin 19.\nOn Radxa ROCK 3B this is TX pin 19 & RX pin 23.";
+		description = "Enable CAN1-M1.\nOn Radxa ROCK 3A <= v1.2 this is RX pin 23 & TX pin 19.\nOn Radxa ROCK 3A >= v1.3 this is RX pin 23 & TX pin 19.\nOn Radxa ROCK 3B this is TX pin 19 & RX pin 23.";
 	};
 
 	fragment@0 {
