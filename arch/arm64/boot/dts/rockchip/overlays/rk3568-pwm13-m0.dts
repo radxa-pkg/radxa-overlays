@@ -6,6 +6,7 @@
 		title = "Enable PWM13-M0";
 		compatible = "radxa,rock-3a";
 		category = "misc";
+		exclusive = "GPIO3_C0";
 		description = "Enable PWM13-M0.\nOn Radxa ROCK 3A <= v1.2 this is pin 37";
 	};
 
