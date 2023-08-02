@@ -24,7 +24,7 @@
 			#size-cells = <0>;
 			status = "okay";
 			spidev@0 {
-				compatible = "armbian,spi-dev";
+				compatible = "rohm,dh2228fv";
 				status = "okay";
 				spi-max-frequency = <10000000>;
 				reg = <0>;
