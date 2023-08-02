@@ -439,6 +439,8 @@
 				pinctrl-0 = <&touch_gpio>;
 				focaltech,irq-gpio = <&gpio3 RK_PC4 IRQ_TYPE_LEVEL_LOW>;
 				focaltech,reset-gpio = <&gpio3 RK_PC5 GPIO_ACTIVE_HIGH>;
+				focaltech,max-touch-number = <5>;
+				focaltech,display-coords = <0 0 800 1280>;
 			};
 		};
 	};
