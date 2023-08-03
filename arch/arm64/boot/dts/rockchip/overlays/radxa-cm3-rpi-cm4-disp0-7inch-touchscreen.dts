@@ -6,11 +6,11 @@
 
 / {
 	metadata {
-		title = "Enable Raspberry Pi 7-inch Touchscreen on disp1";
+		title = "Enable Raspberry Pi 7-inch Touchscreen on disp0";
 		compatible = "radxa,cm3-rpi-cm4-io";
 		category = "display";
-		exclusive = "video_phy1";
-		description = "Enable Raspberry Pi 7-inch Touchscreen on disp1.";
+		exclusive = "video_phy0";
+		description = "Enable Raspberry Pi 7-inch Touchscreen on disp0.";
 	};
 
 	fragment@0 {
@@ -32,14 +32,14 @@
 	};
 
 	fragment@1 {
-		target = <&dsi1>;
+		target = <&dsi0>;
 
 		__overlay__ {
 			status = "okay";
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			dsi1_panel: dsi-panel@0 {
+			dsi0_panel: dsi-panel@0 {
 				compatible = "raspits,tc358762";
 				reg = <0x0>;
 				status = "okay";
@@ -50,8 +50,8 @@
 
 					port@0 {
 						reg = <0>;
-						panel_in_dsi1: endpoint {
-							remote-endpoint = <&dsi1_out_panel>;
+						panel_in_dsi0: endpoint {
+							remote-endpoint = <&dsi0_out_panel>;
 						};
 					};
 				};
@@ -66,9 +66,9 @@
 					#address-cells = <1>;
 					#size-cells = <0>;
 
-					dsi1_out_panel: endpoint@0 {
+					dsi0_out_panel: endpoint@0 {
 						reg = <0>;
-						remote-endpoint = <&panel_in_dsi1>;
+						remote-endpoint = <&panel_in_dsi0>;
 					};
 				};
 			};
@@ -76,12 +76,12 @@
 	};
 
 	fragment@2 {
-		target = <&i2c0>;
+		target = <&i2c2>;
 
 		__overlay__ {
 			status = "okay";
 			pinctrl-names = "default";
-			pinctrl-0 = <&i2c0_xfer>;
+			pinctrl-0 = <&i2c2m1_xfer>;
 			#address-cells = <1>;
 			#size-cells = <0>;
 
@@ -104,7 +104,7 @@
 	};
 
 	fragment@3 {
-		target = <&dsi1_in_vp0>;
+		target = <&dsi0_in_vp0>;
 
 		__overlay__ {
 			status = "okay";
@@ -112,11 +112,11 @@
 	};
 
 	fragment@4 {
-		target = <&route_dsi1>;
+		target = <&route_dsi0>;
 
 		__overlay__ {
 			status = "okay";
-			connect = <&vp0_out_dsi1>;
+			connect = <&vp0_out_dsi0>;
 		};
 	};
 
@@ -137,7 +137,7 @@
 	};
 
 	fragment@7 {
-		target = <&video_phy1>;
+		target = <&video_phy0>;
 
 		__overlay__ {
 			status = "okay";
