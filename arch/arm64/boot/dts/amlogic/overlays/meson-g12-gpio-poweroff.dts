@@ -7,7 +7,7 @@
 / {
 	metadata {
 		title = "Enable gpio-poweroff on GPIOAO_9";
-		compatible = "radxa,zero", "radxa,zero2";
+		compatible = "radxa,zero";
 		category = "misc";
 		exclusive = "GPIOAO_9";
 		description = "Enable gpio-poweroff on GPIOAO_9,";
