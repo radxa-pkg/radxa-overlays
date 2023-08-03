@@ -7,9 +7,9 @@
 / {
 	metadata {
 		title = "Enable Raspberry Pi 7-inch Touchscreen on disp0";
-		compatible = "radxa,radxa-cm3-rpi-cm4-io";
+		compatible = "radxa,cm3-rpi-cm4-io";
 		category = "display";
-		exclusive = "video_phy1";
+		exclusive = "video_phy0";
 		description = "Enable Raspberry Pi 7-inch Touchscreen on disp0.";
 	};
 
