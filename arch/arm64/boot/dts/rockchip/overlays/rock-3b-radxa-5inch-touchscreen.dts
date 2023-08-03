@@ -7,7 +7,7 @@
 / {
 	metadata {
 		title = "Enable Radxa 5-inch Touchscreen";
-		compatible = "radxa,rock-3a", "radxa,rock-3b";
+		compatible = "radxa,rock-3b";
 		category = "display";
 		exclusive = "dsi1";
 		description = "Enable Radxa 5-inch Touchscreen.";
@@ -27,11 +27,6 @@
 				enable-active-high;
 				regulator-always-on;
 				gpio = <&gpio0 RK_PC7 GPIO_ACTIVE_HIGH>;
-				vin-supply = <&vcc3v3_sys>;
-
-				regulator-state-mem {
-					regulator-off-in-suspend;
-				};
 			};
 		};
 	};
@@ -41,12 +36,11 @@
 
 		__overlay__ {
 			status = "okay";
-			power-supply = <&vcc_mipi>;
 			#address-cells = <1>;
 			#size-cells = <0>;
 
 			dsi1_panel: dsi-panel@0 {
-				compatible = "rockpi,tc358762";
+				compatible = "raspits,tc358762";
 				reg = <0x0>;
 				status = "okay";
 
