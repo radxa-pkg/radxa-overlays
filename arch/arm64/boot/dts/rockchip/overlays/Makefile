@@ -61,6 +61,10 @@ dtb-$(CONFIG_CPU_RK3399) += \
 	rock-4se-radxa-display-8hd.dtbo
 
 dtb-$(CONFIG_CLK_RK3568) += \
+	radxa-cm3-io-okdo-5mp-camera-cam1.dtbo \
+	radxa-cm3-io-camera-v2-imx219-cam1.dtbo \
+	radxa-cm3-io-okdo-5mp-camera-cam2.dtbo \
+	radxa-cm3-io-camera-v2-imx219-cam2.dtbo \
 	audioinjector-isolated-soundcard.dtbo \
 	radxa-cm3-io-dual-cameras-gc2053-gc2093.dtbo \
 	radxa-cm3-io-dual-cameras-gc2053.dtbo \
