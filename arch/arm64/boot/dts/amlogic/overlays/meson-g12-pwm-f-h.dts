@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable PWM-F on GPIOH_5";
-		compatible = "unknown";
+		compatible = "radxa,zero2";
 		category = "misc";
 		exclusive = "pwm_ef", "GPIOH_5";
 		description = "Enable PWM-F on GPIOH_5.";
