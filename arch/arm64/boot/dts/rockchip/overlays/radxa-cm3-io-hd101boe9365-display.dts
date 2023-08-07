@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable HD101BOE9365 Display";
-		compatible = "radxa,cm3-io";
+		compatible = "unknown";
 		category = "display";
 		description = "Enable HD101BOE9365 display.";
 	};
