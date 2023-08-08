@@ -8,7 +8,6 @@ dtb-$(CONFIG_ARCH_MESON) += \
 	meson-g12-i2c-ee-m1-x.dtbo \
 	meson-g12-i2c-ee-m3-a-ds3231.dtbo \
 	meson-g12-i2c-ee-m3-a.dtbo \
-	meson-g12-pwmao-a.dtbo \
 	meson-g12-pwm-b-h.dtbo \
 	meson-g12-pwm-b-z.dtbo \
 	meson-g12-pwm-cd-zz.dtbo \
@@ -16,6 +15,8 @@ dtb-$(CONFIG_ARCH_MESON) += \
 	meson-g12-pwm-c-z.dtbo \
 	meson-g12-pwm-d-z.dtbo \
 	meson-g12-pwm-f-h.dtbo \
+	meson-g12-pwmao-a.dtbo \
+	meson-g12-radxa-poe-fan.dtbo \
 	meson-g12-spdif.dtbo \
 	meson-g12-spi-a-spidev.dtbo \
 	meson-g12-spi-b-enc28j60.dtbo \
