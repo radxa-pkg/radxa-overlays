@@ -1,0 +1,23 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable PWM-D on GPIOA_4";
+		compatible = "radxa,zero2";
+		category = "misc";
+		exclusive = "pwm_cd", "GPIOA_4";
+		description = "Enable PWM-D on GPIOA_4.";
+	};
+
+	fragment@0 {
+		target = <&pwm_cd>;
+		__overlay__ {
+			pinctrl-0 = <&pwm_d_a_pins>;
+			pinctrl-names = "default";
+			clocks = <&xtal>;
+			clock-names = "clkin1";
+			status = "okay";
+		};
+	};
+};

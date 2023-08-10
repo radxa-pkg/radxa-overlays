@@ -13,6 +13,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
 	meson-g12-pwm-cd-zz.dtbo \
 	meson-g12-pwm-c-x.dtbo \
 	meson-g12-pwm-c-z.dtbo \
+	meson-g12-pwm-d-a.dtbo \
 	meson-g12-pwm-d-z.dtbo \
 	meson-g12-pwm-f-h.dtbo \
 	meson-g12-pwmao-a.dtbo \
