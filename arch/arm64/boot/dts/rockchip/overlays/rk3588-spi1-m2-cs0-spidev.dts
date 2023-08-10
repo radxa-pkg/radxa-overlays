@@ -3,28 +3,28 @@
 
 / {
 	metadata {
-		title = "Enable spidev on SPI0-M2 over CS1";
-		compatible = "radxa,rock-5a", "radxa,rock-5b", "radxa,nx5-io";
+		title = "Enable spidev on SPI1-M2 over CS0";
+		compatible = "radxa,nx5-io";
 		category = "misc";
-		exclusive = "GPIO1_B2", "GPIO1_B1", "GPIO1_B3", "GPIO1_B5";
-		description = "Enable spidev on SPI0-M2 over CS1.";
+		exclusive =  "GPIO1_D0", "GPIO1_D1", "GPIO1_D2", "GPIO1_D3";
+		description = "Enable spidev on SPI1-M2 over CS0.";
 	};
 
 	fragment@0 {
-		target = <&spi0>;
+		target = <&spi1>;
 
 		__overlay__ {
 			status = "okay";
 			#address-cells = <1>;
 			#size-cells = <0>;
 			pinctrl-names = "default";
-			pinctrl-0 = <&spi0m2_cs1 &spi0m2_pins>;
+			pinctrl-0 = <&spi1m2_cs0 &spi1m2_pins>;
 			max-freq = <50000000>;
 
-			spidev@1 {
+			spidev@0 {
 				compatible = "rockchip,spidev";
 				status = "okay";
-				reg = <1>;
+				reg = <0>;
 				spi-max-frequency = <50000000>;
 			};
 		};
