@@ -1,0 +1,21 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable I2C1-M4";
+		compatible = "radxa,nx5-io";
+		category = "misc";
+		exclusive = "GPIO1_D2", "GPIO1_D3";
+		description = "Enable I2C1-M4.\nOn Radxa NX5 IO this is SDA pin 18 & SCL pin 13.";
+	};
+
+	fragment@1 {
+		target = <&i2c1>;
+
+		__overlay__ {
+			status = "okay";
+			pinctrl-0 = <&i2c1m4_xfer>;
+		};
+	};
+};
