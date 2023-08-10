@@ -1,0 +1,27 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/clock/rk3588-cru.h>
+
+/ {
+	metadata {
+		title = "Enable CAN2-M1";
+		compatible = "radxa,nx5-io";
+		category = "misc";
+		exclusive = "GPIO0_D4", "GPIO0_D5";
+		description = "Enable CAN2-M1.\nOn Radxa NX5 IO this is RX pin 3 & TX pin 5.\n";
+	};
+
+	fragment@0 {
+		target = <&can2>;
+
+		__overlay__ {
+			compatible = "rockchip,can-2.0";
+			status = "okay";
+			assigned-clocks = <&cru CLK_CAN1>;
+			assigned-clock-rates = <200000000>;
+			pinctrl-names = "default";
+			pinctrl-0 = <&can2m1_pins>;
+		};
+	 };
+};
