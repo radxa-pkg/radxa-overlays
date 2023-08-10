@@ -246,6 +246,7 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-uart7-m2.dtbo \
 	rk3588-uart8-m0-full.dtbo \
 	rk3588-uart8-m0.dtbo \
+	rk3588-w1-gpio1-c7.dtbo \
 	rk3588-w1-gpio3-b3.dtbo \
 	rk3588-w1-gpio4-b1.dtbo \
 	rock-5a-radxa-display-10fhd.dtbo \
