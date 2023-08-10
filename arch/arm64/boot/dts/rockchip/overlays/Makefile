@@ -230,6 +230,7 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-pwm15-m0.dtbo \
 	rk3588-pwm15-m1.dtbo \
 	rk3588-pwm15-m3.dtbo \
+	rk3588-spi0-m0-cs0-spidev.dtbo \
 	rk3588-spi0-m1-cs0-spidev.dtbo \
 	rk3588-spi0-m1-cs1-spidev.dtbo \
 	rk3588-spi0-m2-cs0-mcp2515-8mhz.dtbo \
@@ -238,6 +239,8 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-spi1-m1-cs0-spidev.dtbo \
 	rk3588-spi1-m1-cs1-mcp2515-8mhz.dtbo \
 	rk3588-spi1-m1-cs1-spidev.dtbo \
+	rk3588-spi1-m2-cs0-spidev.dtbo \
+	rk3588-spi1-m2-cs1-spidev.dtbo \
 	rk3588-spi4-m2-cs0-spidev.dtbo \
 	rk3588-uart1-m2.dtbo \
 	rk3588-uart2-m0.dtbo \
