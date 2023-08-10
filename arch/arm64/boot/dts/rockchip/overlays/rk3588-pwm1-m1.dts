@@ -1,0 +1,21 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable PWM1-M1";
+		compatible = "radxa,nx5-io";
+		category = "misc";
+		exclusive = "GPIO1_D3";
+		description = "Enable PWM1-M1.\nOn Radxa NX5 IO this is pin 18.";
+	};
+
+	fragment@0 {
+		target = <&pwm1>;
+
+		__overlay__ {
+			status = "okay";
+			pinctrl-0 = <&pwm1m1_pins>;
+		};
+	};
+};
