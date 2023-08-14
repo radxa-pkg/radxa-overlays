@@ -1,0 +1,22 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable PWM3";
+		compatible = "radxa,cm3-rpi-cm4-io";
+		category = "misc";
+		exclusive = "GPIO0_C3";
+		description = "Enable PWM3.\nOn Radxa CM3 RPI CM4 this is on pin 37.";
+	};
+
+	fragment@0 {
+		target = <&pwm3>;
+
+		__overlay__ {
+			status = "okay";
+			pinctrl-names = "active";
+			pinctrl-0 = <&pwm3_pins>;
+		};
+	};
+};

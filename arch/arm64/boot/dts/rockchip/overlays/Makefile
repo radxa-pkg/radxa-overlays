@@ -115,6 +115,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-pwm15-m1.dtbo \
 	rk3568-pwm2-m0.dtbo \
 	rk3568-pwm2-m1.dtbo \
+	rk3568-pwm3.dtbo \
 	rk3568-pwm4.dtbo \
 	rk3568-pwm5.dtbo \
 	rk3568-pwm6.dtbo \
