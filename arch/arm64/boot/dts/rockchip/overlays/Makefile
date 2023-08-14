@@ -184,6 +184,8 @@ dtb-$(CONFIG_CPU_RK3568) += \
 	rock-3c-radxa-display-8hd.dtbo
 
 dtb-$(CONFIG_CLK_RK3588) += \
+	radxa-nx5-io-rpi-camera-v2-cam0.dtbo \
+	radxa-nx5-io-rpi-camera-v2-cam1.dtbo \
 	rk3588-dwc3-host.dtbo \
 	rk3588-dwc3-peripheral.dtbo \
 	rk3588-fiq-debugger-uart2m2.dtbo \
