@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable Dual Camera GC2053-GC2093";
-		compatible = "radxa,cm3-io";
+		compatible = "unknown";
 		category = "camera";
 		description = "Enable Dual Camera GC2053-GC2093.";
 	};
