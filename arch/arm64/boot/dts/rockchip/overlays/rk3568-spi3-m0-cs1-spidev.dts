@@ -3,23 +3,23 @@
 
 / {
 	metadata {
-		title = "Enable spidev on SPI0-M0 over CS0";
+		title = "Enable spidev on SPI3-M0 over CS1";
 		compatible = "radxa,cm3-io", "radxa,cm3-rpi-cm4-io", "radxa,cm3s-io", "radxa,radxa-cm3-sodimm-io";
 		category = "misc";
-		exclusive = "GPIO0_C0", "GPIO0_C7", "GPIO0_B5", "GPIO0_B6", "GPIO0_C6", "GPIO0_C5";
-		description = "Enable spidev on SPI0-M0 over CS0.";
+		exclusive = "GPIO3_D1", "GPIO3_D2", "GPIO3_D3", "GPIO4_A7", "GPIO4_B0", "GPIO4_B2", "GPIO4_B3";
+		description = "Enable spidev on SPI3-M0 over CS1.";
 	};
 
 	fragment@1 {
-		target = <&spi0>;
+		target = <&spi3>;
 
 		__overlay__ {
 			status = "okay";
 			#address-cells = <1>;
 			#size-cells = <0>;
 			pinctrl-names = "default", "high_speed";
-			pinctrl-0 = <&spi0m0_cs0 &spi0m0_pins>;
-			pinctrl-1 = <&spi0m0_cs0 &spi0m0_pins_hs>;
+			pinctrl-0 = <&spi3m0_cs1 &spi3m0_pins>;
+			pinctrl-1 = <&spi3m0_cs1 &spi3m0_pins_hs>;
 			max-freq = <50000000>;
 
 			spidev@0 {
