@@ -9,7 +9,7 @@
 
 	metadata {
 		title = "Enable MCP2515 on SPI3-M0 CS0";
-		compatible = "radxa,cm3-rpi-cm4-io";
+		compatible = "radxa,cm3-io", "radxa,cm3-rpi-cm4-io";
 		category = "misc";
 		exclusive = "GPIO4_B0", "GPIO4_B2", "GPIO4_B3", "GPIO4_A6", "GPIO3_C6";
 		description = "Enable MCP2515 on SPI3-M0 CS0 with 12 MHz Crystal Oscillator.\nINT=22";
