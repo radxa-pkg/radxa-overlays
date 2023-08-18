@@ -5,7 +5,7 @@
 / {
 	metadata {
 		title = "Enable SATA0";
-		compatible = "radxa,rock-3a";
+		compatible = "unknown";
 		category = "misc";
 		description = "Enable SATA0.\nWhen SATA0 is enabled, USB3.0 cannot be enabled on the same port.";
 	};
