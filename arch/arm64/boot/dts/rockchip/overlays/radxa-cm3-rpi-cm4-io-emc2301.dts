@@ -1,0 +1,44 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable EMC2301 on Radxa CM3 Rpi CM4 IO";
+		compatible = "radxa,cm3-rpi-cm4-io";
+		category = "misc";
+		exclusive = "GPIO0_B1", "GPIO0_B2";
+		description = "Enable EMC2301 on Radxa CM3 Rpi CM4 IO.";
+	};
+
+	fragment@0 {
+		target = <&i2c0>;
+
+		__overlay__ {
+			status = "okay";
+			pinctrl-name = "default";
+			pinctrl-0 = <&i2c0_xfer>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+			
+
+			emc2301: emc2301@2f {
+				status = "okay";
+				compatible = "microchip,emc2305";
+				reg = <0x2f>;
+				#address-cells = <1>;
+				#size-cells = <0>;
+				microchip,pwm-separate;
+				microchip,cooling-levels =  /bits/ 8 <10>;
+
+				channel@0 {
+					reg = <0>;
+					pwm-min = /bits/ 8 <0>;
+				};
+				channel@1 {
+					reg = <1>;
+					pwm-min = /bits/ 8 <0>;
+				};
+			};
+		};
+	};
+};
