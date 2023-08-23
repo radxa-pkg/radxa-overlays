@@ -76,6 +76,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	radxa-cm3-rpi-cm4-7inch-touchscreen-disp1.dtbo \
 	radxa-cm3-rpi-cm4-camera-v2-imx219-cam0.dtbo \
 	radxa-cm3-rpi-cm4-camera-v2-imx219-cam1.dtbo \
+	radxa-cm3-rpi-cm4-io-disable-emc2301.dtbo \
 	radxa-cm3s-io-csi0-okdo-5mp-camera.dtbo \
 	radxa-cm3s-io-csi0-rpi-camera-v2.dtbo \
 	radxa-cm3s-io-csi1-okdo-5mp-camera.dtbo \
