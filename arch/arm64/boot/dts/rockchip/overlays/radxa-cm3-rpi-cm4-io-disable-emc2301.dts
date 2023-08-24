@@ -1,0 +1,20 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Disable EMC2301 PWM fan controller";
+		compatible = "radxa,cm3-rpi-cm4-io";
+		category = "misc";
+		exclusive = "emc2301";
+		description = "Disable EMC2301 PWM fan controller.";
+	};
+
+	fragment@ {
+		target = <&emc2301>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+};
