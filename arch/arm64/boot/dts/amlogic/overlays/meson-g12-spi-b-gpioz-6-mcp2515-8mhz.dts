@@ -8,7 +8,7 @@
 / {
 	metadata {
 		title = "Enable MCP2515 with 8MHz external clock on SPI_B and GPIOZ_6";
-		compatible = "radxa,zero2";
+		compatible = "unknown";
 		category = "misc";
 		exclusive = "spicc1", "GPIOH_4", "GPIOH_5", "GPIOH_6", "GPIOH_7", "GPIOZ_6";
 		description = "Provide support for Microchip MCP2515 SPI CAN controller.\nAssumes 8MHz external clock.\nUses Pin 18 (GPIOZ_6) for INT.";
