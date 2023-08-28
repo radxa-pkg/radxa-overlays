@@ -207,7 +207,7 @@
 		target = <&route_hdmi>;
 
 		__overlay__ {
-			status = "okay";
+			status = "disabled";
 			connect = <&vp1_out_hdmi>;
 		};
 	};
