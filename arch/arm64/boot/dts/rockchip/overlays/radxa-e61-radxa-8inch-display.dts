@@ -105,7 +105,7 @@
 
 			dsi0_panel: panel@0 {
 				status = "okay";
-				compatible ="radxa,display-8hd";
+				compatible = "radxa,display-8hd";
 				reg = <0>;
 				backlight = <&backlight_dsi0>;
 

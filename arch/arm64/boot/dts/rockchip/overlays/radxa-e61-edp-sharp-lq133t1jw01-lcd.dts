@@ -187,7 +187,7 @@
 		};
 	};
 
-	fragment@9 {
+	fragment@8 {
 		target = <&hdmi>;
 
 		__overlay__ {
@@ -195,7 +195,7 @@
 		};
 	};
 
-	fragment@10 {
+	fragment@9 {
 		target = <&hdmi_in_vp1>;
 
 		__overlay__ {
@@ -203,7 +203,7 @@
 		};
 	};
 
-	fragment@11 {
+	fragment@10 {
 		target = <&route_hdmi>;
 
 		__overlay__ {
