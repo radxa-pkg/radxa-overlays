@@ -68,6 +68,9 @@
 				gpio = <&gpio0 RK_PD6 GPIO_ACTIVE_HIGH>;
 				enable-active-high;
 				regulator-name = "vcc3v3_lcd_edp";
+				regulator-min-microvolt = <3300000>;
+				regulator-max-microvolt = <3300000>;
+				vin-supply = <&vcc3v3_sys>;
 				regulator-boot-on;
 				regulator-state-mem {
 					regulator-off-in-suspend;
@@ -185,18 +188,26 @@
 	};
 
 	fragment@8 {
-		target = <&hdmi_in_vp1>;
+		target = <&hdmi>;
 
 		__overlay__ {
-			status = "okay";
+			status = "disabled";
 		};
 	};
 
 	fragment@9 {
+		target = <&hdmi_in_vp1>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@10 {
 		target = <&route_hdmi>;
 
 		__overlay__ {
-			status = "okay";
+			status = "disabled";
 			connect = <&vp1_out_hdmi>;
 		};
 	};
