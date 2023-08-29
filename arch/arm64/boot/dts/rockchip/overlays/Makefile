@@ -177,6 +177,7 @@ dtb-$(CONFIG_CPU_RK3568) += \
 	radxa-cm3-io-radxa-10p1inch-display.dtbo \
 	radxa-cm3-io-sharp-lq133t1jw01-without-hdmi.dtbo \
 	radxa-5inch-touchscreen-on-cm3-sodimm-io.dtbo \
+	radxa-cm3-sodimm-io-radxa-display-8hd.dtbo \
 	radxa-cm3-sodimm-io-raspberrypi-7inch-touchscreen.dtbo \
 	radxa-e61-edp-sharp-lq133t1jw01-lcd.dtbo \
 	radxa-e61-okdo-5mp-camera-cam1.dtbo \
