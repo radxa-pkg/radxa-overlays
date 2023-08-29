@@ -23,6 +23,7 @@
 				status = "okay";
 				compatible = "regulator-fixed";
 				regulator-name = "vcc_mipi";
+				vin-supply = <&vcc3v3_sys>;
 				regulator-boot-on;
 				regulator-min-microvolt = <3300000>;
 				regulator-max-microvolt = <3300000>;
@@ -87,6 +88,7 @@
 				status = "okay";
 				compatible = "simple-panel-dsi";
 				reg = <0>;
+				power-supply = <&vcc_mipi>;
 				backlight = <&backlight>;
 				width-mm = <107>;
 				height-mm = <199>;
@@ -372,6 +374,7 @@
 				max-x = <800>;
 				max-y = <1280>;
 				tp-size = <9112>;
+				tp-supply = <&vcc_mipi>;
 			};
 		};
 	};
