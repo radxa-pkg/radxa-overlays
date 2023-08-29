@@ -9,7 +9,7 @@
 / {
 	metadata {
 		title = "Enable Radxa Display 8HD";
-		compatible = "unknow";
+		compatible = "radxa,rock-3c";
 		category = "display";
 		exclusive = "video_phy1","GPIO3_C4","GPIO3_B1","GPIO3_B2";
 		description = "Enable Radxa Display 8HD";
@@ -23,9 +23,9 @@
 				status = "okay";
 				compatible = "regulator-fixed";
 				regulator-name = "vcc_mipi";
-				regulator-boot-on;
 				regulator-min-microvolt = <3300000>;
 				regulator-max-microvolt = <3300000>;
+				vin-supply = <&vcc3v3_sys>;
 				enable-active-high;
 				regulator-always-on;
 				gpio = <&gpio0 RK_PC7 GPIO_ACTIVE_HIGH>;
@@ -88,6 +88,7 @@
 				compatible = "simple-panel-dsi";
 				reg = <0>;
 				backlight = <&backlight>;
+				power-supply = <&vcc_mipi>;
 
 				width-mm = <107>;
 				height-mm = <199>;
@@ -369,7 +370,6 @@
 			pinctrl-0 = <&i2c3m1_xfer>;
 			#address-cells = <1>;
 			#size-cells = <0>;
-			
 
 			gt9xx: gt9xx@14 {
 				status = "okay";
@@ -382,6 +382,7 @@
 				max-x = <800>;
 				max-y = <1280>;
 				tp-size = <9112>;
+				tp-supply = <&vcc_mipi>;
 			};
 		};
 	};
