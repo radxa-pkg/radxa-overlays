@@ -186,6 +186,7 @@ dtb-$(CONFIG_CPU_RK3568) += \
 	radxa-e61-radxa-8inch-display.dtbo \
 	radxa-e61-rpi-camera-v2-cam1.dtbo \
 	radxa-e61-rpi-camera-v2-cam2.dtbo \
+	radxa-e61-rs485.dtbo \
 	radxa-e61-sata.dtbo \
 	radxa-zero-3w-external-antenna.dtbo \
 	radxa-zero-3w-rpi-camera-v1.3.dtbo \

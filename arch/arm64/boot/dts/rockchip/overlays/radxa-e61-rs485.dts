@@ -1,0 +1,22 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable RS485";
+		compatible = "radxa,e61";
+		category = "misc";
+		exclusive = "GPIO3_C2", "GPIO3_C3";
+		description = "Enable RS485.";
+	};
+
+	fragment@0 {
+		target = <&uart5>;
+
+		__overlay__ {
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <&uart5m1_xfer>;
+		};
+	};
+};
