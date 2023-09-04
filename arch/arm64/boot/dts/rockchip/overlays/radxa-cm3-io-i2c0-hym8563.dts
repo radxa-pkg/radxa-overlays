@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable HYM8563 RTC on I2C0";
-		compatible = "radxa,cm3-io";
+		compatible = "unknown";
 		category = "misc";
 		description = "Enable HYM8563 RTC on I2C0.";
 	};
