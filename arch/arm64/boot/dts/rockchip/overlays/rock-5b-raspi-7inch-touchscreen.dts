@@ -82,8 +82,8 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			rockpi_ft5406: rockpi_ft5406@38 {
-				compatible = "rockpi_ft5406";
+			raspits_ft5426: raspits_ft5426@38 {
+				compatible = "raspits_ft5426";
 				reg = <0x38>;
 			};
 
