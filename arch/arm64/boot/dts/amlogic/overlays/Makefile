@@ -17,7 +17,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
 	meson-g12-pwm-d-z.dtbo \
 	meson-g12-pwm-f-h.dtbo \
 	meson-g12-pwmao-a.dtbo \
-	meson-g12-radxa-poe-fan.dtbo \
+	meson-g12-radxa-25w-poe-fan.dtbo \
 	meson-g12-spdif.dtbo \
 	meson-g12-spi-a-spidev.dtbo \
 	meson-g12-spi-b-enc28j60.dtbo \

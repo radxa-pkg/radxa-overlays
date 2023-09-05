@@ -33,6 +33,7 @@ dtb-$(CONFIG_CLK_RK3399) += \
 	rk3399-pcie0-gen2.dtbo \
 	rk3399-pwm0.dtbo \
 	rk3399-pwm1.dtbo \
+	rk3399-radxa-25w-poe-fan.dtbo \
 	rk3399-rga-400.dtbo \
 	rk3399-spi-gpio-enc28j60.dtbo \
 	rk3399-spi1-enc28j60.dtbo \
@@ -109,15 +110,6 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-pwm0-m1.dtbo \
 	rk3568-pwm1-m0.dtbo \
 	rk3568-pwm1-m1.dtbo \
-	rk3568-pwm11-m1.dtbo \
-	rk3568-pwm12-m0.dtbo \
-	rk3568-pwm12-m1.dtbo \
-	rk3568-pwm13-m0.dtbo \
-	rk3568-pwm13-m1.dtbo \
-	rk3568-pwm14-m0.dtbo \
-	rk3568-pwm14-m1.dtbo \
-	rk3568-pwm15-m0.dtbo \
-	rk3568-pwm15-m1.dtbo \
 	rk3568-pwm2-m0.dtbo \
 	rk3568-pwm2-m1.dtbo \
 	rk3568-pwm3.dtbo \
@@ -127,6 +119,16 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-pwm7.dtbo \
 	rk3568-pwm8-m0.dtbo \
 	rk3568-pwm9-m0.dtbo \
+	rk3568-pwm11-m1.dtbo \
+	rk3568-pwm12-m0.dtbo \
+	rk3568-pwm12-m1.dtbo \
+	rk3568-pwm13-m0.dtbo \
+	rk3568-pwm13-m1.dtbo \
+	rk3568-pwm14-m0.dtbo \
+	rk3568-pwm14-m1.dtbo \
+	rk3568-pwm15-m0.dtbo \
+	rk3568-pwm15-m1.dtbo \
+	rk3568-radxa-25w-poe-fan.dtbo \
 	rk3568-serdes2-pcie.dtbo \
 	rk3568-serdes2-sata.dtbo \
 	rk3568-spi0-m0-cs0-spidev.dtbo \
@@ -278,12 +280,14 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-w1-gpio1-c7.dtbo \
 	rk3588-w1-gpio3-b3.dtbo \
 	rk3588-w1-gpio4-b1.dtbo \
+	rock-5a-radxa-25w-poe-fan.dtbo \
 	rock-5a-radxa-display-10fhd.dtbo \
 	rock-5a-radxa-display-8hd.dtbo \
 	rock-5a-rpi-camera-v2.dtbo \
 	rock-5a-radxa-display-10hd.dtbo \
 	rock-5a-sata.dtbo \
 	rock-5a-spi-flash.dtbo \
+	rock-5b-radxa-25w-poe-fan.dtbo \
 	rock-5b-radxa-display-10fhd.dtbo \
 	rock-5b-radxa-display-10hd.dtbo \
 	rock-5b-radxa-display-8hd.dtbo \
