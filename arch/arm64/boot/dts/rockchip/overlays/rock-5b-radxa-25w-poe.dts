@@ -8,20 +8,20 @@
 
 / {
 	metadata {
-		title = "Enable fan for Radxa 25W PoE HAT";
-		compatible = "radxa,rock-4c-plus";
+		title = "Enable Radxa 25W PoE HAT";
+		compatible = "radxa,rock-5b";
 		category = "misc";
-		exclusive = "GPIO2_B4";
-		description = "Enable fan for Radxa 25W PoE HAT.";
+		exclusive = "GPIO3_A7", "GPIO3_C3";
+		description = "Enable Radxa 25W PoE HAT.";
 	};
 
 	fragment@0 {
 		target-path = "/";
 		__overlay__ {
-			radxa_poe_pwm: radxa-poe-pwm {
-				compatible = "pwm-gpio";
-				#pwm-cells = <3>;
-				pwm-gpio = <&gpio2 RK_PB4 GPIO_ACTIVE_HIGH>;
+			radxa_pow_w1: radxa-poe-w1 {
+				compatible = "w1-gpio";
+				gpios = <&gpio3 RK_PC3 GPIO_ACTIVE_HIGH>;
+				status = "okay";
 			};
 
 			radxa_poe_fan: radxa-poe-fan {
@@ -30,12 +30,21 @@
 				cooling-min-state = <0>;
 				cooling-max-state = <4>;
 				cooling-levels = <0 64 128 192 255>;
-				pwms = <&radxa_poe_pwm 0 40000 PWM_POLARITY_INVERTED>;
+				pwms = <&pwm8 0 40000 PWM_POLARITY_INVERTED>;
 			};
 		};
 	};
 
 	fragment@1 {
+		target = <&pwm8>;
+
+		__overlay__ {
+			status = "okay";
+			pinctrl-0 = <&pwm8m0_pins>;
+		};
+	};
+
+	fragment@2 {
 		target = <&soc_thermal>;
 
 		__overlay__ {

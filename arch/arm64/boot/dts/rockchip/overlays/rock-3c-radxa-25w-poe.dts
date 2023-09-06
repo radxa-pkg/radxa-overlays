@@ -2,26 +2,32 @@
 /plugin/;
 
 #include <dt-bindings/gpio/gpio.h>
-#include <dt-bindings/gpio/meson-g12a-gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
 #include <dt-bindings/pwm/pwm.h>
 #include <dt-bindings/thermal/thermal.h>
 
 / {
 	metadata {
-		title = "Enable fan for Radxa 25W PoE HAT";
-		compatible = "radxa,zero2";
+		title = "Enable Radxa 25W PoE HAT";
+		compatible = "radxa,rock-3c";
 		category = "misc";
-		exclusive = "GPIOAO_8";
-		description = "Enable fan for Radxa 25W PoE HAT.";
+		exclusive = "GPIO3_C3", "GPIO3_C4";
+		description = "Enable Radxa 25W PoE HAT.";
 	};
 
 	fragment@0 {
 		target-path = "/";
 		__overlay__ {
+			radxa_pow_w1: radxa-poe-w1 {
+				compatible = "w1-gpio";
+				gpios = <&gpio3 RK_PC4 GPIO_ACTIVE_HIGH>;
+				status = "okay";
+			};
+
 			radxa_poe_pwm: radxa-poe-pwm {
 				compatible = "pwm-gpio";
 				#pwm-cells = <3>;
-				pwm-gpio = <&gpio_ao GPIOAO_8 GPIO_ACTIVE_HIGH>;
+				pwm-gpio = <&gpio3 RK_PC3 GPIO_ACTIVE_HIGH>;
 			};
 
 			radxa_poe_fan: radxa-poe-fan {
@@ -36,24 +42,15 @@
 	};
 
 	fragment@1 {
-		target = <&cpu_thermal>;
+		target = <&soc_thermal>;
 
 		__overlay__ {
 			cooling-maps {
-				map2 {
+				map3 {
 					cooling-device = <&fan0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
 									 <&radxa_poe_fan THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
 				};
-			};
-		};
-	};
-
-	fragment@2 {
-		target = <&ddr_thermal>;
-
-		__overlay__ {
-			cooling-maps {
-				map2 {
+				map4 {
 					cooling-device = <&fan0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
 									 <&radxa_poe_fan THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
 				};
