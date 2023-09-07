@@ -11,7 +11,7 @@
 		title = "Enable Radxa 25W PoE HAT";
 		compatible = "radxa,zero2";
 		category = "misc";
-		exclusive = "GPIOAO_8", "GPIOZ_2";
+		exclusive = "i2c0", "GPIOAO_8", "GPIOZ_2", "GPIOZ_0", "GPIOZ_1";
 		description = "Enable Radxa 25W PoE HAT.";
 	};
 
