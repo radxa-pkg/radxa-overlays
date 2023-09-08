@@ -1,0 +1,23 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable I2C2 with 50KHz frequency";
+		compatible = "rockchip,rk3399";
+		category = "misc";
+		exclusive = "GPIO2_A0", "GPIO2_A1";
+		description = "Enable I2C2 with 50KHz frequency on pin 27 & 28.";
+	};
+
+	fragment@0 {
+		target = <&i2c2>;
+
+		__overlay__ {
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <&i2c2_xfer>;
+			clock-frequency = <50000>;
+		};
+	};
+};

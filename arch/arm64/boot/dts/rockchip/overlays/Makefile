@@ -22,6 +22,7 @@ dtb-$(CONFIG_CLK_RK3399) += \
 	rk3399-dwc3-0-otg.dtbo \
 	rk3399-dwc3-0-peripheral.dtbo \
 	rk3399-gpio-ir.dtbo \
+	rk3399-i2c2-50khz.dtbo \
 	rk3399-i2c2.dtbo \
 	rk3399-i2c6.dtbo \
 	rk3399-i2c7-ds3231.dtbo \
