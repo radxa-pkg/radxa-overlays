@@ -160,6 +160,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rock-3a-sata0.dtbo \
 	rock-3a-sata1.dtbo \
 	rock-3a-sata2.dtbo \
+	rock-3a-v12-radxa-25w-poe.dtbo \
 	rock-3ab-okdo-5mp-camera.dtbo \
 	rock-3ab-raspberrypi-7inch-touchscreen.dtbo \
 	rock-3ab-rpi-camera-v1p3-ov5647.dtbo \

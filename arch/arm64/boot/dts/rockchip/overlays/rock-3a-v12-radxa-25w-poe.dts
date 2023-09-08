@@ -8,11 +8,11 @@
 
 / {
 	metadata {
-		title = "Enable Radxa 25W PoE HAT";
-		compatible = "radxa,rock-3a";
+		title = "Enable Radxa 25W PoE HAT on ROCK 3A <= v1.2";
+		compatible = "unknown";
 		category = "misc";
-		exclusive = "GPIO0_B5", "GPIO3_C3";
-		description = "Enable Radxa 25W PoE HAT.\nThis overlay supports ROCK 3A v1.3 and later.";
+		exclusive = "GPIO3_B7", "GPIO3_C3";
+		description = "Enable Radxa 25W PoE HAT on ROCK 3A <= v1.2.";
 	};
 
 	fragment@0 {
@@ -20,7 +20,7 @@
 		__overlay__ {
 			radxa_pow_w1: radxa-poe-w1 {
 				compatible = "w1-gpio";
-				gpios = <&gpio0 RK_PB5 GPIO_ACTIVE_HIGH>;
+				gpios = <&gpio3 RK_PB7 GPIO_ACTIVE_HIGH>;
 				status = "okay";
 			};
 
