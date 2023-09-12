@@ -244,6 +244,7 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-pwm8-m0.dtbo \
 	rk3588-pwm10-m2.dtbo \
 	rk3588-pwm11-m1.dtbo \
+	rk3588-pwm11-m2.dtbo \
 	rk3588-pwm12-m0.dtbo \
 	rk3588-pwm12-m1.dtbo \
 	rk3588-pwm13-m0.dtbo \
