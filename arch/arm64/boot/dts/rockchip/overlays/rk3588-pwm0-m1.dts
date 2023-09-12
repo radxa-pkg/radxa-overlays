@@ -4,10 +4,10 @@
 / {
 	metadata {
 		title = "Enable PWM0-M1";
-		compatible = "radxa,nx5-io";
+		compatible = "radxa,nx5-io", "radxa,cm5-io";
 		category = "misc";
 		exclusive = "GPIO1_D2";
-		description = "Enable PWM0-M1.\nOn Radxa NX5 IO this is pin 13.";
+		description = "Enable PWM0-M1.\nOn Radxa NX5 IO this is pin 13.\nOn Radxa CM5 IO this is pin 38.";
 	};
 
 	fragment@0 {
