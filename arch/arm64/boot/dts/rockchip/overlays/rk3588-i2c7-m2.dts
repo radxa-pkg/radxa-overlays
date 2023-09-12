@@ -4,10 +4,10 @@
 / {
 	metadata {
 		title = "Enable I2C7-M2";
-		compatible = "radxa,nx5-io";
+		compatible = "radxa,nx5-io", "radxa,cm5-io";
 		category = "misc";
 		exclusive = "GPIO3_D2", "GPIO3_D3";
-		description = "Enable I2C7-M2.\nOn Radxa NX5 IO this is SDA pin 36 & SCL pin 11.";
+		description = "Enable I2C7-M2.\nOn Radxa NX5 IO this is SDA pin 36 & SCL pin 11.\nOn Radxa CM5 IO this is SDA pin 3 & SCL pin 5.";
 	};
 
 	fragment@0 {
