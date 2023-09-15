@@ -29,13 +29,13 @@
 			ir_key1 {
 				rockchip,usercode = <0xff00>;
 				rockchip,key_table =
-					<0xba KEY_CHANNELDOWN>,		<0xb9 KEY_CHANNEL>,		<0xb8 KEY_CHANNELUP>,
-					<0xbb KEY_PREVIOUS>, 		<0xbf KEY_NEXT>,		<0xbc KEY_PLAYPAUSE>,
-					<0xf8 KEY_VOLUMEDOWN>,		<0xea KEY_VOLUMEUP>,		<0xf6 KEY_EQUAL>,
-					<0xe9 KEY_0>,			<0xe6 KEY_F1>,			<0xf2 KEY_F2>,
-					<0xf3 KEY_1>,			<0xe7 KEY_2>, 			<0xa1 KEY_3>,
-					<0xf7 KEY_4>,			<0xe3 KEY_5>, 			<0xa5 KEY_6>,
-					<0xbd KEY_7>,			<0xad KEY_8>, 			<0xb5 KEY_9>;
+					<0xba KEY_CHANNELDOWN>,	<0xb9 KEY_CHANNEL>,	<0xb8 KEY_CHANNELUP>,
+					<0xbb KEY_PREVIOUS>,	<0xbf KEY_NEXT>,	<0xbc KEY_PLAYPAUSE>,
+					<0xf8 KEY_VOLUMEDOWN>,	<0xea KEY_VOLUMEUP>,	<0xf6 KEY_EQUAL>,
+					<0xe9 KEY_0>,		<0xe6 KEY_F1>,		<0xf2 KEY_F2>,
+					<0xf3 KEY_1>,		<0xe7 KEY_2>, 		<0xa1 KEY_3>,
+					<0xf7 KEY_4>,		<0xe3 KEY_5>, 		<0xa5 KEY_6>,
+					<0xbd KEY_7>,		<0xad KEY_8>, 		<0xb5 KEY_9>;
 			};
 		};
 	};
