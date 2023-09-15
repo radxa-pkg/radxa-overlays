@@ -39,6 +39,8 @@
 					<0xea	KEY_VOLUMEUP>,
 					<0xf6	KEY_EQUAL>,
 					<0xe9	KEY_0>,
+					<0xe6	KEY_F1>,
+					<0xf2	KEY_F2>,
 					<0xf3	KEY_1>,
 					<0xe7	KEY_2>,
 					<0xa1	KEY_3>,
