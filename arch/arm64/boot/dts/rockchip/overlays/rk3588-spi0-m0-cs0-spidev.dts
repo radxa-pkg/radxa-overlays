@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable spidev on SPI0-M0 over CS0";
-		compatible = "radxa,nx5-io";
+		compatible = "unknown";
 		category = "misc";
 		exclusive = "GPIO1_B2", "GPIO1_B1", "GPIO1_B3", "GPIO0_D1";
 		description = "Enable spidev on SPI0-M0 over CS0.";

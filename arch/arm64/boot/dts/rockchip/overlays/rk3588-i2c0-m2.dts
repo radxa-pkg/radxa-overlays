@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable I2C0-M2";
-		compatible = "radxa,nx5-io";
+		compatible = "unknown";
 		category = "misc";
 		exclusive = "GPIO0_D1", "GPIO0_D2";
 		description = "Enable I2C0-M2.\nOn Radxa NX5 IO this is SDA pin 27 & SCL pin 28.";
