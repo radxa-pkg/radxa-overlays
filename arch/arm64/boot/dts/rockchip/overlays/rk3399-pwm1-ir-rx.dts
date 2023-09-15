@@ -1,0 +1,42 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/input/input.h>
+
+/ {
+	metadata {
+		title = "Enable IR receiver on PWM1";
+		compatible = "rockchip,rk3399";
+		category = "misc";
+		exclusive = "GPIO4_C6", "pwm1";
+		description = "Enable IR receiver on PWM1.";
+	};
+
+	fragment@0 {
+		target = <&pwm1>;
+
+		__overlay__ {
+			compatible = "rockchip,remotectl-pwm";
+			remote_pwm_id = <1>;
+			handle_cpu_id = <1>;
+			remote_support_psci = <1>;
+			status = "okay";
+			pinctrl-0 = <&pwm1_pin>;
+			pinctrl-names = "default";
+			interrupts = <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH 0>;
+
+			ir_key1 {
+				rockchip,usercode = <0xff00>;
+				rockchip,key_table =
+					<0xba KEY_CHANNELDOWN>,	<0xb9 KEY_CHANNEL>,	<0xb8 KEY_CHANNELUP>,
+					<0xbb KEY_PREVIOUS>,	<0xbf KEY_NEXT>,	<0xbc KEY_PLAYPAUSE>,
+					<0xf8 KEY_VOLUMEDOWN>,	<0xea KEY_VOLUMEUP>,	<0xf6 KEY_EQUAL>,
+					<0xe9 KEY_0>,		<0xe6 KEY_F1>,		<0xf2 KEY_F2>,
+					<0xf3 KEY_1>,		<0xe7 KEY_2>, 		<0xa1 KEY_3>,
+					<0xf7 KEY_4>,		<0xe3 KEY_5>, 		<0xa5 KEY_6>,
+					<0xbd KEY_7>,		<0xad KEY_8>, 		<0xb5 KEY_9>;
+			};
+		};
+	};
+};

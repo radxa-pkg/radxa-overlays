@@ -33,6 +33,7 @@ dtb-$(CONFIG_CLK_RK3399) += \
 	rk3399-opp-2400.dtbo \
 	rk3399-pcie0-gen2.dtbo \
 	rk3399-pwm0.dtbo \
+	rk3399-pwm1-ir-rx.dtbo \
 	rk3399-pwm1.dtbo \
 	rk3399-radxa-25w-poe.dtbo \
 	rk3399-rga-400.dtbo \
