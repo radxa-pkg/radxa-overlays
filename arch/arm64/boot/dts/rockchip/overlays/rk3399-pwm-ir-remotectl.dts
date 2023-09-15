@@ -9,7 +9,7 @@
 		title = "Enable IR receiver on PWM1";
 		compatible = "rockchip,rk3399";
 		category = "misc";
-		exclusive = "GPIO4_C6";
+		exclusive = "GPIO4_C6", "pwm1";
 		description = "Enable IR receiver on PWM1.";
 	};
 
@@ -38,9 +38,9 @@
 					<0xf8	KEY_VOLUMEDOWN>,
 					<0xea	KEY_VOLUMEUP>,
 					<0xf6	KEY_EQUAL>,
-					<0xe9	KEY_0>,
 					<0xe6	KEY_F1>,
 					<0xf2	KEY_F2>,
+					<0xe9	KEY_0>,
 					<0xf3	KEY_1>,
 					<0xe7	KEY_2>,
 					<0xa1	KEY_3>,
