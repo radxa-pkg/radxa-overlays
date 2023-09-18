@@ -47,7 +47,7 @@
 				pwdn-gpios = <&gpio3 RK_PC6 GPIO_ACTIVE_LOW>;
 				rockchip,camera-module-index = <0>;
 				rockchip,camera-module-facing = "back";
-				rockchip,camera-module-name = "rpi-camera-v1.3";
+				rockchip,camera-module-name = "rpi-camera-v1p3";
 				rockchip,camera-module-lens-name = "default";
 
 				port {
