@@ -7,11 +7,11 @@
 
 / {
 	metadata {
-		title = "Enable Raspberry Pi 7-inch Touchscreen on DSI0";
+		title = "Enable Raspberry Pi 7-inch Touchscreen on DISP0";
 		compatible = "radxa,cm5-io";
 		category = "display";
 		exclusive = "dsi0";
-		description = "Enable Raspberry Pi 7-inch Touchscreen on DSI0.";
+		description = "Enable Raspberry Pi 7-inch Touchscreen on DISP0.";
 	};
 
 	fragment@0 {
@@ -56,11 +56,11 @@
 	};
 
 	fragment@1 {
-		target = <&i2c7>;
+		target = <&i2c8>;
 
 		__overlay__ {
 			status = "okay";
-			pinctrl-0 = <&i2c7m2_xfer>;
+			pinctrl-0 = <&i2c8m2_xfer>;
 			#address-cells = <1>;
 			#size-cells = <0>;
 
