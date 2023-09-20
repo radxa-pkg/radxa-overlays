@@ -7,11 +7,11 @@
 
 / {
 	metadata {
-		title = "Enable Raspberry Pi 7-inch Touchscreen on DIS1";
+		title = "Enable Raspberry Pi 7-inch Touchscreen on DISP1";
 		compatible = "radxa,cm5-io";
 		category = "display";
 		exclusive = "dsi1";
-		description = "Enable Raspberry Pi 7-inch Touchscreen on DIS1.";
+		description = "Enable Raspberry Pi 7-inch Touchscreen on DISP1.";
 	};
 
 	fragment@0 {
