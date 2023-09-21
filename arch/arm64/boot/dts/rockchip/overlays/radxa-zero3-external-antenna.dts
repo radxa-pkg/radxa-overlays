@@ -8,7 +8,7 @@
 / {
 	metadata {
 		title = "Enable external antenna";
-		compatible = "radxa,zero-3w";
+		compatible = "radxa,zero3";
 		category = "misc";
 		exclusive = "GPIO3_D2";
 		description = "Enable external antenna.";
