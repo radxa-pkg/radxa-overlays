@@ -300,7 +300,6 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rock-5a-sata.dtbo \
 	rock-5a-spi-flash.dtbo \
 	rock-5b-radxa-25w-poe.dtbo \
-	rock-5b-radxa-display-10fhd.dtbo \
 	rock-5b-radxa-display-10hd.dtbo \
 	rock-5b-radxa-display-8hd.dtbo \
 	rock-5b-rpi-camera-v2.dtbo \
@@ -323,6 +322,7 @@ dtb-$(CONFIG_CPU_RK3588) += \
 	radxa-cm5-rpi-cm4-io-raspi-7inch-ts-disp1.dtbo \
 	rock-5a-radxa-camera-4k.dtbo \
 	rock-5b-radxa-camera-4k.dtbo \
+	rock-5b-radxa-display-10fhd.dtbo \
 	rock-5b-raspi-7inch-touchscreen.dtbo \
 	rock-5b-hdmi1-8k.dtbo \
 	rock-5b-hdmi2-8k.dtbo
