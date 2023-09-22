@@ -10,8 +10,8 @@
 		title = "Enable ENC28J60 on SPI1";
 		compatible = "radxa,rock-4c-plus";
 		category = "misc";
-		exclusive = "GPIO4_D2", "GPIO4_D4", "GPIO4_A4", "GPIO4_A6", "GPIO4_A7";
-		description = "Provide support for Microchip ENC28J60 SPI Ethernet controller on GPIO pins.\nPin definition:\nMOSI=19 MISO=21 SCK=23 CS=24 INT=40";
+		exclusive = "GPIO1_A7", "GPIO1_B0", "GPIO1_B1", "GPIO1_B2", "GPIO4_D5";
+		description = "Provide support for Microchip ENC28J60 SPI Ethernet controller on GPIO pins.\nPin definition:\nMOSI=19 MISO=21 SCK=23 CS=24 INT=22";
 	};
 
 	fragment@0 {
@@ -26,7 +26,7 @@
 				reg = <0>;
 				spi-max-frequency = <20000000>;
 				interrupt-parent = <&gpio4>;
-				interrupts = <RK_PA7 IRQ_TYPE_EDGE_FALLING>;
+				interrupts = <RK_PD5 IRQ_TYPE_EDGE_FALLING>;
 				pinctrl-names = "default";
 				pinctrl-0 = <&enc28j60_int_pins>;
 			};
@@ -38,7 +38,7 @@
 		__overlay__ {
 			enc28j60 {
 				enc28j60_int_pins: enc28j60-int-pins {
-					rockchip,pins = <4 RK_PA7 RK_FUNC_GPIO &pcfg_pull_up>;
+					rockchip,pins = <4 RK_PD5 RK_FUNC_GPIO &pcfg_pull_up>;
 				};
 			};
 		};
