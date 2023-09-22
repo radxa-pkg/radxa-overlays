@@ -7,7 +7,7 @@
 / {
 	metadata {
 		title ="Enable Raspberry Pi Camera V2 on CAM0";
-		compatible = "radxa,cm5-io";
+		compatible = "radxa,cm5-rpi-cm4-io";
 		category = "camera";
 		exclusive = "csi2_dphy0";
 		description = "Enable Raspberry Pi Camera V2 on CAM0.";
