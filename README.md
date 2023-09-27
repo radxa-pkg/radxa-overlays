@@ -41,10 +41,10 @@ Currently, we mandate a custom `metadata` node in overlays. This data is parsed 
 / {
 	metadata {
 		title = "Enable ENC28J60 on SPI2";
-		compatible = "unknown";
 		category = "misc";
-		exclusive = "GPIO2_B3", "GPIO2_B2", "GPIO2_B1", "GPIO2_B4", "GPIO4_A7";
+		compatible = "unknown";
 		description = "Enable Microchip ENC28J60 SPI Ethernet controller on SPI2.\nINT=40";
+		exclusive = "GPIO2_B3", "GPIO2_B2", "GPIO2_B1", "GPIO2_B4", "GPIO4_A7";
 	};
 };
 ```
@@ -55,27 +55,27 @@ Currently, we mandate a custom `metadata` node in overlays. This data is parsed 
    `rsetup` will only show compatible overlays with `compatible` field. As such, do not confuse users to second guess if an overlay is truly compatible when the product name is not explicitly mentioned.
 2. `title` should not end with a period.
 
-### B. Compatible (array)
+### B. Category (string)
+
+1. `category` currently can be one of the following:  
+   camera, display, misc
+
+### C. Compatible (array)
 
 1. `compatible` should not be an SoC unless it is truly compatible with every products using that SoC.  
    `rsetup` will match the base device tree's `compatible` with the overlay's `compatible`. As long as one value from each match, the overlay is considered compatible. Since most products' device tree contains their SoC in `compatible`, setting SoC in overlay's `compatible` will make it compatible with every such product.  
    Explicit products list should be preferred to generic SoC matching.
 2. If a overlay is broken, `compatible` should be `unknown`.
 
-### C. Category (string)
+### D. Description (string)
 
-1. `category` currently can be one of the following:  
-   camera, display, misc
+1. `description` is a multi line text to describe the function of the overlay. It can be the same as `title` with an ending period.
+2. Newline in `description` should use `\n`.
+3. Hardware parameters should be listed at the end to help user to connect their devices.
 
-### D. Exclusive (array)
+### E. Exclusive (array)
 
 1. `exclusive` should refer to the device tree node and property.
 2. For features that are muxed to a GPIO line, `exclusive` should be the GPIO ID.
 3. For features that use multiple GPIO lines, they should all be listed under `exclusive`.
 4. When there is no exclusive resource being used, special `null` resource should be used: `exclusive = "null";`
-
-### E. Description (string)
-
-1. `description` is a multi line text to describe the function of the overlay. It can be the same as `title` with an ending period.
-2. Newline in `description` should use `\n`.
-3. Hardware parameters should be listed at the end to help user to connect their devices.
