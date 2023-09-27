@@ -9,10 +9,11 @@
 / {
 	metadata {
 		title = "Enable Radxa 25W PoE HAT";
-		compatible = "radxa,rock-4c-plus";
 		category = "misc";
-		exclusive = "GPIO2_B3", "GPIO2_B4";
+		compatible = "radxa,rock-4c-plus";
 		description = "Enable Radxa 25W PoE HAT.";
+		exclusive = "GPIO2_B3", "GPIO2_B4";
+		package = "rsetup-config-thermal-governor-step-wise";
 	};
 
 	fragment@0 {

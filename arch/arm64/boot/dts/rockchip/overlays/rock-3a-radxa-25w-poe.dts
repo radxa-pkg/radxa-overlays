@@ -9,10 +9,11 @@
 / {
 	metadata {
 		title = "Enable Radxa 25W PoE HAT";
-		compatible = "radxa,rock-3a";
 		category = "misc";
-		exclusive = "GPIO0_B5", "GPIO3_C3";
+		compatible = "radxa,rock-3a";
 		description = "Enable Radxa 25W PoE HAT.\nThis overlay supports ROCK 3A v1.3 and later.";
+		exclusive = "GPIO0_B5", "GPIO3_C3";
+		package = "rsetup-config-thermal-governor-step-wise";
 	};
 
 	fragment@0 {
