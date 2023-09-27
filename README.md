@@ -45,6 +45,7 @@ Currently, we mandate a custom `metadata` node in overlays. This data is parsed 
 		compatible = "unknown";
 		description = "Enable Microchip ENC28J60 SPI Ethernet controller on SPI2.\nINT=40";
 		exclusive = "GPIO2_B3", "GPIO2_B2", "GPIO2_B1", "GPIO2_B4", "GPIO4_A7";
+		package = "dkms-enc28j60";
 	};
 };
 ```
@@ -78,4 +79,8 @@ Currently, we mandate a custom `metadata` node in overlays. This data is parsed 
 1. `exclusive` should refer to the device tree node and property.
 2. For features that are muxed to a GPIO line, `exclusive` should be the GPIO ID.
 3. For features that use multiple GPIO lines, they should all be listed under `exclusive`.
-4. When there is no exclusive resource being used, special `null` resource should be used: `exclusive = "null";`
+
+### F. Package (array)
+
+1. `package` specify the additional packages to be used with this overlay.
+2. When the overlay is disabled, the specified package will NOT be removed.
