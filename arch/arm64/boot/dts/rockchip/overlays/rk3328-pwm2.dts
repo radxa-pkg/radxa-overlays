@@ -1,0 +1,22 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable PWM2";
+		compatible = "rockchip,rk3328";
+		category = "misc";
+		exclusive = "GPIO2_A6";
+		description = "Enable PWM2.\nOn Rock Pi E this is pin 33.";
+	};
+
+	fragment@0 {
+		target = <&pwm2>;
+
+		__overlay__ {
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <&pwm0_pin>;
+		};
+	};
+};

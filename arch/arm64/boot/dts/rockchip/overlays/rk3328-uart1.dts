@@ -1,0 +1,22 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable UART1";
+		compatible = "rockchip,rk3328";
+		category = "misc";
+		exclusive = "GPIO3_A4", "GPIO3_A5";
+		description = "Enable UART1";
+	};
+
+	fragment@0 {
+		target = <&uart1>;
+
+		__overlay__ {
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <&uart1_xfer &uart1_cts &uart1_rts>;
+		};
+	};
+};

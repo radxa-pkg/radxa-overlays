@@ -1,0 +1,22 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable UART2-M0";
+		compatible = "rockchip,rk3328";
+		category = "misc";
+		exclusive = "GPIO1_A0", "GPIO1_A1";
+		description = "Enable UART2-M0";
+	};
+
+	fragment@0 {
+		target = <&uart2>;
+
+		__overlay__ {
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <&uart2m1_xfer>;
+		};
+	};
+};
