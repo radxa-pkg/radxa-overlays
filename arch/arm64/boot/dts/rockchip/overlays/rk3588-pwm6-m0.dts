@@ -4,10 +4,10 @@
 / {
 	metadata {
 		title = "Enable PWM6-M0";
-		compatible = "radxa,rock-5a", "radxa,cm5-io";
+		compatible = "radxa,rock-5a", "radxa,cm5-io", "radxa,cm5-rpi-cm4-io";
 		category = "misc";
 		exclusive = "GPIO0_C7";
-		description = "Enable PWM6-M0.\nOn Radxa ROCK 5A this is pin 27.\nOn Radxa CM5 IO this is pin 31.";
+		description = "Enable PWM6-M0.\nOn Radxa ROCK 5A this is pin 27.\nOn Radxa CM5 IO this is pin 31.\nOn Radxa CM5 RPI CM4 IO this is pin 5.";
 	};
 
 	fragment@0 {
