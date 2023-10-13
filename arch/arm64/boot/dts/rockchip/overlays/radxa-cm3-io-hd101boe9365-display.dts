@@ -10,7 +10,7 @@
 		title = "Enable HD101BOE9365 Display";
 		compatible = "radxa,cm3-io";
 		category = "display";
-		exclusive = "dsi0";
+		exclusive = "dsi0", "pwm13";
 		description = "Enable HD101BOE9365 display.";
 	};
 
