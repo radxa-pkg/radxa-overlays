@@ -2,6 +2,9 @@
 ifeq ($(strip $(CONFIG_CPU_RK3308)), y)
 	CONFIG_CLK_RK3308 ?= y
 endif
+ifeq ($(strip $(CONFIG_CPU_RK3328)), y)
+	CONFIG_CLK_RK3328 ?= y
+endif
 ifeq ($(strip $(CONFIG_CPU_RK3399)), y)
 	CONFIG_CLK_RK3399 ?= y
 endif
@@ -16,6 +19,12 @@ dtb-$(CONFIG_CLK_RK3308) += \
 	rk3308-bs-opp-1008.dtbo \
 	rk3308-bs-opp-1296.dtbo \
 	rk3308-uart3.dtbo
+
+dtb-$(CONFIG_CLK_RK3328) += \
+	rk3328-pwm2.dtbo \
+	rk3328-uart1.dtbo \
+	rk3328-uart2-m0.dtbo \
+	rk3328-spi0-spidev.dtbo
 
 dtb-$(CONFIG_CLK_RK3399) += \
 	rk3399-dwc3-0-host.dtbo \

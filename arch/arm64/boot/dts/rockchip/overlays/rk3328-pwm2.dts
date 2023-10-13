@@ -16,7 +16,7 @@
 		__overlay__ {
 			status = "okay";
 			pinctrl-names = "default";
-			pinctrl-0 = <&pwm0_pin>;
+			pinctrl-0 = <&pwm2_pin>;
 		};
 	};
 };
