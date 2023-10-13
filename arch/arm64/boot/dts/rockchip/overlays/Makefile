@@ -18,7 +18,7 @@ endif
 dtb-$(CONFIG_CLK_RK3308) += \
 	rk3308-bs-opp-1008.dtbo \
 	rk3308-bs-opp-1296.dtbo \
-	rk3308-uart3.dtbo 
+	rk3308-uart3.dtbo
 
 dtb-$(CONFIG_CLK_RK3328) += \
 	rk3328-pwm2.dtbo \
