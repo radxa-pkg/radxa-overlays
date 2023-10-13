@@ -304,6 +304,7 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-w1-gpio1-c7.dtbo \
 	rk3588-w1-gpio3-b3.dtbo \
 	rk3588-w1-gpio4-b1.dtbo \
+	rock-5a-allnet-5inch-display.dtbo \
 	rock-5a-radxa-25w-poe.dtbo \
 	rock-5a-radxa-display-10fhd.dtbo \
 	rock-5a-radxa-display-8hd.dtbo \
