@@ -1,0 +1,135 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+
+/ {
+	metadata {
+		title = "Enable Raspberry Pi 7-inch Touchscreen";
+		compatible = "radxa,rock-3a";
+		category = "display";
+		exclusive = "dsi1";
+		description = "Enable Raspberry Pi 7-inch Touchscreen.";
+	};
+
+	fragment@0 {
+		target-path = "/";
+
+		__overlay__ {
+			vcc_mipi: vcc-mipi {
+				status = "okay";
+				compatible = "regulator-fixed";
+				regulator-name = "vcc_mipi";
+				regulator-boot-on;
+				regulator-min-microvolt = <3300000>;
+				regulator-max-microvolt = <3300000>;
+				enable-active-high;
+				regulator-always-on;
+				gpio = <&gpio3 RK_PC0 GPIO_ACTIVE_HIGH>;
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <&dsi1>;
+
+		__overlay__ {
+			status = "okay";
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			dsi1_panel: dsi-panel@0 {
+				compatible = "raspits,tc358762";
+				reg = <0x0>;
+				status = "okay";
+
+				ports {
+					#address-cells = <1>;
+					#size-cells = <0>;
+
+					port@0 {
+						reg = <0>;
+						panel_in_dsi1: endpoint {
+							remote-endpoint = <&dsi1_out_panel>;
+						};
+					};
+				};
+			};
+
+			ports {
+				#address-cells = <1>;
+				#size-cells = <0>;
+
+				port@1 {
+					reg = <1>;
+					#address-cells = <1>;
+					#size-cells = <0>;
+
+					dsi1_out_panel: endpoint@0 {
+						reg = <0>;
+						remote-endpoint = <&panel_in_dsi1>;
+					};
+				};
+			};
+		};
+	};
+
+	fragment@2 {
+		target = <&i2c3>;
+
+		__overlay__ {
+			status = "okay";
+			pinctrl-0 = <&i2c3m1_xfer>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			rockpi_ft5406: rockpi_ft5406@38 {
+				compatible = "rockpi_ft5406";
+				reg = <0x38>;
+			};
+
+			chipone_icn8952: chipone_icn8952@30 {
+				compatible = "chipone_icn8505";
+				reg = <0x30>;
+			};
+
+			rockpi_mcu: rockpi-mcu@45 {
+				compatible = "rockpi_mcu";
+				reg = <0x45>;
+			};
+		};
+	};
+
+	fragment@3 {
+		target = <&dsi1_in_vp0>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@4 {
+		target = <&dsi1_in_vp1>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@5 {
+		target = <&route_dsi1>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@6 {
+		target = <&video_phy1>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+};
