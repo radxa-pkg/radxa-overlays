@@ -304,6 +304,7 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-w1-gpio1-c7.dtbo \
 	rk3588-w1-gpio3-b3.dtbo \
 	rk3588-w1-gpio4-b1.dtbo \
+	rock-5a-allnet-5inch-display.dtbo \
 	rock-5a-radxa-25w-poe.dtbo \
 	rock-5a-radxa-display-10fhd.dtbo \
 	rock-5a-radxa-display-8hd.dtbo \
@@ -333,6 +334,7 @@ dtb-$(CONFIG_CPU_RK3588) += \
 	radxa-cm5-rpi-cm4-io-raspi-7inch-ts-disp0.dtbo \
 	radxa-cm5-rpi-cm4-io-raspi-7inch-ts-disp1.dtbo \
 	rock-5a-radxa-camera-4k.dtbo \
+	rock-5a-raspi-7inch-touchscreen.dtbo \
 	rock-5b-radxa-camera-4k.dtbo \
 	rock-5b-radxa-display-10fhd.dtbo \
 	rock-5b-raspi-7inch-touchscreen.dtbo \
