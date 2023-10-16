@@ -78,7 +78,6 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	radxa-cm3-io-camera-v2-imx219-cam2.dtbo \
 	radxa-cm3-io-dual-cameras-gc2053-gc2093.dtbo \
 	radxa-cm3-io-dual-cameras-gc2053.dtbo \
-	radxa-cm3-io-hd101boe9365-display.dtbo \
 	radxa-cm3-io-i2c0-hym8563.dtbo \
 	radxa-cm3-io-okdo-5mp-camera-cam1.dtbo \
 	radxa-cm3-io-okdo-5mp-camera-cam2.dtbo \
@@ -193,6 +192,7 @@ dtb-$(CONFIG_CPU_RK3568) += \
 	radxa-cm3-io-sata2.dtbo \
 	radxa-cm3-io-radxa-10p1inch-display.dtbo \
 	radxa-cm3-io-sharp-lq133t1jw01-without-hdmi.dtbo \
+	radxa-cm3-io-hd101boe9365-display.dtbo \
 	radxa-5inch-touchscreen-on-cm3-sodimm-io.dtbo \
 	radxa-cm3-sodimm-io-radxa-display-8hd.dtbo \
 	radxa-cm3-sodimm-io-raspberrypi-7inch-touchscreen.dtbo \
