@@ -414,16 +414,13 @@
 		__overlay__ {
 			status = "disabled";
 		};
-
 	};
 
 	fragment@8 {
 		target = <&hdmi>;
 		__overlay__ {
 			status = "disabled";
-
 		};
-
 	};
 
 	fragment@9 {
@@ -441,5 +438,4 @@
 			};
 		};
 	};
-
 };
