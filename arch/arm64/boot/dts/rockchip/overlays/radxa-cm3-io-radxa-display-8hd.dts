@@ -44,7 +44,6 @@
 				pinctrl-names = "default";
 				pinctrl-0 = <&vcc_tp_pin>;
 				gpio = <&gpio4 RK_PA1 GPIO_ACTIVE_LOW>;
-				enable-active-low;
 				regulator-always-on;
 				regulator-state-mem {
 					regulator-off-in-suspend;
