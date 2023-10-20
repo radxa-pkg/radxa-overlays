@@ -24,6 +24,25 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Check if there is missing files
+        shell: bash
+        run: |
+          MISSING=0
+          for VENDOR in amlogic rockchip
+          do
+            OVERLAY_PATH="arch/arm64/boot/dts/$VENDOR/overlays"
+            for i in "$OVERLAY_PATH"/*.dts
+            do
+              OVERLAY_NAME="$(basename "$i")"
+              OVERLAY_NAME="${OVERLAY_NAME/.dts}.dtbo"
+              if ! grep "$OVERLAY_NAME" "${OVERLAY_PATH}/Makefile" >/dev/null 2>/dev/null
+              then
+                echo "$OVERLAY_NAME is not included in $VENDOR Makefile!"
+                MISSING=1
+              fi
+            done
+          done
+          exit $MISSING
       - name: Install dependencies
         run: |
           sudo apt update
