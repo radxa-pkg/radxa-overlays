@@ -10,7 +10,7 @@
 
 	metadata {
 		title = "Enable Sharp LQ133T1JW01 eDP Display";
-		compatible = "radxa,e61";
+		compatible = "radxa,cm3i-io";
 		misc = "display";
 		exclusive = "edp", "vp0";
 		description = "Enable Sharp LQ133T1JW01 eDP Display.";

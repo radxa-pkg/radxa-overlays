@@ -198,14 +198,14 @@ dtb-$(CONFIG_CPU_RK3568) += \
 	radxa-5inch-touchscreen-on-cm3-sodimm-io.dtbo \
 	radxa-cm3-sodimm-io-radxa-display-8hd.dtbo \
 	radxa-cm3-sodimm-io-raspberrypi-7inch-touchscreen.dtbo \
-	radxa-e61-edp-sharp-lq133t1jw01-lcd.dtbo \
-	radxa-e61-okdo-5mp-camera-cam1.dtbo \
-	radxa-e61-okdo-5mp-camera-cam2.dtbo \
-	radxa-e61-quectel-4g-module.dtbo \
-	radxa-e61-radxa-8inch-display.dtbo \
-	radxa-e61-rpi-camera-v2-cam1.dtbo \
-	radxa-e61-rpi-camera-v2-cam2.dtbo \
-	radxa-e61-sata.dtbo \
+	radxa-cm3i-io-edp-sharp-lq133t1jw01-lcd.dtbo \
+	radxa-cm3i-io-okdo-5mp-camera-cam1.dtbo \
+	radxa-cm3i-io-okdo-5mp-camera-cam2.dtbo \
+	radxa-cm3i-io-quectel-4g-module.dtbo \
+	radxa-cm3i-io-radxa-8inch-display.dtbo \
+	radxa-cm3i-io-rpi-camera-v2-cam1.dtbo \
+	radxa-cm3i-io-rpi-camera-v2-cam2.dtbo \
+	radxa-cm3i-io-sata.dtbo \
 	radxa-zero3-external-antenna.dtbo \
 	radxa-zero3-rpi-camera-v1.3.dtbo \
 	radxa-zero3-rpi-camera-v2.dtbo \

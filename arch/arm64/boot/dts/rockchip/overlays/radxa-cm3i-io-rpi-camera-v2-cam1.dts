@@ -6,11 +6,11 @@
 
 / {
 	metadata {
-		title = "Enable Raspberry Pi Camera v2 on CAM2";
-		compatible = "radxa,e61";
+		title = "Enable Raspberry Pi Camera v2 on CAM1";
+		compatible = "radxa,cm3i-io";
 		category = "camera";
-		exclusive = "csi2_dphy2";
-		description = "Enable Raspberry Pi Camera v2 on CAM2.";
+		exclusive = "csi2_dphy1";
+		description = "Enable Raspberry Pi Camera v2 on CAM1.";
 	};
 
 	fragment@0 {
@@ -32,7 +32,7 @@
 				regulator-always-on;
 				regulator-boot-on;
 				enable-active-high;
-				pwdn-gpios = <&gpio4 RK_PC5 GPIO_ACTIVE_HIGH>;
+				pwdn-gpios = <&gpio3 RK_PB0 GPIO_ACTIVE_HIGH>;
 				pinctrl-names = "default";
 				pinctrl-0 = <&cam_pwdn_gpio>;
 			};
@@ -40,12 +40,12 @@
 	};
 
 	fragment@1 {
-		target = <&i2c5>;
+		target = <&i2c0>;
 
 		__overlay__ {
 			status = "okay";
 			pinctrl-names = "default";
-			pinctrl-0 = <&i2c5m0_xfer>;
+			pinctrl-0 = <&i2c0_xfer>;
 
 			#address-cells = <1>;
 			#size-cells = <0>;
@@ -67,7 +67,7 @@
 
 				port {
 					imx219_out: endpoint {
-						remote-endpoint = <&csi2dphy2_uCAM2>;
+						remote-endpoint = <&csi2dphy1_uCAM1>;
 						data-lanes = <1 2>;
 					};
 				};
@@ -84,7 +84,7 @@
 	};
 
 	fragment@3 {
-		target = <&csi2_dphy2>;
+		target = <&csi2_dphy1>;
 
 		__overlay__ {
 			status = "okay";
@@ -98,7 +98,7 @@
 					#address-cells = <1>;
 					#size-cells = <0>;
 
-					csi2dphy2_uCAM2: endpoint@1 {
+					csi2dphy1_uCAM1: endpoint@1 {
 						reg = <1>;
 						remote-endpoint = <&imx219_out>;
 						data-lanes = <1 2>;
@@ -110,7 +110,7 @@
 					#address-cells = <1>;
 					#size-cells = <0>;
 
-					csi2dphy2_out: endpoint@1 {
+					csi2dphy1_out: endpoint@1 {
 						reg = <1>;
 						remote-endpoint = <&isp0_in>;
 					};
@@ -131,7 +131,7 @@
 
 				isp0_in: endpoint@0 {
 					reg = <0>;
-					remote-endpoint = <&csi2dphy2_out>;
+					remote-endpoint = <&csi2dphy1_out>;
 				};
 			};
 		};
@@ -169,14 +169,13 @@
 		};
 	};
 
-
 	fragment@9 {
 		target = <&pinctrl>;
 
 		__overlay__ {
 			camera {
 				cam_pwdn_gpio: cam-pwdn-gpio {
-					rockchip,pins = <4 RK_PC5 RK_FUNC_GPIO &pcfg_pull_up>;
+					rockchip,pins = <3 RK_PB0 RK_FUNC_GPIO &pcfg_pull_up>;
 				};
 			};
 		};
