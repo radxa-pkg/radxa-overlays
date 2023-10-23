@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable NPU";
-		compatible = "radxa,rock-3a", "radxa,rock-3b", "radxa,cm3-io", "radxa,e23", "radxa,e25", "radxa,e61";
+		compatible = "radxa,rock-3a", "radxa,rock-3b", "radxa,cm3-io", "radxa,e23", "radxa,e25", "radxa,cm3i-io";
 		category = "misc";
 		exclusive = "rknpu";
 		description = "Enable NPU.";

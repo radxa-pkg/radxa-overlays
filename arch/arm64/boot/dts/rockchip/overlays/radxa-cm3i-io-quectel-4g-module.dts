@@ -7,7 +7,7 @@
 / {
 	metadata {
 		title = "Enable Quectel 4G module";
-		compatible = "radxa,e61";
+		compatible = "radxa,cm3i-io";
 		category = "misc";
 		exclusive = "null";
 		description = "Enable Quectel 4G module.";

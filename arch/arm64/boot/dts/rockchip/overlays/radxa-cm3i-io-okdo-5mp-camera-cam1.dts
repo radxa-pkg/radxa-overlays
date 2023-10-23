@@ -7,7 +7,7 @@
 / {
 	metadata {
 		title = "Enable OKdo 5MP Camera on CAM1";
-		compatible = "radxa,e61";
+		compatible = "radxa,cm3i-io";
 		category = "camera";
 		exclusive = "csi2_dphy1";
 		description = "Enable OKdo 5MP Camera on CAM1.";
