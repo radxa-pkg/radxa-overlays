@@ -40,7 +40,25 @@
 			status = "okay";
 			#address-cells = <1>;
 			#size-cells = <0>;
-			rockchip,lane-rate = <600>;
+			rockchip,lane-rate = <605>;
+
+			dsi0_panel: dsi-panel@0 {
+				compatible = "raspits,tc358762,5inch";
+				reg = <0x0>;
+				status = "okay";
+
+				ports {
+					#address-cells = <1>;
+					#size-cells = <0>;
+
+					port@0 {
+						reg = <0>;
+						panel_in_dsi0: endpoint {
+							remote-endpoint = <&dsi0_out_panel>;
+						};
+					};
+				};
+			};
 
 			ports {
 				#address-cells = <1>;
@@ -65,23 +83,7 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			raspits_panel: raspits-panel@45 {
-				compatible = "raspberrypi,7inch-touchscreen-panel";
-				reg = <0x45>;
-				#address-cells = <1>;
-				#size-cells = <0>;
-
-				platform = <3588>;
-
-				port@0 {
-					reg = <0>;
-					panel_in_dsi0: endpoint {
-						remote-endpoint = <&dsi0_out_panel>;
-					};
-				};
-			};
-
-			raspits_touch_ft5426: raspits-touch-ft5426@38 {
+			raspits_ft5426: raspits_ft5426@38 {
 				compatible = "raspits_ft5426";
 				reg = <0x38>;
 			};
@@ -89,6 +91,11 @@
 			chipone_icn8952: chipone_icn8952@30 {
 				compatible = "chipone_icn8505";
 				reg = <0x30>;
+			};
+
+			rockpi_mcu: rockpi-mcu@45 {
+				compatible = "rockpi_mcu";
+				reg = <0x45>;
 			};
 		};
 	};
