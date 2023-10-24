@@ -9,7 +9,7 @@
 / {
 	metadata {
 		title = "Enable Radxa Display 8HD";
-		compatible = "radxa,rockpi4a", "radxa,rockpi4b", "radxa,rockpi4c", "radxa,rockpi4a-plus", "radxa,rockpi4b-plus, radxa,rock-4se";
+		compatible = "radxa,rockpi4a", "radxa,rockpi4b", "radxa,rockpi4c", "radxa,rockpi4a-plus", "radxa,rockpi4b-plus", "radxa,rock-4se";
 		category = "display";
 		exclusive = "dsi1","GPIO4_C6","GPIO4_D2","GPIO4_D4";
 		description = "Enable Radxa Display 8HD";
