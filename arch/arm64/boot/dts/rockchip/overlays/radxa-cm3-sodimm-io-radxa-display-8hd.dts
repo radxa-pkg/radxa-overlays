@@ -63,7 +63,7 @@
 	};
 
 	fragment@1 {
-		target = <&dsi1>;
+		target = <&dsi0>;
 
 		__overlay__ {
 			status = "okay";
@@ -309,7 +309,7 @@
 	};
 
 	fragment@2 {
-		target = <&dsi1_in_vp0>;
+		target = <&dsi0_in_vp0>;
 
 		__overlay__ {
 			status = "okay";
@@ -317,7 +317,7 @@
 	};
 
 	fragment@3 {
-		target = <&video_phy1>;
+		target = <&video_phy0>;
 
 		__overlay__ {
 			status = "okay";
@@ -341,11 +341,11 @@
 	};
 
 	fragment@6 {
-		target = <&route_dsi1>;
+		target = <&route_dsi0>;
 
 		__overlay__ {
 			status = "disabled";
-			connect = <&vp0_out_dsi1>;
+			connect = <&vp0_out_dsi0>;
 		};
 	};
 
