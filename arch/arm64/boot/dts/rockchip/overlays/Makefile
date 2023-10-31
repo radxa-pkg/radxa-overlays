@@ -18,6 +18,17 @@ endif
 dtb-$(CONFIG_CLK_RK3308) += \
 	rk3308-bs-opp-1008.dtbo \
 	rk3308-bs-opp-1296.dtbo \
+	rk3308-i2c0.dtbo \
+	rk3308-i2c1.dtbo \
+	rk3308-i2c3-m0.dtbo \
+	rk3308-i2c3-m1.dtbo \
+	rk3308-pwm2.dtbo \
+	rk3308-pwm3.dtbo \
+	rk3308-spi1-spidev.dtbo \
+	rk3308-spi2-spidev.dtbo \
+	rk3308-uart0.dtbo \
+	rk3308-uart1.dtbo \
+	rk3308-uart2.dtbo \
 	rk3308-uart3.dtbo
 
 dtb-$(CONFIG_CLK_RK3328) += \

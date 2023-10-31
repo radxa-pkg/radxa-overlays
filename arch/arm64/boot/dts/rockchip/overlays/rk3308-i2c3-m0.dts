@@ -1,0 +1,22 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable I2C3-M0";
+		compatible = "radxa,rockpis";
+		category = "misc";
+		exclusive = "GPIO0_B7", "GPIO0_C0";
+		description = "Enable I2C3-M0.\nOn Radxa ROCK PI S this is SDA pin 11 & SCL pin 13.";
+    };
+
+	fragment@0 {
+		target = <&i2c3>;
+
+		__overlay__ {
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <&i2c3m0_xfer>;
+		};
+	};
+};
