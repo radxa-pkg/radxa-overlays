@@ -1,0 +1,22 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable PWM3";
+		compatible = "radxa,rockpis";
+		category = "misc";
+		exclusive = "GPIO0_B7";
+		description = "Enable PWM3.\nOn Radxa ROCK PI S this is pin 13.";
+	};
+
+	fragment@0 {
+		target = <&pwm3>;
+
+		__overlay__ {
+			status = "okay";
+			pinctrl-names = "active";
+			pinctrl-0 = <&pwm3_pin>;
+		};
+	};
+};

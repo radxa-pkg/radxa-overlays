@@ -1,0 +1,21 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable UART1";
+		compatible = "radxa,rockpis";
+		category = "misc";
+		description = "Enable UART1.";
+	};
+
+	fragment@0 {
+		target = <&uart1>;
+
+		__overlay__ {
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <&uart1_xfer>;
+		};
+	};
+};
