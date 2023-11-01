@@ -207,14 +207,18 @@ dtb-$(CONFIG_CPU_RK3568) += \
 	radxa-cm3-io-sharp-lq133t1jw01-without-hdmi.dtbo \
 	radxa-cm3-io-hd101boe9365-display.dtbo \
 	radxa-cm3-io-radxa-display-8hd.dtbo \
+	radxa-cm3-io-radxa-display-10fhd.dtbo \
 	radxa-5inch-touchscreen-on-cm3-sodimm-io.dtbo \
 	radxa-cm3-sodimm-io-radxa-display-8hd.dtbo \
+	radxa-cm3-sodimm-io-radxa-display-10hd.dtbo \
 	radxa-cm3-sodimm-io-raspberrypi-7inch-touchscreen.dtbo \
 	radxa-cm3i-io-edp-sharp-lq133t1jw01-lcd.dtbo \
 	radxa-cm3i-io-okdo-5mp-camera-cam1.dtbo \
 	radxa-cm3i-io-okdo-5mp-camera-cam2.dtbo \
 	radxa-cm3i-io-quectel-4g-module.dtbo \
 	radxa-cm3i-io-radxa-8inch-display.dtbo \
+	radxa-cm3i-io-radxa-display-10hd.dtbo \
+	radxa-cm3i-io-radxa-display-10fhd.dtbo \
 	radxa-cm3i-io-rpi-camera-v2-cam1.dtbo \
 	radxa-cm3i-io-rpi-camera-v2-cam2.dtbo \
 	radxa-cm3i-io-sata.dtbo \
@@ -227,6 +231,7 @@ dtb-$(CONFIG_CPU_RK3568) += \
 	rock-3a-radxa-display-10hd.dtbo \
 	rock-3b-radxa-8inch-display.dtbo \
 	rock-3b-radxa-10p1inch-display.dtbo \
+	rock-3b-radxa-display-10fhd.dtbo \
 	rock-3c-radxa-display-8hd.dtbo \
 	rock-3c-radxa-display-10hd.dtbo
 
@@ -324,7 +329,6 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-w1-gpio4-b1.dtbo \
 	rock-5a-allnet-5inch-display.dtbo \
 	rock-5a-radxa-25w-poe.dtbo \
-	rock-5a-radxa-display-10fhd.dtbo \
 	rock-5a-radxa-display-8hd.dtbo \
 	rock-5a-rpi-camera-v2.dtbo \
 	rock-5a-radxa-display-10hd.dtbo \
@@ -343,6 +347,7 @@ dtb-$(CONFIG_CPU_RK3588) += \
 	radxa-cm5-io-okdo-5mp.dtbo \
 	radxa-cm5-io-radxa-display-8hd.dtbo \
 	radxa-cm5-io-radxa-camera-4k.dtbo \
+	radxa-cm5-io-radxa-display-10fhd.dtbo \
 	radxa-cm5-io-radxa-display-10hd.dtbo \
 	radxa-cm5-io-radxa-display-8hd.dtbo \
 	radxa-cm5-io-raspi-7inch-touchscreen.dtbo \
@@ -352,6 +357,7 @@ dtb-$(CONFIG_CPU_RK3588) += \
 	radxa-cm5-rpi-cm4-io-raspi-7inch-ts-disp0.dtbo \
 	radxa-cm5-rpi-cm4-io-raspi-7inch-ts-disp1.dtbo \
 	rock-5a-radxa-camera-4k.dtbo \
+	rock-5a-radxa-display-10fhd.dtbo \
 	rock-5a-raspi-7inch-touchscreen.dtbo \
 	rock-5b-radxa-camera-4k.dtbo \
 	rock-5b-radxa-display-10fhd.dtbo \
