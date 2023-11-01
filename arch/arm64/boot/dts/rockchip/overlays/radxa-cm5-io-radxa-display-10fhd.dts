@@ -99,12 +99,12 @@
 				reg = <0>;
 				backlight = <&dsi1_backlight>;
 
-                power-supply = <&lcd_3v3>;
+          		      power-supply = <&lcd_3v3>;
 				reset-gpios = <&gpio1 RK_PB0 GPIO_ACTIVE_LOW>;
 				pinctrl-names = "default";
 				pinctrl-0 = <&dsi1_lcd_rst_gpio>;
 
-                prepare-delay-ms = <120>;
+            		    prepare-delay-ms = <120>;
 				reset-delay-ms = <120>;
 				init-delay-ms = <120>;
 				enable-delay-ms = <100>;

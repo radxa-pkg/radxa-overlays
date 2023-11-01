@@ -139,7 +139,7 @@
 					05 00 01 10
 				];
 
-                display-timings {
+       		         display-timings {
 					native-mode = <&timing0>;
 					timing0: timing0 {
 						clock-frequency = <120000000>;
