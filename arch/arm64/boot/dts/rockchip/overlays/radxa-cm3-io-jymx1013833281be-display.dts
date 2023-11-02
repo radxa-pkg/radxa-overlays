@@ -7,11 +7,11 @@
 
 / {
 	metadata {
-		title = "Enable HD101BOE9365 Display";
+		title = "Enable JYMX1013833281BE Display";
 		compatible = "radxa,cm3-io";
 		category = "display";
 		exclusive = "dsi0", "pwm13";
-		description = "Enable HD101BOE9365 display.";
+		description = "Enable JYMX1013833281BE Display.";
 	};
 
 	fragment@0 {
