@@ -1,0 +1,22 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable PWM4";
+		compatible = "radxa,s0";
+		category = "misc";
+		exclusive = "GPIO0_A1";
+		description = "Enable PWM4.\nOn Radxa S0 this is pin 16.";
+	};
+
+	fragment@0 {
+		target = <&pwm4>;
+
+		__overlay__ {
+			status = "okay";
+			pinctrl-names = "active";
+			pinctrl-0 = <&pwm4_pin>;
+		};
+	};
+};
