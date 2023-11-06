@@ -3,20 +3,20 @@
 
 /{
 	metadata {
-		title = "Enable spidev on SPI1";
-		compatible = "radxa,rockpis", "radxa,s0";
+		title = "Enable spidev on SPI0";
+		compatible = "radxa,s0";
 		category = "misc";
-		exclusive = "GPOI3_B2", "GPOI3_B3", "GPOI3_B4", "GPOI3_B5";
-		description = "Enable spidev on SPI1 on pin 39, 40, 41 & 42.";
+		exclusive = "GPIO2_A0", "GPIO2_A1", "GPIO2_A2", "GPIO2_A3";
+		description = "Enable spidev on SPI0 on pin 8, 10, 13 & 37.";
 	};
 
 	fragment@0 {
-		target = <&spi1>;
+		target = <&spi0>;
 
 		__overlay__ {
 			status = "okay";
 			pinctrl-names = "default";
-			pinctrl-0 = <&spi1_clk &spi1_csn0 &spi1_miso &spi1_mosi>;
+			pinctrl-0 = <&spi0_clk &spi0_csn0 &spi0_miso &spi0_mosi>;
 			#address-cells = <1>;
 			#size-cells = <0>;
 

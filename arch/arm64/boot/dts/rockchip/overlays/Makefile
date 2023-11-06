@@ -20,10 +20,20 @@ dtb-$(CONFIG_CLK_RK3308) += \
 	rk3308-bs-opp-1296.dtbo \
 	rk3308-i2c0.dtbo \
 	rk3308-i2c1.dtbo \
+	rk3308-i2c2.dtbo \
 	rk3308-i2c3-m0.dtbo \
 	rk3308-i2c3-m1.dtbo \
 	rk3308-pwm2.dtbo \
 	rk3308-pwm3.dtbo \
+	rk3308-pwm4.dtbo \
+	rk3308-pwm5.dtbo \
+	rk3308-pwm6.dtbo \
+	rk3308-pwm7.dtbo \
+	rk3308-pwm8.dtbo \
+	rk3308-pwm9.dtbo \
+	rk3308-pwm10.dtbo \
+	rk3308-pwm11.dtbo \
+	rk3308-spi0-spidev.dtbo \
 	rk3308-spi1-spidev.dtbo \
 	rk3308-spi2-spidev.dtbo \
 	rk3308-uart0.dtbo \

@@ -4,7 +4,7 @@
 /{
 	metadata {
 		title = "Enable spidev on SPI2";
-		compatible = "radxa,rockpis";
+		compatible = "radxa,rockpis", "radxa,s0";
 		category = "misc";
 		exclusive = "GPIO1_C6", "GPIO1_C7", "GPIO1_D0", "GPIO1_D1";
 		description = "Enable spidev on SPI2 on pin 19, 21, 23 & 24.";

@@ -4,8 +4,9 @@
 / {
 	metadata {
 		title = "Enable UART0";
-		compatible = "radxa,rockpis";
+		compatible = "radxa,rockpis", "radxa,s0";
 		category = "misc";
+		exclusive = "GPIO2_A0", "GPIO2_A1";
 		description = "Enable UART0.";
 	};
 

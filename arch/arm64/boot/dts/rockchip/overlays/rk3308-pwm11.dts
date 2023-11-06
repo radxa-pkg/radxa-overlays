@@ -1,0 +1,22 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable PWM11";
+		compatible = "radxa,s0";
+		category = "misc";
+		exclusive = "GPIO2_C0";
+		description = "Enable PWM11.\nOn Radxa S0 this is pin 29.";
+	};
+
+	fragment@0 {
+		target = <&pwm11>;
+
+		__overlay__ {
+			status = "okay";
+			pinctrl-names = "active";
+			pinctrl-0 = <&pwm11_pin>;
+		};
+	};
+};

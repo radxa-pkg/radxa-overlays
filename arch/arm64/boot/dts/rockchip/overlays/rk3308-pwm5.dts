@@ -1,0 +1,22 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable PWM5";
+		compatible = "radxa,s0";
+		category = "misc";
+		exclusive = "GPIO0_C1";
+		description = "Enable PWM5.\nOn Radxa S0 this is pin 15.";
+	};
+
+	fragment@0 {
+		target = <&pwm5>;
+
+		__overlay__ {
+			status = "okay";
+			pinctrl-names = "active";
+			pinctrl-0 = <&pwm5_pin>;
+		};
+	};
+};

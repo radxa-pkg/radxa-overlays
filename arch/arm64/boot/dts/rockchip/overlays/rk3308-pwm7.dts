@@ -1,0 +1,22 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable PWM7";
+		compatible = "radxa,s0";
+		category = "misc";
+		exclusive = "GPIO0_C0";
+		description = "Enable PWM7.\nOn Radxa S0 this is pin 26.";
+	};
+
+	fragment@0 {
+		target = <&pwm7>;
+
+		__overlay__ {
+			status = "okay";
+			pinctrl-names = "active";
+			pinctrl-0 = <&pwm7_pin>;
+		};
+	};
+};
