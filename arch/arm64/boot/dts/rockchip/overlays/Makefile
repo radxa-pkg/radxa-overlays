@@ -374,8 +374,8 @@ dtb-$(CONFIG_CPU_RK3588) += \
 	rock-5b-raspi-7inch-touchscreen.dtbo \
 	rock-5b-hdmi1-8k.dtbo \
 	rock-5b-hdmi2-8k.dtbo \
-	rock-5b-gen2-radxa-cam0-4k.dtbo \
-	rock-5b-gen2-radxa-cam1-4k.dtbo
+	rock-5b-plus-cam0-radxa-camera-4k.dtbo \
+	rock-5b-plus-cam1-radxa-camera-4k.dtbo
 
 dtbotxt-$(CONFIG_ARCH_ROCKCHIP) += \
 	README.overlays
