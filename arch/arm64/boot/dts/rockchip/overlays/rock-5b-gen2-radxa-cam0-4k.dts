@@ -9,7 +9,7 @@
 / {
 	metadata {
 		title ="Enable Radxa Camera 4K on CAM0";
-		compatible = "radxa,rock-5b-gen2";
+		compatible = "radxa,rock-5b-plus", "rockchip,rk3588";
 		category = "camera";
 		exclusive = "csi2_dphy0";
 		description = "Enable Radxa Camera 4K on CAM0.";
