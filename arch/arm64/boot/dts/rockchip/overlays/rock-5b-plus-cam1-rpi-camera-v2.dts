@@ -6,11 +6,11 @@
 
 / {
 	metadata {
-		title ="Enable Raspberry Pi Camera V2";
-		compatible = "radxa,rock-5b";
+		title ="Enable Raspberry Pi Camera V2 on CAM1";
+		compatible = "radxa,rock-5b-plus";
 		category = "camera";
-		exclusive = "csi2_dphy0";
-		description = "Enable Raspberry Pi Camera V2.";
+		exclusive = "csi2_dphy4";
+		description = "Enable Raspberry Pi Camera V2 on CAM1.";
 	};
 
 
@@ -24,7 +24,7 @@
 				regulator-always-on;
 				regulator-boot-on;
 				enable-active-high;
-				gpio = <&gpio1 RK_PB0 GPIO_ACTIVE_HIGH>;
+				gpio = <&gpio2 RK_PA6 GPIO_ACTIVE_HIGH>;
 				pinctrl-names = "default";
 				pinctrl-0 = <&cam_pwdn_gpio>;
 			};
@@ -39,9 +39,11 @@
 	};
 
 	fragment@1 {
-		target = <&i2c3>;
+		target = <&i2c4>;
 
 		__overlay__ {
+			pinctrl-names = "default";
+			pinctrl-0 = <&i2c4m1_xfer>;
 			status = "okay";
 			#address-cells = <1>;
 			#size-cells = <0>;
@@ -59,8 +61,8 @@
 				rockchip,camera-module-lens-name = "default";
 
 				port {
-					imx219_out0: endpoint {
-						remote-endpoint = <&mipidphy0_in_ucam1>;
+					imx219_out4: endpoint {
+						remote-endpoint = <&mipidphy4_in_ucam1>;
 						data-lanes = <1 2>;
 					};
 				};
@@ -69,7 +71,7 @@
 	};
 
 	fragment@2 {
-		target = <&csi2_dphy0_hw>;
+		target = <&csi2_dphy1_hw>;
 
 		__overlay__ {
 			status = "okay";
@@ -77,7 +79,7 @@
 	};
 
 	fragment@3 {
-		target = <&csi2_dphy0>;
+		target = <&csi2_dphy4>;
 
 		__overlay__ {
 			status = "okay";
@@ -91,9 +93,9 @@
 					#address-cells = <1>;
 					#size-cells = <0>;
 
-					mipidphy0_in_ucam1: endpoint@2 {
+					mipidphy4_in_ucam1: endpoint@2 {
 						reg = <2>;
-						remote-endpoint = <&imx219_out0>;
+						remote-endpoint = <&imx219_out4>;
 						data-lanes = <1 2>;
 					};
 				};
@@ -103,9 +105,9 @@
 					#address-cells = <1>;
 					#size-cells = <0>;
 
-					csidphy0_out: endpoint@0 {
+					csidphy4_out: endpoint@0 {
 						reg = <0>;
-						remote-endpoint = <&mipi2_csi2_input>;
+						remote-endpoint = <&mipi4_csi2_input>;
 					};
 				};
 			};
@@ -113,7 +115,7 @@
 	};
 
 	fragment@4 {
-		target = <&mipi2_csi2>;
+		target = <&mipi4_csi2>;
 
 		__overlay__ {
 			status = "okay";
@@ -127,9 +129,9 @@
 					#address-cells = <1>;
 					#size-cells = <0>;
 
-					mipi2_csi2_input: endpoint@1 {
+					mipi4_csi2_input: endpoint@1 {
 						reg = <1>;
-						remote-endpoint = <&csidphy0_out>;
+						remote-endpoint = <&csidphy4_out>;
 					};
 				};
 
@@ -138,9 +140,9 @@
 					#address-cells = <1>;
 					#size-cells = <0>;
 
-					mipi2_csi2_output: endpoint@0 {
+					mipi4_csi2_output: endpoint@0 {
 						reg = <0>;
-						remote-endpoint = <&cif_mipi2_in0>;
+						remote-endpoint = <&cif_mipi4_in0>;
 					};
 				};
 			};
@@ -156,28 +158,28 @@
 	};
 
 	fragment@6 {
-		target = <&rkcif_mipi_lvds2>;
+		target = <&rkcif_mipi_lvds4>;
 
 		__overlay__ {
 			status = "okay";
 
 			port {
-				cif_mipi2_in0: endpoint {
-				remote-endpoint = <&mipi2_csi2_output>;
+				cif_mipi4_in0: endpoint {
+					remote-endpoint = <&mipi4_csi2_output>;
 				};
 			};
 		};
 	};
 
 	fragment@7 {
-		target = <&rkcif_mipi_lvds2_sditf>;
+		target = <&rkcif_mipi_lvds4_sditf>;
 
 		__overlay__ {
 			status = "okay";
 
 			port {
-				mipi_lvds2_sditf: endpoint {
-					remote-endpoint = <&isp0_vir0>;
+				mipi_lvds4_sditf: endpoint {
+					remote-endpoint = <&isp1_vir1>;
 				};
 			};
 		};
@@ -192,7 +194,7 @@
 	};
 
 	fragment@9 {
-		target = <&isp0_mmu>;
+		target = <&isp1_mmu>;
 
 		__overlay__ {
 			status = "okay";
@@ -200,7 +202,7 @@
 	};
 
 	fragment@10 {
-		target = <&rkisp0>;
+		target = <&rkisp1>;
 
 		__overlay__ {
 			status = "okay";
@@ -208,7 +210,7 @@
 	};
 
 	fragment@11 {
-		target = <&rkisp0_vir0>;
+		target = <&rkisp1_vir1>;
 
 		__overlay__ {
 			status = "okay";
@@ -217,9 +219,9 @@
 				#address-cells = <1>;
 				#size-cells = <0>;
 
-				isp0_vir0: endpoint@0 {
+				isp1_vir1: endpoint@0 {
 					reg = <0>;
-					remote-endpoint = <&mipi_lvds2_sditf>;
+					remote-endpoint = <&mipi_lvds4_sditf>;
 				};
 			};
 		};
@@ -231,7 +233,7 @@
 		__overlay__ {
 			camera {
 				cam_pwdn_gpio: cam-pwdn-gpio {
-					rockchip,pins = <1 RK_PB0 RK_FUNC_GPIO &pcfg_pull_up>;
+					rockchip,pins = <2 RK_PA6 RK_FUNC_GPIO &pcfg_pull_up>;
 				};
 			};
 		};
