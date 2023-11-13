@@ -1,12 +1,14 @@
 /dts-v1/;
 /plugin/;
 
-#include "rock-5b-rpi-camera-v2.dts"
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
 
 / {
 	metadata {
 		title ="Enable Raspberry Pi Camera V2 on CAM1";
 		compatible = "radxa,rock-5b-plus";
+		category = "camera";
 		exclusive = "csi2_dphy4";
 		description = "Enable Raspberry Pi Camera V2 on CAM1.";
 	};
@@ -17,7 +19,21 @@
 
 		__overlay__ {
 			camera_pwdn_gpio: camera-pwdn-gpio {
+				compatible = "regulator-fixed";
+				regulator-name = "camera_pwdn_gpio";
+				regulator-always-on;
+				regulator-boot-on;
+				enable-active-high;
 				gpio = <&gpio2 RK_PA6 GPIO_ACTIVE_HIGH>;
+				pinctrl-names = "default";
+				pinctrl-0 = <&cam_pwdn_gpio>;
+			};
+
+			clk_cam_24m: external-camera-clock-24m {
+				compatible = "fixed-clock";
+				clock-frequency = <24000000>;
+				clock-output-names = "clk_cam_24m";
+				#clock-cells = <0>;
 			};
 		};
 	};
@@ -26,13 +42,24 @@
 		target = <&i2c4>;
 
 		__overlay__ {
-            pinctrl-names = "default";
+			pinctrl-names = "default";
 			pinctrl-0 = <&i2c4m1_xfer>;
 			status = "okay";
-            #address-cells = <1>;
+			#address-cells = <1>;
 			#size-cells = <0>;
 
 			camera_imx219: camera-imx219@10 {
+				compatible = "sony,imx219";
+				reg = <0x10>;
+
+				clocks = <&clk_cam_24m>;
+				clock-names = "xvclk";
+
+				rockchip,camera-module-index = <0>;
+				rockchip,camera-module-facing = "back";
+				rockchip,camera-module-name = "rpi-camera-v2";
+				rockchip,camera-module-lens-name = "default";
+
 				port {
 					imx219_out4: endpoint {
 						remote-endpoint = <&mipidphy4_in_ucam1>;
@@ -122,6 +149,14 @@
 		};
 	};
 
+	fragment@5 {
+		target = <&rkcif>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
 	fragment@6 {
 		target = <&rkcif_mipi_lvds4>;
 
@@ -130,7 +165,7 @@
 
 			port {
 				cif_mipi4_in0: endpoint {
-				remote-endpoint = <&mipi4_csi2_output>;
+					remote-endpoint = <&mipi4_csi2_output>;
 				};
 			};
 		};
@@ -147,6 +182,14 @@
 					remote-endpoint = <&isp1_vir1>;
 				};
 			};
+		};
+	};
+
+	fragment@8 {
+		target = <&rkcif_mmu>;
+
+		__overlay__ {
+			status = "okay";
 		};
 	};
 

@@ -1,6 +1,3 @@
-/dts-v1/;
-/plugin/;
-
 #include "rock-5b-rpi-camera-v2.dts"
 
 / {
@@ -8,16 +5,6 @@
 		title ="Enable Raspberry Pi Camera V2 on CAM0";
 		compatible = "radxa,rock-5b-plus";
 		description = "Enable Raspberry Pi Camera V2 on CAM0.";
-	};
-
-	fragment@1 {
-		target = <&i2c3>;
-
-		__overlay__ {
-			status = "okay";
-			#address-cells = <1>;
-			#size-cells = <0>;
-		};
 	};
 };
 
