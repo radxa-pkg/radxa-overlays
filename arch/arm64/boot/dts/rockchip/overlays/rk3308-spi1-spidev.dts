@@ -21,7 +21,7 @@
 			#size-cells = <0>;
 
 			spidev@0 {
-				compatible = "rockchip,spidev";
+				compatible = "rockchip,spidev", "armbian,spi-dev";
 				reg = <0>;
 				spi-max-frequency = <50000000>;
 			};
