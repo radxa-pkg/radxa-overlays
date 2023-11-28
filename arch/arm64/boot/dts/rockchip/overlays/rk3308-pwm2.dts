@@ -1,6 +1,8 @@
 /dts-v1/;
 /plugin/;
 
+#include <dt-bindings/pinctrl/rockchip.h>
+
 / {
 	metadata {
 		title = "Enable PWM2";
@@ -15,8 +17,17 @@
 
 		__overlay__ {
 			status = "okay";
-			pinctrl-names = "active";
+			pinctrl-names = "default";
 			pinctrl-0 = <&pwm2_pin>;
+		};
+	};
+
+	fragment@1 {
+		target = <&pwm2_pin>;
+
+		__overlay__ {
+			rockchip,pins =
+				<0 RK_PB7 1 &pcfg_pull_up_12ma>;
 		};
 	};
 };
