@@ -1,6 +1,8 @@
 /dts-v1/;
 /plugin/;
 
+#include <dt-bindings/pinctrl/rockchip.h>
+
 / {
 	metadata {
 		title = "Enable PWM3";
