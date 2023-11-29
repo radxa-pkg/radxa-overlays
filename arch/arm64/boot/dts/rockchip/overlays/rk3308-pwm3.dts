@@ -1,14 +1,12 @@
 /dts-v1/;
 /plugin/;
 
-#include <dt-bindings/pinctrl/rockchip.h>
-
 / {
 	metadata {
 		title = "Enable PWM3";
-		compatible = "radxa,rockpis";
+		compatible = "radxa,rockpis", "radxa,rock-s0";
 		category = "misc";
-		exclusive = "GPIO0_C0";
+		exclusive = "GPIO0_C0", "i2c3";
 		description = "Enable PWM3.\nOn Radxa ROCK PI S this is pin 13.";
 	};
 
@@ -28,6 +26,14 @@
 		__overlay__ {
 			rockchip,pins =
 				<0 RK_PC0 1 &pcfg_pull_up_12ma>;
+		};
+	};
+
+	fragment@2 {
+		target = <&i2c3>;
+
+		__overlay__ {
+			status = "disabled";
 		};
 	};
 };

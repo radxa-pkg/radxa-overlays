@@ -16,7 +16,7 @@
 		__overlay__ {
 			status = "okay";
 			pinctrl-names = "default";
-			pinctrl-0 = <&spi1_clk &spi1_csn0 &spi1_miso &spi1_mosi>;
+			pinctrl-0 = <&spi1m1_clk &spi1m1_csn0 &spi1m1_miso &spi1m1_mosi>;
 			#address-cells = <1>;
 			#size-cells = <0>;
 

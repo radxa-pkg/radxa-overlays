@@ -4,9 +4,9 @@
 / {
 	metadata {
 		title = "Enable UART2";
-		compatible = "radxa,rockpis", "radxa,s0";
+		compatible = "radxa,rockpis", "radxa,rock-s0";
 		category = "misc";
-		exclusive = "GPIO1_C6", "GPIO1_C7";
+		exclusive = "GPIO1_C6", "GPIO1_C7", "spi2", "uart1_cts", "uart1_rts";
 		description = "Enable UART2.";
 	};
 
@@ -17,6 +17,30 @@
 			status = "okay";
 			pinctrl-names = "default";
 			pinctrl-0 = <&uart2_xfer>;
+		};
+	};
+
+	fragment@1 {
+		target = <&spi2>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@2 {
+		target = <&uart1_cts>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@3 {
+		target = <&uart1_rts>;
+
+		__overlay__ {
+			status = "disabled";
 		};
 	};
 };

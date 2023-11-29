@@ -1,0 +1,37 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable UART3-M1";
+		compatible = "rockchip,rk3308", "radxa,rock-s0";
+		category = "misc";
+		exclusive = "GPOI3_B4", "GPOI3_B5", "pwm5", "pwm6";
+		description = "Enable UART3-M1.\nOn Radxa ROCK S v1.3 this RX pin 40 & TX pin 39.";
+	};
+
+	fragment@0 {
+		target = <&uart3>;
+		__overlay__ {
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <&uart3m1_xfer>;
+		};
+	};
+
+	fragment@1 {
+		target = <&pwm5>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@2 {
+		target = <&pwm6>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+};
