@@ -4,10 +4,10 @@
 / {
 	metadata {
 		title = "Enable PWM9";
-		compatible = "radxa,s0";
+		compatible = "radxa,rock-s0";
 		category = "misc";
 		exclusive = "GPIO2_B3";
-		description = "Enable PWM9.\nOn Radxa S0 this is pin 22.";
+		description = "Enable PWM9.\nOn ROCK S0 this is pin 22.";
 	};
 
 	fragment@0 {
@@ -15,7 +15,7 @@
 
 		__overlay__ {
 			status = "okay";
-			pinctrl-names = "active";
+			pinctrl-names = "default";
 			pinctrl-0 = <&pwm9_pin>;
 		};
 	};

@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable UART3";
-		compatible = "rockchip,rk3308";
+		compatible = "radxa,rockpis";
 		category = "misc";
 		exclusive = "GPOI3_B4", "GPOI3_B5";
 		description = "Enable UART3.\nOn Radxa ROCK S v1.3 this RX pin 40 & TX pin 39.";

@@ -4,10 +4,10 @@
 / {
 	metadata {
 		title = "Enable I2C0";
-		compatible = "radxa,rockpis", "radxa,s0";
+		compatible = "radxa,rockpis", "radxa,rock-s0";
 		category = "misc";
-		exclusive = "GPIO1_D0", "GPIO1_D1";
-		description = "Enable I2C0.\nOn Radxa ROCK PI S this is SDA pin 23 & SCL pin 24.\nOn Radxa S0 this is SDA pin 23 & SCL pin 24.";
+		exclusive = "GPIO1_D0", "GPIO1_D1", "spi2", "uart1";
+		description = "Enable I2C0.\nOn Radxa ROCK PI S this is SDA pin 23 & SCL pin 24.\nOn ROCK S0 this is SDA pin 23 & SCL pin 24.";
     };
 
 	fragment@0 {
@@ -17,6 +17,22 @@
 			status = "okay";
 			pinctrl-names = "default";
 			pinctrl-0 = <&i2c0_xfer>;
+		};
+	};
+
+	fragment@1 {
+		target = <&spi2>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@2 {
+		target = <&uart1>;
+
+		__overlay__ {
+			status = "disabled";
 		};
 	};
 };

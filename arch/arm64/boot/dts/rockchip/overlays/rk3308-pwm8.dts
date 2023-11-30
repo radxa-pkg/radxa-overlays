@@ -4,10 +4,10 @@
 / {
 	metadata {
 		title = "Enable PWM8";
-		compatible = "radxa,s0";
+		compatible = "radxa,rock-s0";
 		category = "misc";
 		exclusive = "GPIO0_C1";
-		description = "Enable PWM8.\nOn Radxa S0 this is pin 31.";
+		description = "Enable PWM8.\nOn ROCK S0 this is pin 31.";
 	};
 
 	fragment@0 {
@@ -15,7 +15,7 @@
 
 		__overlay__ {
 			status = "okay";
-			pinctrl-names = "active";
+			pinctrl-names = "default";
 			pinctrl-0 = <&pwm8_pin>;
 		};
 	};

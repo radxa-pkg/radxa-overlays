@@ -4,10 +4,10 @@
 / {
 	metadata {
 		title = "Enable I2C1";
-		compatible = "radxa,rockpis", "radxa,s0";
+		compatible = "radxa,rockpis", "radxa,rock-s0";
 		category = "misc";
 		exclusive = "GPIO0_B3", "GPIO0_B4";
-		description = "Enable I2C1.\nOn Radxa ROCK PI S this is SDA pin 3 & SCL pin 5.\nOn Radxa S0 this is SDA pin 3 & SCL pin 5.";
+		description = "Enable I2C1.\nOn Radxa ROCK PI S this is SDA pin 3 & SCL pin 5.\nOn ROCK S0 this is SDA pin 3 & SCL pin 5.";
     };
 
 	fragment@0 {

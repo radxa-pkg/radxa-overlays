@@ -4,10 +4,10 @@
 / {
 	metadata {
 		title = "Enable PWM11";
-		compatible = "radxa,s0";
+		compatible = "unknown";
 		category = "misc";
 		exclusive = "GPIO2_C0";
-		description = "Enable PWM11.\nOn Radxa S0 this is pin 29.";
+		description = "Enable PWM11.\nOn ROCK S0 this is pin 29.";
 	};
 
 	fragment@0 {
@@ -15,7 +15,7 @@
 
 		__overlay__ {
 			status = "okay";
-			pinctrl-names = "active";
+			pinctrl-names = "default";
 			pinctrl-0 = <&pwm11_pin>;
 		};
 	};
