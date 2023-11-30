@@ -7,7 +7,7 @@
 		compatible = "radxa,rockpis", "radxa,rock-s0";
 		category = "misc";
 		exclusive = "GPIO1_D0", "GPIO1_D1", "i2c0", "spi2";
-		description = "Enable UART1 on pin 23 24.";
+		description = "Enable UART1.\nOn Radxa ROCK PI S and ROCK S0 this is pin 23 24.";
 	};
 
 	fragment@0 {
