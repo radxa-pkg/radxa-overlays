@@ -7,7 +7,7 @@
 		compatible = "radxa,rock-s0";
 		category = "misc";
 		exclusive = "GPIO2_A2", "GPIO2_A3", "pwm2";
-		description = "Enable I2C2.\nOn Radxa S0 this is SDA pin 37 & SCL pin 13.";
+		description = "Enable I2C2.\nOn ROCK S0 this is SDA pin 37 & SCL pin 13.";
     };
 
 	fragment@0 {

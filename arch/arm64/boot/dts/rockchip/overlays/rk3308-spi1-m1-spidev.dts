@@ -4,10 +4,10 @@
 /{
 	metadata {
 		title = "Enable spidev on SPI1";
-		compatible = "radxa,rockpis", "radxa,rock-s0";
+		compatible = "radxa,rock-s0";
 		category = "misc";
-		exclusive = "GPOI3_B2", "GPOI3_B3", "GPOI3_B4", "GPOI3_B5";
-		description = "Enable spidev on SPI1 on pin 39, 40, 41 & 42.";
+		exclusive = "GPOI2_B1", "GPOI2_A4", "GPOI2_A5", "GPOI2_A7";
+		description = "Enable spidev on SPI1 on pin 12, 35, 38 & 40.";
 	};
 
 	fragment@0 {

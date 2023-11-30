@@ -7,7 +7,7 @@
 		compatible = "radxa,rockpis", "radxa,rock-s0";
 		category = "misc";
 		exclusive = "GPIO2_A0", "GPIO2_A1", "spi0";
-		description = "Enable UART0.";
+		description = "Enable UART0 on pin 8 & pin 10.";
 	};
 
 	fragment@0 {

@@ -4,10 +4,10 @@
 / {
 	metadata {
 		title = "Enable UART3-M1";
-		compatible = "rockchip,rk3308", "radxa,rock-s0";
+		compatible = "radxa,rock-s0";
 		category = "misc";
-		exclusive = "GPOI3_B4", "GPOI3_B5", "pwm5", "pwm6";
-		description = "Enable UART3-M1.\nOn Radxa ROCK S v1.3 this RX pin 40 & TX pin 39.";
+		exclusive = "GPOI0_C2", "GPOI0_C1", "pwm5", "pwm6";
+		description = "Enable UART3-M1.\nOn Radxa ROCK S0 this RX pin 15 & TX pin 33.";
 	};
 
 	fragment@0 {
