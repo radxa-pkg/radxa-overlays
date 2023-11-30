@@ -1,0 +1,77 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+	metadata {
+		title = "Enable Waveshare 3.5 inch Display on SPI1";
+		compatible = "rockchip,rk3399";
+		category = "misc";
+		exclusive = "GPIO1_B0", "GPIO1_A7", "GPIO1_B1", "GPIO1_B2", "GPIO4_D2", "GPIO4_D4", "GPIO4_D5" ;
+		description = "Enable Waveshare 3.5 inch Display on SPI1.";
+	};
+
+	fragment@0 {
+		target = <&pinctrl>;
+
+		__overlay__ {
+			ili9486_pins {
+				ili9486_pins: ili9486-pins {
+					rockchip,pins = <4 RK_PD5 RK_FUNC_GPIO &pcfg_pull_none>,
+							<4 RK_PD4 RK_FUNC_GPIO &pcfg_pull_none>;
+				};
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <&spi1>;
+
+		__overlay__ {
+			status = "okay";
+			max-freq = <48000000>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+			num-cs = <2>;
+			cs-gpios = <&gpio1 RK_PB2 GPIO_ACTIVE_HIGH
+				    &gpio4 RK_PD2 GPIO_ACTIVE_HIGH>;
+			pinctrl-names = "default", "high_speed";
+			pinctrl-0 = <&spi1_clk &spi1_rx &spi1_tx>;
+
+			ili9486@0 {
+				compatible = "ilitek,ili9486";
+				reg = <0>;
+				pinctrl-names = "default";
+				pinctrl-0 = <&ili9486_pins>;
+				spi-max-frequency = <15000000>;
+				txbuflen = <32768>;
+				rotate = <90>;
+				bgr = <0>;
+				fps = <30>;
+				buswidth = <8>;
+				regwidth = <16>;
+				reset-gpios = <&gpio4 RK_PD5 GPIO_ACTIVE_LOW>;
+				dc-gpios = <&gpio4 RK_PD4 GPIO_ACTIVE_HIGH>;
+				debug = <0>;
+			};
+
+			ads7846@1 {
+				compatible = "ti,ads7846";
+				status = "okay";
+				reg = <1>;
+				id = <1>;
+				spi-max-frequency = <2000000>;
+				interrupts = <18 2>;
+				interrupt-parent = <&gpio4>;
+				pendown-gpio = <&gpio4 RK_PC2 GPIO_ACTIVE_HIGH>;
+				ti,x-plate-ohms = /bits/ 16 <60>;
+				ti,pressure-max = /bits/ 16 <255>;
+				ti,swap-xy = <0>;
+				vcc-supply = <&vcc5v0_sys>;
+			};
+		};
+	};
+};

@@ -75,6 +75,7 @@ dtb-$(CONFIG_CLK_RK3399) += \
 	rk3399-spi1-jedec-nor.dtbo \
 	rk3399-spi1-mcp2515-8mhz.dtbo \
 	rk3399-spi1-spidev.dtbo \
+	rk3399-spi1-waveshare35.dtbo \
 	rk3399-spi2-enc28j60.dtbo \
 	rk3399-spi2-jedec-nor.dtbo \
 	rk3399-spi2-sc16is752.dtbo \
