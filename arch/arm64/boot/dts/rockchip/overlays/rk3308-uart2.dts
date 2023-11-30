@@ -7,7 +7,7 @@
 		compatible = "radxa,rockpis", "radxa,rock-s0";
 		category = "misc";
 		exclusive = "GPIO1_C6", "GPIO1_C7", "spi2", "uart1_cts", "uart1_rts";
-		description = "Enable UART2.\nOn Radxa ROCK PI S and ROCK S0 this is pin 19 21.";
+		description = "Enable UART2.\nOn ROCK PI S this is TX pin 19 & RX pin 21.\nOn ROCK S0 this is TX pin 19 & RX pin 21.";
 	};
 
 	fragment@0 {
