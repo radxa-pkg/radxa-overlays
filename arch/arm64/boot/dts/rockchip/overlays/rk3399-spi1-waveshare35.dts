@@ -21,7 +21,7 @@
 			ili9486_pins {
 				ili9486_pins: ili9486-pins {
 					rockchip,pins = <4 RK_PD5 RK_FUNC_GPIO &pcfg_pull_none>,
-									<4 RK_PD4 RK_FUNC_GPIO &pcfg_pull_none>;
+							<4 RK_PD4 RK_FUNC_GPIO &pcfg_pull_none>;
 				};
 			};
 		};
