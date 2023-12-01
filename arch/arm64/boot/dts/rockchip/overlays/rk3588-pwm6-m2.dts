@@ -4,10 +4,10 @@
 / {
 	metadata {
 		title = "Enable PWM6-M2";
-		compatible = "radxa,rock-5b";
+		compatible = "radxa,rock-5b", "radxa,rock-5b-plus";
 		category = "misc";
 		exclusive = "GPIO4_C5";
-		description = "Enable PWM6-M2.\nOn Radxa ROCK 5B this is pin 28.";
+		description = "Enable PWM6-M2.\nOn Radxa ROCK 5B this is pin 28.\nOn Radxa ROCK 5B+ this is pin 28.";
 	};
 
 	fragment@0 {
