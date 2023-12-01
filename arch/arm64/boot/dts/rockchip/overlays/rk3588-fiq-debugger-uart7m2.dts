@@ -4,10 +4,10 @@
 / {
 	metadata {
 		title = "Enable FIQ Debugger on UART7-M2";
-		compatible = "radxa,rock-5a";
+		compatible = "radxa,rock-5a", "radxa,rock-5b-plus";
 		category = "misc";
 		exclusive = "GPIO1_B5", "GPIO1_B4";
-		description = "Enable FIQ Debugger on UART7-M2.\nOn Radxa ROCK 5A this is TX pin 22 and RX pin 33.\nOn Radxa ROCK 5B this is TX pin 26 & RX pin 24.";
+		description = "Enable FIQ Debugger on UART7-M2.\nOn Radxa ROCK 5A this is TX pin 22 and RX pin 33.\nOn Radxa ROCK 5B this is TX pin 26 & RX pin 24.\nOn Radxa ROCK 5B+ this is TX pin 26 & RX pin 24.";
 	};
 
 	fragment@0 {
