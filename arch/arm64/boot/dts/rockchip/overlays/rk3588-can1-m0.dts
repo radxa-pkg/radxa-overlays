@@ -6,7 +6,7 @@
 / {
 	metadata {
 		title = "Enable CAN1-M0";
-		compatible = "radxa,rock-5b";
+		compatible = "radxa,rock-5b", "radxa,rock-5b-plus";
 		category = "misc";
 		exclusive = "GPIO3_B5", "GPIO3_B6";
 		description = "Enable CAN1-M0.\nOn Radxa ROCK 5B this is RX pin 12 & TX pin 35.";
