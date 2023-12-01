@@ -4,10 +4,10 @@
 / {
 	metadata {
 		title = "Enable I2C1-M0";
-		compatible = "radxa,rock-5a", "radxa,rock-5b", "radxa,nx5-io", "radxa,cm5-io", "radxa,cm5-rpi-cm4-io";
+		compatible = "radxa,rock-5a", "radxa,rock-5b", "radxa,rock-5b-plus", "radxa,nx5-io", "radxa,cm5-io", "radxa,cm5-rpi-cm4-io";
 		category = "misc";
 		exclusive = "GPIO0_B5", "GPIO0_B6";
-		description = "Enable I2C1-M0.\nOn Radxa ROCK 5A this is SDA pin 10 & SCL pin 8.\nOn Radxa ROCK 5B this is SDA pin 10 & SCL pin 8.\nOn Radxa NX5 IO this is SDA pin 10 & SCL pin 8.\nOn Radxa CM5 IO this is SDA pin 10 & SCL pin 8.\nOn Radxa CM5 IO this is SDA pin 10 & SCL pin 8.";
+		description = "Enable I2C1-M0.\nOn Radxa ROCK 5A this is SDA pin 10 & SCL pin 8.\nOn Radxa ROCK 5B this is SDA pin 10 & SCL pin 8.\nOn Radxa ROCK 5B+ this is SDA pin 10 & SCL pin 8.\nOn Radxa NX5 IO this is SDA pin 10 & SCL pin 8.\nOn Radxa CM5 IO this is SDA pin 10 & SCL pin 8.\nOn Radxa CM5 IO this is SDA pin 10 & SCL pin 8.";
 	};
 
 	fragment@0 {
