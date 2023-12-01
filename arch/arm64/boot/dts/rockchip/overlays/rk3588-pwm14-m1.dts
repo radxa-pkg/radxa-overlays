@@ -4,10 +4,10 @@
 / {
 	metadata {
 		title = "Enable PWM14-M1";
-		compatible = "radxa,rock-5a", "radxa,rock-5b", "radxa,cm5-io", "radxa,cm5-rpi-cm4-io";
+		compatible = "radxa,rock-5a", "radxa,rock-5b", "radxa,rock-5b-plus", "radxa,cm5-io", "radxa,cm5-rpi-cm4-io";
 		category = "misc";
 		exclusive = "GPIO4_B2";
-		description = "Enable PWM14-M1.\nOn Radxa ROCK 5A this is pin 13.\nOn Radxa ROCK 5B this is pin 5.\nOn Radxa CM5 IO this is pin 24.\nOn Radxa CM5 RPI CM4 IO this is pin 32.\n";
+		description = "Enable PWM14-M1.\nOn Radxa ROCK 5A this is pin 13.\nOn Radxa ROCK 5B this is pin 5.\nOn Radxa ROCK 5B+ this is pin 5.\nOn Radxa CM5 IO this is pin 24.\nOn Radxa CM5 RPI CM4 IO this is pin 32.\n";
 	};
 
 	fragment@0 {

@@ -8,7 +8,7 @@
 / {
 	metadata {
 		title = "Enable MCP2515 with 8MHz external clock on SPI1-M1 over CS1";
-		compatible = "radxa,rock-5b";
+		compatible = "radxa,rock-5b", "radxa,rock-5b-plus";
 		category = "misc";
 		exclusive = "GPIO3_C3", "GPIO3_C1", "GPIO3_B7", "GPIO3_C0", "GPIO1_B2";
 		description = "Provide support for Microchip MCP2515 SPI CAN controller.\nAssumes 8MHz external clock.\nUses Pin 19 (GPIOI1_B2) for INT.";
