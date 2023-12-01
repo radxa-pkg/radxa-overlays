@@ -1,6 +1,8 @@
 /dts-v1/;
 /plugin/;
 
+#include <dt-bindings/pinctrl/rockchip.h>
+
 / {
 	metadata {
 		title = "Enable I2C3-M0";
@@ -33,6 +35,16 @@
 
 		__overlay__ {
 			status = "disabled";
+		};
+	};
+
+	fragment@3 {
+		target = <&i2c3m0_xfer>;
+
+		__overlay__ {
+			rockchip,pins =
+				<0 RK_PB7 2 &pcfg_pull_up_12ma>,
+				<0 RK_PC0 2 &pcfg_pull_up_12ma>;
 		};
 	};
 };
