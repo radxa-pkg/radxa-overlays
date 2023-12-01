@@ -3,11 +3,11 @@
 
 / {
 	metadata {
-		title = "Set OTG port to Peripheral mode";
+		title = "Set OTG port 0 to Peripheral mode";
 		compatible = "rockchip,rk3588";
 		category = "misc";
 		exclusive = "usbdrd_dwc3-dr_mode";
-		description = "Set OTG port to Peripheral mode.\nUse this when you want to connect to another computer.";
+		description = "Set OTG port 0 to Peripheral mode.\nUse this when you want to connect to another computer.";
 	};
 
 	fragment@0 {
