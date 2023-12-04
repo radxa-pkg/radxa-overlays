@@ -42,7 +42,8 @@ dtb-$(CONFIG_CLK_RK3308) += \
 	rk3308-uart1.dtbo \
 	rk3308-uart2-m0.dtbo \
 	rk3308-uart3.dtbo \
-	rk3308-uart3-m1.dtbo
+	rk3308-uart3-m1.dtbo \
+	rock-pi-s-poe-headphone.dtbo
 
 dtb-$(CONFIG_CLK_RK3328) += \
 	rk3328-pwm2.dtbo \
