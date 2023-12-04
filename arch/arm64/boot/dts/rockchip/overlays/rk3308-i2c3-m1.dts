@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable I2C3-M1";
-		compatible = "radxa,rockpis";
+		compatible = "unknown";
 		category = "misc";
 		exclusive = "GPOI3_B4", "GPOI3_B5";
 		description = "Enable I2C3-M1.\nOn Radxa ROCK PI S this is SDA pin 40 & SCL pin 39.";
