@@ -40,7 +40,7 @@ dtb-$(CONFIG_CLK_RK3308) += \
 	rk3308-spi2-spidev.dtbo \
 	rk3308-uart0.dtbo \
 	rk3308-uart1.dtbo \
-	rk3308-uart2.dtbo \
+	rk3308-uart2-m0.dtbo \
 	rk3308-uart3.dtbo \
 	rk3308-uart3-m1.dtbo
 
