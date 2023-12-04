@@ -3,7 +3,7 @@
 
 / {
 	metadata {
-		title = "Enable UART2";
+		title = "Enable UART2-M0";
 		compatible = "radxa,rockpis", "radxa,rock-s0";
 		category = "misc";
 		exclusive = "GPIO1_C6", "GPIO1_C7", "spi2", "uart1_cts", "uart1_rts";
