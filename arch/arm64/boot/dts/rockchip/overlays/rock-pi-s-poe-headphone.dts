@@ -1,0 +1,44 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/gpio/gpio.h>
+
+/ {
+	metadata {
+		title = "Enable PoE HAT headphone";
+		compatible = "radxa,rockpis";
+		category = "misc";
+		exclusive = "GPIO0_B7";
+		description = "Enable PoE HAT headphone.";
+	};
+
+        fragment@0 {
+		target-path = "/";
+
+		__overlay__ {
+                        hp_en: hp-en {
+                                compatible = "regulator-fixed";
+                                regulator-name = "hp_en";
+                                regulator-always-on;
+                                regulator-boot-on;
+                                gpio = <&gpio0 RK_PB7 GPIO_ACTIVE_HIGH>;
+                                enable-active-high;
+                                pinctrl-names = "default";
+                                pinctrl-0 = <&headphone_en>;
+                        };
+		};
+	};
+
+	fragment@1 {
+		target = <&pinctrl>;
+
+		__overlay__ {
+			poe_hat {
+                                headphone_en: headphone-en {
+                                        rockchip,pins = <0 RK_PB7 RK_FUNC_GPIO &pcfg_pull_up>;
+                                };
+                        };
+		};
+	};
+};
