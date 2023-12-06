@@ -1,0 +1,22 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Set OTG port 0 to otg mode";
+		compatible = "rockchip,rk3588";
+		category = "misc";
+		exclusive = "usbdrd_dwc3-dr_mode";
+		description = "Set OTG port 0 to otg mode.\nUse this for automatic USB role switching.";
+	};
+
+	fragment@0 {
+		target = <&usbdrd_dwc3_0>;
+
+		__overlay__ {
+			status = "okay";
+			dr_mode = "otg";
+			usb-role-switch;
+		};
+	};
+};
