@@ -255,6 +255,9 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	radxa-nx5-io-rpi-camera-v2-cam1.dtbo \
 	rk3588-dwc3-host.dtbo \
 	rk3588-dwc3-peripheral.dtbo \
+	rk3588-dwc3-otg.dtbo \
+	rk3588-dwc3_1-host.dtbo \
+	rk3588-dwc3_1-peripheral.dtbo \
 	rk3588-fiq-debugger-uart2m2.dtbo \
 	rk3588-fiq-debugger-uart3m1.dtbo \
 	rk3588-fiq-debugger-uart4m2.dtbo \

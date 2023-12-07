@@ -1,0 +1,21 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Set OTG port 1 to Host mode (ROCK 5B V1.46+)";
+		compatible = "radxa,rock-5b";
+		category = "misc";
+		exclusive = "usbdrd_dwc3_1-dr_mode";
+		description = "Set OTG port 1 to Host mode (ROCK 5B V1.46+).\nUse this when you want to connect USB devices.";
+	};
+
+	fragment@0 {
+		target = <&usbdrd_dwc3_1>;
+
+		__overlay__ {
+			status = "okay";
+			dr_mode = "host";
+		};
+	};
+};

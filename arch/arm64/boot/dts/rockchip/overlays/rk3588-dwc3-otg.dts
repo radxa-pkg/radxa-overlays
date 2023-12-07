@@ -3,11 +3,11 @@
 
 / {
 	metadata {
-		title = "Set OTG port 0 to Peripheral mode";
+		title = "Set OTG port 0 to OTG mode";
 		compatible = "rockchip,rk3588";
 		category = "misc";
 		exclusive = "usbdrd_dwc3-dr_mode";
-		description = "Set OTG port 0 to Peripheral mode.\nUse this when you want to connect to another computer.";
+		description = "Set OTG port 0 to OTG mode.\nUse this for automatic USB role switching.";
 	};
 
 	fragment@0 {
@@ -15,7 +15,8 @@
 
 		__overlay__ {
 			status = "okay";
-			dr_mode = "peripheral";
+			dr_mode = "otg";
+			usb-role-switch;
 		};
 	};
 };
