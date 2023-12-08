@@ -55,6 +55,7 @@ dtb-$(CONFIG_CLK_RK3399) += \
 	rk3399-dwc3-0-host.dtbo \
 	rk3399-dwc3-0-otg.dtbo \
 	rk3399-dwc3-0-peripheral.dtbo \
+	rk3399-enable-gpio4-c3-c4.dtbo \
 	rk3399-gpio-ir.dtbo \
 	rk3399-i2c2-50khz.dtbo \
 	rk3399-i2c2.dtbo \
@@ -125,6 +126,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-dwc3-host.dtbo \
 	rk3568-dwc3-otg.dtbo \
 	rk3568-dwc3-peripheral.dtbo \
+	rk3568-enable-gpio0-d0-d1.dtbo \
 	rk3568-fiq-debugger-uart0.dtbo \
 	rk3568-fiq-debugger-uart2m0.dtbo \
 	rk3568-fiq-debugger-uart3m0.dtbo \
@@ -258,6 +260,7 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-dwc3-otg.dtbo \
 	rk3588-dwc3_1-host.dtbo \
 	rk3588-dwc3_1-peripheral.dtbo \
+	rk3588-enable-gpio0-b5-b6.dtbo \
 	rk3588-fiq-debugger-uart2m2.dtbo \
 	rk3588-fiq-debugger-uart3m1.dtbo \
 	rk3588-fiq-debugger-uart4m2.dtbo \
