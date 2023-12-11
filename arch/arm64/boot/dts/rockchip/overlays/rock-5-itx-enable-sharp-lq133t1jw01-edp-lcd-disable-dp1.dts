@@ -7,11 +7,11 @@
 
 / {
 	metadata {
-		title = "Enable Sharp LQ133T1JW01 Display and Disable DP1";
+		title = "Enable Sharp LQ133T1JW01 Display on eDP";
 		compatible = "radxa,rock-5-itx";
 		category = "display";
-		exclusive = "dp1";
-		description = "Enable Sharp LQ133T1JW01 display and disable DP1.";
+		exclusive = "dp1", "edp0", "vp2";
+		description = "Enable Sharp LQ133T1JW01 display on eDP.\nThis will disable DP1.";
 	};
 
 	fragment@0 {

@@ -10,7 +10,7 @@
 		title ="Enable Radxa Display 8HD on LCD0";
 		compatible = "radxa,rock-5-itx";
 		category = "display";
-		exclusive = "dsi0";
+		exclusive = "dsi0", "vp3";
 		description = "Enable Radxa Display 8HD on LCD0.";
 	};
 
