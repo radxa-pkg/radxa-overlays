@@ -5,11 +5,11 @@
 
 / {
 	metadata {
-		title = "Enable GPIO4_C3 and GPIO4_C4";
+		title = "Disable FIQ Debugger";
 		compatible = "rockchip,rk3399";
 		category = "misc";
 		exclusive = "GPIO4_C3", "GPIO4_C4", "fiq_debugger";
-		description = "Enable GPIO4_C3 and GPIO4_C4.";
+		description = "Disable FIQ Debugger.";
 	};
 
 	fragment@0 {

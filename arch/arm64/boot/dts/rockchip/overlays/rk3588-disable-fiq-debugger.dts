@@ -5,11 +5,11 @@
 
 / {
 	metadata {
-		title = "Enable GPIO0_B5 and GPIO0_B6";
+		title = "Disable FIQ Debugger";
 		compatible = "radxa,rock-5a", "radxa,rock-5b", "radxa,rock-5b-plus", "radxa,nx5-io", "radxa,cm5-io", "radxa,cm5-rpi-cm4-io";
 		category = "misc";
 		exclusive = "GPIO0_B5", "GPIO0_B6", "fiq_debugger";
-		description = "Enable GPIO0_B5 and GPIO0_B6.";
+		description = "Disable FIQ Debugger.";
 	};
 
 	fragment@0 {
