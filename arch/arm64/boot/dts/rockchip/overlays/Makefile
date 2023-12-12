@@ -52,6 +52,7 @@ dtb-$(CONFIG_CLK_RK3328) += \
 	rk3328-spi0-spidev.dtbo
 
 dtb-$(CONFIG_CLK_RK3399) += \
+	rk3399-disable-fiq-debugger.dtbo \
 	rk3399-dwc3-0-host.dtbo \
 	rk3399-dwc3-0-otg.dtbo \
 	rk3399-dwc3-0-peripheral.dtbo \
@@ -122,6 +123,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-can0-m0.dtbo \
 	rk3568-can1-m0.dtbo \
 	rk3568-can1-m1.dtbo \
+	rk3568-disable-fiq-debugger.dtbo \
 	rk3568-dwc3-host.dtbo \
 	rk3568-dwc3-otg.dtbo \
 	rk3568-dwc3-peripheral.dtbo \
@@ -253,6 +255,7 @@ dtb-$(CONFIG_CPU_RK3568) += \
 dtb-$(CONFIG_CLK_RK3588) += \
 	radxa-nx5-io-rpi-camera-v2-cam0.dtbo \
 	radxa-nx5-io-rpi-camera-v2-cam1.dtbo \
+	rk3588-disable-fiq-debugger.dtbo \
 	rk3588-dwc3-host.dtbo \
 	rk3588-dwc3-peripheral.dtbo \
 	rk3588-dwc3-otg.dtbo \
