@@ -48,7 +48,7 @@ dtb-$(CONFIG_CLK_RK3308) += \
 dtb-$(CONFIG_CLK_RK3328) += \
 	rk3328-pwm2.dtbo \
 	rk3328-uart1.dtbo \
-	rk3328-uart2-m0.dtbo \
+	rk3328-uart2-m1.dtbo \
 	rk3328-spi0-spidev.dtbo
 
 dtb-$(CONFIG_CLK_RK3399) += \

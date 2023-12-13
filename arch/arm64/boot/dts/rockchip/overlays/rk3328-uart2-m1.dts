@@ -3,11 +3,11 @@
 
 / {
 	metadata {
-		title = "Enable UART2-M0";
-		compatible = "rockchip,rk3328";
+		title = "Enable UART2-M1";
+		compatible = "unknown";
 		category = "misc";
-		exclusive = "GPIO1_A0", "GPIO1_A1";
-		description = "Enable UART2-M0";
+		exclusive = "GPIO2_A0", "GPIO2_A1";
+		description = "Enable UART2-M1";
 	};
 
 	fragment@0 {
