@@ -1,0 +1,22 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/pinctrl/rockchip.h>
+
+/ {
+	metadata {
+		title = "Disable FAN";
+		compatible = "radxa,cm3-io";
+		category = "misc";
+		exclusive = "GPIO0_C7";
+		description = "Disable FAN.";
+	};
+
+	fragment@0 {
+		target = <&pwm0>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+};

@@ -123,7 +123,8 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-can0-m0.dtbo \
 	rk3568-can1-m0.dtbo \
 	rk3568-can1-m1.dtbo \
-	rk3568-disable-fiq-debugger.dtbo \
+	rk3568-disable-fan.dtbo \
+	rk3568-disable-fiq-debugger.dtbo \	
 	rk3568-dwc3-host.dtbo \
 	rk3568-dwc3-otg.dtbo \
 	rk3568-dwc3-peripheral.dtbo \
