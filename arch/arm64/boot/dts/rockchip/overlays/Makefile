@@ -124,8 +124,6 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-can1-m0.dtbo \
 	rk3568-can1-m1.dtbo \
 	rk3568-disable-fiq-debugger.dtbo \
-	rk3568-disable-i2c2.dtbo \
-	rk3568-disable-pwm0.dtbo \
 	rk3568-dwc3-host.dtbo \
 	rk3568-dwc3-otg.dtbo \
 	rk3568-dwc3-peripheral.dtbo \
@@ -141,6 +139,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-gmac1-disable.dtbo \
 	rk3568-gmac1-enable.dtbo \
 	rk3568-i2c1.dtbo \
+	rk3568-i2c2-disable.dtbo \
 	rk3568-i2c2-m0-pca9555.dtbo \
 	rk3568-i2c2-m0.dtbo \
 	rk3568-i2c2-m1.dtbo \
@@ -148,6 +147,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-i2c4-m0.dtbo \
 	rk3568-npu-disable.dtbo \
 	rk3568-npu-enable.dtbo \
+	rk3568-pwm0-disable.dtbo \
 	rk3568-pwm0-m0.dtbo \
 	rk3568-pwm0-m1.dtbo \
 	rk3568-pwm1-m0.dtbo \
