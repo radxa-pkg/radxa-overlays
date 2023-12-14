@@ -1,0 +1,22 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/pinctrl/rockchip.h>
+
+/ {
+	metadata {
+		title = "Disable PWM0";
+		compatible = "radxa,cm3-io";
+		category = "misc";
+		exclusive = "GPIO0_C7";
+		description = "Disable PWM0.";
+	};
+
+	fragment@0 {
+		target = <&pwm0>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+};
