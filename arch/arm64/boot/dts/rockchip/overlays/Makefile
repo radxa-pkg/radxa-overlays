@@ -205,6 +205,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rock-3ab-okdo-5mp-camera.dtbo \
 	rock-3ab-rpi-camera-v1p3-ov5647.dtbo \
 	rock-3ab-rpi-camera-v2-imx219.dtbo \
+	rock-3ab-radxa-camera-8m.dtbo \
 	rock-3b-enable-hdmicec.dtbo \
 	rock-3b-hdmi-and-sharp-lq133t1jw01-edp-lcd.dtbo \
 	rock-3b-radxa-5inch-touchscreen.dtbo \
