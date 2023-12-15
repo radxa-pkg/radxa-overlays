@@ -218,7 +218,8 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rock-3c-radxa-25w-poe.dtbo \
 	rock-3c-raspberrypi-7inch-touchscreen.dtbo \
 	rock-3c-rpi-camera-v1p3.dtbo \
-	rock-3c-rpi-camera-v2.dtbo
+	rock-3c-rpi-camera-v2.dtbo \
+	rock-3c-radxa-camera-8m.dtbo 
 
 dtb-$(CONFIG_CPU_RK3568) += \
 	radxa-cm3-io-sata1.dtbo \
