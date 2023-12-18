@@ -109,6 +109,8 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	radxa-cm3-io-i2c0-hym8563.dtbo \
 	radxa-cm3-io-okdo-5mp-camera-cam1.dtbo \
 	radxa-cm3-io-okdo-5mp-camera-cam2.dtbo \
+	radxa-cm3-io-rpi-camera-v1p3-ov5647-cam1.dtbo \
+	radxa-cm3-io-rpi-camera-v1p3-ov5647-cam2.dtbo \
 	radxa-cm3-io-pcie2x1.dtbo \
 	radxa-cm3-raspcm4io-pcie2x1.dtbo \
 	radxa-cm3-rpi-cm4-7inch-touchscreen-disp0.dtbo \
