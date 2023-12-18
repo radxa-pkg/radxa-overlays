@@ -104,6 +104,8 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	audioinjector-isolated-soundcard.dtbo \
 	radxa-cm3-io-camera-v2-imx219-cam1.dtbo \
 	radxa-cm3-io-camera-v2-imx219-cam2.dtbo \
+	radxa-cm3-io-radxa-camera-8m-cam1.dtbo \
+	radxa-cm3-io-radxa-camera-8m-cam2.dtbo \
 	radxa-cm3-io-dual-cameras-gc2053-gc2093.dtbo \
 	radxa-cm3-io-dual-cameras-gc2053.dtbo \
 	radxa-cm3-io-i2c0-hym8563.dtbo \
