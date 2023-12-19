@@ -244,6 +244,8 @@ dtb-$(CONFIG_CPU_RK3568) += \
 	radxa-cm3i-io-edp-sharp-lq133t1jw01-lcd.dtbo \
 	radxa-cm3i-io-okdo-5mp-camera-cam1.dtbo \
 	radxa-cm3i-io-okdo-5mp-camera-cam2.dtbo \
+	radxa-cm3i-io-rpi-camera-v1p3-cam1.dtbo \
+	radxa-cm3i-io-rpi-camera-v1p3-cam2.dtbo \
 	radxa-cm3i-io-quectel-4g-module.dtbo \
 	radxa-cm3i-io-radxa-8inch-display.dtbo \
 	radxa-cm3i-io-radxa-display-10hd.dtbo \
