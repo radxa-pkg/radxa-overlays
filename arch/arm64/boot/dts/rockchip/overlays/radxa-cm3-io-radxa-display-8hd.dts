@@ -5,6 +5,7 @@
 #include <dt-bindings/pinctrl/rockchip.h>
 #include <dt-bindings/interrupt-controller/irq.h>
 #include <dt-bindings/display/drm_mipi_dsi.h>
+#include <dt-bindings/pwm/pwm.h>
 
 / {
 	metadata {
@@ -55,7 +56,7 @@
 				compatible = "pwm-backlight";
 				pinctrl-names = "default";
 				pinctrl-0 = <&dsi1_backlight_en>;
-				pwms = <&pwm2 0 25000 1>;
+				pwms = <&pwm2 0 25000 PWM_POLARITY_INVERTED>;
 				enable-gpios = <&gpio3 RK_PD7 0>;
 				post-pwm-on-delay-ms = <10>;
 				pwm-off-delay-ms = <10>;
