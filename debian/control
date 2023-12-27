@@ -1,0 +1,18 @@
+Source: radxa-overlays
+Maintainer: "Radxa Computer Co., Ltd" <dev@radxa.com>
+Section: misc
+Priority: optional
+Standards-Version: 4.6.0
+Build-Depends: debhelper (>=12~),
+               devscripts,
+               dh-sequence-dkms,
+               lintian,
+               dh-exec,
+
+Package: radxa-overlays-dkms
+Architecture: all
+Section: misc
+Priority: optional
+Depends: ${misc:Depends},
+Description: dkms sources for radxa/overlay
+ This package provides the dkms source code for radxa/overlay.
