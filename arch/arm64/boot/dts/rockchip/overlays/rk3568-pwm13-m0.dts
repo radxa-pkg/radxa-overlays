@@ -4,10 +4,10 @@
 / {
 	metadata {
 		title = "Enable PWM13-M0";
-		compatible = "unknown";
+		compatible = "radxa,e25";
 		category = "misc";
 		exclusive = "GPIO3_C0";
-		description = "Enable PWM13-M0.\nOn Radxa ROCK 3A <= v1.2 this is pin 37";
+		description = "Enable PWM13-M0.\nOn Radxa ROCK 3A <= v1.2 this is pin 37.\nOn Radxa E25 this is pin 26";
 	};
 
 	fragment@0 {
