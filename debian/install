@@ -1,0 +1,5 @@
+#!/usr/bin/dh-exec
+
+arch usr/src/radxa-overlays-${DEB_VERSION}/
+radxa-overlays.c usr/src/radxa-overlays-${DEB_VERSION}/
+Makefile.dkms => usr/src/radxa-overlays-${DEB_VERSION}/Makefile

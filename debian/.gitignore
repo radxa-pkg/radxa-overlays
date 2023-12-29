@@ -1,0 +1,8 @@
+/.debhelper
+/debhelper-build-stamp
+/files
+/radxa-overlays-dkms
+/*.debhelper.log
+/*.debhelper
+/*.substvars
+/tmp
