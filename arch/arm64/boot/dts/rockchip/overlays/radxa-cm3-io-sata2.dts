@@ -14,20 +14,11 @@
 	};
 
 	fragment@0 {
-		target-path = "/";
-
+		target = <&vcc_ch482d2>;
 		__overlay__ {
-			vcc-ch482d2-regulator {
-				compatible = "regulator-fixed";
-				enable-active-high;
-				gpio = <&gpio3 RK_PC6 GPIO_ACTIVE_HIGH>;
-				pinctrl-names = "default";
-				pinctrl-0 = <&ch482d_en2>;
-				regulator-name = "vcc_ch482d1";
-				regulator-always-on;
-				regulator-boot-on;
-				status = "okay";
-			};
+			enable-active-high;
+			gpio = <&gpio3 RK_PC6 GPIO_ACTIVE_HIGH>;
+			status = "okay";
 		};
 	};
 
@@ -42,17 +33,6 @@
 		target = <&sata2>;
 		__overlay__ {
 			status = "okay";
-		};
-	};
-
-	fragment@3 {
-		target = <&pinctrl>;
-		__overlay__ {
-			ch482d {
-				ch482d_en2: ch482d-en2 {
-					rockchip,pins = <3 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
-				};
-			};
 		};
 	};
 };
