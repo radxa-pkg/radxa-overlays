@@ -7,7 +7,7 @@
 / {
 	metadata {
 		title = "Enable PCIe";
-		compatible = "radxa,cm3-io";
+		compatible = "unknown";
 		category = "misc";
 		exclusive = "pcie2x1";
 		description = "Enable PCIe.\nWhen PCIe is enabled, SATA2 cannot be enabled on the same port.";

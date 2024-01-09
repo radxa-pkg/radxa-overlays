@@ -14,20 +14,11 @@
 	};
 
 	fragment@0 {
-		target-path = "/";
-
+		target = <&vcc_ch482d1>;
 		__overlay__ {
-			vcc-ch482d1-regulator {
-				compatible = "regulator-fixed";
-				enable-active-high;
-				gpio = <&gpio3 RK_PC7 GPIO_ACTIVE_HIGH>;
-				pinctrl-names = "default";
-				pinctrl-0 = <&ch482d_en1>;
-				regulator-name = "vcc_ch482d1";
-				regulator-always-on;
-				regulator-boot-on;
-				status = "okay";
-			};
+			enable-active-high;
+			gpio = <&gpio3 RK_PC7 GPIO_ACTIVE_HIGH>;
+			status = "okay";
 		};
 	};
 
@@ -54,14 +45,4 @@
 		};
 	};
 
-	fragment@4 {
-		target = <&pinctrl>;
-		__overlay__ {
-			ch482d {
-				ch482d_en1: ch482d-en1 {
-					rockchip,pins = <3 RK_PC7 RK_FUNC_GPIO &pcfg_pull_none>;
-				};
-			};
-		};
-	};
 };
