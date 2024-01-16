@@ -6,11 +6,11 @@
 
 / {
 	metadata {
-		title = "Enable Radxa Camera 8M";
+		title = "Enable Radxa Camera 8M 219";
 		compatible = "rockchip,rk3399";
 		category = "camera";
 		exclusive = "mipi_dphy_rx0";
-		description = "Enable Radxa Camera 8M.";
+		description = "Enable Radxa Camera 8M 219.";
 	};
 
 	fragment@0 {
