@@ -6,11 +6,11 @@
 
 / {
 	metadata {
-		title = "Enable Radxa Camera 8M on CSI0";
+		title = "Enable Radxa Camera 8M 219 on CSI0";
 		compatible = "radxa,cm3s-io", "radxa,radxa-cm3-sodimm-io";
 		category = "camera";
 		exclusive = "csi2_dphy1";
-		description = "Enable Radxa Camera 8M on CSI0.";
+		description = "Enable Radxa Camera 8M 219 on CSI0.";
 	};
 
 	fragment@0 {
