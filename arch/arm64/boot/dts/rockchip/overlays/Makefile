@@ -395,6 +395,8 @@ dtb-$(CONFIG_CPU_RK3588) += \
 	radxa-cm5-rpi-cm4-io-raspi-7inch-ts-disp0.dtbo \
 	radxa-cm5-rpi-cm4-io-raspi-7inch-ts-disp1.dtbo \
 	rock-5-itx-enable-sharp-lq133t1jw01-edp-lcd-disable-dp1.dtbo \
+	rock-5-itx-okdo-5mp-camera-on-cam0.dtbo \
+	rock-5-itx-okdo-5mp-camera-on-cam1.dtbo \
 	rock-5-itx-radxa-camera-4k-on-cam0.dtbo \
 	rock-5-itx-radxa-camera-4k-on-cam1.dtbo \
 	rock-5-itx-radxa-display-8hd-on-lcd0.dtbo \
