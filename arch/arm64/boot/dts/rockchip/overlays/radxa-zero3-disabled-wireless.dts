@@ -22,15 +22,7 @@
 	};
 
 	fragment@1 {
-		target = <&wireless_wlan>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@2 {
-		target = <&sdio_pwrseq>;
+		target = <&sdmmc1>;
 
 		__overlay__ {
 			status = "disabled";
