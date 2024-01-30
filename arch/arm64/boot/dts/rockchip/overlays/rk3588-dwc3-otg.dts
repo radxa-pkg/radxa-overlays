@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Set OTG port 0 to OTG mode";
-		compatible = "rockchip,rk3588";
+		compatible = "unknown";
 		category = "misc";
 		exclusive = "usbdrd_dwc3-dr_mode";
 		description = "Set OTG port 0 to OTG mode.\nUse this for automatic USB role switching.";
