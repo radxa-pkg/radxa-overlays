@@ -337,6 +337,7 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-spi0-m0-cs0-spidev.dtbo \
 	rk3588-spi0-m1-cs0-mcp2515-8mhz.dtbo \
 	rk3588-spi0-m1-cs0-spidev.dtbo \
+	rk3588-spi0-m1-cs0-waveshare35.dtbo \
 	rk3588-spi0-m1-cs1-spidev.dtbo \
 	rk3588-spi0-m2-cs0-mcp2515-8mhz.dtbo \
 	rk3588-spi0-m2-cs0-spidev.dtbo \
