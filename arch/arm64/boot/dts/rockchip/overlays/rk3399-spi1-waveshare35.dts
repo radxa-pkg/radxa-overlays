@@ -64,7 +64,7 @@
 				reg = <1>;
 				id = <1>;
 				spi-max-frequency = <2000000>;
-				interrupts = <18 2>;
+				interrupts = <RK_PC2 IRQ_TYPE_EDGE_FALLING>;
 				interrupt-parent = <&gpio4>;
 				pendown-gpio = <&gpio4 RK_PC2 GPIO_ACTIVE_HIGH>;
 				ti,x-plate-ohms = /bits/ 16 <60>;

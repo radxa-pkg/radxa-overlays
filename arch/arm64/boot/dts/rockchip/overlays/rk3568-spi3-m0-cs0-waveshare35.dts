@@ -1,0 +1,60 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+	metadata {
+		title = "Enable Waveshare 3.5 inch Display on SPI3";
+		compatible = "radxa,cm3-io", "radxa,cm3-rpi-cm4-io";
+		category = "misc";
+		exclusive = "GPIO4_A6", "GPIO3_C6", "GPIO3_D3", "GPIO0_C7", "GPIO4_B0", "GPIO4_B2", "GPIO4_B3";
+		description = "Enable Waveshare 3.5 inch Display on SPI3.";
+	};
+
+	fragment@0 {
+		target = <&spi3>;
+
+		__overlay__ {
+			status = "okay";
+			#address-cells = <1>;
+			#size-cells = <0>;
+			pinctrl-names = "default", "high_speed";
+			pinctrl-0 = <&spi3m0_cs0 &spi3m0_pins>;
+			pinctrl-1 = <&spi3m0_cs0 &spi3m0_pins_hs>;
+			max-freq = <16000000>;
+
+			ili9486@0 {
+				compatible = "ilitek,ili9486";
+				reg = <0>;
+				spi-max-frequency = <16000000>;
+				txbuflen = <32768>;
+				rotate = <90>;
+				bgr = <0>;
+				fps = <30>;
+				buswidth = <8>;
+				regwidth = <16>;
+				reset-gpios = <&gpio3 RK_PC6 GPIO_ACTIVE_LOW>;
+				dc-gpios = <&gpio3 RK_PD3 GPIO_ACTIVE_HIGH>;
+				debug = <0>;
+			};
+
+			ads7846@1 {
+				compatible = "ti,ads7846";
+				status = "okay";
+				reg = <1>;
+				id = <1>;
+				spi-max-frequency = <2000000>;
+				interrupts = <RK_PC7 IRQ_TYPE_EDGE_FALLING>;
+				interrupt-parent = <&gpio0>;
+				pendown-gpio = <&gpio0 RK_PC7 GPIO_ACTIVE_HIGH>;
+				ti,x-plate-ohms = /bits/ 16 <60>;
+				ti,pressure-max = /bits/ 16 <255>;
+				ti,swap-xy = <0>;
+				vcc-supply = <&vcc5v0_sys>;
+			};
+		};
+	};
+};
