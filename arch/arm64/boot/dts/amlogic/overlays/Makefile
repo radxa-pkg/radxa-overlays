@@ -39,6 +39,8 @@ dtb-$(CONFIG_ARCH_MESON) += \
 	radxa-zero2-enable-vddio_c.dtbo \
 	radxa-zero2-radxa-25w-poe.dtbo
 
+dtb-y += amlogic-g12-watchdog.dtbo
+
 dtbotxt-$(CONFIG_ARCH_MESON) += \
 	README.overlays
 

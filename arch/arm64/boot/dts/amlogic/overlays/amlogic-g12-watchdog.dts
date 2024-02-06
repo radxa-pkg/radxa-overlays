@@ -1,0 +1,20 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable Watchdog";
+		compatible = "amlogic,g12a", "amlogic,g12b";
+		category = "misc";
+		exclusive = "wdt";
+		description = "Enable Watchdog.";
+	};
+
+	fragment@0 {
+		target = <&watchdog>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+};
