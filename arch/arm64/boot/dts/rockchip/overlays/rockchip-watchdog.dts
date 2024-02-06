@@ -1,0 +1,20 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable Watchdog";
+		compatible = "rockchip,rk3308", "rockchip,rk3328", "rockchip,rk3399", "rockchip,rk3566", "rockchip,rk3568", "rockchip,rk3588";
+		category = "misc";
+		exclusive = "wdt";
+		description = "Enable Watchdog.";
+	};
+
+	fragment@0 {
+		target = <&wdt>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+};

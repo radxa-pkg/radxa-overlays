@@ -426,6 +426,8 @@ dtb-$(CONFIG_CPU_RK3588) += \
 	rock-5b-plus-cam0-rpi-camera-v2.dtbo \
 	rock-5b-plus-cam1-rpi-camera-v2.dtbo
 
+dtb-y += rockchip-watchdog.dtbo
+
 dtbotxt-$(CONFIG_ARCH_ROCKCHIP) += \
 	README.overlays
 
