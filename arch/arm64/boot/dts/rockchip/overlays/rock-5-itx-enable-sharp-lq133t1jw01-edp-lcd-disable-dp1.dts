@@ -1,14 +1,15 @@
 /dts-v1/;
 /plugin/;
 
+#include <dt-bindings/clock/rk3588-cru.h>
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/pinctrl/rockchip.h>
 #include <dt-bindings/interrupt-controller/irq.h>
 
 / {
 	metadata {
-		title = "Enable Sharp LQ133T1JW01 Display on eDP";
-		compatible = "radxa,rock-5-itx";
+		title = "Enable Sharp LQ133T1JW01 Display on eDP and Disable DP1";
+		compatible = "unknown";
 		category = "display";
 		exclusive = "dp1", "edp0", "vp2";
 		description = "Enable Sharp LQ133T1JW01 display on eDP.\nThis will disable DP1.";
@@ -89,7 +90,7 @@
 				display-timings {
 					native-mode = <&timing0>;
 					timing0: timing0 {
-						clock-frequency = <241500000>;
+						clock-frequency = <237600000>;
 						hactive = <2560>;
 						vactive = <1440>;
 						hfront-porch = <80>;
@@ -217,6 +218,59 @@
 
 		__overlay__ {
 			status = "disabled";
+		};
+	};
+
+	fragment@12 {
+		target = <&display_subsystem>;
+
+		__overlay__ {
+			status = "okay";
+			/delete-property/ clocks;
+			/delete-property/ clock-names;
+		};
+	};
+
+	fragment@13 {
+		target = <&hdptxphy_hdmi_clk0>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@14 {
+		target = <&hdptxphy_hdmi0>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@15 {
+		target = <&vp0>;
+
+		__overlay__ {
+			assigned-clocks = <&cru DCLK_VOP0_SRC>;
+			assigned-clock-parents = <&cru PLL_V0PLL>;
+		};
+	};
+
+	fragment@16 {
+		target = <&vp1>;
+
+		__overlay__ {
+			assigned-clocks = <&cru DCLK_VOP1>;
+			assigned-clock-parents = <&hdptxphy_hdmi_clk1>;
+		};
+	};
+
+	fragment@17 {
+		target = <&vp2>;
+
+		__overlay__ {
+			assigned-clocks = <&cru DCLK_VOP2_SRC>;
+			assigned-clock-parents = <&cru PLL_GPLL>;
 		};
 	};
 };
