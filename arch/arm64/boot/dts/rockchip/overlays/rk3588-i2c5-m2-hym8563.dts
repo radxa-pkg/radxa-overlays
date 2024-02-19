@@ -1,0 +1,30 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable RTC on I2C5-M2";
+		compatible = "radxa,rock-5a";
+		category = "misc";
+		exclusive = "GPIO4_A7", "GPIO4_A6";
+		description = "Enable RTC on I2C5-M2./nThis overlay is for models with on-board RTC installed.";
+	};
+
+	fragment@0 {
+		target = <&i2c5>;
+
+		__overlay__ {
+			status = "okay";
+			pinctrl-0 = <&i2c5m2_xfer>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			hym8563: hym8563@51 {
+				compatible = "haoyu,hym8563";
+				reg = <0x51>;
+				#clock-cells = <0>;
+				status = "okay";
+			};
+		};
+	};
+};

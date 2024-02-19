@@ -296,6 +296,7 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-i2c3-m2.dtbo \
 	rk3588-i2c4-m3.dtbo \
 	rk3588-i2c5-m2.dtbo \
+	rk3588-i2c5-m2-hym8563.dtbo \
 	rk3588-i2c6-m0.dtbo \
 	rk3588-i2c6-m3.dtbo \
 	rk3588-i2c7-m0.dtbo \
