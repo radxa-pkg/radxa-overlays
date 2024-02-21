@@ -8,11 +8,11 @@
 
 / {
 	metadata {
-		title = "Enable Sharp LQ133T1JW01 Display on eDP and Disable DP1";
-		compatible = "unknown";
+		title = "Enable Sharp LQ133T1JW01 Display on eDP and Disable DP0";
+		compatible = "radxa,rock-5-itx";
 		category = "display";
-		exclusive = "dp1", "edp0", "vp2";
-		description = "Enable Sharp LQ133T1JW01 display on eDP.\nThis will disable DP1.";
+		exclusive = "dp0", "edp0", "vp2";
+		description = "Enable Sharp LQ133T1JW01 display on eDP.\nThis will disable DP0.";
 	};
 
 	fragment@0 {
@@ -160,7 +160,7 @@
 		target = <&edp0_in_vp2>;
 
 		__overlay__ {
-			status = "okay";
+			status = "disabled";
 		};
 	};
 
@@ -168,7 +168,7 @@
 		target = <&edp0_in_vp0>;
 
 		__overlay__ {
-			status = "disabled";
+			status = "okay";
 		};
 	};
 
@@ -185,12 +185,12 @@
 
 		__overlay__ {
 			status = "okay";
-			connect = <&vp2_out_edp0>;
+			connect = <&vp0_out_edp0>;
 		};
 	};
 
 	fragment@8 {
-		target = <&dp1>;
+		target = <&dp0>;
 
 		__overlay__ {
 			status = "disabled";
@@ -198,7 +198,7 @@
 	};
 
 	fragment@9 {
-		target = <&dp1_in_vp2>;
+		target = <&dp0_in_vp1>;
 
 		__overlay__ {
 			status = "disabled";
@@ -206,7 +206,7 @@
 	};
 
 	fragment@10 {
-		target = <&route_dp1>;
+		target = <&route_dp0>;
 
 		__overlay__ {
 			status = "disabled";
@@ -214,7 +214,7 @@
 	};
 
 	fragment@11 {
-		target = <&dp1_sound>;
+		target = <&dp0_sound>;
 
 		__overlay__ {
 			status = "disabled";
@@ -222,16 +222,6 @@
 	};
 
 	fragment@12 {
-		target = <&display_subsystem>;
-
-		__overlay__ {
-			status = "okay";
-			/delete-property/ clocks;
-			/delete-property/ clock-names;
-		};
-	};
-
-	fragment@13 {
 		target = <&hdptxphy_hdmi_clk0>;
 
 		__overlay__ {
@@ -239,38 +229,11 @@
 		};
 	};
 
-	fragment@14 {
+	fragment@13 {
 		target = <&hdptxphy_hdmi0>;
 
 		__overlay__ {
 			status = "disabled";
-		};
-	};
-
-	fragment@15 {
-		target = <&vp0>;
-
-		__overlay__ {
-			assigned-clocks = <&cru DCLK_VOP0_SRC>;
-			assigned-clock-parents = <&cru PLL_V0PLL>;
-		};
-	};
-
-	fragment@16 {
-		target = <&vp1>;
-
-		__overlay__ {
-			assigned-clocks = <&cru DCLK_VOP1>;
-			assigned-clock-parents = <&hdptxphy_hdmi_clk1>;
-		};
-	};
-
-	fragment@17 {
-		target = <&vp2>;
-
-		__overlay__ {
-			assigned-clocks = <&cru DCLK_VOP2_SRC>;
-			assigned-clock-parents = <&cru PLL_GPLL>;
 		};
 	};
 };
