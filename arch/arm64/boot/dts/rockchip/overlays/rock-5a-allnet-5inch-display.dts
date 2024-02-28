@@ -43,7 +43,7 @@
 			rockchip,lane-rate = <605>;
 
 			dsi0_panel: dsi-panel@0 {
-				compatible = "raspits,tc358762,5inch";
+				compatible = "raspits,tc358762-5inch";
 				reg = <0x0>;
 				status = "okay";
 
