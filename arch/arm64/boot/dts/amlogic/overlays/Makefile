@@ -1,5 +1,8 @@
 # SPDX-License-Identifier: GPL-2.0
 dtb-$(CONFIG_ARCH_MESON) += \
+	meson-g12-disable-gpu.dtbo \
+	meson-g12-disable-hdmi.dtbo \
+	meson-g12-disable-usb.dtbo \
 	meson-g12-gpio-poweroff.dtbo \
 	meson-g12-i2c-ao-m0.dtbo \
 	meson-g12-i2c-ee-m0-01.dtbo \

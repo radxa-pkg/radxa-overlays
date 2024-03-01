@@ -1,0 +1,20 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Disable GPU";
+		compatible = "radxa,zero", "radxa,zero2";
+		category = "misc";
+		exclusive = "gpu";
+		description = "Disable GPU.";
+	};
+
+	fragment@0 {
+		target = <&mali>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+};
