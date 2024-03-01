@@ -4,10 +4,10 @@
 / {
 	metadata {
 		title = "Disable HDMI";
-		compatible = "radxa,zero";
+		compatible = "radxa,zero", "radxa,zero2";
 		category = "misc";
 		exclusive = "hdmi";
-		description = "Disable HDMI";
+		description = "Disable HDMI.";
 	};
 
 	fragment@0 {
