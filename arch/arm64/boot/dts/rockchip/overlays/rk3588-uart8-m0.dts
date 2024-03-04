@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable UART8-M0";
-		compatible = "radxa,rock-5a";
+		compatible = "radxa,rock-5a", "radxa,rock-5c";
 		category = "misc";
 		exclusive= "GPIO4_B0", "GPIO4_B1";
 		description = "Enable UART8-M0.\nOn Radxa ROCK 5A this is TX pin 32 and RX pin 40.";
