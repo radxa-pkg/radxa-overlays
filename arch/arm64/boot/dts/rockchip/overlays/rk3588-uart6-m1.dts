@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable UART6-M1";
-		compatible = "radxa,rock-5a";
+		compatible = "radxa,rock-5a", "radxa,rock-5c";
 		category = "misc";
 		exclusive= "GPIO1_A1", "GPIO1_A0";
 		description = "Enable UART6-M1.\nOn Radxa ROCK 5A this is TX pin 19 and RX pin 21.";

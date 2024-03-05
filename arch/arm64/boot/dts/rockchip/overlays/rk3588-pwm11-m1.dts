@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable PWM11-M1";
-		compatible = "radxa,rock-5a";
+		compatible = "radxa,rock-5a", "radxa,rock-5c";
 		category = "misc";
 		exclusive = "GPIO4_B4";
 		description = "Enable PWM11-M1.\nOn Radxa ROCK 5A this is pin 15.";

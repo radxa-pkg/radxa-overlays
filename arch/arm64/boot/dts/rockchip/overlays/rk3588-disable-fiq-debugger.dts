@@ -6,7 +6,7 @@
 / {
 	metadata {
 		title = "Disable FIQ Debugger";
-		compatible = "radxa,rock-5a", "radxa,rock-5b", "radxa,rock-5b-plus", "radxa,nx5-io", "radxa,cm5-io", "radxa,cm5-rpi-cm4-io";
+		compatible = "radxa,rock-5a", "radxa,rock-5b", "radxa,rock-5b-plus", "radxa,rock-5c", "radxa,nx5-io", "radxa,cm5-io", "radxa,cm5-rpi-cm4-io";
 		category = "misc";
 		exclusive = "GPIO0_B5", "GPIO0_B6", "fiq_debugger";
 		description = "Disable FIQ Debugger.";

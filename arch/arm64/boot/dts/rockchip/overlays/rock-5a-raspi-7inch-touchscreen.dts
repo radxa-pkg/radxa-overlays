@@ -8,7 +8,7 @@
 / {
 	metadata {
 		title = "Enable Raspberry Pi 7-inch Touchscreen";
-		compatible = "radxa,rock-5a";
+		compatible = "radxa,rock-5a", "radxa,rock-5c";
 		category = "display";
 		exclusive = "dsi0";
 		description = "Enable Raspberry Pi 7-inch Touchscreen";

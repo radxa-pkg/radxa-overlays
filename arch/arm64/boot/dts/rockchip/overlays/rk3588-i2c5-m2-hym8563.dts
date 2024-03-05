@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable RTC on I2C5-M2";
-		compatible = "radxa,rock-5a";
+		compatible = "radxa,rock-5a", "radxa,rock-5c";
 		category = "misc";
 		exclusive = "GPIO4_A7", "GPIO4_A6";
 		description = "Enable RTC on I2C5-M2./nThis overlay is for models with on-board RTC installed.";
