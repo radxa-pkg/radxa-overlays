@@ -1,0 +1,29 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable SATA2 over M.2 M Key (for HW <= 1.4)";
+		compatible = "radxa,rock-3b";
+		category = "misc";
+		exclusive = "pcie2x1", "sata2";
+		description = "Enable SATA2 over M.2 M Key (for HW <= 1.4).\nWhen SATA2 is enabled, PCIe cannot be enabled on the same port.";
+	};
+
+	fragment@0 {
+		target = <&pcie2x1>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@1 {
+		target = <&sata2>;
+
+		__overlay__ {
+			status = "okay";
+			phy-supply = <&vcc3v3_sys>;
+		};
+	};
+};
