@@ -67,7 +67,7 @@ jobs:
           fi
       - name: Release
         if: env.distro != 'UNRELEASED'
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ env.version }}
           body_path: README.md
@@ -80,7 +80,7 @@ jobs:
             VERSION
       - name: Append changelog
         if: env.distro != 'UNRELEASED'
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ env.version }}
           body: |
