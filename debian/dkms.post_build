@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -e
+
+kernelver="$1"
+arch="$2"
+base_dir="${PWD%/build*}/$kernelver/$arch/module"
+
+# The build directory is deleted when dkms is compiled, so we need to save the dtbo
+for vendor in "$PWD/arch/arm64/boot/dts"/*
+do
+    vendor="$(basename $vendor)"
+    mkdir -p "$base_dir/arch/arm64/boot/dts/$vendor/overlays"
+    find "$PWD/arch/arm64/boot/dts/$vendor/overlays" -mindepth 1 -name *.dtbo -exec cp {} "$base_dir/arch/arm64/boot/dts/$vendor/overlays" \;
+done

@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+set -e
+
+kernelver="$1"
+arch="$2"
+base_dir="${PWD%/*}/$kernelver/$arch/module/arch/arm64/boot/dts"
+install_dir="/usr/lib/linux-image-$kernelver"
+
+for vendor in "$base_dir"/*
+do
+    vendor="$(basename $vendor)"
+    if [[ ! -L "$install_dir/$vendor" ]] && [[ ! -d "$install_dir/$vendor" ]]
+    then
+        # Vendor not supported by the kernel
+        continue
+    elif [[ -e "$install_dir/$vendor/overlays" ]] && [[ ! -L "$install_dir/$vendor/overlays" ]]
+    then
+        # The kernel already comes with overlays.
+        continue
+    elif [[ ! "$(readlink "$install_dir/$vendor/overlays")" == "$base_dir/$vendor/overlays" ]]
+    then
+        echo "Link $base_dir/$vendor/overlays to $install_dir/$vendor/overlays"
+        rm -f $install_dir/$vendor/overlays
+        ln -s "$base_dir/$vendor/overlays" "$install_dir/$vendor/overlays"
+    fi
+done

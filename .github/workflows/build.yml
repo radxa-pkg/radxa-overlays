@@ -62,13 +62,13 @@ jobs:
         run: |
           case "${{ matrix.version }}" in
             linux-stable)
-              make -f Makefile.dkms build -j$(nproc)
+              make build-dtbo -j$(nproc)
               ;;
             linux-rockchip)
-              make -f Makefile.dkms build -j$(nproc) KERNELRELEASE=5.10.110-11-rockchip CONFIG_ARCH_MESON=n CONFIG_CPU_RK3399=rockchip CONFIG_CPU_RK3568=rockchip CONFIG_CPU_RK3588=rockchip
+              make build-dtbo -j$(nproc) KERNELRELEASE=5.10.110-11-rockchip CONFIG_ARCH_MESON=n CONFIG_CPU_RK3399=rockchip CONFIG_CPU_RK3568=rockchip CONFIG_CPU_RK3588=rockchip
               ;;
             linux-rk356x)
-              make -f Makefile.dkms build -j$(nproc) KERNELRELEASE=5.10.160-7-rk356x CONFIG_ARCH_MESON=n CONFIG_CPU_RK3399=rockchip CONFIG_CPU_RK3568=rockchip CONFIG_CPU_RK3588=rockchip
+              make build-dtbo -j$(nproc) KERNELRELEASE=5.10.160-7-rk356x CONFIG_ARCH_MESON=n CONFIG_CPU_RK3399=rockchip CONFIG_CPU_RK3568=rockchip CONFIG_CPU_RK3588=rockchip
               ;;
           esac
       - name: Upload artifacts

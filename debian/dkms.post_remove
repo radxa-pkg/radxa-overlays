@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -e
+
+kernelver="$1"
+arch="$2"
+base_dir="${PWD%/*}/$kernelver/$arch/module/arch"
+install_dir="/usr/lib/linux-image-$kernelver"
+
+for vendor in "$install_dir"/*
+do
+    vendor="$(basename $vendor)"
+    if [[ "$(readlink "$install_dir/$vendor/overlays")" == "$base_dir/arm64/boot/dts/$vendor/overlays" ]]
+    then
+        echo "Remove $install_dir/$vendor/overlays"
+        rm "$install_dir/$vendor/overlays"
+    fi
+done
+
+echo "Remove $base_dir"
+rm -rf "$base_dir"
