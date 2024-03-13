@@ -8,10 +8,10 @@
 
 / {
 	metadata {
-		title = "Enable Radxa 25W PoE HAT on ROCK 3A <= v1.2";
+		title = "Enable Radxa 25W PoE+ HAT on ROCK 3A <= v1.2";
 		category = "misc";
 		compatible = "unknown";
-		description = "Enable Radxa 25W PoE HAT on ROCK 3A <= v1.2.";
+		description = "Enable Radxa 25W PoE+ HAT on ROCK 3A <= v1.2.";
 		exclusive = "GPIO3_B7", "GPIO3_C3";
 		package = "rsetup-config-thermal-governor-step-wise";
 	};
