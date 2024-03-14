@@ -1,42 +1,55 @@
 /dts-v1/;
 /plugin/;
 
+#include <dt-bindings/interrupt-controller/irq.h>
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/pinctrl/rockchip.h>
-#include <dt-bindings/interrupt-controller/irq.h>
 #include <dt-bindings/display/drm_mipi_dsi.h>
 
 / {
 	metadata {
-		title = "Enable Radxa Display 10FHD";
-		compatible = "radxa,rock-4c-plus";
+		title ="Enable Radxa Display 10FHD";
+		compatible = "radxa,rock-5b-plus";
 		category = "display";
-		exclusive = "dsi";
-		description = "Enable Radxa Display 10FHD";
+		exclusive = "dsi1";
+		description = "Enable Radxa Display 10FHD.";
 	};
 
 	fragment@0 {
 		target-path = "/";
 
 		__overlay__ {
-			backlight: backlight {
+			vcc_lcd_mipi1: vcc-lcd-mipi1 {
+				status = "okay";
+				compatible = "regulator-fixed";
+				regulator-name = "vcc_lcd_mipi1";
+				gpio = <&gpio1 RK_PC4 GPIO_ACTIVE_HIGH>;
+				enable-active-high;
+				regulator-boot-on;
+				regulator-always-on;
+				regulator-state-mem {
+					regulator-off-in-suspend;
+				};
+			};
+
+			dsi1_backlight: dsi1-backlight {
 				status = "okay";
 				compatible = "pwm-backlight";
 				pwms = <&pwm2 0 25000 0>;
 				brightness-levels = <
-					  0  20  20  21  21  22  22  23
-					 23  24  24  25  25  26  26  27
-					 27  28  28  29  29  30  30  31
-					 31  32  32  33  33  34  34  35
-					 35  36  36  37  37  38  38  39
-					 40  41  42  43  44  45  46  47
-					 48  49  50  51  52  53  54  55
-					 56  57  58  59  60  61  62  63
-					 64  65  66  67  68  69  70  71
-					 72  73  74  75  76  77  78  79
-					 80  81  82  83  84  85  86  87
-					 88  89  90  91  92  93  94  95
-					 96  97  98  99 100 101 102 103
+					0  20  20  21  21  22  22  23
+					23  24  24  25  25  26  26  27
+					27  28  28  29  29  30  30  31
+					31  32  32  33  33  34  34  35
+					35  36  36  37  37  38  38  39
+					40  41  42  43  44  45  46  47
+					48  49  50  51  52  53  54  55
+					56  57  58  59  60  61  62  63
+					64  65  66  67  68  69  70  71
+					72  73  74  75  76  77  78  79
+					80  81  82  83  84  85  86  87
+					88  89  90  91  92  93  94  95
+					96  97  98  99 100 101 102 103
 					104 105 106 107 108 109 110 111
 					112 113 114 115 116 117 118 119
 					120 121 122 123 124 125 126 127
@@ -58,6 +71,9 @@
 					248 249 250 251 252 253 254 255
 				>;
 				default-brightness-level = <200>;
+				enable-gpios = <&gpio2 RK_PC2 GPIO_ACTIVE_HIGH>;
+				pinctrl-names = "default";
+				pinctrl-0 = <&dsi1_backlight_en>;
 			};
 		};
 	};
@@ -67,42 +83,30 @@
 
 		__overlay__ {
 			status = "okay";
+			pinctrl-names = "active";
+			pinctrl-0 = <&pwm2m2_pins>;
 		};
 	};
 
 	fragment@2 {
-		target = <&dsi>;
+		target = <&dsi1>;
 
 		__overlay__ {
 			status = "okay";
-
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			ports {
-				#address-cells = <1>;
-				#size-cells = <0>;
-
-				port@1 {
-					reg = <1>;
-					dsi_out_panel: endpoint {
-						remote-endpoint = <&panel_in_dsi>;
-					};
-				};
-			};
-
-			dsi_panel: dsi-panel@0 {
+			dsi1_panel: panel@0 {
 				status = "okay";
 				compatible = "simple-panel-dsi";
 				reg = <0>;
+				backlight = <&dsi1_backlight>;
 
-				backlight = <&backlight>;
-				power-supply = <&lcd_3v3>;
-
-				reset-gpios = <&gpio1 RK_PC2 GPIO_ACTIVE_LOW>;
-
+				vdd-supply = <&vcc_lcd_mipi1>;
+				vccio-supply = <&vcc_1v8_s0>;
+				reset-gpios = <&gpio2 RK_PC1 GPIO_ACTIVE_HIGH>;
 				pinctrl-names = "default";
-				pinctrl-0 = <&lcd_panel_reset>;
+				pinctrl-0 = <&dsi1_lcd_rst_gpio>;
 
 				prepare-delay-ms = <120>;
 				reset-delay-ms = <120>;
@@ -111,8 +115,8 @@
 				disable-delay-ms = <120>;
 				unprepare-delay-ms = <120>;
 
-				width-mm = <135>;
-				height-mm = <217>;
+				width-mm = <62>;
+				height-mm = <110>;
 
 				dsi,flags = <(MIPI_DSI_MODE_VIDEO | MIPI_DSI_MODE_VIDEO_BURST |
 				MIPI_DSI_MODE_LPM | MIPI_DSI_MODE_EOT_PACKET)>;
@@ -142,8 +146,8 @@
 						hback-porch = <60>;
 						hfront-porch = <80>;
 
-						hsync-len = <1>;
-						vsync-len = <1>;
+						hsync-len = <4>;
+						vsync-len = <4>;
 
 						vsync-active = <0>;
 						hsync-active = <0>;
@@ -158,9 +162,21 @@
 
 					port@0 {
 						reg = <0>;
-						panel_in_dsi: endpoint {
-							remote-endpoint = <&dsi_out_panel>;
+						panel_in_dsi1: endpoint {
+							remote-endpoint = <&dsi1_out_panel>;
 						};
+					};
+				};
+			};
+
+			ports {
+				#address-cells = <1>;
+				#size-cells = <0>;
+
+				port@1 {
+					reg = <1>;
+					dsi1_out_panel: endpoint {
+						remote-endpoint = <&panel_in_dsi1>;
 					};
 				};
 			};
@@ -168,7 +184,7 @@
 	};
 
 	fragment@3 {
-		target = <&vopl_out_dsi>;
+		target = <&mipi_dcphy1>;
 
 		__overlay__ {
 			status = "okay";
@@ -176,91 +192,12 @@
 	};
 
 	fragment@4 {
-		target = <&dsi_in_vopl>;
+		target = <&i2c6>;
 
 		__overlay__ {
 			status = "okay";
-		};
-	};
-
-	fragment@5 {
-		target = <&dsi_in_vopb>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@6 {
-		target = <&route_dsi>;
-
-		__overlay__ {
-			status = "disabled";
-			connect = <&vopl_out_dsi>;
-		};
-	};
-
-	fragment@7 {
-		target = <&vcc3v3_dp>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@8 {
-		target = <&virtual_pd>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@9 {
-		target = <&tcphy0>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@10 {
-		target = <&cdn_dp>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@11 {
-		target = <&tcphy0_dp>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@12 {
-		target = <&dp_in_vopl>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@13 {
-		target = <&dp_in_vopb>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@14 {
-		target = <&i2c1>;
-
-		__overlay__ {
-			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <&i2c6m0_xfer>;
 			clock-frequency = <400000>;
 			#address-cells = <1>;
 			#size-cells = <0>;
@@ -271,32 +208,63 @@
 				reg = <0x14>;
 				pinctrl-names = "default";
 				pinctrl-0 = <&gt9xx_gpio>;
-				touch-gpio = <&gpio1 RK_PD0 IRQ_TYPE_LEVEL_HIGH>;
-				reset-gpio = <&gpio1 RK_PA0 GPIO_ACTIVE_HIGH>;
+				touch-gpio = <&gpio0 RK_PD3 IRQ_TYPE_LEVEL_HIGH>;
+				reset-gpio = <&gpio0 RK_PC6 GPIO_ACTIVE_HIGH>;
 				max-x = <1200>;
 				max-y = <1920>;
 				tp-size = <9271>;
-				tp-supply = <&vcc_mipi>;
 			};
 		};
 	};
 
-	fragment@15 {
+
+
+
+	fragment@5 {
+		target = <&route_dsi1>;
+
+		__overlay__ {
+			status = "okay";
+			connect = <&vp3_out_dsi1>;
+		};
+	};
+
+	fragment@6 {
+		target = <&dsi1_in_vp2>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@7 {
+		target = <&dsi1_in_vp3>;
+
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+
+	fragment@8 {
 		target = <&pinctrl>;
 
 		__overlay__ {
-			lcd-panel {
-				lcd_panel_reset: lcd-panel-reset {
-					rockchip,pins =
-						<1 RK_PC2 RK_FUNC_GPIO &pcfg_pull_up>;
+			dsi1-lcd {
+				dsi1_lcd_rst_gpio: dsi1-lcd-rst-gpio {
+					rockchip,pins = <2 RK_PC1 RK_FUNC_GPIO &pcfg_pull_up>;
+				};
+
+				dsi1_backlight_en: dsi1-backlight-en {
+					rockchip,pins = <2 RK_PC2 RK_FUNC_GPIO &pcfg_pull_up>;
 				};
 			};
 
 			gt9xx {
 				gt9xx_gpio: gt9xx-gpio {
 					rockchip,pins =
-					<1 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>,
-					<1 RK_PD0 RK_FUNC_GPIO &pcfg_pull_none>;
+					<0 RK_PC6 RK_FUNC_GPIO &pcfg_pull_up>,
+					<0 RK_PD3 RK_FUNC_GPIO &pcfg_pull_none>;
 				};
 			};
 		};
