@@ -272,6 +272,10 @@ dtb-$(CONFIG_CPU_RK3568) += \
 	rock-3c-radxa-display-10hd.dtbo
 
 dtb-$(CONFIG_CLK_RK3588) += \
+	radxa-nx5-io-okdo-camera-5mp-cam0.dtbo \
+	radxa-nx5-io-okdo-camera-5mp-cam1.dtbo \
+	radxa-nx5-io-rpi-camera-v1p3-cam0.dtbo \
+	radxa-nx5-io-rpi-camera-v1p3-cam1.dtbo \
 	radxa-nx5-io-rpi-camera-v2-cam0.dtbo \
 	radxa-nx5-io-rpi-camera-v2-cam1.dtbo \
 	rk3588-disable-fiq-debugger.dtbo \
