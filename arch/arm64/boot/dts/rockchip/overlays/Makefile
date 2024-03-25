@@ -8,6 +8,9 @@ endif
 ifeq ($(strip $(CONFIG_CPU_RK3399)), y)
 	CONFIG_CLK_RK3399 ?= y
 endif
+ifeq ($(strip $(CONFIG_CPU_RK3528)), y)
+	CONFIG_CLK_RK3528 ?= y
+endif
 ifeq ($(strip $(CONFIG_CPU_RK3568)), y)
 	CONFIG_CLK_RK3568 ?= y
 endif
@@ -100,6 +103,21 @@ dtb-$(CONFIG_CPU_RK3399) += \
 	rock-4c-plus-radxa-display-10hd.dtbo \
 	rock-4se-radxa-display-8hd.dtbo \
 	rock-4-radxa-display-10hd.dtbo
+
+dtb-$(CONFIG_CLK_RK3528) += \
+	rk3528-fiq-debugger-uart1m0.dtbo \
+	rk3528-fiq-debugger-uart3m0.dtbo \
+	rk3528-fiq-debugger-uart3m1.dtbo \
+	rk3528-fiq-debugger-uart7m0.dtbo \
+	rk3528-pwm0-m0.dtbo \
+	rk3528-pwm3-m0.dtbo \
+	rk3528-pwm4-m0.dtbo \
+	rk3528-pwm5-m0.dtbo \
+	rk3528-uart0-m0.dtbo \
+	rk3528-uart1-m0.dtbo \
+	rk3528-uart3-m0.dtbo \
+	rk3528-uart3-m1.dtbo \
+	rk3528-uart7-m0.dtbo
 
 dtb-$(CONFIG_CLK_RK3568) += \
 	audioinjector-isolated-soundcard.dtbo \
