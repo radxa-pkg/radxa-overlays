@@ -9,14 +9,10 @@
 		exclusive = "GPIO3_B3", "GPIO3_B2";
 		description = "Enable UART7-M0.\nOn Radxa ROCK 2A this is RX pin 27 & TX pin 28.";
 	};
+};
 
-	fragment@0 {
-		target = <&uart7>;
-
-		__overlay__ {
-			status = "okay";
-            pinctrl-names = "default";
-			pinctrl-0 = <&uart7m0_xfer>;
-		};
-	};
+&uart7 {
+    status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart7m0_xfer>;
 };

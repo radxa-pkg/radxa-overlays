@@ -9,14 +9,10 @@
 		exclusive = "GPIO4_C3";
 		description = "Enable PWM0-M0.\nOn Radxa ROCK 2A this is pin 32.";
 	};
+};
 
-	fragment@0 {
-		target = <&pwm0>;
-
-		__overlay__ {
-			status = "okay";
-            pinctrl-names = "active";
-			pinctrl-0 = <&pwm0m0_pins>;
-		};
-	};
+&pwm0 {
+    status = "disabled";
+	pinctrl-names = "active";
+	pinctrl-0 = <&pwm0m0_pins>;
 };

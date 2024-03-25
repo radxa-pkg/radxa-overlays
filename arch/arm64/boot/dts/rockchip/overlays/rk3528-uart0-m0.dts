@@ -9,22 +9,14 @@
 		exclusive = "GPIO4_C7", "GPIO4_D0";
 		description = "Enable UART0-M0.\nOn Radxa ROCK 2A this is RX pin 10 & TX pin 8.";
 	};
+};
 
-    fragment@0 {
-		target-path = "/";
-
-		__overlay__ {
-			fiq-debugger {
-                status = "disabled";
-            };
-		};
+&{/} {
+	fiq-debugger {
+		status = "disabled";
 	};
+};
 
-	fragment@1 {
-		target = <&uart0>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
+&uart0 {
+    status = "okay";
 };

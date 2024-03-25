@@ -9,25 +9,17 @@
 		exclusive = "GPIO3_B3", "GPIO3_B2";
 		description = "Enable FIQ Debugger on UART7-M0.";
 	};
+};
 
-	fragment@0 {
-		target-path = "/";
-
-		__overlay__ {
-            fiq-debugger {
-                status = "okay";
-                rockchip,serial-id = <7>;
-                pinctrl-names = "default";
-                pinctrl-0 = <&uart7m0_xfer>;
-            };
-		};
+&{/} {
+	fiq-debugger {
+		status = "okay";
+		rockchip,serial-id = <7>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&uart7m0_xfer>;
 	};
+};
 
-	fragment@1 {
-		target = <&uart7>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&uart7 {
+    status = "disabled";
 };
