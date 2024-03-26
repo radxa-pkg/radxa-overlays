@@ -1,0 +1,25 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable FIQ Debugger on UART1-M0";
+		compatible = "radxa,rock-2a";
+		category = "misc";
+		exclusive = "GPIO4_A7", "GPIO4_A6";
+		description = "Enable FIQ Debugger on UART1-M0.";
+	};
+};
+
+&{/} {
+	fiq-debugger {
+		status = "okay";
+		rockchip,serial-id = <1>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&uart1m0_xfer>;
+	};
+};
+
+&uart1 {
+	status = "disabled";
+};
