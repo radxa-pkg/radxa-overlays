@@ -12,7 +12,7 @@
 };
 
 &pwm4 {
-    status = "disabled";
+	status = "disabled";
 	pinctrl-names = "active";
 	pinctrl-0 = <&pwm4m0_pins>;
 };

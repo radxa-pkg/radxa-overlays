@@ -12,7 +12,7 @@
 };
 
 &uart3 {
-    status = "okay";
+	status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&uart3m0_xfer>;
 };
