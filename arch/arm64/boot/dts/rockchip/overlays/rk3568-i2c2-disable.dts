@@ -8,7 +8,7 @@
 		title = "Disable I2C2";
 		compatible = "radxa,cm3-io";
 		category = "misc";
-		exclusive = "GPIO0_B6", "GPIO0_B5";
+		exclusive = "i2c2";
 		description = "Disable I2C2.";
 	};
 
