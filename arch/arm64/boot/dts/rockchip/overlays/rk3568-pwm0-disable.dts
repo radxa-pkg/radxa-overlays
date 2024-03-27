@@ -5,14 +5,22 @@
 
 / {
 	metadata {
-		title = "Disable PWM0";
+		title = "Disable FAN0";
 		compatible = "radxa,cm3-io";
 		category = "misc";
-		exclusive = "GPIO0_C7";
-		description = "Disable PWM0.";
+		exclusive = "fan0";
+		description = "Disable FAN0.\nThis will also disable PWM0, so the pin can be used for other functions.";
 	};
 
 	fragment@0 {
+		target = <&fan0>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@1 {
 		target = <&pwm0>;
 
 		__overlay__ {
