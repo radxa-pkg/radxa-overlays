@@ -11,6 +11,7 @@
 		exclusive = "fan0";
 		description = "Disable FAN0.\nThis will also disable PWM0, so the pin can be used for other functions.";
 	};
+
 	fragment@0 {
 		target = <&fan0>;
 
