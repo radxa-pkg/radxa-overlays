@@ -4,8 +4,9 @@
 / {
 	metadata {
 		title = "Enable PWM0-M0";
-		compatible = "radxa,cm3-rpi-cm4-io";
+		compatible = "radxa,cm3-io", "radxa,cm3-rpi-cm4-io";
 		category = "misc";
+		exclusive = "GPIO0_B7", "pwm0";
 		description = "Enable PWM0-M0.\nOn Radxa CM3 IO this is pin 13.\nOn Radxa CM3 RPI CM4 this is on pin 13.";
 	};
 
