@@ -5,14 +5,21 @@
 
 / {
 	metadata {
-		title = "Disable PWM0";
+		title = "Disable FAN0";
 		compatible = "radxa,cm3-io";
 		category = "misc";
 		exclusive = "GPIO0_C7";
-		description = "Disable PWM0.";
+		description = "Disable FAN0.";
+	};
+	fragment@0 {
+		target = <&fan0>;
+
+		__overlay__ {
+			status = "disabled";
+		};
 	};
 
-	fragment@0 {
+	fragment@1 {
 		target = <&pwm0>;
 
 		__overlay__ {
