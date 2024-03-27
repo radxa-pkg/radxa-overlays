@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Set OTG port 1 to Peripheral mode (ROCK 5B V1.46+)";
-		compatible = "radxa,rock-5b";
+		compatible = "radxa,rock-5b", "radxa,rock-5b-plus";
 		category = "misc";
 		exclusive = "usbdrd_dwc3_1-dr_mode";
 		description = "Set OTG port 1 to Peripheral mode (ROCK 5B V1.46+).\nUse this when you want to connect to another computer.";

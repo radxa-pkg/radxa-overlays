@@ -3,8 +3,8 @@
 
 / {
 	metadata {
-		title = "Enable PWM11-M0";
-		compatible = "radxa,cm5-io";
+		title = "Enable PWM11-M2";
+		compatible = "unknown";
 		category = "misc";
 		exclusive = "GPIO1_C4";
 		description = "Enable PWM11-M2.\nOn Radxa CM5 IO this is pin 16.";
