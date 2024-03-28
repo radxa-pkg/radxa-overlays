@@ -1,4 +1,8 @@
 PACKAGE_NAME="radxa-overlays"
 PACKAGE_VERSION="#MODULE_VERSION#"
 DEST_MODULE_LOCATION[0]="/updates/dkms"
+BUILT_MODULE_NAME[0]="radxa-overlays"
 AUTOINSTALL="yes"
+POST_BUILD="dkms.post_build $kernelver $arch"
+POST_INSTALL="dkms.post_install $kernelver $arch"
+POST_REMOVE="dkms.post_remove $kernelver $arch"
