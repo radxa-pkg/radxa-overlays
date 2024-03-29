@@ -1,0 +1,55 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+
+	metadata {
+		title = "Enable MCP2515 on SPI0 CS1";
+		compatible = "radxa,rock-2a";
+		category = "misc";
+		exclusive = "GPIO4_B2", "GPIO4_B3", "GPIO4_B4", "GPIO4_C1", "GPIO4_C6";
+		description = "Enable MCP2515 on SPI0 CS1 with 12 MHz Crystal Oscillator.\nINT=15";
+	};
+
+	can_mcp2515_osc: can-mcp2515-osc {
+		compatible = "fixed-clock";
+		clock-frequency = <12000000>;
+		#clock-cells = <0>;
+	};
+};
+
+&pinctrl {
+	mcp2515_int_pin {
+		mcp2515_int_pin: mcp2515_int_pin {
+			rockchip,pins = <4 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
+		};
+	};
+};
+
+&spi0 {
+	status = "okay";
+	max-freq = <10000000>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+	pinctrl-0 = <&spi0_csn1 &spi0_pins>;
+	num-cs = <2>;
+	cs-gpios = <&gpio4 RK_PC1 GPIO_ACTIVE_LOW>;
+
+	can_mcp2515: can-mcp2515@0 {
+		status = "okay";
+		compatible = "microchip,mcp2515";
+		reg = <1>;
+		interrupt-parent = <&gpio4>;
+		interrupts = <RK_PC6 IRQ_TYPE_EDGE_FALLING>;
+		spi-max-frequency = <10000000>;
+		clocks = <&can_mcp2515_osc>;
+		vdd-supply = <&vcc_3v3_s3>;
+		xceiver-supply = <&vcc_3v3_s3>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&mcp2515_int_pin>;
+	};
+};

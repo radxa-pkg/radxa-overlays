@@ -114,6 +114,8 @@ dtb-$(CONFIG_CLK_RK3528) += \
 	rk3528-pwm3-m0.dtbo \
 	rk3528-pwm4-m0.dtbo \
 	rk3528-pwm5-m0.dtbo \
+	rk3528-spi0-cs1-mcp2515.dtbo \
+	rk3528-spi0-cs1-spidev.dtbo \
 	rk3528-uart0-m0.dtbo \
 	rk3528-uart1-m0.dtbo \
 	rk3528-uart3-m0.dtbo \
