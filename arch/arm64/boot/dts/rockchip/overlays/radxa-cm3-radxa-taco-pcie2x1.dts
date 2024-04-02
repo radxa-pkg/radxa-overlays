@@ -1,0 +1,48 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+
+/ {
+	metadata {
+		title = "Enable PCIe on Radxa Taco";
+		compatible = "radxa,cm3-io", "radxa,cm3-rpi-cm4-io";
+		category = "misc";
+		exclusive = "pcie2x1";
+		description = "Enable PCIe on Radxa Taco.\nWhen PCIe is enabled, SATA2 cannot be enabled on the same port.";
+	};
+};
+
+&{/} {
+	pcie2x1-en-regulator {
+		compatible = "regulator-fixed";
+		enable-active-high;
+		gpio = <&gpio4 RK_PA6 GPIO_ACTIVE_HIGH>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&pcie2x1_en>;
+		regulator-name = "pcie2x1_en";
+		regulator-always-on;
+		regulator-boot-on;
+		status = "okay";
+	};
+};
+
+&pcie2x1 {
+	status = "okay";
+	reset-gpios = <&gpio1 RK_PB2 GPIO_ACTIVE_HIGH>;
+	vpcie3v3-supply = <&vcc3v3_sys>;
+	pinctrl-0 = <&pcie20m2_pins>;
+};
+
+&sata2 {
+	status = "disabled";
+};
+
+&pinctrl {
+	pcie2x1_en_gpio{
+		pcie2x1_en: pcie2x1-en{
+			rockchip,pins = <3 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
+		};
+	};
+};
