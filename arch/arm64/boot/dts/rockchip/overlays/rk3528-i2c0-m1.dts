@@ -1,0 +1,19 @@
+/dts-v1/;
+/plugin/;
+#include <dt-bindings/pinctrl/rockchip.h>
+
+/ {
+	metadata {
+		title = "Enable I2C0-M1";
+		compatible = "radxa,rock-2a";
+		category = "misc";
+		exclusive = "GPIO4_A0", "GPIO4_A1", "i2c0";
+		description = "Enable I2C0-M1.\nOn Radxa 2A this is SDA pin 3 and SCL pin 5.";
+	};
+};
+
+&i2c0 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c0m1_xfer>;
+};

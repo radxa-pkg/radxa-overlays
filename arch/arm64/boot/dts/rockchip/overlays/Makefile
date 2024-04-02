@@ -107,17 +107,23 @@ dtb-$(CONFIG_CPU_RK3399) += \
 dtb-$(CONFIG_CLK_RK3528) += \
 	rk3528-dwc3-otg.dtbo \
 	rk3528-fiq-debugger-uart1m0.dtbo \
+	rk3528-fiq-debugger-uart2m1.dtbo \
 	rk3528-fiq-debugger-uart3m0.dtbo \
 	rk3528-fiq-debugger-uart3m1.dtbo \
 	rk3528-fiq-debugger-uart7m0.dtbo \
+	rk3528-i2c0-m1.dtbo \
+	rk3528-i2c1-m0.dtbo \
 	rk3528-pwm0-m0.dtbo \
 	rk3528-pwm3-m0.dtbo \
 	rk3528-pwm4-m0.dtbo \
 	rk3528-pwm5-m0.dtbo \
+	rk3528-pwm6-m0.dtbo \
+	rk3528-spi0-cs1-enc28j60.dtbo \
 	rk3528-spi0-cs1-mcp2515.dtbo \
 	rk3528-spi0-cs1-spidev.dtbo \
 	rk3528-uart0-m0.dtbo \
 	rk3528-uart1-m0.dtbo \
+	rk3528-uart2-m1.dtbo \
 	rk3528-uart3-m0.dtbo \
 	rk3528-uart3-m1.dtbo \
 	rk3528-uart7-m0.dtbo
