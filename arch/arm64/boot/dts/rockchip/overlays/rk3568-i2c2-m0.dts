@@ -9,14 +9,10 @@
 		exclusive = "GPIO0_B5", "GPIO0_B6", "i2c2_pinctrl-0";
 		description = "Enable I2C2-M0.\nOn Radxa ROCK 3A <= v1.2 this is SDA pin 27 and SCL pin 28.\nOn Radxa ROCK 3A >= v1.3 this is SDA pin 16 and SCL pin 7.\nOn Radxa ROCK 3B this is SDA pin 16 and SCL pin 7.\nOn Radxa CM3 IO this is SDA pin 3 SCL pin 5.\nOn Radxa CM3 RPI CM4 IO this is SDA pin 3 SCL pin 5.\nOn Radxa CM3S IO this is SDA pin 37 and SCL pin 13.\nOn Radxa E23 this is SDA pin 27 and SCL pin 28.";
 	};
+};
 
-	fragment@0 {
-		target = <&i2c2>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&i2c2m0_xfer>;
-		};
-	};
+&i2c2 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c2m0_xfer>;
 };

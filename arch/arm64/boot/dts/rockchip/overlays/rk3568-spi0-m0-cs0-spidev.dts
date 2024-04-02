@@ -9,25 +9,21 @@
 		exclusive = "GPIO0_C0", "GPIO0_C7", "GPIO0_B5", "GPIO0_B6", "GPIO0_C6", "GPIO0_C5";
 		description = "Enable spidev on SPI0-M0 over CS0.";
 	};
+};
 
-	fragment@1 {
-		target = <&spi0>;
+&spi0{
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
+	pinctrl-names = "default", "high_speed";
+	pinctrl-0 = <&spi0m0_cs0 &spi0m0_pins>;
+	pinctrl-1 = <&spi0m0_cs0 &spi0m0_pins_hs>;
+	max-freq = <50000000>;
 
-		__overlay__ {
-			status = "okay";
-			#address-cells = <1>;
-			#size-cells = <0>;
-			pinctrl-names = "default", "high_speed";
-			pinctrl-0 = <&spi0m0_cs0 &spi0m0_pins>;
-			pinctrl-1 = <&spi0m0_cs0 &spi0m0_pins_hs>;
-			max-freq = <50000000>;
-
-			spidev@0 {
-				compatible = "rockchip,spidev";
-				status = "okay";
-				reg = <0>;
-				spi-max-frequency = <50000000>;
-			};
-		};
+	spidev@0 {
+		compatible = "rockchip,spidev";
+		status = "okay";
+		reg = <0>;
+		spi-max-frequency = <50000000>;
 	};
 };

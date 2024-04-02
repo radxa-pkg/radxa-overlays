@@ -13,38 +13,32 @@
 		exclusive = "GPIO0_B5", "GPIO0_B6";
 		description = "Enable NXP PCA9555 I2C GPIO multiplexer on I2C2-M0.";
 	};
+};
 
-	fragment@0 {
-		target = <&i2c2>;
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&i2c2m0_xfer>;
+&i2c2 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c2m0_xfer>;
 
-			pca: pca@20 {
-				compatible = "nxp,pca9555";
-				reg = <0x20>;
-				gpio-controller;
-				#gpio-cells = <2>;
-				interrupt-controller;
-				#interrupt-cells = <2>;
-				interrupt-parent = <&gpio0>;
-				interrupts = <RK_PC7 IRQ_TYPE_LEVEL_HIGH>;
-				pinctrl-names = "default";
-				pinctrl-0 = <&pca_int>;
-				status = "okay";
-			};
-		};
+	pca: pca@20 {
+		compatible = "nxp,pca9555";
+		reg = <0x20>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		interrupt-controller;
+		#interrupt-cells = <2>;
+		interrupt-parent = <&gpio0>;
+		interrupts = <RK_PC7 IRQ_TYPE_LEVEL_HIGH>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&pca_int>;
+		status = "okay";
 	};
-	
-	fragemnt@1 {
-		target = <&pinctrl>;
-		__overlay__ {
-			pca {
-				pca_int: pca-int {
-					rockchip,pins = <0 RK_PC7 RK_FUNC_GPIO &pcfg_pull_none>;
-				};
-			};
+};
+
+&pinctrl {
+	pca {
+		pca_int: pca-int {
+			rockchip,pins = <0 RK_PC7 RK_FUNC_GPIO &pcfg_pull_none>;
 		};
 	};
 };

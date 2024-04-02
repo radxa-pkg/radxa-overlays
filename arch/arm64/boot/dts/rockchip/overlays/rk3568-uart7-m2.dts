@@ -9,13 +9,9 @@
 		exclusive = "GPIO4_A2", "GPIO4_A3";
 		description = "Enable UART7-M2.\nOn Radxa CM3S IO this TX pin 36 and RX pin 11.";
 	};
+};
 
-	fragment@0 {
-		target = <&uart7>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-0 = <&uart7m2_xfer>;
-		};
-	};
+&uart7 {
+	status = "okay";
+	pinctrl-0 = <&uart7m2_xfer>;
 };

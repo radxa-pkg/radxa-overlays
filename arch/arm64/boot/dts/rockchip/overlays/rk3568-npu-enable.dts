@@ -9,51 +9,33 @@
 		exclusive = "rknpu";
 		description = "Enable NPU.";
 	};
+};
 
-	fragment@0 {
-		target = <&bus_npu>;
+&bus_npu {
+	bus-supply = <&vdd_logic>;
+	pvtm-supply = <&vdd_cpu>;
+	status = "okay";
+};
 
-		__overlay__ {
-			bus-supply = <&vdd_logic>;
-			pvtm-supply = <&vdd_cpu>;
-			status = "okay";
-		};
-	};
+&rknpu {
+	memory-region = <&rknpu_reserved>;
+	status = "okay";
+};
 
-	fragment@1 {
-		target = <&rknpu>;
+&rknpu_mmu {
+	status = "okay";
+};
 
-		__overlay__ {
-			memory-region = <&rknpu_reserved>;
-			status = "okay";
-		};
-	};
+&reserved_memory {
+	#address-cells = <2>;
+	#size-cells = <2>;
+	ranges;
 
-	fragment@2 {
-		target = <&rknpu_mmu>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
-
-	fragment@3 {
-		target-path = "/";
-
-		__overlay__ {
-			reserved-memory {
-				#address-cells = <2>;
-				#size-cells = <2>;
-				ranges;
-
-				rknpu_reserved: rknpu {
-					compatible = "shared-dma-pool";
-					inactive;
-					reusable;
-					size = <0x0 0x8000000>;
-					alignment = <0x0 0x1000>;
-				};
-			};
-		};
+	rknpu_reserved: rknpu {
+		compatible = "shared-dma-pool";
+		inactive;
+		reusable;
+		size = <0x0 0x8000000>;
+		alignment = <0x0 0x1000>;
 	};
 };

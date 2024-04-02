@@ -11,20 +11,12 @@
 		exclusive = "fan0";
 		description = "Disable FAN0.\nThis will also disable PWM0, so the pin can be used for other functions.";
 	};
+};
 
-	fragment@0 {
-		target = <&fan0>;
+&fan0 {
+	status = "disabled";
+};
 
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@1 {
-		target = <&pwm0>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&pwm0 {
+	status = "disabled";
 };

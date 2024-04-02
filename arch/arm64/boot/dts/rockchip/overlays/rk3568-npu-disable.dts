@@ -8,28 +8,16 @@
 		category = "misc";
 		description = "Disable NPU.";
 	};
+};
 
-	fragment@0 {
-		target = <&bus_npu>;
+&bus_npu {
+	status = "disabled";
+};
 
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&rknpu {
+	status = "disabled";
+};
 
-	fragment@1 {
-		target = <&rknpu>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@2 {
-		target = <&rknpu_mmu>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&rknpu_mmu {
+	status = "disabled";
 };

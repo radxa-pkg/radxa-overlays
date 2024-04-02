@@ -8,23 +8,16 @@
 		category = "misc";
 		description = "Enable FIQ Debugger on UART0.\nOn Radxa ROCK 3B this is TX pin 22 & RX pin 15.";
 	};
+};
 
-	fragment@0 {
-		target = <&fiq_debugger>;
 
-		__overlay__ {
-			status = "okay";
-			rockchip,serial-id = <0>;
-			pinctrl-names = "default";
-			pinctrl-0 = <&uart0_xfer>;
-		};
-	};
+&fiq_debugger {
+	status = "okay";
+	rockchip,serial-id = <0>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart0_xfer>;
+};
 
-	fragment@1 {
-		target = <&uart0>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&uart0 {
+	status = "disabled";
 };

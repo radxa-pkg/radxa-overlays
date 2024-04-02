@@ -9,14 +9,10 @@
 		exclusive = "GPIO3_B1";
 		description = "Enable PWM8-M0.\nOn Radxa ROCK 3C this is pin 16.\nOn Radxa ZERO 3 this is pin 16.";
 	};
+};
 
-	fragment@0 {
-		target = <&pwm8>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "active";
-			pinctrl-0 = <&pwm8m0_pins>;
-		};
-	};
+&pwm8 {
+	status = "okay";
+	pinctrl-names = "active";
+	pinctrl-0 = <&pwm8m0_pins>;
 };

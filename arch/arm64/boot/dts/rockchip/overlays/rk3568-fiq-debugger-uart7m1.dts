@@ -8,23 +8,15 @@
 		category = "misc";
 		description = "Enable FIQ Debugger on UART7-M1.\nOn Radxa ROCK 3B this is TX pin 11 and RX pin 13.\nOn Radxa E25 this is TX pin 11 and RX pin 13.";
 	};
+};
 
-	fragment@0 {
-		target = <&fiq_debugger>;
+&fiq_debugger {
+	status = "okay";
+	rockchip,serial-id = <7>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart7m1_xfer>;
+};
 
-		__overlay__ {
-			status = "okay";
-			rockchip,serial-id = <7>;
-			pinctrl-names = "default";
-			pinctrl-0 = <&uart7m1_xfer>;
-		};
-	};
-
-	fragment@1 {
-		target = <&uart7>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&uart7 {
+	status = "disabled";
 };

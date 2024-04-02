@@ -12,16 +12,12 @@
 		exclusive = "GPIO3_D1";
 		description = "Enable 1-Wire on GPIO3_D1.\nOn Radxa CM3 IO this is pin 40.\nOn Radxa CM3 RPI CM4 IO this is pin 40.";
 	};
+};
 
-	fragment@0 {
-		target-path = "/";
-
-		__overlay__ {
-			w1: onewire {
-				compatible = "w1-gpio";
-				gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>;
-				status = "okay";
-			};
-		};
+&{/} {
+	w1: onewire {
+		compatible = "w1-gpio";
+		gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>;
+		status = "okay";
 	};
 };
