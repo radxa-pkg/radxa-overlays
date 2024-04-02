@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Set OTG port 0 to Host mode";
-		compatible = "rockchip,rk3588";
+		compatible = "radxa,rock-5a", "radxa,rock-5b", "radxa,rock-5c", "radxa,nx5-io";
 		category = "misc";
 		exclusive = "usbdrd_dwc3-dr_mode";
 		description = "Set OTG port 0 to Host mode.\nUse this when you want to connect USB devices.";
