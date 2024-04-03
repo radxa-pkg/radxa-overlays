@@ -1,5 +1,6 @@
-radxa-overlays (0.1.0) UNRELEASED; urgency=medium  
+radxa-overlays (0.1.0) jammy; urgency=medium  
 
+  [ "Radxa Computer Co., Ltd" ]
   * Initial release
 
- -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Wed, 27 Dec 2023 14:08:37 +0800
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Wed, 03 Apr 2024 14:47:29 +0800
