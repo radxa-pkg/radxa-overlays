@@ -9,22 +9,14 @@
 		exclusive = "GPIO3_B1", "GPIO3_B2";
 		description = "Enable UART2-M2.\nOn Radxa ROCK 5B this is TX pin 36 & RX pin 38.\nOn Radxa ROCK 5B+ this is TX pin 36 & RX pin 38.";
 	};
+};
 
-	fragment@0 {
-		target = <&fiq_debugger>;
+&fiq_debugger {
+	status = "okay";
+	rockchip,serial-id = <0xffffffff>;
+};
 
-		__overlay__ {
-			status = "okay";
-			rockchip,serial-id = <0xffffffff>;
-		};
-	};
-
-	fragment1 {
-		target = <&uart2>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-0 = <&uart2m2_xfer>;
-		};
-	};
+&uart2 {
+	status = "okay";
+	pinctrl-0 = <&uart2m2_xfer>;
 };

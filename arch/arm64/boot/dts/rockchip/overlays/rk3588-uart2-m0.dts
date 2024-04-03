@@ -9,21 +9,13 @@
 		exclusive = "GPIO0_B5", "GPIO0_B6";
 		description = "Enable UART2-M0.\nOn Radxa ROCK 5A this is TX pin 8 & RX pin 10.\nOn Radxa ROCK 5B this is TX pin 8 & RX pin 10.\nOn Radxa ROCK 5B+ this is TX pin 8 & RX pin 10.\nOn Radxa NX5 IO this is TX pin 8 & RX pin 10.\nOn Radxa CM5 IO this is TX pin 8 & RX pin 10.\nOn Radxa CM5 RPI CM4 IO this is TX pin 8 & RX pin 10.";
 	};
+};
 
-	fragment@0 {
-		target = <&uart2>;
+&uart2 {
+	status = "okay";
+	pinctrl-0 = <&uart2m0_xfer>;
+};
 
-		__overlay__ {
-			status = "okay";
-			pinctrl-0 = <&uart2m0_xfer>;
-		};
-	};
-
-	fragment@1 {
-		target = <&fiq_debugger>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&fiq_debugger {
+	status = "disabled";
 };

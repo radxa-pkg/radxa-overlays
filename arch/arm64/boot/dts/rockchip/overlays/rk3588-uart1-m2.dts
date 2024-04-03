@@ -9,13 +9,9 @@
 		exclusive = "GPIO0_D1", "GPIO0_D2";
 		description = "Enable UART1-M2.\nOn Radxa NX5 IO this is TX pin 28 and RX pin 27.";
 	};
+};
 
-	fragment@0 {
-		target = <&uart1>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-0 = <&uart1m2_xfer>;
-		};
-	};
+&uart1 {
+	status = "okay";
+	pinctrl-0 = <&uart1m2_xfer>;
 };

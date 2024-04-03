@@ -11,17 +11,13 @@
 		exclusive = "GPIO4_B2", "GPIO4_B3";
 		description = "Enable CAN1-M0.\nOn Radxa ROCK 5A this is RX pin 13 & TX pin 11.\nOn Radxa ROCK 5B this is RX pin 5 & TX pin 3.\n";
 	};
+};
 
-    fragment@0 {
-        target = <&can1>;
-
-        __overlay__ {
-			compatible = "rockchip,can-2.0";
-			status = "okay";
-			assigned-clocks = <&cru CLK_CAN1>;
-			assigned-clock-rates = <200000000>;
-			pinctrl-names = "default";
-			pinctrl-0 = <&can1m1_pins>;
-        };
-    };
+&can1 {
+	compatible = "rockchip,can-2.0";
+	status = "okay";
+	assigned-clocks = <&cru CLK_CAN1>;
+	assigned-clock-rates = <200000000>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&can1m1_pins>;
 };

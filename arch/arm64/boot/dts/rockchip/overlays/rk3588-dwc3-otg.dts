@@ -9,14 +9,10 @@
 		exclusive = "usbdrd_dwc3-dr_mode";
 		description = "Set OTG port 0 to OTG mode.\nUse this for automatic USB role switching.";
 	};
+};
 
-	fragment@0 {
-		target = <&usbdrd_dwc3_0>;
-
-		__overlay__ {
-			status = "okay";
-			dr_mode = "otg";
-			usb-role-switch;
-		};
-	};
+&usbdrd_dwc3_0 {
+	status = "okay";
+	dr_mode = "otg";
+	usb-role-switch;
 };

@@ -9,21 +9,13 @@
 		exclusive = "GPIO0_B5", "GPIO0_B6";
 		description = "Enable I2C1-M0.\nOn Radxa ROCK 5A this is SDA pin 10 & SCL pin 8.\nOn Radxa ROCK 5B this is SDA pin 10 & SCL pin 8.\nOn Radxa ROCK 5B+ this is SDA pin 10 & SCL pin 8.\nOn Radxa NX5 IO this is SDA pin 10 & SCL pin 8.\nOn Radxa CM5 IO this is SDA pin 10 & SCL pin 8.\nOn Radxa CM5 IO this is SDA pin 10 & SCL pin 8.";
 	};
+};
 
-	fragment@0 {
-		target = <&fiq_debugger>;
+&fiq_debugger {
+	status = "disabled";
+};
 
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@1 {
-		target = <&i2c1>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-0 = <&i2c1m0_xfer>;
-		};
-	};
+&i2c1 {
+	status = "okay";
+	pinctrl-0 = <&i2c1m0_xfer>;
 };

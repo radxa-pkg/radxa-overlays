@@ -9,23 +9,15 @@
 		exclusive = "GPIO4_B0", "GPIO4_B1";
 		description = "Enable FIQ Debugger on UART8-M0.\nOn Radxa ROCK 5A this is TX pin 32 and RX pin 40.";
 	};
+};
 
-	fragment@0 {
-		target = <&fiq_debugger>;
+&fiq_debugger {
+	status = "okay";
+	rockchip,serial-id = <8>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart8m0_xfer>;
+};
 
-		__overlay__ {
-			status = "okay";
-			rockchip,serial-id = <8>;
-			pinctrl-names = "default";
-			pinctrl-0 = <&uart8m0_xfer>;
-		};
-	};
-
-	fragment@1 {
-		target = <&uart8>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&uart8 {
+	status = "disabled";
 };

@@ -9,13 +9,9 @@
 		exclusive= "GPIO1_D2", "GPIO1_D3";
 		description = "Enable UART4-M0.\nOn Radxa NX5 IO this is TX pin 13 & RX pin 18.";
 	};
+};
 
-	fragment@0 {
-		target = <&uart4>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-0 = <&uart4m0_xfer>;
-		};
-	};
+&uart4 {
+	status = "okay";
+	pinctrl-0 = <&uart4m0_xfer>;
 };

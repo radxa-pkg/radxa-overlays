@@ -9,13 +9,9 @@
 		exclusive= "GPIO1_A1", "GPIO1_A0";
 		description = "Enable UART6-M1.\nOn Radxa ROCK 5A this is TX pin 19 and RX pin 21.";
 	};
+};
 
-	fragment@0 {
-		target = <&uart6>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-0 = <&uart6m1_xfer>;
-		};
-	};
+&uart6 {
+	status = "okay";
+	pinctrl-0 = <&uart6m1_xfer>;
 };

@@ -9,13 +9,9 @@
 		exclusive = "GPIO1_C3";
 		description = "Enable PWM7-M2.\nOn Radxa NX5 IO this is pin 12.";
 	};
+};
 
-	fragment@0 {
-		target = <&pwm7>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-0 = <&pwm7m2_pins>;
-		};
-	};
+&pwm7 {
+	status = "okay";
+	pinctrl-0 = <&pwm7m2_pins>;
 };

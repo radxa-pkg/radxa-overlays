@@ -9,13 +9,9 @@
 		exclusive = "GPIO4_B2";
 		description = "Enable PWM14-M1.\nOn Radxa ROCK 5A this is pin 13.\nOn Radxa ROCK 5B this is pin 5.\nOn Radxa ROCK 5B+ this is pin 5.\nOn Radxa CM5 IO this is pin 24.\nOn Radxa CM5 RPI CM4 IO this is pin 32.\n";
 	};
+};
 
-	fragment@0 {
-		target = <&pwm14>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-0 = <&pwm14m1_pins>;
-		};
-	};
+&pwm14 {
+	status = "okay";
+	pinctrl-0 = <&pwm14m1_pins>;
 };

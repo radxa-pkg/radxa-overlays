@@ -9,23 +9,15 @@
 		exclusive = "GPIO3_B5", "GPIO3_B6";
 		description = "Enable FIQ Debugger on UART3-M1.\nOn Radxa ROCK 5B this is TX pin 12 & RX pin 35.\nOn Radxa ROCK 5B+ this is TX pin 12 & RX pin 35.";
 	};
+};
 
-	fragment@0 {
-		target = <&fiq_debugger>;
+&fiq_debugger {
+	status = "okay";
+	rockchip,serial-id = <3>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart3m1_xfer>;
+};
 
-		__overlay__ {
-			status = "okay";
-			rockchip,serial-id = <3>;
-			pinctrl-names = "default";
-			pinctrl-0 = <&uart3m1_xfer>;
-		};
-	};
-
-	fragment@1 {
-		target = <&uart3>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&uart3 {
+	status = "disabled";
 };
