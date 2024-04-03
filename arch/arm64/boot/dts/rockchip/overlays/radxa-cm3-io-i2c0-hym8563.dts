@@ -8,19 +8,15 @@
 		category = "misc";
 		description = "Enable HYM8563 RTC on I2C0.";
 	};
+};
 
-	fragment@0 {
-		target = <&i2c0>;
+&i2c0 {
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
 
-		__overlay__ {
-			status = "okay";
-			#address-cells = <1>;
-			#size-cells = <0>;
-
-			hym8563: hym8563@51 {
-				compatible = "haoyu,hym8563";
-				reg = <0x51>;
-			};
-		};
+	hym8563: hym8563@51 {
+		compatible = "haoyu,hym8563";
+		reg = <0x51>;
 	};
 };

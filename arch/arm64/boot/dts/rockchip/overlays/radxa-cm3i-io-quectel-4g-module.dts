@@ -12,38 +12,30 @@
 		exclusive = "null";
 		description = "Enable Quectel 4G module.";
 	};
+};
 
-	fragment@0 {
-		target-path = "/";
-
-		__overlay__ {
-			em05_modem: em05-modem {
-				compatible = "lte-em05-modem-platdata";
-				pinctrl-names = "default";
-				pinctrl-0 = <&em05_power_en &em05_airplane_mode &em05_reset>;
-				em05,power-gpio = <&gpio3 RK_PA5 GPIO_ACTIVE_HIGH>;
-				em05,reset-gpio = <&gpio3 RK_PB7 GPIO_ACTIVE_HIGH>;
-				em05,airplane-gpio = <&gpio3 RK_PA4 GPIO_ACTIVE_HIGH>;
-				status = "okay";
-			};
-		};
+&{/} {
+	em05_modem: em05-modem {
+		compatible = "lte-em05-modem-platdata";
+		pinctrl-names = "default";
+		pinctrl-0 = <&em05_power_en &em05_airplane_mode &em05_reset>;
+		em05,power-gpio = <&gpio3 RK_PA5 GPIO_ACTIVE_HIGH>;
+		em05,reset-gpio = <&gpio3 RK_PB7 GPIO_ACTIVE_HIGH>;
+		em05,airplane-gpio = <&gpio3 RK_PA4 GPIO_ACTIVE_HIGH>;
+		status = "okay";
 	};
+};
 
-	fragment@1 {
-		target = <&pinctrl>;
-
-		__overlay__ {
-			lte-em05-modem {
-				em05_airplane_mode: em05-airplane-mode {
-					rockchip,pins = <3 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
-				};
-				em05_power_en: em05-power-en {
-					rockchip,pins = <3 RK_PA5 RK_FUNC_GPIO &pcfg_pull_none>;
-				};
-				em05_reset: em05-reset {
-					rockchip,pins = <3 RK_PB7 RK_FUNC_GPIO &pcfg_pull_none>;
-				};
-			};
+&pinctrl {
+	lte-em05-modem {
+		em05_airplane_mode: em05-airplane-mode {
+			rockchip,pins = <3 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
+		};
+		em05_power_en: em05-power-en {
+			rockchip,pins = <3 RK_PA5 RK_FUNC_GPIO &pcfg_pull_none>;
+		};
+		em05_reset: em05-reset {
+			rockchip,pins = <3 RK_PB7 RK_FUNC_GPIO &pcfg_pull_none>;
 		};
 	};
 };

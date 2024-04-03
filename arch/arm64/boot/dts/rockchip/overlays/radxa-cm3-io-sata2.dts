@@ -12,27 +12,18 @@
 		exclusive = "sata2";
 		description = "Enable SATA2.\nWhen SATA2 is enabled, PCIe cannot be enabled on the same pin mux.\nRadxa CM3 IO  <= v1.3 contains incorrect label of this port.";
 	};
+};
 
-	fragment@0 {
-		target = <&vcc_ch482d2>;
-		__overlay__ {
-			enable-active-high;
-			gpio = <&gpio3 RK_PC6 GPIO_ACTIVE_HIGH>;
-			status = "okay";
-		};
-	};
+&vcc_ch482d2 {
+	enable-active-high;
+	gpio = <&gpio3 RK_PC6 GPIO_ACTIVE_HIGH>;
+	status = "okay";
+};
 
-	fragment@1 {
-		target = <&pcie2x1>;
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&pcie2x1 {
+	status = "disabled";
+};
 
-	fragment@2 {
-		target = <&sata2>;
-		__overlay__ {
-			status = "okay";
-		};
-	};
+&sata2 {
+	status = "okay";
 };
