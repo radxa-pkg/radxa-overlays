@@ -1,0 +1,25 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable EEPROM on I2C1-M0";
+		compatible = "radxa,rock-2a";
+		category = "misc";
+		exclusive = "GPIO4_A2", "GPIO4_A3", "i2c1";
+		description = "Enable EEPROM on I2C1-M0.\nThis is a onboard device that we disable by default, so GPIO pins can function as expected.";
+	};
+};
+
+&i2c1 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c1m0_xfer>;
+    
+	eeprom:	bl24c16@50 {
+		status = "okay";
+		compatible = "atmel,24c16";
+		reg = <0x50>;
+		pagesize = <16>;
+	};
+};
