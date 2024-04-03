@@ -9,13 +9,9 @@
 		exclusive = "usbdrd_dwc3-dr_mode";
 		description = "Set OTG port 0 to Peripheral mode.\nUse this when you want to connect to another computer.";
 	};
+};
 
-	fragment@0 {
-		target = <&usbdrd_dwc3_0>;
-
-		__overlay__ {
-			status = "okay";
-			dr_mode = "peripheral";
-		};
-	};
+&usbdrd_dwc3_0 {
+	status = "okay";
+	dr_mode = "peripheral";
 };

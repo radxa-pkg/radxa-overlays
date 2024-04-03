@@ -9,13 +9,9 @@
 		exclusive = "GPIO1_D6";
 		description = "Enable PWM14-M2.\nOn Radxa ROCK 5A this is pin 5.";
 	};
+};
 
-	fragment@0 {
-		target = <&pwm14>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-0 = <&pwm14m2_pins>;
-		};
-	};
+&pwm14 {
+	status = "okay";
+	pinctrl-0 = <&pwm14m2_pins>;
 };

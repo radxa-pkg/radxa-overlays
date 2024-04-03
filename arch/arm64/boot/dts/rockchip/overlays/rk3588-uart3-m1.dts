@@ -9,13 +9,9 @@
 		exclusive = "GPIO3_B5", "GPIO3_B6";
 		description = "Enable UART3-M1.\nOn Radxa ROCK 5B this is TX pin 12 and RX pin 35.\nOn Radxa ROCK 5B+ this is TX pin 12 and RX pin 35.";
 	};
+};
 
-	fragment@0 {
-		target = <&uart3>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-0 = <&uart3m1_xfer>;
-		};
-	};
+&uart3 {
+	status = "okay";
+	pinctrl-0 = <&uart3m1_xfer>;
 };

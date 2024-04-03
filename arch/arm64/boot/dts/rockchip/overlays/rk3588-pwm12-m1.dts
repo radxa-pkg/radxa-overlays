@@ -9,13 +9,9 @@
 		exclusive = "GPIO4_B5";
 		description = "Enable PWM12-M1.\nOn Radxa ROCK 5B this is pin 7.";
 	};
+};
 
-	fragment@0 {
-		target = <&pwm12>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-0 = <&pwm12m1_pins>;
-		};
-	};
+&pwm12 {
+	status = "okay";
+	pinctrl-0 = <&pwm12m1_pins>;
 };

@@ -9,13 +9,9 @@
 		exclusive = "GPIO4_A5", "GPIO4_A4";
 		description = "Enable I2C3-M2.\nOn Radxa CM5 IO this is SDA pin 13 & SCL pin 15.";
 	};
+};
 
-	fragment@0 {
-		target = <&i2c3>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-0 = <&i2c3m2_xfer>;
-		};
-	};
+&i2c3 {
+	status = "okay";
+	pinctrl-0 = <&i2c3m2_xfer>;
 };

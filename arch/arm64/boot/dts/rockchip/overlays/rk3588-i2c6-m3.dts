@@ -9,13 +9,9 @@
 		exclusive = "GPIO4_B0", "GPIO4_B1";
 		description = "Enable I2C6-M3.\nOn Radxa ROCK 5A this is SDA pin 32 and SCL pin 40.";
 	};
+};
 
-	fragment@0 {
-		target = <&i2c6>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-0 = <&i2c6m3_xfer>;
-		};
-	};
+&i2c6 {
+	status = "okay";
+	pinctrl-0 = <&i2c6m3_xfer>;
 };

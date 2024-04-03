@@ -9,13 +9,9 @@
 		exclusive = "GPIO1_A2", "GPIO1_A3";
 		description = "Enable I2C4-M3.\nOn Radxa ROCK 5A this is SDA pin 23 and SCL pin 24.\nOn Radxa ROCK 5A this is SDA pin 31 and SCL pin 29.\nOn Radxa CM5-RPI-CM4-IO this is SDA pin 40 and SCL pin 12.";
 	};
+};
 
-	fragment@0 {
-		target = <&i2c4>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-0 = <&i2c4m3_xfer>;
-		};
-	};
+&i2c4 {
+	status = "okay";
+	pinctrl-0 = <&i2c4m3_xfer>;
 };

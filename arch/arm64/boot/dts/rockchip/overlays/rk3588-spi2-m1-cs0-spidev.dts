@@ -9,24 +9,20 @@
 		exclusive = "GPIO4_A4", "GPIO4_A5", "GPIO4_A6", "GPIO4_A7";
 		description = "Enable spidev on SPI2-M1 over CS0.";
 	};
+};
 
-	fragment@0 {
-		target = <&spi2>;
+&spi2 {
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&spi2m1_cs0 &spi2m1_pins>;
+	max-freq = <50000000>;
 
-		__overlay__ {
-			status = "okay";
-			#address-cells = <1>;
-			#size-cells = <0>;
-			pinctrl-names = "default";
-			pinctrl-0 = <&spi2m1_cs0 &spi2m1_pins>;
-			max-freq = <50000000>;
-
-			spidev@0 {
-				compatible = "rockchip,spidev";
-				status = "okay";
-				reg = <0>;
-				spi-max-frequency = <50000000>;
-			};
-		};
+	spidev@0 {
+		compatible = "rockchip,spidev";
+		status = "okay";
+		reg = <0>;
+		spi-max-frequency = <50000000>;
 	};
 };

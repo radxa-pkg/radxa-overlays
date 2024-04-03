@@ -9,13 +9,9 @@
 		exclusive = "GPIO1_D0", "GPIO1_D1";
 		description = "Enable I2C7-M0.\nOn Radxa NX5 IO this is SDA pin 37 & SCL pin 22.";
 	};
+};
 
-	fragment@0 {
-		target = <&i2c7>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-0 = <&i2c7m0_xfer>;
-		};
-	};
+&i2c7 {
+	status = "okay";
+	pinctrl-0 = <&i2c7m0_xfer>;
 };
