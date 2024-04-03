@@ -9,14 +9,10 @@
 		exclusive = "GPIO2_A0", "GPIO2_A1";
 		description = "Enable UART2-M1";
 	};
+};
 
-	fragment@0 {
-		target = <&uart2>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&uart2m1_xfer>;
-		};
-	};
+&uart2 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart2m1_xfer>;
 };

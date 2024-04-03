@@ -9,22 +9,18 @@
 		exclusive = "GPIO3_A0", "GPIO3_A1", "GPIO3_A2", "GPIO3_B0";
 		description = "Enable spidev on SPI0 on pin 19, 21, 23 & 24.";
 	};
+};
 
-	fragment@0 {
-		target = <&spi0>;
+&spi0 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&spi0m2_clk &spi0m2_tx &spi0m2_rx &spi0m2_cs0>;
+	#address-cells = <1>;
+	#size-cells = <0>;
 
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&spi0m2_clk &spi0m2_tx &spi0m2_rx &spi0m2_cs0>;
-			#address-cells = <1>;
-			#size-cells = <0>;
-
-			spidev@0 {
-				compatible = "rockchip,spidev", "armbian,spi-dev";
-				reg = <0>;
-				spi-max-frequency = <50000000>;
-			};
-		};
+	spidev@0 {
+		compatible = "rockchip,spidev", "armbian,spi-dev";
+		reg = <0>;
+		spi-max-frequency = <50000000>;
 	};
 };
