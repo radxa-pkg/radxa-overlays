@@ -1,5 +1,5 @@
 # overlays
-[![Build](https://github.com/radxa/overlays/actions/workflows/build.yml/badge.svg)](https://github.com/radxa/overlays/actions/workflows/build.yml)
+[![build](https://github.com/radxa-pkg/radxa-overlays/actions/workflows/build.yml/badge.svg)](https://github.com/radxa-pkg/radxa-overlays/actions/workflows/build.yml) [![Build & Release](https://github.com/radxa-pkg/radxa-overlays/actions/workflows/release.yml/badge.svg)](https://github.com/radxa-pkg/radxa-overlays/actions/workflows/release.yml)
 
 Additional device tree overlays to support different hardware on Radxa products
 
@@ -32,6 +32,36 @@ make clean
 As part of our CI pipeline, the built overlays are uploaded at the end. You can find all CI runs [here](https://github.com/radxa/overlays/actions), and the artifact is located inside each indvidual run.
 
 Please be aware that artifacts expire over time, and they are not officially tested versions.
+
+## Code style
+
+We mandate reference style for our overlays. Please visit [DTO Syntax](https://source.android.com/docs/core/architecture/dto/syntax#reference) page to learn more.
+
+If your existing overlay uses `target-path`, then the Android documentation does not show a clear migration path. Below is an example of how to convert them:
+
+```dtos
+/{
+	fragment@0 {
+		target-path = "/";
+		__overlay__ {
+			some_node: some-node {
+				some_prop = "okay";
+				...
+			};
+		};
+	};
+}
+```
+
+```dtos
+&{/} {
+	some_node: some-node {
+		some_prop = "okay";
+		...
+	};
+}
+```
+
 
 ## Metadata specs
 
