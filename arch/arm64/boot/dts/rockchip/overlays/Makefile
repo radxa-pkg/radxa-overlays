@@ -469,7 +469,7 @@ dtb-$(CONFIG_CPU_RK3588) += \
 	rock-5b-plus-radxa-display-10fhd.dtbo \
 	rock-5b-plus-radxa-display-10hd.dtbo
 
-dtb-y += rockchip-watchdog.dtbo
+dtb-$(CONFIG_ARCH_ROCKCHIP) += rockchip-watchdog.dtbo
 
 dtbotxt-$(CONFIG_ARCH_ROCKCHIP) += \
 	README.overlays
