@@ -12,36 +12,30 @@
 		category = "misc";
 		description = "Enable Microchip ENC28J60 SPI Ethernet controller on SPI5.\nWarning: this overlay is only compatiable with Liwan, which is a customized version of ROCK 4C.\nThis overlay is NOT compatiable with regular ROCK 4C.";
 	};
+};
 
-	fragment@0 {
-		target = <&spi5>;
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&spi5_clk &spi5_tx &spi5_rx &spi5_cs0>;
+&spi5 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&spi5_clk &spi5_tx &spi5_rx &spi5_cs0>;
 
-			ethernet: enc28j60@0 {
-				compatible = "microchip,enc28j60";
-				reg = <0>;
-				spi-max-frequency = <20000000>;
+	ethernet: enc28j60@0 {
+		compatible = "microchip,enc28j60";
+		reg = <0>;
+		spi-max-frequency = <20000000>;
 
-				pinctrl-names = "default";
-				pinctrl-0 = <&enc28j60_int_pins>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&enc28j60_int_pins>;
 
-				interrupt-parent = <&gpio1>;
-				interrupts = <RK_PB1 IRQ_TYPE_EDGE_FALLING>;
-			};
-		};
+		interrupt-parent = <&gpio1>;
+		interrupts = <RK_PB1 IRQ_TYPE_EDGE_FALLING>;
 	};
+};
 
-	fragment@1 {
-		target = <&pinctrl>;
-		__overlay__ {
-			enc28j60 {
-				enc28j60_int_pins: enc28j60-int-pins {
-					rockchip,pins = <1 RK_PB1 RK_FUNC_GPIO &pcfg_pull_up>;
-				};
-			};
+&pinctrl {
+	enc28j60 {
+		enc28j60_int_pins: enc28j60-int-pins {
+			rockchip,pins = <1 RK_PB1 RK_FUNC_GPIO &pcfg_pull_up>;
 		};
 	};
 };

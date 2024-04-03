@@ -9,14 +9,10 @@
 		exclusive = "GPIO2_B3";
 		description = "Enable PWM9.\nOn ROCK S0 this is pin 22.";
 	};
+};
 
-	fragment@0 {
-		target = <&pwm9>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&pwm9_pin>;
-		};
-	};
+&pwm9 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&pwm9_pin>;
 };

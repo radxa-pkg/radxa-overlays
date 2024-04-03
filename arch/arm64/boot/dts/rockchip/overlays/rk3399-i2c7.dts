@@ -9,14 +9,10 @@
 		exclusive = "GPIO2_A7", "GPIO2_B0";
 		description = "Enable I2C7 on pin 3 & 5.";
 	};
+};
 
-	fragment@0 {
-		target = <&i2c7>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&i2c7_xfer>;
-		};
-	};
+&i2c7 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c7_xfer>;
 };

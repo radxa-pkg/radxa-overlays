@@ -13,45 +13,39 @@
 		exclusive = "GPIO4_D2", "GPIO4_D4", "GPIO4_A4", "GPIO4_A6", "GPIO4_A7";
 		description = "Provide support for Microchip ENC28J60 SPI Ethernet controller on GPIO pins.\nPin definition:\nMOSI=16 MISO=18 SCK=36 CS=38 INT=40";
 	};
+};
 
-	fragment@0 {
-		target-path = "/";
-		__overlay__ {
-			spi_gpio0: spi-gpio0 {
-				compatible = "spi-gpio";
-				#address-cells = <1>;
-				#size-cells = <0>;
-				ranges;
-				gpio-mosi = <&gpio4 RK_PD2 GPIO_ACTIVE_HIGH>;
-				gpio-miso = <&gpio4 RK_PD4 GPIO_ACTIVE_HIGH>;
-				gpio-sck = <&gpio4 RK_PA4 GPIO_ACTIVE_HIGH>;
-				cs-gpios = <&gpio4 RK_PA6 GPIO_ACTIVE_LOW>;
-				num-chipselects = <1>;
-				status = "okay";
+&{/} {
+	spi_gpio0: spi-gpio0 {
+		compatible = "spi-gpio";
+		#address-cells = <1>;
+		#size-cells = <0>;
+		ranges;
+		gpio-mosi = <&gpio4 RK_PD2 GPIO_ACTIVE_HIGH>;
+		gpio-miso = <&gpio4 RK_PD4 GPIO_ACTIVE_HIGH>;
+		gpio-sck = <&gpio4 RK_PA4 GPIO_ACTIVE_HIGH>;
+		cs-gpios = <&gpio4 RK_PA6 GPIO_ACTIVE_LOW>;
+		num-chipselects = <1>;
+		status = "okay";
 
-				ethernet: enc28j60@0 {
-					compatible = "microchip,enc28j60";
-					reg = <0>;
-					spi-max-frequency = <20000000>;
+		ethernet: enc28j60@0 {
+			compatible = "microchip,enc28j60";
+			reg = <0>;
+			spi-max-frequency = <20000000>;
 
-					pinctrl-names = "default";
-					pinctrl-0 = <&enc28j60_int_pins>;
+			pinctrl-names = "default";
+			pinctrl-0 = <&enc28j60_int_pins>;
 
-					interrupt-parent = <&gpio4>;
-					interrupts = <RK_PA7 IRQ_TYPE_EDGE_FALLING>;
-				};
-			};
+			interrupt-parent = <&gpio4>;
+			interrupts = <RK_PA7 IRQ_TYPE_EDGE_FALLING>;
 		};
 	};
+};
 
-	fragment@1 {
-		target = <&pinctrl>;
-		__overlay__ {
-			enc28j60 {
-				enc28j60_int_pins: enc28j60-int-pins {
-					rockchip,pins = <4 RK_PA7 RK_FUNC_GPIO &pcfg_pull_up>;
-				};
-			};
+&pinctrl {
+	enc28j60 {
+		enc28j60_int_pins: enc28j60-int-pins {
+			rockchip,pins = <4 RK_PA7 RK_FUNC_GPIO &pcfg_pull_up>;
 		};
 	};
 };

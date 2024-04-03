@@ -9,14 +9,10 @@
 		exclusive = "GPIO1_B0", "GPIO1_A7";
 		description = "Enable UART4.";
 	};
+};
 
-	fragment@0 {
-		target = <&uart4>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&uart4_xfer>;
-		};
-	};
+&uart4 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart4_xfer>;
 };

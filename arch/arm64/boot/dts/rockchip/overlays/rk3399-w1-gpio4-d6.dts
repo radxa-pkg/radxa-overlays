@@ -12,17 +12,13 @@
 		exclusive = "GPIO4_D6";
 		description = "Enable 1-Wire on GPIO4_D6.\nOn ROCK 4 this is pin 37.";
 	};
+};
 
-	fragment@0 {
-		target-path = "/";
-
-		__overlay__ {
-			w1: onewire@0 {
-				compatible = "w1-gpio";
-				pinctrl-names = "default";
-				gpios = <&gpio4 RK_PD6 GPIO_ACTIVE_HIGH>;
-				status = "okay";
-			};
-		};
+&{/} {
+	w1: onewire@0 {
+		compatible = "w1-gpio";
+		pinctrl-names = "default";
+		gpios = <&gpio4 RK_PD6 GPIO_ACTIVE_HIGH>;
+		status = "okay";
 	};
 };

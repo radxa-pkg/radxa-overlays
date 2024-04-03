@@ -9,38 +9,22 @@
 		exclusive = "GPIO1_C6", "GPIO1_C7", "spi2", "uart1_cts", "uart1_rts";
 		description = "Enable UART2-M0.\nOn ROCK PI S this is TX pin 19 & RX pin 21.\nOn ROCK S0 this is TX pin 19 & RX pin 21.";
 	};
+};
 
-	fragment@0 {
-		target = <&uart2>;
+&uart2 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart2m0_xfer>;
+};
 
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&uart2m0_xfer>;
-		};
-	};
+&spi2 {
+	status = "disabled";
+};
 
-	fragment@1 {
-		target = <&spi2>;
+&uart1_cts {
+	status = "disabled";
+};
 
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@2 {
-		target = <&uart1_cts>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@3 {
-		target = <&uart1_rts>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&uart1_rts {
+	status = "disabled";
 };

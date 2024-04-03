@@ -8,14 +8,10 @@
 		category = "misc";
 		description = "Enable UART0.";
 	};
+};
 
-	fragment@0 {
-		target = <&uart0>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&uart0_xfer &uart0_cts &uart0_rts>;
-		};
-	};
+&uart0 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart0_xfer &uart0_cts &uart0_rts>;
 };

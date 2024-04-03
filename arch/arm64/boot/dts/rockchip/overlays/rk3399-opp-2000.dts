@@ -9,21 +9,17 @@
 		exclusive = "cluster1_opp-opp-2016000000";
 		description = "Allow Cortex-A72 cluster to run at 2.0 GHz.\nWarning: Overclocking may cause hardware damage and system instability.\nYou warrenty will be voided.";
 	};
+};
 
-	fragment@0 {
-		target = <&cluster1_opp>;
-
-		__overlay__ {
-			opp-2016000000 {
-				opp-hz = /bits/ 64 <2016000000>;
-				opp-microvolt = <1250000 1250000 1250000>;
-				opp-microvolt-L0 = <1250000 1250000 1250000>;
-				opp-microvolt-L1 = <1250000 1250000 1250000>;
-				opp-microvolt-L2 = <1250000 1250000 1250000>;
-				opp-microvolt-L3 = <1250000 1250000 1250000>;
-				opp-microvolt-L4 = <1250000 1250000 1250000>;
-				clock-latency-ns = <40000>;
-			};
-		};
+&cluster1_opp {
+	opp-2016000000 {
+		opp-hz = /bits/ 64 <2016000000>;
+		opp-microvolt = <1250000 1250000 1250000>;
+		opp-microvolt-L0 = <1250000 1250000 1250000>;
+		opp-microvolt-L1 = <1250000 1250000 1250000>;
+		opp-microvolt-L2 = <1250000 1250000 1250000>;
+		opp-microvolt-L3 = <1250000 1250000 1250000>;
+		opp-microvolt-L4 = <1250000 1250000 1250000>;
+		clock-latency-ns = <40000>;
 	};
 };

@@ -9,38 +9,26 @@
 		exclusive = "GPIO2_A0", "GPIO2_A1", "GPIO2_A2", "GPIO2_A3", "i2c2", "uart0";
 		description = "Enable spidev on SPI0 on pin 8, 10, 13 & 37.";
 	};
+};
 
-	fragment@0 {
-		target = <&spi0>;
+&spi0 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&spi0_clk &spi0_csn0 &spi0_miso &spi0_mosi>;
+	#address-cells = <1>;
+	#size-cells = <0>;
 
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&spi0_clk &spi0_csn0 &spi0_miso &spi0_mosi>;
-			#address-cells = <1>;
-			#size-cells = <0>;
-
-			spidev@0 {
-				compatible = "rockchip,spidev", "armbian,spi-dev";
-				reg = <0>;
-				spi-max-frequency = <50000000>;
-			};
-		};
+	spidev@0 {
+		compatible = "rockchip,spidev", "armbian,spi-dev";
+		reg = <0>;
+		spi-max-frequency = <50000000>;
 	};
+};
 
-	fragment@1 {
-		target = <&i2c2>;
+&i2c2 {
+	status = "disabled";
+};
 
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@2 {
-		target = <&uart0>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&uart0 {
+	status = "disabled";
 };

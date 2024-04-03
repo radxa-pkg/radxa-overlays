@@ -9,14 +9,10 @@
 		exclusive = "GPIO2_B2", "GPIO2_B1";
 		description = "Enable I2C6 on pin 29 & 31.";
 	};
+};
 
-	fragment@0 {
-		target = <&i2c6>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&i2c6_xfer>;
-		};
-	};
+&i2c6 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c6_xfer>;
 };

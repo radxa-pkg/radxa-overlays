@@ -9,12 +9,8 @@
 		exclusive = "pcie0_max-link-speed";
 		description = "Enable PCI Express Gen 2 negotiation.";
 	};
+};
 
-	fragment@0 {
-		target = <&pcie0>;
-
-		__overlay__ {
-			max-link-speed = <2>;
-		};
-	};
+&pcie0 {
+	max-link-speed = <2>;
 };

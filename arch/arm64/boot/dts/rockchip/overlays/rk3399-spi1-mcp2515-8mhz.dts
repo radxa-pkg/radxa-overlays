@@ -9,53 +9,41 @@
 		exclusive = "GPIO1_B0", "GPIO1_A7", "GPIO1_B1", "GPIO1_B2", "GPIO4_D5";
 		description = "Provide support for Microchip MCP2515 SPI CAN controller.\nAssumes 8MHz external clock.\nUses Pin 22 (GPIO4_D5) for INT.";
 	};
+};
 
-	fragment@0 {
-		target = <&pinctrl>;
-
-		__overlay__ {
-			mcp2515_int_pins {
-				mcp2515_int_pins: mcp2515_int_pin {
-					rockchip,pins = <4 29 0 &pcfg_pull_none>;
-				};
-			};
+&pinctrl {
+	mcp2515_int_pins {
+		mcp2515_int_pins: mcp2515_int_pin {
+			rockchip,pins = <4 29 0 &pcfg_pull_none>;
 		};
 	};
+};
 
-	fragment@1 {
-		target-path = "/";
-
-		__overlay__ {
-			can_mcp2515_osc: can-mcp2515-osc {
-				compatible = "fixed-clock";
-				clock-frequency = <12000000>;
-				#clock-cells = <0>;
-			};
-		};
+&{/} {
+	can_mcp2515_osc: can-mcp2515-osc {
+		compatible = "fixed-clock";
+		clock-frequency = <12000000>;
+		#clock-cells = <0>;
 	};
+};
 
-	fragment@2 {
-		target = <&spi1>;
+&spi1 {
+	status = "okay";
+	max-freq = <10000000>;
+	#address-cells = <1>;
+	#size-cells = <0>;
 
-		__overlay__ {
-			status = "okay";
-			max-freq = <10000000>;
-			#address-cells = <1>;
-			#size-cells = <0>;
-
-			can_mcp2515: can-mcp2515@0 {
-				status = "okay";
-				compatible = "microchip,mcp2515";
-				reg = <0>;
-				interrupt-parent = <&gpio4>;
-				interrupts = <29 2>;
-				spi-max-frequency = <10000000>;
-				clocks = <&can_mcp2515_osc>;
-				vdd-supply = <&vcc3v3_sys>;
-				xceiver-supply = <&vcc3v3_sys>;
-				pinctrl-names = "default";
-				pinctrl-0 = <&mcp2515_int_pins>;
-			};
-		};
+	can_mcp2515: can-mcp2515@0 {
+		status = "okay";
+		compatible = "microchip,mcp2515";
+		reg = <0>;
+		interrupt-parent = <&gpio4>;
+		interrupts = <29 2>;
+		spi-max-frequency = <10000000>;
+		clocks = <&can_mcp2515_osc>;
+		vdd-supply = <&vcc3v3_sys>;
+		xceiver-supply = <&vcc3v3_sys>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&mcp2515_int_pins>;
 	};
 };

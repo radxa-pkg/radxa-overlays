@@ -11,31 +11,19 @@
 		exclusive = "GPIO0_B7";
 		description = "Enable PWM2.\nOn Radxa ROCK PI S this is pin 11.\nOn ROCK S0 this is pin 27.";
 	};
+};
 
-	fragment@0 {
-		target = <&pwm2>;
+&pwm2 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&pwm2_pin>;
+};
 
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&pwm2_pin>;
-		};
-	};
+&pwm2_pin {
+	rockchip,pins =
+		<0 RK_PB7 1 &pcfg_pull_up_12ma>;
+};
 
-	fragment@1 {
-		target = <&pwm2_pin>;
-
-		__overlay__ {
-			rockchip,pins =
-				<0 RK_PB7 1 &pcfg_pull_up_12ma>;
-		};
-	};
-
-	fragment@2 {
-		target = <&i2c3>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&i2c3 {
+	status = "disabled";
 };

@@ -9,22 +9,18 @@
 		exclusive = "GPIO2_B3", "GPIO2_B2", "GPIO2_B1", "GPIO2_B4";
 		description = "Enable spidev on SPI2 on pin 7, 29, 31 & 33.";
 	};
+};
 
-	fragment@0 {
-		target = <&spi2>;
+&spi2 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&spi2_clk &spi2_cs0 &spi2_rx &spi2_tx>;
+	#address-cells = <1>;
+	#size-cells = <0>;
 
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&spi2_clk &spi2_cs0 &spi2_rx &spi2_tx>;
-			#address-cells = <1>;
-			#size-cells = <0>;
-
-			spidev@0 {
-				compatible = "rockchip,spidev";
-				reg = <0>;
-				spi-max-frequency = <50000000>;
-			};
-		};
+	spidev@0 {
+		compatible = "rockchip,spidev";
+		reg = <0>;
+		spi-max-frequency = <50000000>;
 	};
 };
