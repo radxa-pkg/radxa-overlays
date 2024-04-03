@@ -12,135 +12,103 @@
 		exclusive = "video_phy0";
 		description = "Enable Raspberry Pi 7-inch Touchscreen on disp0.";
 	};
+};
 
-	fragment@0 {
-		target-path = "/";
-
-		__overlay__ {
-			vcc_mipi: vcc-mipi {
-				status = "okay";
-				compatible = "regulator-fixed";
-				regulator-name = "vcc_mipi";
-				regulator-boot-on;
-				regulator-min-microvolt = <3300000>;
-				regulator-max-microvolt = <3300000>;
-				enable-active-high;
-				regulator-always-on;
-				gpio = <&gpio4 RK_PC1 GPIO_ACTIVE_HIGH>;
-			};
-		};
+&{/} {
+	vcc_mipi: vcc-mipi {
+		status = "okay";
+		compatible = "regulator-fixed";
+		regulator-name = "vcc_mipi";
+		regulator-boot-on;
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		enable-active-high;
+		regulator-always-on;
+		gpio = <&gpio4 RK_PC1 GPIO_ACTIVE_HIGH>;
 	};
+};
 
-	fragment@1 {
-		target = <&dsi0>;
+&dsi0 {
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
 
-		__overlay__ {
-			status = "okay";
+	dsi0_panel: dsi-panel@0 {
+		compatible = "raspits,tc358762";
+		reg = <0x0>;
+		status = "okay";
+
+		ports {
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			dsi0_panel: dsi-panel@0 {
-				compatible = "raspits,tc358762";
-				reg = <0x0>;
-				status = "okay";
-
-				ports {
-					#address-cells = <1>;
-					#size-cells = <0>;
-
-					port@0 {
-						reg = <0>;
-						panel_in_dsi0: endpoint {
-							remote-endpoint = <&dsi0_out_panel>;
-						};
-					};
-				};
-			};
-
-			ports {
-				#address-cells = <1>;
-				#size-cells = <0>;
-
-				port@1 {
-					reg = <1>;
-					#address-cells = <1>;
-					#size-cells = <0>;
-
-					dsi0_out_panel: endpoint@0 {
-						reg = <0>;
-						remote-endpoint = <&panel_in_dsi0>;
-					};
+			port@0 {
+				reg = <0>;
+				panel_in_dsi0: endpoint {
+					remote-endpoint = <&dsi0_out_panel>;
 				};
 			};
 		};
 	};
 
-	fragment@2 {
-		target = <&i2c2>;
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
 
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&i2c2m1_xfer>;
+		port@1 {
+			reg = <1>;
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			rockpi_mcu: rockpi-mcu@45 {
-				compatible = "rockpi_mcu";
-				reg = <0x45>;
+			dsi0_out_panel: endpoint@0 {
+				reg = <0>;
+				remote-endpoint = <&panel_in_dsi0>;
 			};
-
-			raspits_ft5426: raspits-ft5426@38 {
-				compatible = "raspits_ft5426";
-				reg = <0x38>;
-			};
-
-			chipone_icn8952: chipone_icn8952@30 {
-				compatible = "chipone_icn8505";
-				reg = <0x30>;
-			};
-
 		};
 	};
+};
 
-	fragment@3 {
-		target = <&dsi0_in_vp0>;
+&i2c2 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c2m1_xfer>;
+	#address-cells = <1>;
+	#size-cells = <0>;
 
-		__overlay__ {
-			status = "okay";
-		};
+	rockpi_mcu: rockpi-mcu@45 {
+		compatible = "rockpi_mcu";
+		reg = <0x45>;
 	};
 
-	fragment@4 {
-		target = <&route_dsi0>;
-
-		__overlay__ {
-			status = "okay";
-			connect = <&vp0_out_dsi0>;
-		};
+	raspits_ft5426: raspits-ft5426@38 {
+		compatible = "raspits_ft5426";
+		reg = <0x38>;
 	};
 
-	fragment@5 {
-		target = <&hdmi>;
-
-		__overlay__ {
-			status = "disabled";
-		};
+	chipone_icn8952: chipone_icn8952@30 {
+		compatible = "chipone_icn8505";
+		reg = <0x30>;
 	};
 
-	fragment@6 {
-		target = <&hdmi_in_vp0>;
+};
 
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&dsi0_in_vp0 {
+	status = "okay";
+};
 
-	fragment@7 {
-		target = <&video_phy0>;
+&route_dsi0 {
+	status = "okay";
+	connect = <&vp0_out_dsi0>;
+};
 
-		__overlay__ {
-			status = "okay";
-		};
-	};
+&hdmi {
+	status = "disabled";
+};
+
+&hdmi_in_vp0 {
+	status = "disabled";
+};
+
+&video_phy0 {
+	status = "okay";
 };

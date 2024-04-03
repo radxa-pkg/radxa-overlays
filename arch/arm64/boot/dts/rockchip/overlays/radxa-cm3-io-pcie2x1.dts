@@ -12,52 +12,37 @@
 		exclusive = "pcie2x1";
 		description = "Enable PCIe.\nWhen PCIe is enabled, SATA2 cannot be enabled on the same port.";
 	};
+};
 
-	fragment@0 {
-		target-path = "/";
-
-		__overlay__ {
-			vcc-ch482d2-regulator {
-				compatible = "regulator-fixed";
-				enable-active-low;
-				gpio = <&gpio3 RK_PC6 GPIO_ACTIVE_LOW>;
-				pinctrl-names = "default";
-				pinctrl-0 = <&ch482d_en2>;
-				regulator-name = "vcc_ch482d2";
-				regulator-always-on;
-				regulator-boot-on;
-				status = "okay";
-			};
-		};
+&{/} {
+	vcc-ch482d2-regulator {
+		compatible = "regulator-fixed";
+		enable-active-low;
+		gpio = <&gpio3 RK_PC6 GPIO_ACTIVE_LOW>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&ch482d_en2>;
+		regulator-name = "vcc_ch482d2";
+		regulator-always-on;
+		regulator-boot-on;
+		status = "okay";
 	};
+};
 
-	fragment@1 {
-		target = <&pcie2x1>;
+&pcie2x1 {
+	status = "okay";
+	reset-gpios = <&gpio1 0x0a 0x00>;
+	vpcie3v3-supply = <&vcc3v3_sys>;
+	pinctrl-0 = <&pcie20m2_pins>;
+};
 
-		__overlay__ {
-			status = "okay";
-			reset-gpios = <&gpio1 0x0a 0x00>;
-			vpcie3v3-supply = <&vcc3v3_sys>;
-			pinctrl-0 = <&pcie20m2_pins>;
-		};
-	};
+&sata2 {
+	status = "disabled";
+};
 
-	fragment@2 {
-		target = <&sata2>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@3 {
-		target = <&pinctrl>;
-		__overlay__ {
-			ch482d {
-				ch482d_en2: ch482d-en2 {
-					rockchip,pins = <3 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
-				};
-			};
+&pinctrl {
+	ch482d {
+		ch482d_en2: ch482d-en2 {
+			rockchip,pins = <3 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
 		};
 	};
 };

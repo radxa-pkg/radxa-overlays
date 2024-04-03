@@ -12,153 +12,117 @@
 		exclusive = "csi2_dphy2";
 		description = "Enable Radxa Camera 8M 219 on CSI1.";
 	};
+};
 
-	fragment@0 {
-		target-path = "/";
-
-		__overlay__ {
-			ext_cam_clk_imx219_1: ext-cam-clk-imx219-1 {
-				status = "okay";
-				compatible = "fixed-clock";
-				clock-frequency = <24000000>;
-				clock-output-names = "ext_cam_clk_imx219_1";
-				#clock-cells = <0>;
-			};
-
-			camera_pwdn_gpio: camera-pwdn-gpio {
-				status = "okay";
-				compatible = "regulator-fixed";
-				regulator-name = "camera_pwdn_gpio";
-				regulator-always-on;
-				regulator-boot-on;
-				enable-active-high;
-				gpio = <&gpio4 RK_PB6 GPIO_ACTIVE_HIGH>;
-			};
-		};
+&{/} {
+	ext_cam_clk_imx219_1: ext-cam-clk-imx219-1 {
+		status = "okay";
+		compatible = "fixed-clock";
+		clock-frequency = <24000000>;
+		clock-output-names = "ext_cam_clk_imx219_1";
+		#clock-cells = <0>;
 	};
 
-	fragment@1 {
-		target = <&i2c3>;
-
-		__overlay__ {
-			status = "okay";
-			#address-cells = <1>;
-                        #size-cells = <0>;
-
-			imx219_2: imx219@10 {
-				status = "okay";
-				compatible = "sony,imx219";
-				reg = <0x10>;
-				clocks = <&ext_cam_clk_imx219_1>;
-				clock-names = "ext_cam_clk_imx219_1";
-				rockchip,camera-module-index = <1>;
-				rockchip,camera-module-facing = "back";
-				rockchip,camera-module-name = "RADXA-CAMERA-8M";
-				rockchip,camera-module-lens-name = "default";
-
-				port {
-					imx219_2_out: endpoint {
-						remote-endpoint = <&csi2dphy2_ucam1>;
-						data-lanes = <1 2>;
-					};
-				};
-			};
-		};
+	camera_pwdn_gpio: camera-pwdn-gpio {
+		status = "okay";
+		compatible = "regulator-fixed";
+		regulator-name = "camera_pwdn_gpio";
+		regulator-always-on;
+		regulator-boot-on;
+		enable-active-high;
+		gpio = <&gpio4 RK_PB6 GPIO_ACTIVE_HIGH>;
 	};
+};
 
-	fragment@2 {
-		target = <&csi2_dphy_hw>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
-
-	fragment@3 {
-		target = <&csi2_dphy2>;
-
-		__overlay__ {
-			status = "okay";
-
-			ports {
-				#address-cells = <1>;
+&i2c3 {
+	status = "okay";
+	#address-cells = <1>;
 				#size-cells = <0>;
 
-				port@0 {
-					reg = <0>;
-					#address-cells = <1>;
-					#size-cells = <0>;
+	imx219_2: imx219@10 {
+		status = "okay";
+		compatible = "sony,imx219";
+		reg = <0x10>;
+		clocks = <&ext_cam_clk_imx219_1>;
+		clock-names = "ext_cam_clk_imx219_1";
+		rockchip,camera-module-index = <1>;
+		rockchip,camera-module-facing = "back";
+		rockchip,camera-module-name = "RADXA-CAMERA-8M";
+		rockchip,camera-module-lens-name = "default";
 
-					csi2dphy2_ucam1: endpoint@1 {
-						reg = <1>;
-						remote-endpoint = <&imx219_2_out>;
-						data-lanes = <1 2>;
-					};
-				};
-
-				port@1 {
-					reg = <1>;
-					#address-cells = <1>;
-					#size-cells = <0>;
-
-					csi2dphy2_out: endpoint@1 {
-						reg = <1>;
-						remote-endpoint = <&isp1_in>;
-					};
-				};
+		port {
+			imx219_2_out: endpoint {
+				remote-endpoint = <&csi2dphy2_ucam1>;
+				data-lanes = <1 2>;
 			};
 		};
 	};
+};
 
-	fragment@4 {
-		target = <&rkisp_vir1>;
+&csi2_dphy_hw {
+	status = "okay";
+};
 
-		__overlay__ {
-			status = "okay";
+&csi2_dphy2 {
+	status = "okay";
+
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		port@0 {
+			reg = <0>;
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			port {
-				#address-cells = <1>;
-				#size-cells = <0>;
+			csi2dphy2_ucam1: endpoint@1 {
+				reg = <1>;
+				remote-endpoint = <&imx219_2_out>;
+				data-lanes = <1 2>;
+			};
+		};
 
-				isp1_in: endpoint@0 {
-					reg = <0>;
-					remote-endpoint = <&csi2dphy2_out>;
-				};
+		port@1 {
+			reg = <1>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			csi2dphy2_out: endpoint@1 {
+				reg = <1>;
+				remote-endpoint = <&isp1_in>;
 			};
 		};
 	};
+};
 
-	fragment@5 {
-		target = <&rkisp>;
+&rkisp_vir1 {
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
 
-		__overlay__ {
-			status = "okay";
+	port {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		isp1_in: endpoint@0 {
+			reg = <0>;
+			remote-endpoint = <&csi2dphy2_out>;
 		};
 	};
+};
 
-	fragment@6 {
-		target = <&rkisp_mmu>;
+&rkisp {
+	status = "okay";
+};
 
-		__overlay__ {
-			status = "okay";
-		};
-	};
+&rkisp_mmu {
+	status = "okay";
+};
 
-	fragment@7 {
-		target = <&rkcif_mmu>;
+&rkcif_mmu {
+	status = "okay";
+};
 
-		__overlay__ {
-			status = "okay";
-		};
-	};
-
-	fragment@8 {
-		target = <&rkcif>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
+&rkcif {
+	status = "okay";
 };

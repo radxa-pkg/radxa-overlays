@@ -8,16 +8,11 @@
 		category = "misc";
 		description = "Enable PCIe.";
 	};
+};
 
-
-	fragment@0 {
-		target = <&pcie2x1>;
-
-		__overlay__ {
-			status = "okay";
-			reset-gpios = <&gpio0 0x0a 0x00>;
-			vpcie3v3-supply = <&vcc3v3_sys>;
-			pinctrl-0 = <&pcie20m2_pins>;
-		};
-	};
+&pcie2x1 {
+	status = "okay";
+	reset-gpios = <&gpio0 0x0a 0x00>;
+	vpcie3v3-supply = <&vcc3v3_sys>;
+	pinctrl-0 = <&pcie20m2_pins>;
 };

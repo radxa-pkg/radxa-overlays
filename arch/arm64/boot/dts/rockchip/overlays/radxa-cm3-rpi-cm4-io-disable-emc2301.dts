@@ -9,12 +9,8 @@
 		exclusive = "emc2301";
 		description = "Disable EMC2301 PWM fan controller.";
 	};
+};
 
-	fragment@ {
-		target = <&emc2301>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&emc2301 {
+	status = "disabled";
 };

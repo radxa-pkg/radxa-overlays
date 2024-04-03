@@ -12,37 +12,22 @@
 		exclusive = "sata1";
 		description = "Enable SATA1.\nWhen SATA1 is enabled, USB3.0 cannot be enabled on the same pin mux.\nRadxa CM3 IO  <= v1.3 contains incorrect label of this port.";
 	};
+};
 
-	fragment@0 {
-		target = <&vcc_ch482d1>;
-		__overlay__ {
-			enable-active-high;
-			gpio = <&gpio3 RK_PC7 GPIO_ACTIVE_HIGH>;
-			status = "okay";
-		};
-	};
+&vcc_ch482d1 {
+	enable-active-high;
+	gpio = <&gpio3 RK_PC7 GPIO_ACTIVE_HIGH>;
+	status = "okay";
+};
 
-	fragment@1 {
-		target = <&sata1>;
-		__overlay__ {
-			status = "okay";
-		};
-	};
+&sata1 {
+	status = "okay";
+};
 
-	fragment@2 {
-		target = <&usbhost_dwc3>;
+&usbhost_dwc3 {
+	status = "disabled";
+};
 
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@3 {
-		target = <&usbhost30>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
+&usbhost30 {
+	status = "disabled";
 };
