@@ -7,7 +7,7 @@
 		compatible = "unknown";
 		category = "misc";
 		exclusive = "GPIO3_B3", "GPIO3_B2";
-		description = "Enable UART7-M0.\nOn Radxa ROCK 2A this is RX pin 27 & TX pin 28.";
+		description = "Enable UART7-M0.";
 	};
 };
 

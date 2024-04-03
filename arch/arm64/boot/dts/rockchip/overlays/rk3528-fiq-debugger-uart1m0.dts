@@ -7,7 +7,7 @@
 		compatible = "unknown";
 		category = "misc";
 		exclusive = "GPIO4_A7", "GPIO4_A6";
-		description = "Enable FIQ Debugger on UART1-M0.\nOn Radxa 2A this is RX pin 40 and TX pin 36.";
+		description = "Enable FIQ Debugger on UART1-M0.";
 	};
 };
 
