@@ -68,7 +68,7 @@ jobs:
               make build-dtbo -j$(nproc) KERNELRELEASE=5.10.110-11-rockchip CONFIG_ARCH_MESON=n CONFIG_CPU_RK3399=rockchip CONFIG_CPU_RK3568=rockchip CONFIG_CPU_RK3588=rockchip
               ;;
             linux-rk356x)
-              make build-dtbo -j$(nproc) KERNELRELEASE=5.10.160-7-rk356x CONFIG_ARCH_MESON=n CONFIG_CPU_RK3399=rockchip CONFIG_CPU_RK3568=rockchip CONFIG_CPU_RK3588=rockchip
+              make build-dtbo -j$(nproc) KERNELRELEASE=5.10.160-7-rk356x CONFIG_ARCH_MESON=n CONFIG_CPU_RK3399=rockchip CONFIG_CPU_RK3528=rockchip CONFIG_CPU_RK3568=rockchip CONFIG_CPU_RK3588=rockchip
               ;;
           esac
       - name: Upload artifacts
