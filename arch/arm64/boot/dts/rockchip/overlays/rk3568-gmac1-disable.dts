@@ -9,28 +9,16 @@
 		exclusive = "gmac1";
 		description = "Disable onboard Ethernet.\nHas no affect on external Ethernet (for example USB adapter).";
 	};
+};
 
-	fragment@0 {
-		target = <&gmac1>;
+&gmac1 {
+	status = "disabled";
+};
 
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&mdio1 {
+	status = "disabled";
+};
 
-	fragment@1 {
-		target = <&mdio1>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@2 {
-		target = <&rgmii_phy1>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&rgmii_phy1 {
+	status = "disabled";
 };

@@ -9,14 +9,10 @@
 		exclusive = "GPIO4_c0";
 		description = "Enable PWM11-M1.\nOn Radxa CM3 IO this is pin 32\nOn Radxa CM3 RPI CM4 IO this is pin 32.\nOn Radxa CM3S IO this is pin 33.";
 	};
+};
 
-	fragment@0 {
-		target = <&pwm11>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "active";
-			pinctrl-0 = <&pwm11m1_pins>;
-		};
-	};
+&pwm11 {
+	status = "okay";
+	pinctrl-names = "active";
+	pinctrl-0 = <&pwm11m1_pins>;
 };

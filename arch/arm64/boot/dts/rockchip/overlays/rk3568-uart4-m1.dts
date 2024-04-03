@@ -9,14 +9,10 @@
 		exclusive = "GPIO3_B1", "GPIO3_B2";
 		description = "Enable UART4-M1.\nOn Radxa ROCK 3C this is RX pin 16 & TX pin 18.\nOn Radxa ZERO 3 this is RX pin 16 & TX pin 18.";
 	};
+};
 
-	fragment@0 {
-		target = <&uart4>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&uart4m1_xfer>;
-		};
-	};
+&uart4 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart4m1_xfer>;
 };

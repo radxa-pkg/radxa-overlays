@@ -9,23 +9,14 @@
 		exclusive = "GPIO0_D1", "GPIO0_D0";
 		description = "Enable UART2-M0.";
 	};
+};
 
-	fragment@0 {
-		target = <&uart2>;
+&uart2 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart2m0_xfer>;
+};
 
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&uart2m0_xfer>;
-		};
-	};
-
-	fragment@1 {
-		target = <&fiq_debugger>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
+&fiq_debugger {
+	status = "disabled";
 };

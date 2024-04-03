@@ -9,14 +9,10 @@
 		exclusive = "GPIO3_C4", "GPIO3_C5";
 		description = "Enable UART7-M1.\nOn Radxa ROCK 3A <= v1.2 this is TX pin 11 & RX pin 13.\nOn Radxa ROCK 3A >= v1.3 this is TX pin 11 & RX pin 13.\nOn Radxa ROCK 3B this is TX pin 11 & RX pin 13.";
 	};
+};
 
-	fragment@0 {
-		target = <&uart7>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&uart7m1_xfer>;
-		};
-	};
+&uart7 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart7m1_xfer>;
 };

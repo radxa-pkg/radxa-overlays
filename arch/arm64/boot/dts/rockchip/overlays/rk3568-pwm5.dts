@@ -9,14 +9,10 @@
 		exclusive = "GPIO0_C4";
 		description = "Enable PWM5.\nOn Radxa CM3S IO this is on pin 16.\nOn Radxa E23 this is on pin 13.";
 	};
+};
 
-	fragment@0 {
-		target = <&pwm5>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "active";
-			pinctrl-0 = <&pwm5_pins>;
-		};
-	};
+&pwm5 {
+	status = "okay";
+	pinctrl-names = "active";
+	pinctrl-0 = <&pwm5_pins>;
 };
