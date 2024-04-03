@@ -14,12 +14,6 @@
 		exclusive = "GPIO4_B2", "GPIO4_B3", "GPIO4_B4", "GPIO4_C1", "GPIO4_C6";
 		description = "Enable MCP2515 on SPI0 CS1 with 12 MHz Crystal Oscillator.\nINT=15";
 	};
-
-	can_mcp2515_osc: can-mcp2515-osc {
-		compatible = "fixed-clock";
-		clock-frequency = <12000000>;
-		#clock-cells = <0>;
-	};
 };
 
 &pinctrl {
@@ -27,6 +21,14 @@
 		mcp2515_int_pin: mcp2515_int_pin {
 			rockchip,pins = <4 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
 		};
+	};
+};
+
+&{/} {
+	can_mcp2515_osc: can-mcp2515-osc {
+		compatible = "fixed-clock";
+		clock-frequency = <12000000>;
+		#clock-cells = <0>;
 	};
 };
 
