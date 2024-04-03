@@ -4,6 +4,7 @@ KSRC ?= /lib/modules/$(KERNELRELEASE)/build
 CONFIG_CLK_RK3308 ?= rockchip
 CONFIG_CLK_RK3328 ?= rockchip
 CONFIG_CLK_RK3399 ?= rockchip
+CONFIG_CLK_RK3528 ?= rockchip
 CONFIG_CLK_RK3568 ?= rockchip
 CONFIG_CLK_RK3588 ?= rockchip
 CONFIG_ARCH_MESON ?= amlogic
