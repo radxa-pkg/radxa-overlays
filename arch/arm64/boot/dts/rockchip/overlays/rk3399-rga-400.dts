@@ -10,13 +10,9 @@
 		category = "misc";
 		description = "Set RGA frequency to 400 MHz.\nThis is usually not needed.\nYou can check current clock speed with:\nsudo grep rga /sys/kernel/debug/clk/clk_summary";
 	};
+};
 
-	fragment@0 {
-		target = <&rga>;
-
-		__overlay__ {
-			assigned-clocks = <&cru ACLK_RGA>, <&cru SCLK_RGA_CORE>;
-			assigned-clock-rates = <400000000>, <400000000>;
-		};
-	};
+&rga {
+	assigned-clocks = <&cru ACLK_RGA>, <&cru SCLK_RGA_CORE>;
+	assigned-clock-rates = <400000000>, <400000000>;
 };

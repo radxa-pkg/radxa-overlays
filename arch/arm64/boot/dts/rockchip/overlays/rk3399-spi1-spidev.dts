@@ -9,22 +9,18 @@
 		exclusive = "GPIO1_B0", "GPIO1_A7", "GPIO1_B1", "GPIO1_B2";
 		description = "Enable spidev on SPI1 on pin 19, 21, 23 & 24.";
 	};
+};
 
-	fragment@0 {
-		target = <&spi1>;
+&spi1 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&spi1_clk &spi1_cs0 &spi1_rx &spi1_tx>;
+	#address-cells = <1>;
+	#size-cells = <0>;
 
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&spi1_clk &spi1_cs0 &spi1_rx &spi1_tx>;
-			#address-cells = <1>;
-			#size-cells = <0>;
-
-			spidev@0 {
-				compatible = "rockchip,spidev";
-				reg = <0>;
-				spi-max-frequency = <50000000>;
-			};
-		};
+	spidev@0 {
+		compatible = "rockchip,spidev";
+		reg = <0>;
+		spi-max-frequency = <50000000>;
 	};
 };

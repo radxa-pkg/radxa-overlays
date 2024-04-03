@@ -9,15 +9,11 @@
 		exclusive = "cluster1_opp-opp09";
 		description = "Allow Cortex-A72 cluster to run at 2.2 GHz.\nWarning: Overclocking may cause hardware damage and system instability.\nYou warrenty will be voided.";
 	};
+};
 
-	fragment@0 {
-		target = <&cluster1_opp>;
-
-		__overlay__ {
-			opp09 {
-				opp-hz = /bits/ 64 <2200000000>;
-				opp-microvolt = <1250000>;
-			};
-		};
+&cluster1_opp {
+	opp09 {
+		opp-hz = /bits/ 64 <2200000000>;
+		opp-microvolt = <1250000>;
 	};
 };
