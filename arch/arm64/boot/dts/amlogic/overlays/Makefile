@@ -35,14 +35,13 @@ dtb-$(CONFIG_ARCH_MESON) += \
 	meson-g12-usb-otg.dtbo \
 	meson-g12-usb-peripheral.dtbo \
 	meson-g12-w1-gpioao-3.dtbo \
+	meson-g12-watchdog.dtbo \
 	radxa-zero-enable-vddio_c.dtbo \
 	radxa-zero-led-8-off.dtbo \
 	radxa-zero-led-10-off.dtbo \
 	radxa-zero-uart-ao-b-89.dtbo \
 	radxa-zero2-enable-vddio_c.dtbo \
 	radxa-zero2-radxa-25w-poe.dtbo
-
-dtb-y += amlogic-g12-watchdog.dtbo
 
 dtbotxt-$(CONFIG_ARCH_MESON) += \
 	README.overlays
