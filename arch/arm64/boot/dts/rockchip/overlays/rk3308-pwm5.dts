@@ -9,22 +9,14 @@
 		exclusive = "GPIO0_C1", "uart3";
 		description = "Enable PWM5.\nOn ROCK S0 this is pin 15.";
 	};
+};
 
-	fragment@0 {
-		target = <&pwm5>;
+&pwm5 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&pwm5_pin>;
+};
 
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&pwm5_pin>;
-		};
-	};
-
-	fragment@1 {
-		target = <&uart3>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&uart3 {
+	status = "disabled";
 };

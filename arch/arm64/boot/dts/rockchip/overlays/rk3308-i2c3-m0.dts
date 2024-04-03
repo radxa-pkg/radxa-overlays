@@ -11,40 +11,24 @@
 		exclusive = "GPIO0_B7", "GPIO0_C0", "pwm2", "pwm3";
 		description = "Enable I2C3-M0.\nOn Radxa ROCK PI S this is SDA pin 11 & SCL pin 13.\nOn Radxa ROCK S0 this is SDA pin 27 & SCL pin 28.";
     };
+};
 
-	fragment@0 {
-		target = <&i2c3>;
+&i2c3 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c3m0_xfer>;
+};
 
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&i2c3m0_xfer>;
-		};
-	};
+&pwm2 {
+	status = "disabled";
+};
 
-	fragment@1 {
-		target = <&pwm2>;
+&pwm3 {
+	status = "disabled";
+};
 
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@2 {
-		target = <&pwm3>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@3 {
-		target = <&i2c3m0_xfer>;
-
-		__overlay__ {
-			rockchip,pins =
-				<0 RK_PB7 2 &pcfg_pull_up_12ma>,
-				<0 RK_PC0 2 &pcfg_pull_up_12ma>;
-		};
-	};
+&i2c3m0_xfer {
+	rockchip,pins =
+		<0 RK_PB7 2 &pcfg_pull_up_12ma>,
+		<0 RK_PC0 2 &pcfg_pull_up_12ma>;
 };

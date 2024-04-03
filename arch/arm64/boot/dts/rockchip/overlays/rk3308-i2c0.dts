@@ -9,30 +9,18 @@
 		exclusive = "GPIO1_D0", "GPIO1_D1", "spi2", "uart1";
 		description = "Enable I2C0.\nOn Radxa ROCK PI S this is SDA pin 23 & SCL pin 24.\nOn ROCK S0 this is SDA pin 23 & SCL pin 24.";
     };
+};
 
-	fragment@0 {
-		target = <&i2c0>;
+&i2c0 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c0_xfer>;
+};
 
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&i2c0_xfer>;
-		};
-	};
+&spi2 {
+	status = "disabled";
+};
 
-	fragment@1 {
-		target = <&spi2>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@2 {
-		target = <&uart1>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&uart1 {
+	status = "disabled";
 };

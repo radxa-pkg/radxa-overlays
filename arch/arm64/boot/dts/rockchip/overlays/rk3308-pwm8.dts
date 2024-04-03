@@ -9,14 +9,10 @@
 		exclusive = "GPIO0_C1";
 		description = "Enable PWM8.\nOn ROCK S0 this is pin 31.";
 	};
+};
 
-	fragment@0 {
-		target = <&pwm8>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&pwm8_pin>;
-		};
-	};
+&pwm8 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&pwm8_pin>;
 };

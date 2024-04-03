@@ -11,31 +11,19 @@
 		exclusive = "GPIO0_C0", "i2c3";
 		description = "Enable PWM3.\nOn Radxa ROCK PI S this is pin 13.\nOn Radxa ROCK S this is pin 28.";
 	};
+};
 
-	fragment@0 {
-		target = <&pwm3>;
+&pwm3 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&pwm3_pin>;
+};
 
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&pwm3_pin>;
-		};
-	};
+&pwm3_pin {
+	rockchip,pins =
+		<0 RK_PC0 1 &pcfg_pull_up_12ma>;
+};
 
-	fragment@1 {
-		target = <&pwm3_pin>;
-
-		__overlay__ {
-			rockchip,pins =
-				<0 RK_PC0 1 &pcfg_pull_up_12ma>;
-		};
-	};
-
-	fragment@2 {
-		target = <&i2c3>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&i2c3 {
+	status = "disabled";
 };

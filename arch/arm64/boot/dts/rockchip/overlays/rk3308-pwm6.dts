@@ -9,22 +9,14 @@
 		exclusive = "GPIO0_C2", "uart3";
 		description = "Enable PWM6.\nOn ROCK S0 this is pin 33.";
 	};
+};
 
-	fragment@0 {
-		target = <&pwm6>;
+&pwm6 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&pwm6_pin>;
+};
 
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&pwm6_pin>;
-		};
-	};
-
-	fragment@1 {
-		target = <&uart3>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&uart3 {
+	status = "disabled";
 };

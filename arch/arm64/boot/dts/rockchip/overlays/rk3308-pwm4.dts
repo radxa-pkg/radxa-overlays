@@ -9,14 +9,10 @@
 		exclusive = "GPIO0_A1";
 		description = "Enable PWM4.\nOn ROCK S0 this is pin 16.";
 	};
+};
 
-	fragment@0 {
-		target = <&pwm4>;
-
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&pwm4_pin>;
-		};
-	};
+&pwm4 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&pwm4_pin>;
 };
