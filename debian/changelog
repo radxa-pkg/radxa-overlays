@@ -1,3 +1,10 @@
+radxa-overlays (0.1.2) jammy; urgency=medium
+
+  [ ZHANG Yuntian ]
+  * fix: trigger rebuild_overlays after installing
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Sun, 07 Apr 2024 12:03:40 +0000
+
 radxa-overlays (0.1.1) jammy; urgency=medium
 
   [ ZHANG Yuntian ]
