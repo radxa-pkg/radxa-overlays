@@ -1,3 +1,20 @@
+radxa-overlays (0.1.1) jammy; urgency=medium
+
+  [ ZHANG Yuntian ]
+  * docs: add code style requirement and update CI badges
+  * fix: correct meson g12 watchdog overlay naming
+  * fix: only build rockchip overlays when rockchip arch is defined
+  * fix: add missing cm3-rpi-cm4-io compatible
+  * fix: add more diagnostic messages
+
+  [ CodeChenL ]
+  * refactor: all compute module overlays are replaced with reference syntax
+  * refactor: all rk3308 overlays are replaced with reference syntax
+  * refactor: all rk3328 overlays are replaced with reference syntax
+  * refactor: all rk3399 overlays are replaced with reference syntax
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Sun, 07 Apr 2024 09:25:40 +0000
+
 radxa-overlays (0.1.0) jammy; urgency=medium  
 
   [ "Radxa Computer Co., Ltd" ]
