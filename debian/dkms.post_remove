@@ -11,10 +11,10 @@ do
     vendor="$(basename $vendor)"
     if [[ "$(readlink "$install_dir/$vendor/overlays")" == "$base_dir/arm64/boot/dts/$vendor/overlays" ]]
     then
-        echo "Remove $install_dir/$vendor/overlays"
+        echo "Removing '$install_dir/$vendor/overlays'..."
         rm "$install_dir/$vendor/overlays"
     fi
 done
 
-echo "Remove $base_dir"
+echo "Removing '$base_dir'..."
 rm -rf "$base_dir"

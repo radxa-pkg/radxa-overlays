@@ -9,6 +9,7 @@ base_dir="${PWD%/build*}/$kernelver/$arch/module"
 for vendor in "$PWD/arch/arm64/boot/dts"/*
 do
     vendor="$(basename $vendor)"
+    echo "Saving overlays for '$vendor'..."
     mkdir -p "$base_dir/arch/arm64/boot/dts/$vendor/overlays"
     find "$PWD/arch/arm64/boot/dts/$vendor/overlays" -mindepth 1 -name *.dtbo -exec cp {} "$base_dir/arch/arm64/boot/dts/$vendor/overlays" \;
 done

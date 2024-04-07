@@ -12,14 +12,16 @@ do
     if [[ ! -L "$install_dir/$vendor" ]] && [[ ! -d "$install_dir/$vendor" ]]
     then
         # Vendor not supported by the kernel
+        echo "Kernel '$kernelver' does not support '$vendor'. Skip."
         continue
     elif [[ -e "$install_dir/$vendor/overlays" ]] && [[ ! -L "$install_dir/$vendor/overlays" ]]
     then
         # The kernel already comes with overlays.
+        echo "Kernel '$kernelver' is bundled with overlays. Skip."
         continue
-    elif [[ ! "$(readlink "$install_dir/$vendor/overlays")" == "$base_dir/$vendor/overlays" ]]
+    elif [[ "$(readlink "$install_dir/$vendor/overlays")" != "$base_dir/$vendor/overlays" ]]
     then
-        echo "Link $base_dir/$vendor/overlays to $install_dir/$vendor/overlays"
+        echo "Linking '$base_dir/$vendor/overlays' to '$install_dir/$vendor/overlays'..."
         rm -f $install_dir/$vendor/overlays
         ln -s "$base_dir/$vendor/overlays" "$install_dir/$vendor/overlays"
     fi
