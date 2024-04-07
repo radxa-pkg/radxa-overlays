@@ -26,3 +26,7 @@ do
         ln -s "$base_dir/$vendor/overlays" "$install_dir/$vendor/overlays"
     fi
 done
+
+if command -v rsetup &>/dev/null; then
+    rsetup rebuild_overlays "$kernelver"
+fi

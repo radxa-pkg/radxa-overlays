@@ -14,5 +14,6 @@ Architecture: all
 Section: misc
 Priority: optional
 Depends: ${misc:Depends},
+Recommends: rsetup (>= 0.4.3),
 Description: dkms sources for radxa/overlay
  This package provides the dkms source code for radxa/overlay.
