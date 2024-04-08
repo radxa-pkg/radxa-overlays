@@ -105,6 +105,7 @@ dtb-$(CONFIG_CPU_RK3399) += \
 	rock-4-radxa-display-10hd.dtbo
 
 dtb-$(CONFIG_CLK_RK3528) += \
+	rk3528-enable-tve.dtbo \
 	rk3528-dwc3-otg.dtbo \
 	rk3528-fiq-debugger-uart1m0.dtbo \
 	rk3528-fiq-debugger-uart2m1.dtbo \
