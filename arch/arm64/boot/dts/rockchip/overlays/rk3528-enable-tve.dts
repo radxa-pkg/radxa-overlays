@@ -1,0 +1,36 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable analog video output";
+		compatible = "radxa,rock-2a";
+		category = "misc";
+		exclusive = "tve";
+		description = "Enable analog video output.\nCurrently this overlay will disable HDMI output due to display artifacts.";
+	};
+};
+
+&hdmi {
+	status = "disabled";
+};
+
+&hdmi_in_vp0 {
+	status = "disabled";
+};
+
+&hdmi_sound {
+	status = "disabled";
+};
+
+&tve {
+	status = "okay";
+};
+
+&tve_in_vp1 {
+	status = "okay";
+};
+
+&sai3 {
+	status = "disabled";
+};
