@@ -128,7 +128,8 @@ dtb-$(CONFIG_CLK_RK3528) += \
 	rk3528-uart3-m0.dtbo \
 	rk3528-uart3-m1.dtbo \
 	rk3528-uart7-m0.dtbo \
-	rock-2a-eeprom.dtbo
+	rock-2a-eeprom.dtbo \
+	rock-2a-enable-pcie.dtbo
 
 dtb-$(CONFIG_CLK_RK3568) += \
 	audioinjector-isolated-soundcard.dtbo \
