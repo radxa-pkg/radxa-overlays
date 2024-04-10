@@ -1,0 +1,17 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Set OTG port to Peripheral mode";
+		compatible = "radxa,rock-2a";
+		category = "misc";
+		exclusive = "usbdrd_dwc3-dr_mode";
+		description = "Set OTG port to Peripheral mode.\nUse this when you want to connect to another computer.";
+	};
+};
+
+&usbdrd_dwc3 {
+	status = "okay";
+	dr_mode = "peripheral";
+};
