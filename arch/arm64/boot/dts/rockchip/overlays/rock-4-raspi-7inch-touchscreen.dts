@@ -9,96 +9,68 @@
 		exclusive = "dsi1";
 		description = "Enable Raspberry Pi 7-inch Touchscreen";
 	};
+};
 
-	fragment@0 {
-		target = <&dsi>;
+&dsi {
+	dsi1-only;
+	status = "okay";
+};
 
-		__overlay__ {
-			dsi1-only;
-			status = "okay";
+&dsi1 {
+	rockchip,dsi-dsi0 = <&dsi>;
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
+	rockchip,lane-rate = <696>;
+
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		port@1 {
+			reg = <1>;
+			dsi_out_panel: endpoint {
+				remote-endpoint = <&panel_in_dsi>;
+			};
 		};
 	};
+};
 
-	fragment@1 {
-		target = <&dsi1>;
+&i2c1 {
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
 
-		__overlay__ {
-			rockchip,dsi-dsi0 = <&dsi>;
-			status = "okay";
-			#address-cells = <1>;
-			#size-cells = <0>;
-			rockchip,lane-rate = <696>;
+	raspits_panel: raspits-panel@45 {
+		compatible = "raspberrypi,7inch-touchscreen-panel";
+		reg = <0x45>;
 
-			ports {
-				#address-cells = <1>;
-				#size-cells = <0>;
-
-				port@1 {
-					reg = <1>;
-					dsi_out_panel: endpoint {
-						remote-endpoint = <&panel_in_dsi>;
-					};
-				};
+		port {
+			panel_in_dsi: endpoint {
+				remote-endpoint = <&dsi_out_panel>;
 			};
 		};
 	};
 
-	fragment@2 {
-		target = <&i2c1>;
-
-		__overlay__ {
-			status = "okay";
-			#address-cells = <1>;
-			#size-cells = <0>;
-
-			raspits_panel: raspits-panel@45 {
-				compatible = "raspberrypi,7inch-touchscreen-panel";
-				reg = <0x45>;
-
-				port {
-					panel_in_dsi: endpoint {
-						remote-endpoint = <&dsi_out_panel>;
-					};
-				};
-			};
-
-			raspits_touch_ft5426: raspits-touch-ft5426@38 {
-				compatible = "raspits_ft5426";
-				reg = <0x38>;
-			};
-		};
+	raspits_touch_ft5426: raspits-touch-ft5426@38 {
+		compatible = "raspits_ft5426";
+		reg = <0x38>;
 	};
+};
 
-	fragment@3 {
-		target = <&vopl_out_dsi1>;
+&vopl_out_dsi1 {
+	status = "okay";
+};
 
-		__overlay__ {
-			status = "okay";
-		};
-	};
+&dsi1_in_vopb {
+	status = "disabled";
+};
 
-	fragment@4 {
-		target = <&dsi1_in_vopb>;
+&dsi1_in_vopl {
+	status = "okay";
+};
 
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@5 {
-		target = <&dsi1_in_vopl>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
-
-	fragment@6 {
-		target = <&route_dsi>;
-
-		__overlay__ {
-			status = "disabled";
-			connect = <&vopl_out_dsi>;
-		};
-	};
+&route_dsi {
+	status = "disabled";
+	connect = <&vopl_out_dsi>;
 };

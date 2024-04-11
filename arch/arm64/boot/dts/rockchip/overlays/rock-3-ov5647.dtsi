@@ -1,89 +1,43 @@
-/ {
-	fragment@0 {
-		target = <&ext_cam_clk>;
+&ext_cam_clk {
+	status = "okay";
+};
 
-		__overlay__ {
-			status = "okay";
-		};
-	};
+&i2c5 {
+	status = "okay";
+};
 
-	fragment@1 {
-		target = <&i2c5>;
+&ov5647 {
+	status = "okay";
+};
 
-		__overlay__ {
-			status = "okay";
-		};
-	};
+&csi2_dphy_hw {
+	status = "okay";
+};
 
-	fragment@2 {
-		target = <&ov5647>;
+&csi2_dphy0 {
+	status = "okay";
+};
 
-		__overlay__ {
-			status = "okay";
-		};
-	};
+&rkisp_vir0 {
+	status = "okay";
+};
 
-	fragment@3 {
-		target = <&csi2_dphy_hw>;
+&rkisp{
+	status = "okay";
+};
 
-		__overlay__ {
-			status = "okay";
-		};
-	};
+&rkisp_mmu {
+	status = "okay";
+};
 
-	fragment@4 {
-		target = <&csi2_dphy0>;
+&rkcif_mmu {
+	status = "okay";
+};
 
-		__overlay__ {
-			status = "okay";
-		};
-	};
+&rkcif {
+	status = "okay";
+};
 
-	fragment@5 {
-		target = <&rkisp_vir0>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
-
-	fragment@6 {
-		target = <&rkisp>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
-
-	fragment@7 {
-		target = <&rkisp_mmu>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
-
-	fragment@8 {
-		target = <&rkcif_mmu>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
-
-	fragment@9 {
-		target = <&rkcif>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
-
-	fragment@10 {
-		target = <&vcc_camera>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
+&vcc_camera {
+	status = "okay";
 };

@@ -11,12 +11,8 @@
 		exclusive = "mipi_dphy_rx0";
 		description = "Enable Raspberry Pi Camera v1.3.";
 	};
+};
 
-	fragment@6 {
-		target = <&camera_ov5647>;
-
-		__overlay__ {
-			rockchip,camera-module-name = "rpi-camera-v1p3";
-		};
-	};
+&camera_ov5647 {
+	rockchip,camera-module-name = "rpi-camera-v1p3";
 };

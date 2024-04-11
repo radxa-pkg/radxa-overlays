@@ -11,12 +11,8 @@
 		exclusive = "mipi_dphy_rx0";
 		description = "Enable OKdo 5MP Camera.";
 	};
+};
 
-	fragment@6 {
-		target = <&camera_ov5647>;
-
-		__overlay__ {
-			rockchip,camera-module-name = "OKDO-5MP";
-		};
-	};
+&camera_ov5647 {
+	rockchip,camera-module-name = "OKDO-5MP";
 };

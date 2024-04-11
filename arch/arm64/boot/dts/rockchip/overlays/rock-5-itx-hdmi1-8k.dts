@@ -10,63 +10,34 @@
 		exclusive = "dp0", "vp0", "hdmi1";
 		description = "Enable 8K output on HDMI1.\nThis will disable DP0.";
 	};
+};
 
-	fragment@0 {
-		target = <&route_hdmi1>;
+&route_hdmi1 {
+	connect = <&vp1_out_hdmi1>;
+	status = "okay";
+};
 
-		__overlay__ {
-			connect = <&vp1_out_hdmi1>;
-			status = "okay";
-		};
-	};
+&hdmi1_in_vp0 {
+	status = "okay";
+};
 
-	fragment@1 {
-		target = <&hdmi1_in_vp0>;
+&hdmi1_in_vp1 {
+	status = "disabled";
+};
 
-		__overlay__ {
-			status = "okay";
-		};
-	};
+&route_dp0 {
+	status = "disabled";
+};
 
-	fragment@2 {
-		target = <&hdmi1_in_vp1>;
+&dp0 {
+	status = "disabled";
+};
 
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&dp0_in_vp0 {
+	status = "disabled";
+};
 
-	fragment@3 {
-		target = <&route_dp0>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@4 {
-		target = <&dp0>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-
-	fragment@5 {
-		target = <&dp0_in_vp0>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@6 {
-		target = <&vop>;
-
-		__overlay__ {
-			assigned-clocks = <&cru ACLK_VOP>;
-			assigned-clock-rates = <800000000>;
-		};
-	};
+&vop {
+	assigned-clocks = <&cru ACLK_VOP>;
+	assigned-clock-rates = <800000000>;
 };

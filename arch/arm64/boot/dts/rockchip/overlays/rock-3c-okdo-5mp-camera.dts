@@ -10,12 +10,8 @@
 		category = "camera";
 		description = "Enable OKdo 5MP Camera.";
 	};
+};
 
-	fragment@10 {
-		target = <&ov5647>;
-
-		__overlay__ {
-			rockchip,camera-module-name = "OKDO-5MP";
-		};
-	};
+&ov5647 {
+	rockchip,camera-module-name = "OKDO-5MP";
 };

@@ -9,28 +9,16 @@
 		category = "misc";
 		description = "Enable SATA1.\nWhen SATA1 is enabled, USB3.0 cannot be enabled on the same port.";
 	};
+};
 
-	fragment@0 {
-		target = <&usbhost_dwc3>;
+&usbhost_dwc3 {
+	status = "disabled";
+};
 
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&usbhost30 {
+	status = "disabled";
+};
 
-	fragment@1 {
-		target = <&usbhost30>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@2 {
-		target = <&sata1>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
+&sata1 {
+	status = "okay";
 };
