@@ -15,24 +15,22 @@
 };
 
 &{/} {
-	ext_cam_clk_imx219: ext-cam-clk-imx219 {
+	ext_cam_clk_imx219_2: ext-cam-clk-imx219-2 {
 		status = "okay";
 		compatible = "fixed-clock";
 		clock-frequency = <24000000>;
-		clock-output-names = "ext_cam_clk_imx219";
+		clock-output-names = "ext_cam_clk_imx219_2";
 		#clock-cells = <0>;
 	};
 
-	camera_pwdn_gpio: camera-pwdn-gpio {
+	imx219_2_pwdn_gpio: imx219-2-pwdn-gpio {
 		status = "okay";
 		compatible = "regulator-fixed";
-		regulator-name = "camera_pwdn_gpio";
+		regulator-name = "imx219_2_pwdn_gpio";
 		regulator-always-on;
 		regulator-boot-on;
 		enable-active-high;
-		pwdn-gpios = <&gpio4 RK_PC5 GPIO_ACTIVE_HIGH>;
-		pinctrl-names = "default";
-		pinctrl-0 = <&cam_pwdn_gpio>;
+		gpio = <&gpio4 RK_PC5 GPIO_ACTIVE_HIGH>;
 	};
 };
 
@@ -43,24 +41,19 @@
 
 	#address-cells = <1>;
 	#size-cells = <0>;
-
-	imx219: imx219@10 {
+	imx219_2: imx219-2@10 {
 		status = "okay";
 		compatible = "sony,imx219";
 		reg = <0x10>;
-
-		clocks = <&ext_cam_clk_imx219>;
-		clock-names = "ext_cam_clk_imx219";
-
-		rotation = <180>;
-
+		clocks = <&ext_cam_clk_imx219_2>;
+		clock-names = "xvclk";
 		rockchip,camera-module-index = <1>;
-		rockchip,camera-module-facing = "front";
+		rockchip,camera-module-facing = "back";
 		rockchip,camera-module-name = "rpi-camera-v2";
 		rockchip,camera-module-lens-name = "default";
 
 		port {
-			imx219_out: endpoint {
+			imx219_2_out: endpoint {
 				remote-endpoint = <&csi2dphy2_uCAM2>;
 				data-lanes = <1 2>;
 			};
@@ -74,11 +67,9 @@
 
 &csi2_dphy2 {
 	status = "okay";
-
 	ports {
 		#address-cells = <1>;
 		#size-cells = <0>;
-
 		port@0 {
 			reg = <0>;
 			#address-cells = <1>;
@@ -86,7 +77,7 @@
 
 			csi2dphy2_uCAM2: endpoint@1 {
 				reg = <1>;
-				remote-endpoint = <&imx219_out>;
+				remote-endpoint = <&imx219_2_out>;
 				data-lanes = <1 2>;
 			};
 		};
@@ -98,22 +89,73 @@
 
 			csi2dphy2_out: endpoint@1 {
 				reg = <1>;
-				remote-endpoint = <&isp0_in>;
+				remote-endpoint = <&mipi_csi2_input>;
 			};
 		};
 	};
 };
 
-&rkisp_vir0 {
+&mipi_csi2 {
+	status = "okay";
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		port@0 {
+			reg = <0>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			mipi_csi2_input: endpoint@1 {
+				reg = <1>;
+				remote-endpoint = <&csi2dphy2_out>;
+				data-lanes = <1 2>;
+			};
+		};
+
+		port@1 {
+			reg = <1>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+			mipi_csi2_output: endpoint@0 {
+				reg = <0>;
+				remote-endpoint = <&cif_mipi_in>;
+				data-lanes = <1 2>;
+			};
+		};
+	};
+};
+
+&rkcif_mipi_lvds {
+	status = "okay";
+	port {
+		cif_mipi_in: endpoint {
+			remote-endpoint = <&mipi_csi2_output>;
+			data-lanes = <1 2>;
+		};
+	};
+};
+
+&rkcif_mipi_lvds_sditf {
+	status = "okay";
+	port {
+		mipi_lvds_sditf: endpoint {
+			remote-endpoint = <&isp1_in>;
+			data-lanes = <1 2>;
+		};
+	};
+};
+
+&rkisp_vir1 {
 	status = "okay";
 
 	port {
 		#address-cells = <1>;
 		#size-cells = <0>;
 
-		isp0_in: endpoint@0 {
+		isp1_in: endpoint@0 {
 			reg = <0>;
-			remote-endpoint = <&csi2dphy2_out>;
+			remote-endpoint = <&mipi_lvds_sditf>;
 		};
 	};
 };
@@ -132,12 +174,4 @@
 
 &rkcif {
 	status = "okay";
-};
-
-&pinctrl {
-	camera {
-		cam_pwdn_gpio: cam-pwdn-gpio {
-			rockchip,pins = <4 RK_PC5 RK_FUNC_GPIO &pcfg_pull_up>;
-		};
-	};
 };
