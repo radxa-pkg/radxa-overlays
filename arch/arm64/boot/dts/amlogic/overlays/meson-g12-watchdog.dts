@@ -9,12 +9,8 @@
 		exclusive = "wdt";
 		description = "Enable Watchdog.";
 	};
+};
 
-	fragment@0 {
-		target = <&watchdog>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
+&watchdog {
+	status = "okay";
 };

@@ -12,15 +12,12 @@
 		exclusive = "GPIOAO_3";
 		description = "Enable 1-Wire on GPIOAO_3.";
 	};
+};
 
-	fragment@0 {
-		target-path = "/";
-		__overlay__ {
-			w1: onewire {
-				compatible = "w1-gpio";
-				gpios = <&gpio_ao GPIOAO_3 GPIO_ACTIVE_HIGH>;
-				status = "okay";
-			};
-		};
+&{/} {
+	w1: onewire {
+		compatible = "w1-gpio";
+		gpios = <&gpio_ao GPIOAO_3 GPIO_ACTIVE_HIGH>;
+		status = "okay";
 	};
 };

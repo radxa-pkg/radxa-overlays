@@ -9,28 +9,16 @@
 		exclusive = "usb";
 		description = "Disable USB.";
 	};
+};
 
-	fragment@0 {
-		target = <&usb>;
+&usb {
+	status = "disabled";
+};
 
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&usb2_phy0 {
+	status = "disabled";
+};
 
-	fragment@1 {
-		target = <&usb2_phy0>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@2 {
-		target = <&usb2_phy0>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&usb2_phy0 {
+	status = "disabled";
 };

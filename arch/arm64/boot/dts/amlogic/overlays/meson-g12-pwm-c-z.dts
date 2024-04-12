@@ -9,15 +9,12 @@
 		exclusive = "pwm_cd", "GPIOZ_1";
 		description = "Enable PWM-C on GPIOZ_1.";
 	};
+};
 
-	fragment@0 {
-		target = <&pwm_cd>;
-		__overlay__ {
-			pinctrl-0 = <&pwm_c_z_pins>;
-			pinctrl-names = "default";
-			clocks = <&xtal>;
-			clock-names = "clkin1";
-			status = "okay";
-		};
-	};
+&pwm_cd {
+	pinctrl-0 = <&pwm_c_z_pins>;
+	pinctrl-names = "default";
+	clocks = <&xtal>;
+	clock-names = "clkin1";
+	status = "okay";
 };

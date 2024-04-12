@@ -9,13 +9,9 @@
 		exclusive = "usb";
 		description = "Set OTG port to Host mode.\nUse this when you want to connect USB devices.";
 	};
+};
 
-	fragment@0 {
-		target = <&usb>;
-
-		__overlay__ {
-			status = "okay";
-			dr_mode = "host";
-		};
-	};
+&usb {
+	status = "okay";
+	dr_mode = "host";
 };

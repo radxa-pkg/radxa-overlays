@@ -13,22 +13,19 @@
 		exclusive = "spicc1", "GPIOH_4", "GPIOH_5", "GPIOH_6", "GPIOH_7";
 		description = "Enable SPI-B on GPIOH_4 - GPIOH_7.";
 	};
+};
 
-	fragment@0 {
-		target = <&spicc1>;
-		__overlay__ {
-			pinctrl-0 = <&spicc1_pins>;
-			pinctrl-names = "default";
-			cs-gpios = <&gpio GPIOH_6 GPIO_ACTIVE_LOW>;
-			#address-cells = <1>;
-			#size-cells = <0>;
-			status = "okay";
-			spidev@0 {
-				compatible = "armbian,spi-dev";
-				status = "okay";
-				spi-max-frequency = <10000000>;
-				reg = <0>;
-			};
-		};
+&spicc1 {
+	pinctrl-0 = <&spicc1_pins>;
+	pinctrl-names = "default";
+	cs-gpios = <&gpio GPIOH_6 GPIO_ACTIVE_LOW>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+	status = "okay";
+	spidev@0 {
+		compatible = "armbian,spi-dev";
+		status = "okay";
+		spi-max-frequency = <10000000>;
+		reg = <0>;
 	};
 };

@@ -9,12 +9,8 @@
 		exclusive = "gpu";
 		description = "Disable GPU.";
 	};
+};
 
-	fragment@0 {
-		target = <&mali>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&mali {
+	status = "disabled";
 };

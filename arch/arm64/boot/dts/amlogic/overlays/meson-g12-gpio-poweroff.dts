@@ -12,16 +12,13 @@
 		exclusive = "GPIOAO_9";
 		description = "Enable gpio-poweroff on GPIOAO_9,";
 	};
+};
 
-	fragment@0 {
-		target-path = "/";
-		__overlay__ {
-			gpio-poweroff {
-				compatible = "gpio-poweroff";
-				gpios = <&gpio_ao GPIOAO_9 GPIO_ACTIVE_LOW>;
-				timeout-ms = <20000>;
-				force;
-			};
-		};
+&{/} {
+	gpio-poweroff {
+		compatible = "gpio-poweroff";
+		gpios = <&gpio_ao GPIOAO_9 GPIO_ACTIVE_LOW>;
+		timeout-ms = <20000>;
+		force;
 	};
 };

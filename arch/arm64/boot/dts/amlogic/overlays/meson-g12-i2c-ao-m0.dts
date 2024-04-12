@@ -9,13 +9,10 @@
 		exclusive = "i2c_AO", "GPIOAO_2", "GPIOAO_3";
 		description = "Enable I2C_AO-M0 on GPIOAO_2 and GPIOAO_3.";
 	};
+};
 
-	fragment@0 {
-		target = <&i2c_AO>;
-		__overlay__ {
-			status = "okay";
-			pinctrl-0 = <&i2c_ao_sck_pins &i2c_ao_sda_pins>;
-			pinctrl-names = "default";
-		};
-	};
+&i2c_AO {
+	status = "okay";
+	pinctrl-0 = <&i2c_ao_sck_pins &i2c_ao_sda_pins>;
+	pinctrl-names = "default";
 };
