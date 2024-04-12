@@ -9,13 +9,9 @@
 		exclusive = "usb";
 		description = "Set OTG port to Peripheral mode.\nUse this when you want to connect to another computer.";
 	};
+};
 
-	fragment@0 {
-		target = <&usb>;
-
-		__overlay__ {
-			status = "okay";
-			dr_mode = "peripheral";
-		};
-	};
+&usb {
+	status = "okay";
+	dr_mode = "peripheral";
 };

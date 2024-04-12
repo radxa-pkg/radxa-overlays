@@ -9,28 +9,16 @@
 		exclusive = "hdmi";
 		description = "Disable HDMI.";
 	};
+};
 
-	fragment@0 {
-		target = <&hdmi_tx>;
+&hdmi_tx {
+	status = "disabled";
+};
 
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&cecb_AO {
+	status = "disabled";
+};
 
-	fragment@1 {
-		target = <&cecb_AO>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@2 {
-		target = <&cec_AO>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&cec_AO {
+	status = "disabled";
 };

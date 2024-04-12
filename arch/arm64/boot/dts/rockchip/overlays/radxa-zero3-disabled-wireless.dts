@@ -12,20 +12,12 @@
 		category = "misc";
 		description = "Disabled Zero 3E Wireless.";
 	};
+};
 
-	fragment@0 {
-		target = <&uart1>;
+&uart1 {
+	status = "disabled";
+};
 
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@1 {
-		target = <&sdmmc1>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&sdmmc1 {
+	status = "disabled";
 };

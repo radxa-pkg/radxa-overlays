@@ -9,15 +9,12 @@
 		exclusive = "pwm_cd", "GPIOX_8";
 		description = "Enable PWM-C on GPIOX_8.";
 	};
+};
 
-	fragment@0 {
-		target = <&pwm_cd>;
-		__overlay__ {
-			status = "okay";
-			pinctrl-0 = <&pwm_c_x8_pins>;
-			pinctrl-names = "default";
-			clocks = <&xtal>;
-			clock-names = "clkin2";
-		};
-	};
+&pwm_cd {
+	status = "okay";
+	pinctrl-0 = <&pwm_c_x8_pins>;
+	pinctrl-names = "default";
+	clocks = <&xtal>;
+	clock-names = "clkin2";
 };
