@@ -10,55 +10,31 @@
 		exclusive = "vp0", "hdmi0";
 		description = "Enable 8K output on HDMI0.\n8K cannot be enabled on HDMI0 and HDMI1 at the same time.";
 	};
+};
 
-	fragment@0 {
-		target = <&route_hdmi1>;
+&route_hdmi1 {
+	connect = <&vp2_out_hdmi1>;
+	status = "okay";
+};
 
-		__overlay__ {
-			connect = <&vp2_out_hdmi1>;
-			status = "okay";
-		};
-	};
+&hdmi1_in_vp1 {
+	status = "disabled";
+};
 
-	fragment@1 {
-		target = <&hdmi1_in_vp1>;
+&hdmi1_in_vp2 {
+	status = "okay";
+};
 
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&route_hdmi0 {
+	connect = <&vp0_out_hdmi0>;
+	status = "okay";
+};
 
-	fragment@2 {
-		target = <&hdmi1_in_vp2>;
+&hdmi0_in_vp0 {
+	status = "okay";
+};
 
-		__overlay__ {
-			status = "okay";
-		};
-	};
-
-	fragment@3 {
-		target = <&route_hdmi0>;
-
-		__overlay__ {
-			connect = <&vp0_out_hdmi0>;
-			status = "okay";
-		};
-	};
-
-	fragment@4 {
-		target = <&hdmi0_in_vp0>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
-
-	fragment@5 {
-		target = <&vop>;
-
-		__overlay__ {
-			assigned-clocks = <&cru ACLK_VOP>;
-			assigned-clock-rates = <800000000>;
-		};
-	};
+&vop {
+	assigned-clocks = <&cru ACLK_VOP>;
+	assigned-clock-rates = <800000000>;
 };

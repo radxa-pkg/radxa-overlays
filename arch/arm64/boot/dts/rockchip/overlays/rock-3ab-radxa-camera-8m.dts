@@ -13,165 +13,129 @@
 		exclusive = "csi2_dphy0";
 		description = "Enable Radxa Camera 8M 219.";
 	};
+};
 
-	fragment@0 {
-		target-path = "/";
+&{/} {
+	ext_cam_clk_imx219: ext-cam-clk-imx219 {
+		status = "okay";
+		compatible = "fixed-clock";
+		clock-frequency = <24000000>;
+		clock-output-names = "ext_cam_clk_imx219";
+		#clock-cells = <0>;
+	};
 
-		__overlay__ {
-			ext_cam_clk_imx219: ext-cam-clk-imx219 {
-				status = "okay";
-				compatible = "fixed-clock";
-				clock-frequency = <24000000>;
-				clock-output-names = "ext_cam_clk_imx219";
-				#clock-cells = <0>;
-			};
+	vcc_camera: vcc-camera {
+		status = "okay";
+		compatible = "regulator-fixed";
+		regulator-name = "vcc_camera";
+		gpio = <&gpio1 RK_PB1 GPIO_ACTIVE_HIGH>;
+		enable-active-high;
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		regulator-always-on;
+		regulator-boot-on;
+	};
 
-			vcc_camera: vcc-camera {
-				status = "okay";
-				compatible = "regulator-fixed";
-				regulator-name = "vcc_camera";
-				gpio = <&gpio1 RK_PB1 GPIO_ACTIVE_HIGH>;
-				enable-active-high;
-				regulator-min-microvolt = <3300000>;
-				regulator-max-microvolt = <3300000>;
-				regulator-always-on;
-				regulator-boot-on;
-			};
+	camera_pwdn_gpio: camera-pwdn-gpio {
+		status = "okay";
+		compatible = "regulator-fixed";
+		regulator-name = "camera_pwdn_gpio";
+		regulator-always-on;
+		regulator-boot-on;
+		enable-active-high;
+		gpio = <&gpio4 RK_PD2 GPIO_ACTIVE_HIGH>;
+	};
+};
 
-			camera_pwdn_gpio: camera-pwdn-gpio {
-				status = "okay";
-				compatible = "regulator-fixed";
-				regulator-name = "camera_pwdn_gpio";
-				regulator-always-on;
-				regulator-boot-on;
-				enable-active-high;
-				gpio = <&gpio4 RK_PD2 GPIO_ACTIVE_HIGH>;
+&i2c5 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c5m0_xfer>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	camera_imx219: camera-imx219@10 {
+		status = "okay";
+		compatible = "sony,imx219";
+		reg = <0x10>;
+		clocks = <&ext_cam_clk_imx219>;
+		clock-names = "xvclk";
+		rockchip,camera-module-index = <0>;
+		rockchip,camera-module-facing = "back";
+		rockchip,camera-module-name = "RADXA-CAMERA-8M";
+		rockchip,camera-module-lens-name = "default";
+
+		port {
+			imx219_out: endpoint {
+				remote-endpoint = <&mipi_in_ucam1>;
+				data-lanes = <1 2>;
 			};
 		};
 	};
+};
 
-	fragment@1 {
-		target = <&i2c5>;
+&csi2_dphy_hw {
+	status = "okay";
+};
 
-		__overlay__ {
-			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&i2c5m0_xfer>;
+&csi2_dphy0 {
+	status = "okay";
+
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		port@0 {
+			reg = <0>;
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			camera_imx219: camera-imx219@10 {
-				status = "okay";
-				compatible = "sony,imx219";
-				reg = <0x10>;
-				clocks = <&ext_cam_clk_imx219>;
-				clock-names = "xvclk";
-				rockchip,camera-module-index = <0>;
-				rockchip,camera-module-facing = "back";
-				rockchip,camera-module-name = "RADXA-CAMERA-8M";
-				rockchip,camera-module-lens-name = "default";
+			mipi_in_ucam1: endpoint@2 {
+				reg = <2>;
+				remote-endpoint = <&imx219_out>;
+				data-lanes = <1 2>;
+			};
+		};
 
-				port {
-					imx219_out: endpoint {
-						remote-endpoint = <&mipi_in_ucam1>;
-						data-lanes = <1 2>;
-					};
-				};
+		port@1 {
+			reg = <1>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			dphy0_out: endpoint@1 {
+				reg = <1>;
+				remote-endpoint = <&isp0_in>;
 			};
 		};
 	};
+};
 
-	fragment@2 {
-		target = <&csi2_dphy_hw>;
+&rkisp_vir0 {
+	status = "okay";
 
-		__overlay__ {
-			status = "okay";
+	port {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		isp0_in: endpoint@0 {
+			reg = <0>;
+			remote-endpoint = <&dphy0_out>;
 		};
 	};
+};
 
-	fragment@3 {
-		target = <&csi2_dphy0>;
+&rkisp {
+	status = "okay";
+};
 
-		__overlay__ {
-			status = "okay";
+&rkisp_mmu {
+	status = "okay";
+};
 
-			ports {
-				#address-cells = <1>;
-				#size-cells = <0>;
+&rkcif_mmu {
+	status = "okay";
+};
 
-				port@0 {
-					reg = <0>;
-					#address-cells = <1>;
-					#size-cells = <0>;
-
-					mipi_in_ucam1: endpoint@2 {
-						reg = <2>;
-						remote-endpoint = <&imx219_out>;
-						data-lanes = <1 2>;
-					};
-				};
-
-				port@1 {
-					reg = <1>;
-					#address-cells = <1>;
-					#size-cells = <0>;
-
-					dphy0_out: endpoint@1 {
-						reg = <1>;
-						remote-endpoint = <&isp0_in>;
-					};
-				};
-			};
-		};
-	};
-
-	fragment@4 {
-		target = <&rkisp_vir0>;
-
-		__overlay__ {
-			status = "okay";
-
-			port {
-				#address-cells = <1>;
-				#size-cells = <0>;
-
-				isp0_in: endpoint@0 {
-					reg = <0>;
-					remote-endpoint = <&dphy0_out>;
-				};
-			};
-		};
-	};
-
-	fragment@5 {
-		target = <&rkisp>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
-
-	fragment@6 {
-		target = <&rkisp_mmu>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
-
-	fragment@7 {
-		target = <&rkcif_mmu>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
-
-	fragment@8 {
-		target = <&rkcif>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
+&rkcif {
+	status = "okay";
 };

@@ -12,135 +12,111 @@
 		exclusive = "mipi_dphy_rx0";
 		description = "Enable Radxa Camera 8M 219.";
 	};
+};
 
-	fragment@0 {
-		target-path = "/";
+&{/} {
+	camera_pwdn_gpio: camera-pwdn-gpio {
+		status = "okay";
+		compatible = "regulator-fixed";
+		regulator-name = "camera_pwdn_gpio";
+		regulator-always-on;
+		regulator-boot-on;
+		enable-active-high;
+		gpio = <&gpio1 RK_PB5 GPIO_ACTIVE_HIGH>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&cam_pwdn_gpio>;
+	};
 
-		__overlay__ {
-			camera_pwdn_gpio: camera-pwdn-gpio {
-				status = "okay";
-				compatible = "regulator-fixed";
-				regulator-name = "camera_pwdn_gpio";
-				regulator-always-on;
-				regulator-boot-on;
-				enable-active-high;
-				gpio = <&gpio1 RK_PB5 GPIO_ACTIVE_HIGH>;
-				pinctrl-names = "default";
-				pinctrl-0 = <&cam_pwdn_gpio>;
-			};
+	clk_cam_24m: external-camera-clock-24m {
+		status = "okay";
+		compatible = "fixed-clock";
+		clock-frequency = <24000000>;
+		clock-output-names = "clk_cam_24m";
+		#clock-cells = <0>;
+	};
+};
 
-			clk_cam_24m: external-camera-clock-24m {
-				status = "okay";
-				compatible = "fixed-clock";
-				clock-frequency = <24000000>;
-				clock-output-names = "clk_cam_24m";
-				#clock-cells = <0>;
+&i2c4 {
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	camera_imx219: camera-imx219@10 {
+		status = "okay";
+		compatible = "sony,imx219";
+		reg = <0x10>;
+
+		clocks = <&clk_cam_24m>;
+		clock-names = "xvclk";
+
+		rockchip,camera-module-index = <0>;
+		rockchip,camera-module-facing = "back";
+		rockchip,camera-module-name = "RADXA-CAMERA-8M";
+		rockchip,camera-module-lens-name = "default";
+
+		port {
+			ucam_out0: endpoint {
+				remote-endpoint = <&mipi_in_ucam0>;
+				data-lanes = <1 2>;
 			};
 		};
 	};
+};
 
-	fragment@1 {
-		target = <&i2c4>;
+&mipi_dphy_rx0 {
+	status = "okay";
 
-		__overlay__ {
-			status = "okay";
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		port@0 {
+			reg = <0>;
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			camera_imx219: camera-imx219@10 {
-				status = "okay";
-				compatible = "sony,imx219";
-				reg = <0x10>;
+			mipi_in_ucam0: endpoint@1 {
+				reg = <1>;
+				remote-endpoint = <&ucam_out0>;
+				data-lanes = <1 2>;
+			};
+		};
 
-				clocks = <&clk_cam_24m>;
-				clock-names = "xvclk";
+		port@1 {
+			reg = <1>;
+			#address-cells = <1>;
+			#size-cells = <0>;
 
-				rockchip,camera-module-index = <0>;
-				rockchip,camera-module-facing = "back";
-				rockchip,camera-module-name = "RADXA-CAMERA-8M";
-				rockchip,camera-module-lens-name = "default";
-
-				port {
-					ucam_out0: endpoint {
-						remote-endpoint = <&mipi_in_ucam0>;
-						data-lanes = <1 2>;
-					};
-				};
+			dphy_rx0_out: endpoint@0 {
+				reg = <0>;
+				remote-endpoint = <&isp0_mipi_in>;
 			};
 		};
 	};
+};
 
-	fragment@2 {
-		target = <&mipi_dphy_rx0>;
+&isp0_mmu {
+	status = "okay";
+};
 
-		__overlay__ {
-			status = "okay";
+&rkisp1_0 {
+	status = "okay";
 
-			ports {
-				#address-cells = <1>;
-				#size-cells = <0>;
+	port {
+		#address-cells = <1>;
+		#size-cells = <0>;
 
-				port@0 {
-					reg = <0>;
-					#address-cells = <1>;
-					#size-cells = <0>;
-
-					mipi_in_ucam0: endpoint@1 {
-						reg = <1>;
-						remote-endpoint = <&ucam_out0>;
-						data-lanes = <1 2>;
-					};
-				};
-
-				port@1 {
-					reg = <1>;
-					#address-cells = <1>;
-					#size-cells = <0>;
-
-					dphy_rx0_out: endpoint@0 {
-						reg = <0>;
-						remote-endpoint = <&isp0_mipi_in>;
-					};
-				};
-			};
+		isp0_mipi_in: endpoint@0 {
+			reg = <0>;
+			remote-endpoint = <&dphy_rx0_out>;
 		};
 	};
+};
 
-	fragment@3 {
-		target = <&isp0_mmu>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
-
-	fragment@4 {
-		target = <&rkisp1_0>;
-
-		__overlay__ {
-			status = "okay";
-
-			port {
-				#address-cells = <1>;
-				#size-cells = <0>;
-
-				isp0_mipi_in: endpoint@0 {
-					reg = <0>;
-					remote-endpoint = <&dphy_rx0_out>;
-				};
-			};
-		};
-	};
-
-	fragment@5 {
-		target = <&pinctrl>;
-
-		__overlay__ {
-			camera {
-				cam_pwdn_gpio: cam-pwdn-gpio {
-					rockchip,pins = <1 RK_PB5 RK_FUNC_GPIO &pcfg_pull_up>;
-				};
-			};
+&pinctrl {
+	camera {
+		cam_pwdn_gpio: cam-pwdn-gpio {
+			rockchip,pins = <1 RK_PB5 RK_FUNC_GPIO &pcfg_pull_up>;
 		};
 	};
 };

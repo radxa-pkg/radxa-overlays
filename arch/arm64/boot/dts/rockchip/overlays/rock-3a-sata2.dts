@@ -9,20 +9,12 @@
 		category = "misc";
 		description = "Enable SATA2.\nWhen SATA2 is enabled, PCIe cannot be enabled on the same port.";
 	};
+};
 
-	fragment@0 {
-		target = <&pcie2x1>;
+&pcie2x1 {
+	status = "disabled";
+};
 
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@1 {
-		target = <&sata2>;
-
-		__overlay__ {
-			status = "okay";
-		};
-	};
+&sata2 {
+	status = "okay";
 };

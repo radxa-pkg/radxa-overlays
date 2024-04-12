@@ -8,12 +8,8 @@
 		category = "misc";
 		description = "Enable HDMI CEC.";
 	};
+};
 
-	fragment@0 {
-		target = <&hdmi>;
-
-		__overlay__ {
-			pinctrl-0 = <&hdmitx_scl &hdmitx_sda &hdmitxm0_cec>;
-		};
-	};
+&hdmi {
+	pinctrl-0 = <&hdmitx_scl &hdmitx_sda &hdmitxm0_cec>;
 };
