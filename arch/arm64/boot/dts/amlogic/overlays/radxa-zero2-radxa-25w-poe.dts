@@ -15,56 +15,45 @@
 		exclusive = "i2c0", "GPIOAO_8", "GPIOZ_2", "GPIOZ_0", "GPIOZ_1";
 		package = "rsetup-config-thermal-governor-step-wise";
 	};
+};
 
-	fragment@0 {
-		target-path = "/";
-		__overlay__ {
-			radxa_pow_w1: radxa-poe-w1 {
-				compatible = "w1-gpio";
-				gpios = <&gpio GPIOZ_2 GPIO_ACTIVE_HIGH>;
-				status = "okay";
-			};
-
-			radxa_poe_pwm: radxa-poe-pwm {
-				compatible = "pwm-gpio";
-				#pwm-cells = <3>;
-				pwm-gpio = <&gpio_ao GPIOAO_8 GPIO_ACTIVE_HIGH>;
-			};
-
-			radxa_poe_fan: radxa-poe-fan {
-				compatible = "pwm-fan";
-				#cooling-cells = <2>;
-				cooling-min-state = <0>;
-				cooling-max-state = <4>;
-				cooling-levels = <0 64 128 192 255>;
-				pwms = <&radxa_poe_pwm 0 40000 PWM_POLARITY_INVERTED>;
-			};
-		};
+&{/} {
+	radxa_pow_w1: radxa-poe-w1 {
+		compatible = "w1-gpio";
+		gpios = <&gpio GPIOZ_2 GPIO_ACTIVE_HIGH>;
+		status = "okay";
 	};
 
-	fragment@1 {
-		target = <&cpu_thermal>;
-
-		__overlay__ {
-			cooling-maps {
-				map2 {
-					cooling-device = <&fan0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-									 <&radxa_poe_fan THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-				};
-			};
-		};
+	radxa_poe_pwm: radxa-poe-pwm {
+		compatible = "pwm-gpio";
+		#pwm-cells = <3>;
+		pwm-gpio = <&gpio_ao GPIOAO_8 GPIO_ACTIVE_HIGH>;
 	};
 
-	fragment@2 {
-		target = <&ddr_thermal>;
+	radxa_poe_fan: radxa-poe-fan {
+		compatible = "pwm-fan";
+		#cooling-cells = <2>;
+		cooling-min-state = <0>;
+		cooling-max-state = <4>;
+		cooling-levels = <0 64 128 192 255>;
+		pwms = <&radxa_poe_pwm 0 40000 PWM_POLARITY_INVERTED>;
+	};
+};
 
-		__overlay__ {
-			cooling-maps {
-				map2 {
-					cooling-device = <&fan0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-									 <&radxa_poe_fan THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-				};
-			};
+&cpu_thermal {
+	cooling-maps {
+		map2 {
+			cooling-device = <&fan0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+								<&radxa_poe_fan THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
+		};
+	};
+};
+
+&ddr_thermal {
+	cooling-maps {
+		map2 {
+			cooling-device = <&fan0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
+								<&radxa_poe_fan THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
 		};
 	};
 };

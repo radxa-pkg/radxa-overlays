@@ -12,20 +12,12 @@
 		category = "misc";
 		description = "Disabled Zero 3W Ethernet.";
 	};
+};
 
-	fragment@0 {
-		target = <&mdio1>;
+&mdio1 {
+	status = "disabled";
+};
 
-		__overlay__ {
-			status = "disabled";
-		};
-	};
-
-	fragment@1 {
-		target = <&gmac1>;
-
-		__overlay__ {
-			status = "disabled";
-		};
-	};
+&gmac1 {
+	status = "disabled";
 };
