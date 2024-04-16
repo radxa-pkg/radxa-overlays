@@ -137,7 +137,7 @@
 
 	port {
 		mipi_lvds2_sditf: endpoint {
-			remote-endpoint = <&isp0_vir0>;
+			remote-endpoint = <&isp1_vir0>;
 		};
 	};
 };
@@ -146,22 +146,22 @@
 	status = "okay";
 };
 
-&isp0_mmu {
+&isp1_mmu {
 	status = "okay";
 };
 
-&rkisp0 {
+&rkisp1 {
 	status = "okay";
 };
 
-&rkisp0_vir0 {
+&rkisp1_vir0 {
 	status = "okay";
 
 	port {
 		#address-cells = <1>;
 		#size-cells = <0>;
 
-		isp0_vir0: endpoint@0 {
+		isp1_vir0: endpoint@0 {
 			reg = <0>;
 			remote-endpoint = <&mipi_lvds2_sditf>;
 		};
