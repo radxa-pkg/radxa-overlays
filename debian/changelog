@@ -1,3 +1,31 @@
+radxa-overlays (0.1.3) jammy; urgency=medium
+
+  [ SongJun Li ]
+  * rock 2a: add eeprom support on i2c1-m0
+  * rock 2a: add tve support
+  * rock 2a: modify usb otg compatible to unknown
+  * rock 2a: add usb host and peripheral support
+
+  [ Ken Wang ]
+  * update rk3588-pwm1-m2 compatible
+  * modify rock5b+ display backlight pwm polarity
+
+  [ Stephen Chen ]
+  * rock 2a: add PCIe support
+
+  [ CodeChenL ]
+  * fix: display backlight pwm polarity use macro variables
+  * refactor: ROCK series overlays are replaced with reference syntax
+  * refactor: all amlogic overlays are replaced with reference syntax
+  * refactor: ZERO series overlays are replaced with reference syntax
+  * refactor: Radxa S0 overlay are replaced with reference syntax
+
+  [ Alvin Xie ]
+  * radxa cm3i io: modify camera config for dual cameras
+  * radxa cm5 io: modify camera config for dual cameras
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Tue, 16 Apr 2024 07:20:09 +0000
+
 radxa-overlays (0.1.2) jammy; urgency=medium
 
   [ ZHANG Yuntian ]
