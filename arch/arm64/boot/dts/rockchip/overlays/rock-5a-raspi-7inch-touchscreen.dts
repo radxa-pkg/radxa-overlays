@@ -36,6 +36,48 @@
 	#size-cells = <0>;
 	rockchip,lane-rate = <600>;
 
+	dsi0_panel: dsi-panel@0 {
+		compatible = "raspits,tc358762";
+		reg = <0x0>;
+		status = "okay";
+		rockchip,lane-rate = <600>;
+
+		display_timings0: display-timings {
+			native-mode = <&dsi0_timing>;
+
+			dsi0_timing: timing0 {
+				clock-frequency = <26000000>;
+				hactive = <800>;
+				vactive = <480>;
+
+				hsync-len = <90>;
+				hback-porch = <55>;
+				hfront-porch = <40>;
+
+				vsync-len = <12>;
+				vback-porch = <7>;
+				vfront-porch = <10>;
+
+				hsync-active = <0>;
+				vsync-active = <0>;
+				de-active = <0>;
+				pixelclk-active = <0>;
+			};
+		};
+
+		ports {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			port@0 {
+				reg = <0>;
+				panel_in_dsi0: endpoint {
+					remote-endpoint = <&dsi0_out_panel>;
+				};
+			};
+		};
+	};
+
 	ports {
 		#address-cells = <1>;
 		#size-cells = <0>;
@@ -55,20 +97,10 @@
 	#address-cells = <1>;
 	#size-cells = <0>;
 
-	raspits_panel: raspits-panel@45 {
-		compatible = "raspberrypi,7inch-touchscreen-panel";
+	rockpi_mcu: rockpi-mcu@45 {
+		compatible = "rockpi_mcu";
 		reg = <0x45>;
-		#address-cells = <1>;
-		#size-cells = <0>;
-
 		platform = <3588>;
-
-		port@0 {
-			reg = <0>;
-			panel_in_dsi0: endpoint {
-				remote-endpoint = <&dsi0_out_panel>;
-			};
-		};
 	};
 
 	raspits_touch_ft5426: raspits-touch-ft5426@38 {
