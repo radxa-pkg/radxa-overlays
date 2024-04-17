@@ -27,10 +27,10 @@
 		pinctrl-0 = <&cam_pwdn_gpio>;
 	};
 
-	clk_cam_24m: external-camera-clock-24m {
+	clk_cam_24m_1: external-camera-clock-24m-1 {
 		compatible = "fixed-clock";
 		clock-frequency = <24000000>;
-		clock-output-names = "clk_cam_24m";
+		clock-output-names = "clk_cam_24m_1";
 		#clock-cells = <0>;
 	};
 };
@@ -45,10 +45,10 @@
 		compatible = "sony,imx219";
 		reg = <0x10>;
 
-		clocks = <&clk_cam_24m>;
+		clocks = <&clk_cam_24m_1>;
 		clock-names = "xvclk";
 
-		rockchip,camera-module-index = <0>;
+		rockchip,camera-module-index = <1>;
 		rockchip,camera-module-facing = "back";
 		rockchip,camera-module-name = "rpi-camera-v2";
 		rockchip,camera-module-lens-name = "default";

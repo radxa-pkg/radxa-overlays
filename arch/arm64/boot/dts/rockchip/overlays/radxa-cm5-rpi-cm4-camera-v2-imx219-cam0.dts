@@ -26,10 +26,10 @@
 		pinctrl-0 = <&cam_pwdn_gpio>;
 	};
 
-	clk_cam_24m: external-camera-clock-24m {
+	clk_cam_24m_0: external-camera-clock-24m-0 {
 		compatible = "fixed-clock";
 		clock-frequency = <24000000>;
-		clock-output-names = "clk_cam_24m";
+		clock-output-names = "clk_cam_24m_0";
 		#clock-cells = <0>;
 	};
 };
@@ -44,11 +44,11 @@
 		compatible = "sony,imx219";
 		reg = <0x10>;
 
-		clocks = <&clk_cam_24m>;
+		clocks = <&clk_cam_24m_0>;
 		clock-names = "xvclk";
 
 		rockchip,camera-module-index = <0>;
-		rockchip,camera-module-facing = "back";
+		rockchip,camera-module-facing = "front";
 		rockchip,camera-module-name = "rpi-camera-v2";
 		rockchip,camera-module-lens-name = "default";
 
@@ -147,7 +147,7 @@
 
 	port {
 		mipi_lvds2_sditf: endpoint {
-			remote-endpoint = <&isp0_vir0>;
+			remote-endpoint = <&isp1_vir0>;
 		};
 	};
 };
@@ -156,22 +156,22 @@
 	status = "okay";
 };
 
-&isp0_mmu {
+&isp1_mmu {
 	status = "okay";
 };
 
-&rkisp0 {
+&rkisp1 {
 	status = "okay";
 };
 
-&rkisp0_vir0 {
+&rkisp1_vir0 {
 	status = "okay";
 
 	port {
 		#address-cells = <1>;
 		#size-cells = <0>;
 
-		isp0_vir0: endpoint@0 {
+		isp1_vir0: endpoint@0 {
 			reg = <0>;
 			remote-endpoint = <&mipi_lvds2_sditf>;
 		};
