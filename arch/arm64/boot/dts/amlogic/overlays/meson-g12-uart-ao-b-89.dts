@@ -6,9 +6,9 @@
 / {
 	metadata {
 		title = "Enable UART_AO-B on GPIOAO_8 and GPIOAO_9";
-		compatible = "radxa,zero2";
+		compatible = "radxa,zero", "radxa,zero2";
 		category = "misc";
 		exclusive = "uart_AO_B", "GPIOAO_8", "GPIOAO_9";
-		description = "Enable UART_AO-B on GPIOAO_8 and GPIOAO_9.";
+		description = "Enable UART_AO-B on GPIOAO_8 and GPIOAO_9.\nOn Radxa Zero this is TX pin 35 & RX pin 37.\nOn Radxa ZERO 2 PRO this is TX 33 & RX 37.\nGPIOAO_8 need to be enabled for hardware version 1.51 and later.";
 	};
 };
