@@ -1,0 +1,16 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable SDHCI";
+		compatible = "radxa,rock-5-itx";
+		category = "misc";
+		exclusive = "sdhci";
+		description = "Enable SDHCI.";
+	};
+};
+
+&sdhci {
+	status = "okay";
+};
