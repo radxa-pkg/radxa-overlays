@@ -1,6 +1,8 @@
 /dts-v1/;
 /plugin/;
 
+#include "radxa-zero-led-8-off.dtsi"
+
 / {
 	metadata {
 		title = "Enable GPIOAO_8 for hardware version 1.51 and later";
@@ -9,8 +11,4 @@
 		exclusive = "led_power";
 		description = "Enable GPIOAO_8 for hardware version 1.51 and later.\nThis is due to older version uses this for Power LED.";
 	};
-};
-
-&led_power {
-	status = "disabled";
 };
