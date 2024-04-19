@@ -1,15 +1,15 @@
 /dts-v1/;
 /plugin/;
 
-#include "radxa-zero-led-10-off.dtsi"
+#include "radxa-zero-led-8-off.dtsi"
 #include "meson-g12-uart-ao-b-89.dtsi"
 
 / {
 	metadata {
-		title = "Enable UART_AO-B on GPIOAO_8 and GPIOAO_9";
+		title = "Enable UART_AO-B on GPIOAO_8 and GPIOAO_9 (>= v1.51)";
 		compatible = "radxa,zero";
 		category = "misc";
-		exclusive = "uart_AO_B", "GPIOAO_8", "GPIOAO_9";
-		description = "Enable UART_AO-B on GPIOAO_8 and GPIOAO_9.";
+		exclusive = "uart_AO_B", "GPIOAO_8", "GPIOAO_9", "led_power";
+		description = "Enable UART_AO-B on GPIOAO_8 and GPIOAO_9 (>= v1.51).\nOn Radxa ZERO this is TX pin 35 & RX pin 37.\nFor Radxa ZERO, GPIOAO_8 is only available since v1.51.";
 	};
 };
