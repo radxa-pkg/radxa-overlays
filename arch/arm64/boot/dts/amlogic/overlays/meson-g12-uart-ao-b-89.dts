@@ -9,6 +9,6 @@
 		compatible = "radxa,zero2";
 		category = "misc";
 		exclusive = "uart_AO_B", "GPIOAO_8", "GPIOAO_9";
-		description = "Enable UART_AO-B on GPIOAO_8 and GPIOAO_9.";
+		description = "Enable UART_AO-B on GPIOAO_8 and GPIOAO_9.\nOn Radxa ZERO 2 PRO this is TX pin 33 & RX pin 37.";
 	};
 };

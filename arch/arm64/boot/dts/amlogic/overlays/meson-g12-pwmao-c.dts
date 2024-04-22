@@ -1,0 +1,17 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable PWMAO-C on GPIOAO_4";
+		compatible = "radxa,zero";
+		category = "misc";
+		exclusive = "pwm_AO_cd", "GPIOAO_4";
+		description = "Enable PWMAO-C on GPIOAO_4.\nOn Radxa ZERO this is pin 32.";
+	};
+};
+
+&pwm_AO_cd {
+	status = "okay";
+	pinctrl-0 = <&pwm_ao_c_4_pins>;
+};

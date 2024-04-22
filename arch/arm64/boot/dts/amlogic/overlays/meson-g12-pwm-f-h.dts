@@ -4,10 +4,10 @@
 / {
 	metadata {
 		title = "Enable PWM-F on GPIOH_5";
-		compatible = "radxa,zero2";
+		compatible = "radxa,zero", "radxa,zero2";
 		category = "misc";
 		exclusive = "pwm_ef", "GPIOH_5";
-		description = "Enable PWM-F on GPIOH_5.";
+		description = "Enable PWM-F on GPIOH_5.\nOn Radxa ZERO this is pin 21.\nOn Radxa ZERO 2 PRO this is pin 21.";
 	};
 };
 
