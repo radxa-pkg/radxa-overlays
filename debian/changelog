@@ -1,3 +1,24 @@
+radxa-overlays (0.1.4) jammy; urgency=medium
+
+  [ Feng Zhang ]
+  * rock 5a/5c: raspi-7inch-tc: add display-timing
+
+  [ Alvin Xie ]
+  * radxa cm3i io: modify okdo 5mp config for dual cameras
+
+  [ Stephen Chen ]
+  * add rk3588-enable-sdhci
+
+  [ Nascs Fang ]
+  * radxa zero: add pwm overlays
+  * radxa zero: add led-8-off dtsi
+  * radxa zero: add uart-ao-b-89 for v1.51 and later
+
+  [ Peiyu Wu ]
+  * add Waveshare 3.5inch RPi LCD (C) support for rock-3c
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Tue, 23 Apr 2024 06:33:00 +0000
+
 radxa-overlays (0.1.3) jammy; urgency=medium
 
   [ SongJun Li ]
