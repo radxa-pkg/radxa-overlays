@@ -81,6 +81,7 @@ dtb-$(CONFIG_CLK_RK3399) += \
 	rk3399-spi1-mcp2515-8mhz.dtbo \
 	rk3399-spi1-spidev.dtbo \
 	rk3399-spi1-waveshare35.dtbo \
+	rk3399-spi1-waveshare35b.dtbo \
 	rk3399-spi2-enc28j60.dtbo \
 	rk3399-spi2-jedec-nor.dtbo \
 	rk3399-spi2-sc16is752.dtbo \
@@ -220,12 +221,13 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-spi3-m0-cs0-mcp2515.dtbo \
 	rk3568-spi3-m0-cs0-spidev.dtbo \
 	rk3568-spi3-m0-cs0-waveshare35.dtbo \
-	rk3568-spi3-m1-cs0-waveshare35.dtbo \
 	rk3568-spi3-m0-cs1-spidev.dtbo \
 	rk3568-spi3-m1-cs0-enc28j60.dtbo \
 	rk3568-spi3-m1-cs0-mcp2515-gpio4_d1.dtbo \
 	rk3568-spi3-m1-cs0-mcp2515.dtbo \
 	rk3568-spi3-m1-cs0-spidev.dtbo \
+	rk3568-spi3-m1-cs0-waveshare35.dtbo \
+	rk3568-spi3-m1-cs0-waveshare35b.dtbo \
 	rk3568-spi3-m1-cs1-spidev.dtbo \
 	rk3568-uart0.dtbo \
 	rk3568-uart1-m1-full.dtbo \
@@ -379,6 +381,7 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-spi0-m1-cs0-mcp2515-8mhz.dtbo \
 	rk3588-spi0-m1-cs0-spidev.dtbo \
 	rk3588-spi0-m1-cs0-waveshare35.dtbo \
+	rk3588-spi0-m1-cs0-waveshare35b.dtbo \
 	rk3588-spi0-m1-cs1-spidev.dtbo \
 	rk3588-spi0-m2-cs0-mcp2515-8mhz.dtbo \
 	rk3588-spi0-m2-cs0-spidev.dtbo \
