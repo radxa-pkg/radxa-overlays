@@ -98,6 +98,7 @@ dtb-$(CONFIG_CLK_RK3399) += \
 	rock-4c-plus-raspi-7inch-touchscreen.dtbo
 
 dtb-$(CONFIG_CPU_RK3399) += \
+	rk3399-cs003-display.dtbo \
 	rock-4c-plus-radxa-display-8hd.dtbo \
 	rock-4c-plus-radxa-display-10fhd.dtbo \
 	rock-4c-plus-radxa-display-10hd.dtbo \
