@@ -1,3 +1,24 @@
+radxa-overlays (0.1.5) jammy; urgency=medium
+
+  [ Nascs Fang ]
+  * rock 3c: add exclusive for i2c3
+  * rockchip: extracted from waveshare35 public section
+
+  [ Radxa-Alvin ]
+  * rk3568 npu add rock 3c and zero3 support
+
+  [ Alvin Xie ]
+  * zero3: add radxa camera 8m
+  * add cs003 display
+
+  [ Ken Wang ]
+  * radxa cm5 rpi cm4 io: modify camera config for dual cameras
+  * add and update overlays for radxa-cm5-rpi-cm4-io
+  * modify rock5b+ display backlight pwm polarity
+  * add and update some overlays for rock5itx
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Fri, 26 Apr 2024 09:19:08 +0000
+
 radxa-overlays (0.1.4) jammy; urgency=medium
 
   [ Feng Zhang ]
