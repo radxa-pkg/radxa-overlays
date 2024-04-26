@@ -1,9 +1,5 @@
-/dts-v1/;
-/plugin/;
-
-#include <dt-bindings/gpio/gpio.h>
-#include <dt-bindings/pinctrl/rockchip.h>
-#include <dt-bindings/interrupt-controller/irq.h>
+#define DISPLAY_SPI spi3
+#include "waveshare35-lcd.dtsi"
 
 / {
 	metadata {
@@ -15,45 +11,21 @@
 	};
 };
 
-&spi3 {	
-	status = "okay";
-	#address-cells = <1>;
-	#size-cells = <0>;
+&DISPLAY_SPI {
 	pinctrl-names = "default", "high_speed";
 	pinctrl-0 = <&spi3m1_cs0 &spi3m1_pins>;
 	pinctrl-1 = <&spi3m1_cs1 &spi3m1_pins_hs>;
-	max-freq = <16000000>;
+};
 
-	ili9486@0 {
-		compatible = "waveshare,rpi-lcd-35", "ilitek,ili9486";
-		reg = <0>;
-		spi-max-frequency = <16000000>;
-		txbuflen = <32768>;
-		rotate = <90>;
-		bgr = <0>;
-		fps = <30>;
-		buswidth = <8>;
-		regwidth = <16>;
-		reset-gpios = <&gpio3 RK_PC1 GPIO_ACTIVE_LOW>;
-		dc-gpios = <&gpio3 RK_PB2 GPIO_ACTIVE_HIGH>;
-		debug = <0>;
-	};
+&ili9486 {
+	reset-gpios = <&gpio3 RK_PC1 GPIO_ACTIVE_LOW>;
+	dc-gpios = <&gpio3 RK_PB2 GPIO_ACTIVE_HIGH>;
+};
 
-	ads7846@1 {
-		compatible = "ti,ads7846";
-		status = "okay";
-		reg = <1>; 
-		id = <1>;
-		spi-max-frequency = <2000000>;
-		interrupts = <RK_PA1 IRQ_TYPE_EDGE_FALLING>;
-		interrupt-parent = <&gpio3>;
-		pendown-gpio = <&gpio3 RK_PA1 GPIO_ACTIVE_HIGH>;
-		ti,x-plate-ohms = /bits/ 16 <60>;
-		ti,pressure-max = /bits/ 16 <255>;
-		ti,swap-xy = <0>;
-		ti,invert-y = <1>;
-		vcc-supply = <&vcc5v0_sys>;
-	};
+&ads7846 {
+	interrupts = <RK_PA1 IRQ_TYPE_EDGE_FALLING>;
+	interrupt-parent = <&gpio3>;
+	pendown-gpio = <&gpio3 RK_PA1 GPIO_ACTIVE_HIGH>;
 };
 
 &hdmi {
