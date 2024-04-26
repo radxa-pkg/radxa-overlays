@@ -98,6 +98,7 @@ dtb-$(CONFIG_CLK_RK3399) += \
 	rock-4c-plus-raspi-7inch-touchscreen.dtbo
 
 dtb-$(CONFIG_CPU_RK3399) += \
+	rk3399-cs003-display.dtbo \
 	rock-4c-plus-radxa-display-8hd.dtbo \
 	rock-4c-plus-radxa-display-10fhd.dtbo \
 	rock-4c-plus-radxa-display-10hd.dtbo \
@@ -293,6 +294,7 @@ dtb-$(CONFIG_CPU_RK3568) += \
 	radxa-cm3i-io-radxa-camera-8m-cam2.dtbo \
 	radxa-cm3i-io-sata.dtbo \
 	radxa-zero3-external-antenna.dtbo \
+	radxa-zero3-radxa-camera-8m.dtbo \
 	radxa-zero3-rpi-camera-v1.3.dtbo \
 	radxa-zero3-rpi-camera-v2.dtbo \
 	radxa-zero3-disabled-ethernet.dtbo \
