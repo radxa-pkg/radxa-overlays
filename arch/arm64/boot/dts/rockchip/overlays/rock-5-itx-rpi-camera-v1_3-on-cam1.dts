@@ -6,11 +6,11 @@
 
 / {
 	metadata {
-		title ="Enable OKDO 5MP Camera on CAM1";
+		title ="Enable Raspberry Pi Camera v1.3 on CAM1";
 		compatible = "radxa,rock-5-itx";
 		category = "camera";
 		exclusive = "csi2_dphy3";
-		description = "Enable OKDO 5MP Camera on CAM1.";
+		description = "Enable Raspberry Pi Camera v1.3 on CAM1.";
 	};
 };
 
@@ -38,7 +38,7 @@
 		clock-names = "ext_cam_clk";
 		rockchip,camera-module-index = <1>;
 		rockchip,camera-module-facing = "front";
-		rockchip,camera-module-name = "OKDO-5MP";
+		rockchip,camera-module-name = "rpi-camera-v1p3";
 		rockchip,camera-module-lens-name = "default";
 
 		port {
@@ -136,7 +136,7 @@
 
 	port {
 		mipi4_lvds2_sditf_1: endpoint {
-			remote-endpoint = <&isp1_vir2>;
+			remote-endpoint = <&isp1_vir1>;
 		};
 	};
 };
@@ -153,14 +153,14 @@
 	status = "okay";
 };
 
-&rkisp1_vir2 {
+&rkisp1_vir1 {
 	status = "okay";
 
 	port {
 		#address-cells = <1>;
 		#size-cells = <0>;
 
-		isp1_vir2: endpoint@0 {
+		isp1_vir1: endpoint@0 {
 			reg = <0>;
 			remote-endpoint = <&mipi4_lvds2_sditf_1>;
 		};

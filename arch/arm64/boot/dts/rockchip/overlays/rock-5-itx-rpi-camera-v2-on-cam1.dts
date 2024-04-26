@@ -6,20 +6,30 @@
 
 / {
 	metadata {
-		title ="Enable OKDO 5MP Camera on CAM1";
+		title ="Enable Raspberry Pi Camera v2 on CAM1";
 		compatible = "radxa,rock-5-itx";
 		category = "camera";
-		exclusive = "csi2_dphy3";
-		description = "Enable OKDO 5MP Camera on CAM1.";
+		exclusive = "csi2_dphy0";
+		description = "Enable Raspberry Pi Camera v2 on CAM1.";
 	};
 };
 
 &{/} {
-	clk_cam_25m_1: external-camera-clock-25m-1 {
-		status = "okay";
+	camera_pwdn_gpio_1: camera-pwdn-gpio-1 {
+		compatible = "regulator-fixed";
+		regulator-name = "camera_pwdn_gpio_1";
+		regulator-always-on;
+		regulator-boot-on;
+		enable-active-high;
+		gpio = <&gpio1 RK_PB3 GPIO_ACTIVE_LOW>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&cam_pwdn_gpio_1>;
+	};
+
+	clk_cam_24m_1: external-camera-clock-24m-1 {
 		compatible = "fixed-clock";
-		clock-frequency = <25000000>;
-		clock-output-names = "clk_cam_25m_1";
+		clock-frequency = <24000000>;
+		clock-output-names = "clk_cam_24m_1";
 		#clock-cells = <0>;
 	};
 };
@@ -29,20 +39,21 @@
 	#address-cells = <1>;
 	#size-cells = <0>;
 
-	ov5647_1: ov5647-1@36 {
-		status = "okay";
-		compatible = "ovti,ov5647";
-		reg = <0x36>;
-		clocks = <&clk_cam_25m_1>;
-		pwdn-gpios = <&gpio1 RK_PB3 GPIO_ACTIVE_LOW>;
-		clock-names = "ext_cam_clk";
+	imx219_1: imx219-1@10 {
+		compatible = "sony,imx219";
+		reg = <0x10>;
+
+		clocks = <&clk_cam_24m_1>;
+		clock-names = "xvclk";
+
 		rockchip,camera-module-index = <1>;
 		rockchip,camera-module-facing = "front";
-		rockchip,camera-module-name = "OKDO-5MP";
+		rockchip,camera-module-name = "rpi-camera-v2";
 		rockchip,camera-module-lens-name = "default";
 
+
 		port {
-			ov5647_out1: endpoint {
+			imx219_out1: endpoint {
 				remote-endpoint = <&mipidphy1_in_ucam1>;
 				data-lanes = <1 2>;
 			};
@@ -68,7 +79,7 @@
 
 			mipidphy1_in_ucam1: endpoint@1 {
 				reg = <1>;
-				remote-endpoint = <&ov5647_out1>;
+				remote-endpoint = <&imx219_out1>;
 				data-lanes = <1 2>;
 			};
 		};
@@ -136,7 +147,7 @@
 
 	port {
 		mipi4_lvds2_sditf_1: endpoint {
-			remote-endpoint = <&isp1_vir2>;
+			remote-endpoint = <&isp1_vir1>;
 		};
 	};
 };
@@ -153,16 +164,24 @@
 	status = "okay";
 };
 
-&rkisp1_vir2 {
+&rkisp1_vir1 {
 	status = "okay";
 
 	port {
 		#address-cells = <1>;
 		#size-cells = <0>;
 
-		isp1_vir2: endpoint@0 {
+		isp1_vir1: endpoint@0 {
 			reg = <0>;
 			remote-endpoint = <&mipi4_lvds2_sditf_1>;
+		};
+	};
+};
+
+&pinctrl {
+	camera {
+		cam_pwdn_gpio_1: cam-pwdn-gpio-1 {
+			rockchip,pins = <1 RK_PB3 RK_FUNC_GPIO &pcfg_pull_up>;
 		};
 	};
 };
