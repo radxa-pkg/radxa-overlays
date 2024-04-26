@@ -15,21 +15,21 @@
 };
 
 &{/} {
-	camera_pwdn_gpio: camera-pwdn-gpio {
+	camera_pwdn_gpio_0: camera-pwdn-gpio-0 {
 		compatible = "regulator-fixed";
-		regulator-name = "camera_pwdn_gpio";
+		regulator-name = "camera_pwdn_gpio_0";
 		regulator-always-on;
 		regulator-boot-on;
 		enable-active-high;
 		gpio = <&gpio1 RK_PB0 GPIO_ACTIVE_HIGH>;
 		pinctrl-names = "default";
-		pinctrl-0 = <&cam_pwdn_gpio>;
+		pinctrl-0 = <&cam_pwdn_gpio_0>;
 	};
 
-	clk_cam_24m: external-camera-clock-24m {
+	clk_cam_24m_0: external-camera-clock-24m-0 {
 		compatible = "fixed-clock";
 		clock-frequency = <24000000>;
-		clock-output-names = "clk_cam_24m";
+		clock-output-names = "clk_cam_24m_0";
 		#clock-cells = <0>;
 	};
 };
@@ -43,7 +43,7 @@
 		compatible = "sony,imx219";
 		reg = <0x10>;
 
-		clocks = <&clk_cam_24m>;
+		clocks = <&clk_cam_24m_0>;
 		clock-names = "xvclk";
 
 		rockchip,camera-module-index = <0>;
@@ -146,7 +146,7 @@
 
 	port {
 		mipi_lvds2_sditf: endpoint {
-			remote-endpoint = <&isp0_vir0>;
+			remote-endpoint = <&isp0_vir2>;
 		};
 	};
 };
@@ -163,14 +163,14 @@
 	status = "okay";
 };
 
-&rkisp0_vir0 {
+&rkisp0_vir2 {
 	status = "okay";
 
 	port {
 		#address-cells = <1>;
 		#size-cells = <0>;
 
-		isp0_vir0: endpoint@0 {
+		isp0_vir2: endpoint@0 {
 			reg = <0>;
 			remote-endpoint = <&mipi_lvds2_sditf>;
 		};
@@ -179,7 +179,7 @@
 
 &pinctrl {
 	camera {
-		cam_pwdn_gpio: cam-pwdn-gpio {
+		cam_pwdn_gpio_0: cam-pwdn-gpio-0 {
 			rockchip,pins = <1 RK_PB0 RK_FUNC_GPIO &pcfg_pull_up>;
 		};
 	};

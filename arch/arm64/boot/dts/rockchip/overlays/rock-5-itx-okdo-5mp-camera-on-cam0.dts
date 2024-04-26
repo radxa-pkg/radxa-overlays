@@ -15,11 +15,11 @@
 };
 
 &{/} {
-	clk_cam_25m: external-camera-clock-25m {
+	clk_cam_25m_0: external-camera-clock-25m-0 {
 		status = "okay";
 		compatible = "fixed-clock";
 		clock-frequency = <25000000>;
-		clock-output-names = "clk_cam_25m";
+		clock-output-names = "clk_cam_25m_0";
 		#clock-cells = <0>;
 	};
 };
@@ -29,11 +29,11 @@
 	#address-cells = <1>;
 	#size-cells = <0>;
 
-	ov5647: ov5647@36 {
+	ov5647_0: ov5647-0@36 {
 		status = "okay";
 		compatible = "ovti,ov5647";
 		reg = <0x36>;
-		clocks = <&clk_cam_25m>;
+		clocks = <&clk_cam_25m_0>;
 		pwdn-gpios = <&gpio1 RK_PB0 GPIO_ACTIVE_LOW>;
 		clock-names = "ext_cam_clk";
 		rockchip,camera-module-index = <0>;
@@ -136,7 +136,7 @@
 
 	port {
 		mipi_lvds2_sditf: endpoint {
-			remote-endpoint = <&isp0_vir0>;
+			remote-endpoint = <&isp0_vir2>;
 		};
 	};
 };
@@ -153,14 +153,14 @@
 	status = "okay";
 };
 
-&rkisp0_vir0 {
+&rkisp0_vir2 {
 	status = "okay";
 
 	port {
 		#address-cells = <1>;
 		#size-cells = <0>;
 
-		isp0_vir0: endpoint@0 {
+		isp0_vir2: endpoint@0 {
 			reg = <0>;
 			remote-endpoint = <&mipi_lvds2_sditf>;
 		};

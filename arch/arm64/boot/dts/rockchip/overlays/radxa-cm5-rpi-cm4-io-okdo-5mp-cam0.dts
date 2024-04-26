@@ -6,55 +6,54 @@
 
 / {
 	metadata {
-		title ="Enable OKDO 5MP Camera on CAM1";
-		compatible = "radxa,rock-5-itx";
+		title ="Enable OKDO 5MP Camera on CAM0";
+		compatible = "radxa,cm5-rpi-cm4-io";
 		category = "camera";
-		exclusive = "csi2_dphy3";
-		description = "Enable OKDO 5MP Camera on CAM1.";
+		exclusive = "csi2_dphy0";
+		description = "Enable OKDO 5MP Camera on CAM0.";
 	};
 };
 
 &{/} {
-	clk_cam_25m_1: external-camera-clock-25m-1 {
-		status = "okay";
+	clk_cam_25m_0: external-camera-clock-25m-0 {
 		compatible = "fixed-clock";
 		clock-frequency = <25000000>;
-		clock-output-names = "clk_cam_25m_1";
+		clock-output-names = "clk_cam_25m_0";
 		#clock-cells = <0>;
 	};
 };
 
-&i2c7 {
+&i2c8 {
 	status = "okay";
+	pinctrl-0 = <&i2c8m2_xfer>;
 	#address-cells = <1>;
 	#size-cells = <0>;
 
-	ov5647_1: ov5647-1@36 {
-		status = "okay";
+	camera_ov5647: camera-ov5647@36 {
 		compatible = "ovti,ov5647";
 		reg = <0x36>;
-		clocks = <&clk_cam_25m_1>;
-		pwdn-gpios = <&gpio1 RK_PB3 GPIO_ACTIVE_LOW>;
-		clock-names = "ext_cam_clk";
-		rockchip,camera-module-index = <1>;
+		clocks = <&clk_cam_25m_0>;
+		clock-names = "xvclk";
+		pwdn-gpios = <&gpio1 RK_PA0 GPIO_ACTIVE_LOW>;
+		rockchip,camera-module-index = <0>;
 		rockchip,camera-module-facing = "front";
 		rockchip,camera-module-name = "OKDO-5MP";
 		rockchip,camera-module-lens-name = "default";
 
 		port {
-			ov5647_out1: endpoint {
-				remote-endpoint = <&mipidphy1_in_ucam1>;
+			ov5647_out0: endpoint {
+				remote-endpoint = <&mipidphy0_in_ucam1>;
 				data-lanes = <1 2>;
 			};
 		};
 	};
 };
 
-&csi2_dphy1_hw {
+&csi2_dphy0_hw {
 	status = "okay";
 };
 
-&csi2_dphy3 {
+&csi2_dphy0 {
 	status = "okay";
 
 	ports {
@@ -66,9 +65,9 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			mipidphy1_in_ucam1: endpoint@1 {
-				reg = <1>;
-				remote-endpoint = <&ov5647_out1>;
+			mipidphy0_in_ucam1: endpoint@2 {
+				reg = <2>;
+				remote-endpoint = <&ov5647_out0>;
 				data-lanes = <1 2>;
 			};
 		};
@@ -78,15 +77,15 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			csidphy4_out: endpoint@0 {
+			csidphy0_out: endpoint@0 {
 				reg = <0>;
-				remote-endpoint = <&mipi4_csi2_input_1>;
+				remote-endpoint = <&mipi2_csi2_input>;
 			};
 		};
 	};
 };
 
-&mipi4_csi2 {
+&mipi2_csi2 {
 	status = "okay";
 
 	ports {
@@ -98,9 +97,9 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			mipi4_csi2_input_1: endpoint@1 {
+			mipi2_csi2_input: endpoint@1 {
 				reg = <1>;
-				remote-endpoint = <&csidphy4_out>;
+				remote-endpoint = <&csidphy0_out>;
 			};
 		};
 
@@ -109,9 +108,9 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			mipi4_csi2_output_1: endpoint@0 {
+			mipi2_csi2_output: endpoint@0 {
 				reg = <0>;
-				remote-endpoint = <&cif_mipi4_in1>;
+				remote-endpoint = <&cif_mipi2_in0>;
 			};
 		};
 	};
@@ -121,22 +120,22 @@
 	status = "okay";
 };
 
-&rkcif_mipi_lvds4 {
+&rkcif_mipi_lvds2 {
 	status = "okay";
 
 	port {
-		cif_mipi4_in1: endpoint {
-			remote-endpoint = <&mipi4_csi2_output_1>;
+		cif_mipi2_in0: endpoint {
+		remote-endpoint = <&mipi2_csi2_output>;
 		};
 	};
 };
 
-&rkcif_mipi_lvds4_sditf {
+&rkcif_mipi_lvds2_sditf {
 	status = "okay";
 
 	port {
-		mipi4_lvds2_sditf_1: endpoint {
-			remote-endpoint = <&isp1_vir2>;
+		mipi_lvds2_sditf: endpoint {
+			remote-endpoint = <&isp1_vir0>;
 		};
 	};
 };
@@ -153,16 +152,16 @@
 	status = "okay";
 };
 
-&rkisp1_vir2 {
+&rkisp1_vir0 {
 	status = "okay";
 
 	port {
 		#address-cells = <1>;
 		#size-cells = <0>;
 
-		isp1_vir2: endpoint@0 {
+		isp1_vir0: endpoint@0 {
 			reg = <0>;
-			remote-endpoint = <&mipi4_lvds2_sditf_1>;
+			remote-endpoint = <&mipi_lvds2_sditf>;
 		};
 	};
 };
