@@ -37,6 +37,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
 	meson-g12-usb-peripheral.dtbo \
 	meson-g12-w1-gpioao-3.dtbo \
 	meson-g12-watchdog.dtbo \
+	radxa-zero-emmc-full-speed.dtbo \
 	radxa-zero-enable-vddio_c.dtbo \
 	radxa-zero-led-8-off.dtbo \
 	radxa-zero-led-10-off.dtbo \

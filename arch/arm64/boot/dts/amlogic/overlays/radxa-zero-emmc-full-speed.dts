@@ -1,0 +1,18 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Increase eMMC's max frequency to 200 MHz";
+		compatible = "radxa,zero";
+		category = "misc";
+		exclusive = "sd_emmc_c";
+		description = "Increase eMMC's max frequency to 200 MHz.
+To improve system stability, Radxa ZERO's eMMC's max frequency is reduced in software.
+If you encouter any instability when this overlay is enabled, please turn it off.";
+	};
+};
+
+&sd_emmc_c {
+	max-frequency = <200000000>;
+};
