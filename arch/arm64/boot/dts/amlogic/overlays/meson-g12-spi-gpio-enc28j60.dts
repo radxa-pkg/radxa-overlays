@@ -11,7 +11,9 @@
 		compatible = "radxa,zero";
 		category = "misc";
 		exclusive = "GPIOH_4", "GPIOH_5", "GPIOH_6", "GPIOH_7", "GPIOX_8";
-		description = "Enable Microchip ENC28J60 SPI Ethernet controller on SPI-B.\nThis overlay uses spi-gpio driver, which is slower than hardware SPI.\nINT=GPIOX_8";
+		description = "Enable Microchip ENC28J60 SPI Ethernet controller on SPI-B.
+This overlay uses spi-gpio driver, which is slower than hardware SPI.
+INT=GPIOX_8";
 	};
 };
 

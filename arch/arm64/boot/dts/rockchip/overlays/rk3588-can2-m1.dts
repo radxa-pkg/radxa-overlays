@@ -9,7 +9,9 @@
 		compatible = "radxa,nx5-io";
 		category = "misc";
 		exclusive = "GPIO0_D4", "GPIO0_D5";
-		description = "Enable CAN2-M1.\nOn Radxa NX5 IO this is RX pin 3 & TX pin 5.\n";
+		description = "Enable CAN2-M1.
+On Radxa NX5 IO this is RX pin 3 & TX pin 5.
+";
 	};
 };
 

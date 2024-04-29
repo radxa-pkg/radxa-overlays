@@ -8,7 +8,8 @@
 		compatible = "radxa,rock-5-itx";
 		category = "display";
 		exclusive = "dp0", "vp0", "hdmi1";
-		description = "Enable 8K output on HDMI1.\nThis will disable DP0.";
+		description = "Enable 8K output on HDMI1.
+This will disable DP0.";
 	};
 };
 

@@ -11,7 +11,8 @@
 		compatible = "radxa,zero", "radxa,zero2";
 		category = "misc";
 		exclusive = "GPIOAO_3";
-		description = "Enable DS3231 RTC on I2C_EE-M3.\nINT = GPIOAO_3";
+		description = "Enable DS3231 RTC on I2C_EE-M3.
+INT = GPIOAO_3";
 	};
 };
 

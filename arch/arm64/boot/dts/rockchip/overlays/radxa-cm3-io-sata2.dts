@@ -10,7 +10,9 @@
 		compatible = "radxa,cm3-io";
 		category = "misc";
 		exclusive = "sata2";
-		description = "Enable SATA2.\nWhen SATA2 is enabled, PCIe cannot be enabled on the same pin mux.\nRadxa CM3 IO  <= v1.3 contains incorrect label of this port.";
+		description = "Enable SATA2.
+When SATA2 is enabled, PCIe cannot be enabled on the same pin mux.
+Radxa CM3 IO  <= v1.3 contains incorrect label of this port.";
 	};
 };
 

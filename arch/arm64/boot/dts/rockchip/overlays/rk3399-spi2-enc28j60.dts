@@ -11,7 +11,8 @@
 		compatible = "unknown";
 		category = "misc";
 		exclusive = "GPIO2_B3", "GPIO2_B2", "GPIO2_B1", "GPIO2_B4", "GPIO4_A7";
-		description = "Enable Microchip ENC28J60 SPI Ethernet controller on SPI2.\nINT=40";
+		description = "Enable Microchip ENC28J60 SPI Ethernet controller on SPI2.
+INT=40";
 	};
 };
 

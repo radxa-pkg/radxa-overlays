@@ -8,7 +8,10 @@
 		title = "Set RGA frequency to 400 MHz";
 		compatible = "unknown";
 		category = "misc";
-		description = "Set RGA frequency to 400 MHz.\nThis is usually not needed.\nYou can check current clock speed with:\nsudo grep rga /sys/kernel/debug/clk/clk_summary";
+		description = "Set RGA frequency to 400 MHz.
+This is usually not needed.
+You can check current clock speed with:
+sudo grep rga /sys/kernel/debug/clk/clk_summary";
 	};
 };
 

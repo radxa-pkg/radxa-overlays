@@ -7,7 +7,8 @@
 		compatible = "radxa,rock-3c";
 		category = "misc";
 		exclusive = "GPIO3_B1", "GPIO3_B2";
-		description = "Enable FIQ Debugger on UART4-M1.\nOn Radxa ROCK 3C this is on pin 16 and pin 18.";
+		description = "Enable FIQ Debugger on UART4-M1.
+On Radxa ROCK 3C this is on pin 16 and pin 18.";
 	};
 };
 

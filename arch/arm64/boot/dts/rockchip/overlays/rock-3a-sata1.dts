@@ -7,7 +7,8 @@
 		title = "Enable SATA1";
 		compatible = "unknown";
 		category = "misc";
-		description = "Enable SATA1.\nWhen SATA1 is enabled, USB3.0 cannot be enabled on the same port.";
+		description = "Enable SATA1.
+When SATA1 is enabled, USB3.0 cannot be enabled on the same port.";
 	};
 };
 

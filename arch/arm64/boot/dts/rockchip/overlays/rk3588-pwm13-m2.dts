@@ -7,7 +7,9 @@
 		compatible = "radxa,rock-5b", "radxa,cm5-io";
 		category = "misc";
 		exclusive = "GPIO1_B7";
-		description = "Enable PWM13-M2.\nOn Radxa ROCK 5B this is pin 31.\nOn Radxa CM5 IO this is pin 32.";
+		description = "Enable PWM13-M2.
+On Radxa ROCK 5B this is pin 31.
+On Radxa CM5 IO this is pin 32.";
 	};
 };
 

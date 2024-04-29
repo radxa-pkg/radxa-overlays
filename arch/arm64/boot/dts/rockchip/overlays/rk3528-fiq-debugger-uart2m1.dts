@@ -7,7 +7,8 @@
 		compatible = "radxa,rock-2a";
 		category = "misc";
 		exclusive = "GPIO1_B0", "GPIO1_B1";
-		description = "Enable FIQ Debugger on UART2-M1.\nOn Radxa 2A this is RX pin 31 and TX pin 33.";
+		description = "Enable FIQ Debugger on UART2-M1.
+On Radxa 2A this is RX pin 31 and TX pin 33.";
 	};
 };
 

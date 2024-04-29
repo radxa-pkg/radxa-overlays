@@ -8,7 +8,8 @@
 		compatible = "radxa,rock-5a";
 		category = "misc";
 		exclusive = "combphy0_ps";
-		description = "Enable SATA0.\nWhen SATA0 is enabled, PCIe cannot be enabled on the same port.";
+		description = "Enable SATA0.
+When SATA0 is enabled, PCIe cannot be enabled on the same port.";
 	};
 };
 

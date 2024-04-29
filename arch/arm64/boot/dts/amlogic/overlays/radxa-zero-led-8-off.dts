@@ -9,6 +9,7 @@
 		compatible = "radxa,zero";
 		category = "misc";
 		exclusive = "led_power";
-		description = "Enable GPIOAO_8 for hardware version 1.51 and later.\nThis is due to older version uses this for Power LED.";
+		description = "Enable GPIOAO_8 for hardware version 1.51 and later.
+This is due to older version uses this for Power LED.";
 	};
 };

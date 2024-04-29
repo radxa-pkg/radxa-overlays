@@ -12,7 +12,8 @@
 		compatible = "radxa,zero2";
 		category = "misc";
 		exclusive = "vddio_c";
-		description = "Enable 1.8V signaling for data microSD.\nThis will make reboot fail if booting from microSD.";
+		description = "Enable 1.8V signaling for data microSD.
+This will make reboot fail if booting from microSD.";
 	};
 };
 

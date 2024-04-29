@@ -11,7 +11,9 @@
 		compatible = "unknown";
 		category = "misc";
 		exclusive = "GPIO4_D2", "GPIO4_D4", "GPIO4_A4", "GPIO4_A6", "GPIO4_A7";
-		description = "Provide support for Microchip ENC28J60 SPI Ethernet controller on GPIO pins.\nPin definition:\nMOSI=16 MISO=18 SCK=36 CS=38 INT=40";
+		description = "Provide support for Microchip ENC28J60 SPI Ethernet controller on GPIO pins.
+Pin definition:
+MOSI=16 MISO=18 SCK=36 CS=38 INT=40";
 	};
 };
 

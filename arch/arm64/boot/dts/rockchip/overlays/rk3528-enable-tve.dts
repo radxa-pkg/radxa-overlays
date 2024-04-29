@@ -7,7 +7,8 @@
 		compatible = "radxa,rock-2a";
 		category = "misc";
 		exclusive = "tve";
-		description = "Enable analog video output.\nCurrently this overlay will disable HDMI output due to display artifacts.";
+		description = "Enable analog video output.
+Currently this overlay will disable HDMI output due to display artifacts.";
 	};
 };
 

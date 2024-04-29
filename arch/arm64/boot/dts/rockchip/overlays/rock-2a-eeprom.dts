@@ -7,7 +7,8 @@
 		compatible = "radxa,rock-2a";
 		category = "misc";
 		exclusive = "GPIO4_A2", "GPIO4_A3", "i2c1";
-		description = "Enable EEPROM on I2C1-M0.\nThis is a onboard device that we disable by default, so GPIO pins can function as expected.";
+		description = "Enable EEPROM on I2C1-M0.
+This is a onboard device that we disable by default, so GPIO pins can function as expected.";
 	};
 };
 

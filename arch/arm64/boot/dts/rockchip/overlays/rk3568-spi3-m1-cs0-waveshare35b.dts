@@ -3,7 +3,8 @@
 / {
 	metadata {
 		title = "Enable Waveshare 3.5inch RPi LCD (B) on SPI3-M1";
-		description = "Enable Waveshare 3.5inch RPi LCD (B) on SPI3-M1.\nHDMI CEC function will be turned off when this overlay is enabled.";
+		description = "Enable Waveshare 3.5inch RPi LCD (B) on SPI3-M1.
+HDMI CEC function will be turned off when this overlay is enabled.";
 	};
 };
 

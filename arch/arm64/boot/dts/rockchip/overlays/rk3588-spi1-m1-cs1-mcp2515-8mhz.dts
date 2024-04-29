@@ -11,7 +11,9 @@
 		compatible = "radxa,rock-5b", "radxa,rock-5b-plus";
 		category = "misc";
 		exclusive = "GPIO3_C3", "GPIO3_C1", "GPIO3_B7", "GPIO3_C0", "GPIO1_B2";
-		description = "Provide support for Microchip MCP2515 SPI CAN controller.\nAssumes 8MHz external clock.\nUses Pin 19 (GPIOI1_B2) for INT.";
+		description = "Provide support for Microchip MCP2515 SPI CAN controller.
+Assumes 8MHz external clock.
+Uses Pin 19 (GPIOI1_B2) for INT.";
 	};
 };
 

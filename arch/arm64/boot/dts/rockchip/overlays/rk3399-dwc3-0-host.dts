@@ -7,7 +7,8 @@
 		compatible = "rockchip,rk3399";
 		category = "misc";
 		exclusive = "usbdrd_dwc3_0-dr_mode";
-		description = "Set OTG port to Host mode.\nUse this when you want to connect USB devices.";
+		description = "Set OTG port to Host mode.
+Use this when you want to connect USB devices.";
 	};
 };
 

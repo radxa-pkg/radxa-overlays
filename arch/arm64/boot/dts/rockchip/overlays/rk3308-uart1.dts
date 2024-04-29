@@ -7,7 +7,9 @@
 		compatible = "radxa,rockpis", "radxa,rock-s0";
 		category = "misc";
 		exclusive = "GPIO1_D0", "GPIO1_D1", "i2c0", "spi2";
-		description = "Enable UART1.\nOn ROCK PI S this is TX pin 24 & RX pin 23.\nOn ROCK S0 this is TX pin 24 & RX pin 23.";
+		description = "Enable UART1.
+On ROCK PI S this is TX pin 24 & RX pin 23.
+On ROCK S0 this is TX pin 24 & RX pin 23.";
 	};
 };
 

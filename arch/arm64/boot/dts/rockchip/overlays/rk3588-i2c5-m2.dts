@@ -7,7 +7,8 @@
 		compatible = "radxa,cm5-io";
 		category = "misc";
 		exclusive = "GPIO4_A7", "GPIO4_A6";
-		description = "Enable I2C5-M2.\nOn Radxa CM5 IO this is SDA pin 7 & SCL pin 11.";
+		description = "Enable I2C5-M2.
+On Radxa CM5 IO this is SDA pin 7 & SCL pin 11.";
 	};
 };
 

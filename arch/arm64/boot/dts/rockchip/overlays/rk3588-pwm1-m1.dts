@@ -7,7 +7,8 @@
 		compatible = "radxa,nx5-io";
 		category = "misc";
 		exclusive = "GPIO1_D3";
-		description = "Enable PWM1-M1.\nOn Radxa NX5 IO this is pin 18.";
+		description = "Enable PWM1-M1.
+On Radxa NX5 IO this is pin 18.";
 	};
 };
 

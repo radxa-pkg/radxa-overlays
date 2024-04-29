@@ -7,7 +7,9 @@
 		compatible = "radxa,rock-3c", "radxa,zero3";
 		category = "misc";
 		exclusive = "GPIO3_B1", "GPIO3_B2";
-		description = "Enable UART4-M1.\nOn Radxa ROCK 3C this is RX pin 16 & TX pin 18.\nOn Radxa ZERO 3 this is RX pin 16 & TX pin 18.";
+		description = "Enable UART4-M1.
+On Radxa ROCK 3C this is RX pin 16 & TX pin 18.
+On Radxa ZERO 3 this is RX pin 16 & TX pin 18.";
 	};
 };
 

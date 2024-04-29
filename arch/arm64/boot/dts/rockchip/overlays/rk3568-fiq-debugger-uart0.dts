@@ -6,7 +6,8 @@
 		title = "Enable FIQ Debugger on UART0";
 		compatible = "radxa,rock-3b";
 		category = "misc";
-		description = "Enable FIQ Debugger on UART0.\nOn Radxa ROCK 3B this is TX pin 22 & RX pin 15.";
+		description = "Enable FIQ Debugger on UART0.
+On Radxa ROCK 3B this is TX pin 22 & RX pin 15.";
 	};
 };
 

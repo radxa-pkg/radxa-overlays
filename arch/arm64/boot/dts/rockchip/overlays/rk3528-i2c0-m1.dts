@@ -8,7 +8,8 @@
 		compatible = "radxa,rock-2a";
 		category = "misc";
 		exclusive = "GPIO4_A0", "GPIO4_A1", "i2c0";
-		description = "Enable I2C0-M1.\nOn Radxa 2A this is SDA pin 3 and SCL pin 5.";
+		description = "Enable I2C0-M1.
+On Radxa 2A this is SDA pin 3 and SCL pin 5.";
 	};
 };
 

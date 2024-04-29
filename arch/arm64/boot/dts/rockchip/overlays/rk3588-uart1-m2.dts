@@ -7,7 +7,8 @@
 		compatible = "radxa,nx5-io";
 		category = "misc";
 		exclusive = "GPIO0_D1", "GPIO0_D2";
-		description = "Enable UART1-M2.\nOn Radxa NX5 IO this is TX pin 28 and RX pin 27.";
+		description = "Enable UART1-M2.
+On Radxa NX5 IO this is TX pin 28 and RX pin 27.";
 	};
 };
 

@@ -7,7 +7,8 @@
 		compatible = "radxa,rock-s0";
 		category = "misc";
 		exclusive = "GPOI0_C2", "GPOI0_C1", "pwm5", "pwm6";
-		description = "Enable UART3-M1.\nOn Radxa ROCK S0 this RX pin 15 & TX pin 33.";
+		description = "Enable UART3-M1.
+On Radxa ROCK S0 this RX pin 15 & TX pin 33.";
 	};
 };
 

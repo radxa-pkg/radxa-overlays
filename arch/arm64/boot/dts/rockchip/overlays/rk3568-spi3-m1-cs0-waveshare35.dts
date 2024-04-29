@@ -7,7 +7,8 @@
 		compatible = "radxa,rock-3c", "radxa,zero3";
 		category = "display";
 		exclusive = "GPIO4_A6", "GPIO4_C6", "GPIO3_C1", "GPIO3_B2", "GPIO3_A1", "GPIO4_D1", "GPIO4_B2", "GPIO4_B3";
-		description = "Enable Waveshare 3.5inch RPi LCD (C) on SPI3-M1.\nHDMI CEC function will be turned off when this overlay is enabled.";
+		description = "Enable Waveshare 3.5inch RPi LCD (C) on SPI3-M1.
+HDMI CEC function will be turned off when this overlay is enabled.";
 	};
 };
 

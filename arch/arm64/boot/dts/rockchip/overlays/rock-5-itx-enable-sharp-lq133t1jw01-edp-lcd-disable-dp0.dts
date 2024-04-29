@@ -12,7 +12,8 @@
 		compatible = "radxa,rock-5-itx";
 		category = "display";
 		exclusive = "dp0", "edp0", "vp2";
-		description = "Enable Sharp LQ133T1JW01 display on eDP.\nThis will disable DP0.";
+		description = "Enable Sharp LQ133T1JW01 display on eDP.
+This will disable DP0.";
 	};
 };
 

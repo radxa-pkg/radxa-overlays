@@ -7,7 +7,9 @@
 		compatible = "radxa,rockpis", "radxa,rock-s0";
 		category = "misc";
 		exclusive = "GPIO1_D0", "GPIO1_D1", "spi2", "uart1";
-		description = "Enable I2C0.\nOn Radxa ROCK PI S this is SDA pin 23 & SCL pin 24.\nOn ROCK S0 this is SDA pin 23 & SCL pin 24.";
+		description = "Enable I2C0.
+On Radxa ROCK PI S this is SDA pin 23 & SCL pin 24.
+On ROCK S0 this is SDA pin 23 & SCL pin 24.";
     };
 };
 

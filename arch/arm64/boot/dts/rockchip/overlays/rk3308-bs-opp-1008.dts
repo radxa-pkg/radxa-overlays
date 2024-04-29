@@ -10,6 +10,7 @@
 		compatible = "unknown";
 		category = "misc";
 		exclusive = "cpu0_opp_table";
-		description = "RK3308B-S is a variant of RK3308B, that can operate at lower voltage, resulting in lower power consumption.\nEnable this overlay on regular RK3308 system may render it non-bootable.";
+		description = "RK3308B-S is a variant of RK3308B, that can operate at lower voltage, resulting in lower power consumption.
+Enable this overlay on regular RK3308 system may render it non-bootable.";
 	};
 };

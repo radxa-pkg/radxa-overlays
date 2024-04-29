@@ -11,7 +11,8 @@
 		compatible = "radxa,rock-3c", "radxa,zero3";
 		category = "misc";
 		exclusive = "GPIO4_C2", "GPIO4_C3", "GPIO4_C5", "GPIO4_C6", "GPIO3_C1";
-		description = "Enable Microchip ENC28J60 SPI Ethernet controller on SPI3-M1 CS0.\nINT=22";
+		description = "Enable Microchip ENC28J60 SPI Ethernet controller on SPI3-M1 CS0.
+INT=22";
 	};
 };
 

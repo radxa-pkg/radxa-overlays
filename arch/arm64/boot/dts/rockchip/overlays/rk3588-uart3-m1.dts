@@ -7,7 +7,9 @@
 		compatible = "radxa,rock-5b", "radxa,rock-5b-plus";
 		category = "misc";
 		exclusive = "GPIO3_B5", "GPIO3_B6";
-		description = "Enable UART3-M1.\nOn Radxa ROCK 5B this is TX pin 12 and RX pin 35.\nOn Radxa ROCK 5B+ this is TX pin 12 and RX pin 35.";
+		description = "Enable UART3-M1.
+On Radxa ROCK 5B this is TX pin 12 and RX pin 35.
+On Radxa ROCK 5B+ this is TX pin 12 and RX pin 35.";
 	};
 };
 

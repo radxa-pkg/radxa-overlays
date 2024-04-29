@@ -10,6 +10,8 @@
 		compatible = "radxa,zero";
 		category = "misc";
 		exclusive = "uart_AO_B", "GPIOAO_8", "GPIOAO_9", "led_power";
-		description = "Enable UART_AO-B on GPIOAO_8 and GPIOAO_9 (>= v1.51).\nOn Radxa ZERO this is TX pin 35 & RX pin 37.\nFor Radxa ZERO, GPIOAO_8 is only available since v1.51.";
+		description = "Enable UART_AO-B on GPIOAO_8 and GPIOAO_9 (>= v1.51).
+On Radxa ZERO this is TX pin 35 & RX pin 37.
+For Radxa ZERO, GPIOAO_8 is only available since v1.51.";
 	};
 };

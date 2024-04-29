@@ -7,7 +7,8 @@
 		compatible = "radxa,cm5-rpi-cm4-io";
 		category = "misc";
 		exclusive = "GPIO1_C2";
-		description = "Enable PWM3-M2.\nOn Radxa CM5 RPI CM4 IO this is pin 11.";
+		description = "Enable PWM3-M2.
+On Radxa CM5 RPI CM4 IO this is pin 11.";
 	};
 };
 

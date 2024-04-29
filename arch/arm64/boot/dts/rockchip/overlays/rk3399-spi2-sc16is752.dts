@@ -11,7 +11,8 @@
 		compatible = "rockchip,rk3399";
 		category = "misc";
 		exclusive = "GPIO2_B3", "GPIO2_B2", "GPIO2_B1", "GPIO2_B4", "GPIO4_A6";
-		description = "Enable SC16IS752 SPI on SPI2.\nINT=38";
+		description = "Enable SC16IS752 SPI on SPI2.
+INT=38";
 	};
 };
 

@@ -7,7 +7,9 @@
 		compatible = "radxa,rock-4c-plus";
 		category = "misc";
 		exclusive = "GPIO1_B0", "GPIO1_A7", "GPIO1_B1", "GPIO1_B2", "GPIO4_D5";
-		description = "Provide support for Microchip MCP2515 SPI CAN controller.\nAssumes 8MHz external clock.\nUses Pin 22 (GPIO4_D5) for INT.";
+		description = "Provide support for Microchip MCP2515 SPI CAN controller.
+Assumes 8MHz external clock.
+Uses Pin 22 (GPIO4_D5) for INT.";
 	};
 };
 

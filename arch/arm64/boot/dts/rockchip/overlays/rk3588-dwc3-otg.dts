@@ -7,7 +7,8 @@
 		compatible = "unknown";
 		category = "misc";
 		exclusive = "usbdrd_dwc3-dr_mode";
-		description = "Set OTG port 0 to OTG mode.\nUse this for automatic USB role switching.";
+		description = "Set OTG port 0 to OTG mode.
+Use this for automatic USB role switching.";
 	};
 };
 

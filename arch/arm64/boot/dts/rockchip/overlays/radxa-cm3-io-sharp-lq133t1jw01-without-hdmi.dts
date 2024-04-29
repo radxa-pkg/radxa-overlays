@@ -10,7 +10,8 @@
 		compatible = "radxa,cm3-io";
 		category = "display";
 		exclusive = "edp", "vp0", "pwm5";
-		description = "Enable Sharp LQ133T1JW01 display.\nHDMI will be disabled.";
+		description = "Enable Sharp LQ133T1JW01 display.
+HDMI will be disabled.";
 	};
 };
 

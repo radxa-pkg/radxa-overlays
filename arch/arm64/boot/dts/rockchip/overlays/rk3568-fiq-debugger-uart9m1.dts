@@ -7,7 +7,9 @@
 		compatible = "radxa,rock-3b", "radxa,rock-3c";
 		category = "misc";
 		exclusive = "GPIO4_C5", "GPIO4_C6";
-		description = "Enable FIQ Debugger on UART9-M1.\nOn Radxa ROCK 3B this TX pin 21 & RX pin 24.\nOn Radxa ROCK 3C this is TX pin 21 and RX pin 24.";
+		description = "Enable FIQ Debugger on UART9-M1.
+On Radxa ROCK 3B this TX pin 21 & RX pin 24.
+On Radxa ROCK 3C this is TX pin 21 and RX pin 24.";
 	};
 };
 

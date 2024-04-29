@@ -7,7 +7,9 @@
 		compatible = "radxa,cm5-io", "radxa,nx5-io";
 		category = "misc";
 		exclusive = "GPIO3_D3";
-		description = "Enable PWM10-M2.\nOn Radxa CM5 IO this is pin 3\nOn Radxa NX5 IO this is pin 36.";
+		description = "Enable PWM10-M2.
+On Radxa CM5 IO this is pin 3
+On Radxa NX5 IO this is pin 36.";
 	};
 };
 

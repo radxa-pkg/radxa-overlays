@@ -10,7 +10,8 @@
 		compatible = "radxa,nx5-io";
 		category = "misc";
 		exclusive = "GPIO1_C7";
-		description = "Enable 1-Wire on GPIO1_C7.\nOn Radxa NX5 IO this is pin 40.";
+		description = "Enable 1-Wire on GPIO1_C7.
+On Radxa NX5 IO this is pin 40.";
 	};
 };
 

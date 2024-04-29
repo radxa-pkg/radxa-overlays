@@ -8,7 +8,8 @@
 		compatible = "radxa,rock-5a";
 		category = "misc";
 		exclusive = "sdhci", "sfc";
-		description = "Enable SPI flash.\nWhen SPI flash is enabled, eMMC cannot be enabled on the same port.";
+		description = "Enable SPI flash.
+When SPI flash is enabled, eMMC cannot be enabled on the same port.";
 	};
 };
 

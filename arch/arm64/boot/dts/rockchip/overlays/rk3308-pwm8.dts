@@ -7,7 +7,8 @@
 		compatible = "radxa,rock-s0";
 		category = "misc";
 		exclusive = "GPIO0_C1";
-		description = "Enable PWM8.\nOn ROCK S0 this is pin 31.";
+		description = "Enable PWM8.
+On ROCK S0 this is pin 31.";
 	};
 };
 

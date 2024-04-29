@@ -10,7 +10,9 @@
 		title = "Enable ENC28J60 on SPI5";
 		compatible = "unknown";
 		category = "misc";
-		description = "Enable Microchip ENC28J60 SPI Ethernet controller on SPI5.\nWarning: this overlay is only compatiable with Liwan, which is a customized version of ROCK 4C.\nThis overlay is NOT compatiable with regular ROCK 4C.";
+		description = "Enable Microchip ENC28J60 SPI Ethernet controller on SPI5.
+Warning: this overlay is only compatiable with Liwan, which is a customized version of ROCK 4C.
+This overlay is NOT compatiable with regular ROCK 4C.";
 	};
 };
 

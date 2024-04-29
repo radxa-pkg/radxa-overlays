@@ -3,7 +3,8 @@
 / {
 	metadata {
 		title = "Enable Waveshare 3.5 inch Display (B) on SPI0-M0";
-		description = "Enable Waveshare 3.5 inch Display (B) on SPI0-M0.\nTouch is temporarily unavailable.";
+		description = "Enable Waveshare 3.5 inch Display (B) on SPI0-M0.
+Touch is temporarily unavailable.";
 	};
 };
 

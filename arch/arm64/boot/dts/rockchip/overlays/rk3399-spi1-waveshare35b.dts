@@ -4,7 +4,8 @@
 	metadata {
 		title = "Enable Waveshare 3.5inch RPi LCD (B) on SPI1 (No Touch Support)";
 		exclusive = "GPIO1_B0", "GPIO1_A7", "GPIO1_B1", "GPIO1_B2", "GPIO4_D4", "GPIO4_D5" ;
-		description = "Enable Waveshare 3.5inch RPi LCD (B) on SPI1 (No Touch Support).\nDue to hardware conflict, touch is not available when using with ROCK 4.";
+		description = "Enable Waveshare 3.5inch RPi LCD (B) on SPI1 (No Touch Support).
+Due to hardware conflict, touch is not available when using with ROCK 4.";
 	};
 };
 

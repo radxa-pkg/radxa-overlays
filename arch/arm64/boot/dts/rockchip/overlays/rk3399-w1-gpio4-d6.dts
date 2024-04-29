@@ -10,7 +10,8 @@
 		compatible = "rockchip,rk3399";
 		category = "misc";
 		exclusive = "GPIO4_D6";
-		description = "Enable 1-Wire on GPIO4_D6.\nOn ROCK 4 this is pin 37.";
+		description = "Enable 1-Wire on GPIO4_D6.
+On ROCK 4 this is pin 37.";
 	};
 };
 

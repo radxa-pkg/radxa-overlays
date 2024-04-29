@@ -9,7 +9,8 @@
 		compatible = "radxa,cm3-io";
 		category = "misc";
 		exclusive = "fan0";
-		description = "Disable FAN0.\nThis will also disable PWM0, so the pin can be used for other functions.";
+		description = "Disable FAN0.
+This will also disable PWM0, so the pin can be used for other functions.";
 	};
 };
 

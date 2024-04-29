@@ -7,7 +7,8 @@
 		compatible = "radxa,nx5-io";
 		category = "misc";
 		exclusive = "GPIO1_D2", "GPIO1_D3";
-		description = "Enable I2C1-M4.\nOn Radxa NX5 IO this is SDA pin 18 & SCL pin 13.";
+		description = "Enable I2C1-M4.
+On Radxa NX5 IO this is SDA pin 18 & SCL pin 13.";
 	};
 };
 

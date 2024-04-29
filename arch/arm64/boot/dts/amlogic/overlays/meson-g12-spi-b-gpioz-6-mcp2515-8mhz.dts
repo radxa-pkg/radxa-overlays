@@ -11,7 +11,9 @@
 		compatible = "unknown";
 		category = "misc";
 		exclusive = "spicc1", "GPIOH_4", "GPIOH_5", "GPIOH_6", "GPIOH_7", "GPIOZ_6";
-		description = "Provide support for Microchip MCP2515 SPI CAN controller.\nAssumes 8MHz external clock.\nUses Pin 18 (GPIOZ_6) for INT.";
+		description = "Provide support for Microchip MCP2515 SPI CAN controller.
+Assumes 8MHz external clock.
+Uses Pin 18 (GPIOZ_6) for INT.";
 	};
 };
 

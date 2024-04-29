@@ -12,7 +12,8 @@
 		compatible = "radxa,rock-2a";
 		category = "misc";
 		exclusive = "GPIO4_B2", "GPIO4_B3", "GPIO4_B4", "GPIO4_C1", "GPIO4_C6";
-		description = "Enable MCP2515 on SPI0 CS1 with 12 MHz Crystal Oscillator.\nINT=15";
+		description = "Enable MCP2515 on SPI0 CS1 with 12 MHz Crystal Oscillator.
+INT=15";
 	};
 };
 

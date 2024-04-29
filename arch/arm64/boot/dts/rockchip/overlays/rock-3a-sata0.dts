@@ -7,7 +7,8 @@
 		title = "Enable SATA0";
 		compatible = "unknown";
 		category = "misc";
-		description = "Enable SATA0.\nWhen SATA0 is enabled, USB3.0 cannot be enabled on the same port.";
+		description = "Enable SATA0.
+When SATA0 is enabled, USB3.0 cannot be enabled on the same port.";
 	};
 };
 

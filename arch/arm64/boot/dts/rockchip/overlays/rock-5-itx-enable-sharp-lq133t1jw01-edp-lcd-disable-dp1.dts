@@ -12,7 +12,8 @@
 		compatible = "unknown";
 		category = "display";
 		exclusive = "dp1", "edp0", "vp2";
-		description = "Enable Sharp LQ133T1JW01 display on eDP.\nThis will disable DP1.";
+		description = "Enable Sharp LQ133T1JW01 display on eDP.
+This will disable DP1.";
 	};
 };
 

@@ -7,7 +7,8 @@
 		compatible = "radxa,rock-5a", "radxa,rock-5c";
 		category = "misc";
 		exclusive = "GPIO1_D6";
-		description = "Enable PWM14-M2.\nOn Radxa ROCK 5A this is pin 5.";
+		description = "Enable PWM14-M2.
+On Radxa ROCK 5A this is pin 5.";
 	};
 };
 

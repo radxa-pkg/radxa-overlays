@@ -7,7 +7,8 @@
 		compatible = "radxa,rock-3c";
 		category = "misc";
 		exclusive = "gmac1";
-		description = "Disable onboard Ethernet.\nHas no affect on external Ethernet (for example USB adapter).";
+		description = "Disable onboard Ethernet.
+Has no affect on external Ethernet (for example USB adapter).";
 	};
 };
 
