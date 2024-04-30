@@ -50,9 +50,9 @@
 				hactive = <800>;
 				vactive = <480>;
 
-				hsync-len = <90>;
+				hsync-len = <85>;
 				hback-porch = <55>;
-				hfront-porch = <40>;
+				hfront-porch = <43>;
 
 				vsync-len = <12>;
 				vback-porch = <7>;
