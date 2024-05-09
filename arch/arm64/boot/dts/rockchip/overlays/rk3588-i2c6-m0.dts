@@ -23,7 +23,7 @@ On Radxa CM5-RPI-CM4-IO this is SDA pin 3 and SCL pin 5.";
 &i2c6m0_xfer {
 	rockchip,pins =
 		/* i2c6_scl_m0 */
-		<0 RK_PD0 9 &pcfg_pull_up_drv_level_12>,
+		<0 RK_PD0 9 &pcfg_pull_up_drv_level_3>,
 		/* i2c6_sda_m0 */
-		<0 RK_PC7 9 &pcfg_pull_up_drv_level_12>;
+		<0 RK_PC7 9 &pcfg_pull_up_drv_level_3>;
 };
