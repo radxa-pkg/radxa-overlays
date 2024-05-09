@@ -1,6 +1,9 @@
 /dts-v1/;
 /plugin/;
 
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
 / {
 	metadata {
 		title = "Enable MCP2515 with 8MHz external clock on SPI1";
@@ -16,7 +19,7 @@ Uses Pin 22 (GPIO4_D5) for INT.";
 &pinctrl {
 	mcp2515_int_pins {
 		mcp2515_int_pins: mcp2515_int_pin {
-			rockchip,pins = <4 29 0 &pcfg_pull_none>;
+			rockchip,pins = <4 RK_PD5 RK_FUNC_GPIO &pcfg_pull_none>;
 		};
 	};
 };
@@ -40,7 +43,7 @@ Uses Pin 22 (GPIO4_D5) for INT.";
 		compatible = "microchip,mcp2515";
 		reg = <0>;
 		interrupt-parent = <&gpio4>;
-		interrupts = <29 2>;
+		interrupts = <RK_PD5 IRQ_TYPE_EDGE_FALLING>;
 		spi-max-frequency = <10000000>;
 		clocks = <&can_mcp2515_osc>;
 		vdd-supply = <&vcc3v3_sys>;
