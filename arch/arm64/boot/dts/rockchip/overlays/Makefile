@@ -139,16 +139,16 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	audioinjector-isolated-soundcard.dtbo \
 	radxa-cm3-io-camera-v2-imx219-cam1.dtbo \
 	radxa-cm3-io-camera-v2-imx219-cam2.dtbo \
-	radxa-cm3-io-radxa-camera-8m-cam1.dtbo \
-	radxa-cm3-io-radxa-camera-8m-cam2.dtbo \
 	radxa-cm3-io-dual-cameras-gc2053-gc2093.dtbo \
 	radxa-cm3-io-dual-cameras-gc2053.dtbo \
 	radxa-cm3-io-i2c0-hym8563.dtbo \
 	radxa-cm3-io-okdo-5mp-camera-cam1.dtbo \
 	radxa-cm3-io-okdo-5mp-camera-cam2.dtbo \
+	radxa-cm3-io-pcie2x1.dtbo \
+	radxa-cm3-io-radxa-camera-8m-cam1.dtbo \
+	radxa-cm3-io-radxa-camera-8m-cam2.dtbo \
 	radxa-cm3-io-rpi-camera-v1p3-ov5647-cam1.dtbo \
 	radxa-cm3-io-rpi-camera-v1p3-ov5647-cam2.dtbo \
-	radxa-cm3-io-pcie2x1.dtbo \
 	radxa-cm3-radxa-taco-pcie2x1.dtbo \
 	radxa-cm3-raspcm4io-pcie2x1.dtbo \
 	radxa-cm3-rpi-cm4-7inch-touchscreen-disp0.dtbo \
@@ -270,13 +270,13 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rock-3c-radxa-camera-8m.dtbo
 
 dtb-$(CONFIG_CPU_RK3568) += \
-	radxa-cm3-io-sata1.dtbo \
-	radxa-cm3-io-sata2.dtbo \
+	radxa-cm3-io-jymx1013833281be-display.dtbo \
 	radxa-cm3-io-radxa-10p1inch-display.dtbo \
-	radxa-cm3-io-sharp-lq133t1jw01-without-hdmi.dtbo \
 	radxa-cm3-io-radxa-display-8hd.dtbo \
 	radxa-cm3-io-radxa-display-10fhd.dtbo \
-	radxa-cm3-io-jymx1013833281be-display.dtbo \
+	radxa-cm3-io-sata1.dtbo \
+	radxa-cm3-io-sata2.dtbo \
+	radxa-cm3-io-sharp-lq133t1jw01-without-hdmi.dtbo \
 	radxa-5inch-touchscreen-on-cm3-sodimm-io.dtbo \
 	radxa-cm3-sodimm-io-radxa-display-8hd.dtbo \
 	radxa-cm3-sodimm-io-radxa-display-10hd.dtbo \
