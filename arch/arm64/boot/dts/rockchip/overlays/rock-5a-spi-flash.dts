@@ -5,7 +5,7 @@
 
 	metadata {
 		title = "Enable SPI flash";
-		compatible = "radxa,rock-5a";
+		compatible = "radxa,rock-5a","radxa,rock-5c";
 		category = "misc";
 		exclusive = "sdhci", "sfc";
 		description = "Enable SPI flash.
