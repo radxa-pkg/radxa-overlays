@@ -8,7 +8,8 @@
 		category = "misc";
 		exclusive= "GPIO1_D0", "GPIO1_D1";
 		description = "Enable UART6-M2.
-On Radxa ROCK 5A this is TX pin 22 & RX pin 37.";
+On Radxa NX5 IO this is TX pin 22 & RX pin 37.
+";
 	};
 };
 

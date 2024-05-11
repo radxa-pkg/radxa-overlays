@@ -8,7 +8,9 @@
 		category = "misc";
 		exclusive= "GPIO1_A1", "GPIO1_A0";
 		description = "Enable UART6-M1.
-On Radxa ROCK 5A this is TX pin 19 and RX pin 21.";
+On Radxa ROCK 5A this is TX pin 19 and RX pin 21.
+On Radxa ROCK 5C this is TX pin 19 and RX pin 21.
+";
 	};
 };
 

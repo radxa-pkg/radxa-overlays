@@ -8,7 +8,9 @@
 		category = "misc";
 		exclusive= "GPIO4_B0", "GPIO4_B1";
 		description = "Enable UART8-M0.
-On Radxa ROCK 5A this is TX pin 32 and RX pin 40.";
+On Radxa ROCK 5A this is TX pin 32 and RX pin 40.
+On Radxa ROCK 5C this is TX pin 32 and RX pin 40.
+";
 	};
 };
 

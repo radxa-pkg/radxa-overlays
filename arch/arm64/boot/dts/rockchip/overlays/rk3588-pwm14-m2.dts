@@ -8,7 +8,9 @@
 		category = "misc";
 		exclusive = "GPIO1_D6";
 		description = "Enable PWM14-M2.
-On Radxa ROCK 5A this is pin 5.";
+On Radxa ROCK 5A this is pin 5.
+On Radxa ROCK 5C this is pin 5.
+";
 	};
 };
 

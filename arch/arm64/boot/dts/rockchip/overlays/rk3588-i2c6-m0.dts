@@ -11,7 +11,9 @@
 		exclusive = "GPIO0_C7", "GPIO0_D0";
 		description = "Enable I2C6-M0.
 On Radxa ROCK 5A this is SDA pin 27 and SCL pin 28.
-On Radxa CM5-RPI-CM4-IO this is SDA pin 3 and SCL pin 5.";
+On Radxa ROCK 5C this is SDA pin 27 and SCL pin 28.
+On Radxa CM5-RPI-CM4-IO this is SDA pin 3 and SCL pin 5.
+";
 	};
 };
 
