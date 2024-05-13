@@ -8,7 +8,9 @@
 		category = "misc";
 		exclusive = "GPIO4_B4";
 		description = "Enable PWM11-M1.
-On Radxa ROCK 5A this is pin 15.";
+On Radxa ROCK 5A this is pin 15.
+On Radxa ROCK 5C this is pin 15.
+";
 	};
 };
 

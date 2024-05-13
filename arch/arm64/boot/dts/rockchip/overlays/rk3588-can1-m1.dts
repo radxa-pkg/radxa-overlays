@@ -12,6 +12,7 @@
 		description = "Enable CAN1-M0.
 On Radxa ROCK 5A this is RX pin 13 & TX pin 11.
 On Radxa ROCK 5B this is RX pin 5 & TX pin 3.
+On Radxa ROCK 5C this is RX pin 13 & TX pin 11.
 ";
 	};
 };

@@ -10,8 +10,10 @@
 		description = "Enable UART7-M2.
 On Radxa ROCK 5A this is TX pin 22 and RX pin 33.
 On Radxa ROCK 5B this is TX pin 26 & RX pin 24.
+On Radxa ROCK 5C this is TX pin 22 and RX pin 33.
 On Radxa NX5 IO this is TX pin 26 & RX pin 24.
-On Radxa CM5 RPI CM4 IO this is TX pin 26 & RX pin 24.";
+On Radxa CM5 RPI CM4 IO this is TX pin 26 & RX pin 24.
+";
 	};
 };
 

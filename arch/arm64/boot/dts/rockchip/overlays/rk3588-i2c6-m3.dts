@@ -8,7 +8,9 @@
 		category = "misc";
 		exclusive = "GPIO4_B0", "GPIO4_B1";
 		description = "Enable I2C6-M3.
-On Radxa ROCK 5A this is SDA pin 32 and SCL pin 40.";
+On Radxa ROCK 5A this is SDA pin 32 and SCL pin 40.
+On Radxa ROCK 5C this is SDA pin 32 and SCL pin 40.
+";
 	};
 };
 

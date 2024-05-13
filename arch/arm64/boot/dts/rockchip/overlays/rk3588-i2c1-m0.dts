@@ -11,9 +11,11 @@
 On Radxa ROCK 5A this is SDA pin 10 & SCL pin 8.
 On Radxa ROCK 5B this is SDA pin 10 & SCL pin 8.
 On Radxa ROCK 5B+ this is SDA pin 10 & SCL pin 8.
+On Radxa ROCK 5C this is SDA pin 10 & SCL pin 8.
 On Radxa NX5 IO this is SDA pin 10 & SCL pin 8.
 On Radxa CM5 IO this is SDA pin 10 & SCL pin 8.
-On Radxa CM5 IO this is SDA pin 10 & SCL pin 8.";
+On Radxa CM5 IO this is SDA pin 10 & SCL pin 8.
+";
 	};
 };
 

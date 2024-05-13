@@ -10,7 +10,9 @@
 		description = "Enable PWM15-M3.
 On Radxa ROCK 5A this is pin 3.
 On Radxa ROCK 5B this is pin 29.
-On Radxa CM5-RPI-CM4-IO this is pin 27.";
+On Radxa ROCK 5C this is pin 3.
+On Radxa CM5-RPI-CM4-IO this is pin 27.
+";
 	};
 };
 

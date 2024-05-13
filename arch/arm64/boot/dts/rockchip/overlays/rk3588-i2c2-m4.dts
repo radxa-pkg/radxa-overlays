@@ -8,7 +8,9 @@
 		category = "misc";
 		exclusive = "GPIO1_A0", "GPIO1_A1";
 		description = "Enable I2C2-M4.
-On Radxa ROCK 5A this is SDA pin 21 and SCL pin 19.";
+On Radxa ROCK 5A this is SDA pin 21 and SCL pin 19.
+On Radxa ROCK 5C this is SDA pin 21 and SCL pin 19.
+";
 	};
 };
 

@@ -9,6 +9,7 @@
 		exclusive = "GPIO0_D0";
 		description = "Enable PWM7-M0.
 On Radxa ROCK 5A this is pin 28.
+On Radxa ROCK 5C this is pin 28.
 On Radxa CM5 IO this is pin 29.
 On Radxa CM5 RPI CM4 IO this is pin 3.
 ";

@@ -11,7 +11,9 @@
 On Radxa ROCK 5A this is pin 11.
 On Radxa ROCK 5B this is pin 3.
 On Radxa ROCK 5B+ this is pin 3.
-On Radxa NX5 IO this is pin 32.";
+On Radxa ROCK 5C this is pin 11.
+On Radxa NX5 IO this is pin 32.
+";
 	};
 };
 
