@@ -40,7 +40,6 @@
 		compatible = "raspits,tc358762";
 		reg = <0x0>;
 		status = "okay";
-		rockchip,lane-rate = <600>;
 
 		display_timings0: display-timings {
 			native-mode = <&dsi0_timing>;
@@ -50,9 +49,9 @@
 				hactive = <800>;
 				vactive = <480>;
 
-				hsync-len = <85>;
+				hsync-len = <90>;
 				hback-porch = <55>;
-				hfront-porch = <43>;
+				hfront-porch = <39>;
 
 				vsync-len = <12>;
 				vback-porch = <7>;
