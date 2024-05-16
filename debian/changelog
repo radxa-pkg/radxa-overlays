@@ -1,3 +1,25 @@
+radxa-overlays (0.1.6) jammy; urgency=medium
+
+  [ ZHANG Yuntian ]
+  * feat: add radxa-zero-emmc-full-speed.dts
+  * format: use multiline text instead of \n
+  * fix: use constant instead of magic numbers
+  * format: reorder overlays alphabetically
+  * feat: add CM3 LVDS overlay
+
+  [ Alvin Xie ]
+  * rock 5a/5c: modify rpi 7inch display proch
+  * rock 5c: add spi module support
+
+  [ RadxaMitchell ]
+  * update rk3588-i2c6-m0.dts
+  * fix: rk3588-spi0-m1-cs0-mcp2515-8mhz.dts
+
+  [ Feng Zhang ]
+  * arm64: overlays: Add overlay description for rock 5c
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Thu, 16 May 2024 07:13:01 +0000
+
 radxa-overlays (0.1.5) jammy; urgency=medium
 
   [ Nascs Fang ]
