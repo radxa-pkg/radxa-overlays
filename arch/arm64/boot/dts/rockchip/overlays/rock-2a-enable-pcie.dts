@@ -14,6 +14,19 @@
 	};
 };
 
+&{/} {
+	vcc3v3_pcie: vcc3v3-pcie {
+		compatible = "regulator-fixed";
+		regulator-name = "vcc3v3_pcie";
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		startup-delay-us = <5000>;
+		enable-active-high;
+		gpio = <&gpio1 RK_PA4 GPIO_ACTIVE_HIGH>;
+		vin-supply = <&vcc5v0_sys>;
+	};
+};
+
 &pcie_usb_selection {
 	enable-active-high;
 	gpio = <&gpio4 RK_PA5 GPIO_ACTIVE_HIGH>;
@@ -29,5 +42,6 @@
 
 &pcie2x1 {
 	reset-gpios = <&gpio1 RK_PA2 GPIO_ACTIVE_HIGH>;
+	vpcie3v3-supply = <&vcc3v3_pcie>;
 	status = "okay";
 };
