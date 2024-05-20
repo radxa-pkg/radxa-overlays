@@ -35,7 +35,7 @@ jobs:
             do
               OVERLAY_NAME="$(basename "$i")"
               OVERLAY_NAME="${OVERLAY_NAME/.dts}.dtbo"
-              if ! grep "$OVERLAY_NAME" "${OVERLAY_PATH}/Makefile" >/dev/null 2>/dev/null
+              if ! grep "$OVERLAY_NAME" "${OVERLAY_PATH}/Makefile"* >/dev/null 2>/dev/null
               then
                 echo "$OVERLAY_NAME is not included in $VENDOR Makefile!"
                 MISSING=1
