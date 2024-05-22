@@ -1,0 +1,18 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Disable SDHCI";
+		compatible = "rockchip,rk3588";
+		category = "misc";
+		exclusive = "sdhci";
+		description = "Disable SDHCI.
+This will disable access to eMMC.
+If your system is installed on the eMMC, it will now be unbootable!";
+	};
+};
+
+&sdhci {
+	status = "disabled";
+};
