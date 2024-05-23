@@ -1,0 +1,6 @@
+# SPDX-License-Identifier: GPL-2.0
+
+dtb-$(CONFIG_CPU_RK3588) += \
+	rk3588-can1-m0.dtbo \
+	rk3588-can1-m1.dtbo \
+	rk3588-can2-m1.dtbo

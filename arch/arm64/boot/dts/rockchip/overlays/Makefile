@@ -18,6 +18,8 @@ ifeq ($(strip $(CONFIG_CPU_RK3588)), y)
 	CONFIG_CLK_RK3588 ?= y
 endif
 
+-include $(src)/Makefile.rk3588-can
+
 dtb-$(CONFIG_CLK_RK3308) += \
 	radxa-s0-ext-antenna.dtbo \
 	rk3308-bs-opp-1008.dtbo \
@@ -432,9 +434,6 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rock-5b-sata.dtbo
 
 dtb-$(CONFIG_CPU_RK3588) += \
-	rk3588-can1-m0.dtbo \
-	rk3588-can1-m1.dtbo \
-	rk3588-can2-m1.dtbo \
 	radxa-cm5-io-okdo-5mp.dtbo \
 	radxa-cm5-io-radxa-display-8hd.dtbo \
 	radxa-cm5-io-radxa-camera-4k.dtbo \
