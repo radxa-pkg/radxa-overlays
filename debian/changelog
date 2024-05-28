@@ -1,3 +1,22 @@
+radxa-overlays (0.1.7) jammy; urgency=medium
+
+  [ Alvin Xie ]
+  * feat: add radxa zero3 poe overlay
+  * feat: add rock 2a radxa poe overlay
+  * fix: add pcie power supply for rock 2a pcie overlay
+
+  [ Ken Wang ]
+  * overlays: delete duplicate dts
+  * add rk3588-disable-sdhci
+
+  [ Nascs Fang ]
+  * feat: add i2c7-m3 for rock 5a and rock 5c
+
+  [ CodeChenL ]
+  * fix: installation with deb without compile rk3588 can overlays
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Tue, 28 May 2024 10:15:41 +0000
+
 radxa-overlays (0.1.6) jammy; urgency=medium
 
   [ ZHANG Yuntian ]
