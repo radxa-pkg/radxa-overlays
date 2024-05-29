@@ -1,0 +1,23 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable Arm Mali GPU driver";
+		compatible = "rockchip,rk3588";
+		category = "misc";
+		exclusive = "gpu", "gpu_mali";
+		description = "Enable Arm Mali GPU driver.
+This will disable opensource Panthor driver";
+	};
+};
+
+&gpu {
+	status = "disabled";
+};
+
+&gpu_mali {
+	status = "okay";
+	mali-supply = <&vdd_gpu_s0>;
+	mem-supply = <&vdd_gpu_mem_s0>;
+};

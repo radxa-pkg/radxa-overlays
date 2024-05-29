@@ -354,6 +354,7 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-i2c7-m3.dtbo \
 	rk3588-i2c8-m2.dtbo \
 	rk3588-i2c8-m4.dtbo \
+	rk3588-mali-enable.dtbo \
 	rk3588-pwm0-m1.dtbo \
 	rk3588-pwm0-m2.dtbo \
 	rk3588-pwm1-m1.dtbo \
