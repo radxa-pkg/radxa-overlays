@@ -1,3 +1,10 @@
+radxa-overlays (0.1.8) jammy; urgency=medium
+
+  [ CodeChenL ]
+  * feat: add rk3588-mali-enable
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Fri, 07 Jun 2024 01:59:27 +0000
+
 radxa-overlays (0.1.7) jammy; urgency=medium
 
   [ Alvin Xie ]
