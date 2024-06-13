@@ -41,11 +41,11 @@
 
 &soc_thermal {
 	cooling-maps {
-		map3 {
+		map4 {
 			cooling-device = <&fan0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
 								<&radxa_poe_fan THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
 		};
-		map4 {
+		map5 {
 			cooling-device = <&fan0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
 								<&radxa_poe_fan THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
 		};
