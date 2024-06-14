@@ -428,6 +428,8 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rock-5a-radxa-display-10hd.dtbo \
 	rock-5a-sata.dtbo \
 	rock-5a-spi-flash.dtbo \
+	rock-5b-dwc3_1-host.dtbo \
+	rock-5b-dwc3_1-peripheral.dtbo \
 	rock-5b-radxa-25w-poe.dtbo \
 	rock-5b-radxa-display-10hd.dtbo \
 	rock-5b-radxa-display-8hd.dtbo \
