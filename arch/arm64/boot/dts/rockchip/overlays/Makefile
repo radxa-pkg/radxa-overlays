@@ -299,6 +299,12 @@ dtb-$(CONFIG_CPU_RK3568) += \
 	radxa-cm3i-io-radxa-camera-8m-cam1.dtbo \
 	radxa-cm3i-io-radxa-camera-8m-cam2.dtbo \
 	radxa-cm3i-io-sata.dtbo \
+	radxa-cm3j-rpi-cm4-io-radxa-camera-8m-cam0.dtbo \
+	radxa-cm3j-rpi-cm4-io-radxa-camera-8m-cam1.dtbo \
+	radxa-cm3j-rpi-cm4-io-rpi-camera-v1p3-ov5647-cam0.dtbo \
+	radxa-cm3j-rpi-cm4-io-rpi-camera-v1p3-ov5647-cam1.dtbo \
+	radxa-cm3j-rpi-cm4-io-rpi-camera-v2-imx219-cam0.dtbo \
+	radxa-cm3j-rpi-cm4-io-rpi-camera-v2-imx219-cam1.dtbo \
 	radxa-zero3-external-antenna.dtbo \
 	radxa-zero3-radxa-camera-8m.dtbo \
 	radxa-zero3-rpi-camera-v1.3.dtbo \

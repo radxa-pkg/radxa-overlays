@@ -1,0 +1,177 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+
+/ {
+	metadata {
+		title = "Enable Radxa Camera 8M on CAM0";
+		compatible = "radxa,cm3j-rpi-cm4-io";
+		category = "camera";
+		exclusive = "csi2_dphy2";
+		description = "Enable Radxa Camera 8M on CAM0.";
+	};
+};
+
+&{/} {
+	ext_cam_clk_imx219_2: ext-cam-clk-imx219-2 {
+		status = "okay";
+		compatible = "fixed-clock";
+		clock-frequency = <24000000>;
+		clock-output-names = "ext_cam_clk_imx219_2";
+		#clock-cells = <0>;
+	};
+
+	imx219_2_pwdn_gpio: imx219-2-pwdn-gpio {
+		status = "okay";
+		compatible = "regulator-fixed";
+		regulator-name = "imx219_2_pwdn_gpio";
+		regulator-always-on;
+		regulator-boot-on;
+		enable-active-high;
+		gpio = <&gpio3 RK_PB0 GPIO_ACTIVE_HIGH>;
+	};
+};
+
+&i2c5 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c5m0_xfer>;
+
+	#address-cells = <1>;
+	#size-cells = <0>;
+	imx219_2: imx219-2@10 {
+		status = "okay";
+		compatible = "sony,imx219";
+		reg = <0x10>;
+		clocks = <&ext_cam_clk_imx219_2>;
+		clock-names = "xvclk";
+		rockchip,camera-module-index = <1>;
+		rockchip,camera-module-facing = "back";
+		rockchip,camera-module-name = "RADXA-CAMERA-8M";
+		rockchip,camera-module-lens-name = "default";
+
+		port {
+			imx219_2_out: endpoint {
+				remote-endpoint = <&csi2dphy2_uCAM2>;
+				data-lanes = <1 2>;
+			};
+		};
+	};
+};
+
+&csi2_dphy_hw {
+	status = "okay";
+};
+
+&csi2_dphy2 {
+	status = "okay";
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		port@0 {
+			reg = <0>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			csi2dphy2_uCAM2: endpoint@1 {
+				reg = <1>;
+				remote-endpoint = <&imx219_2_out>;
+				data-lanes = <1 2>;
+			};
+		};
+
+		port@1 {
+			reg = <1>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			csi2dphy2_out: endpoint@1 {
+				reg = <1>;
+				remote-endpoint = <&mipi_csi2_input>;
+			};
+		};
+	};
+};
+
+&mipi_csi2 {
+	status = "okay";
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		port@0 {
+			reg = <0>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			mipi_csi2_input: endpoint@1 {
+				reg = <1>;
+				remote-endpoint = <&csi2dphy2_out>;
+				data-lanes = <1 2>;
+			};
+		};
+
+		port@1 {
+			reg = <1>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+			mipi_csi2_output: endpoint@0 {
+				reg = <0>;
+				remote-endpoint = <&cif_mipi_in>;
+				data-lanes = <1 2>;
+			};
+		};
+	};
+};
+
+&rkcif_mipi_lvds {
+	status = "okay";
+	port {
+		cif_mipi_in: endpoint {
+			remote-endpoint = <&mipi_csi2_output>;
+			data-lanes = <1 2>;
+		};
+	};
+};
+
+&rkcif_mipi_lvds_sditf {
+	status = "okay";
+	port {
+		mipi_lvds_sditf: endpoint {
+			remote-endpoint = <&isp1_in>;
+			data-lanes = <1 2>;
+		};
+	};
+};
+
+&rkisp_vir1 {
+	status = "okay";
+
+	port {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		isp1_in: endpoint@0 {
+			reg = <0>;
+			remote-endpoint = <&mipi_lvds_sditf>;
+		};
+	};
+};
+
+&rkisp {
+	status = "okay";
+};
+
+&rkisp_mmu {
+	status = "okay";
+};
+
+&rkcif_mmu {
+	status = "okay";
+};
+
+&rkcif {
+	status = "okay";
+};
