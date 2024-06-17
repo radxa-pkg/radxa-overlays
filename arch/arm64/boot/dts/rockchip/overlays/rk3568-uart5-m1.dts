@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable UART5-M1";
-		compatible = "radxa,rock-3a", "radxa,rock-3b", "radxa,rock-3c", "radxa,cm3s-io", "radxa,radxa-cm3-sodimm-io", "radxa,e25", "radxa,zero3";
+		compatible = "radxa,rock-3a", "radxa,rock-3b", "radxa,rock-3c", "radxa,cm3s-io", "radxa,radxa-cm3-sodimm-io", "radxa,e25", "radxa,zero3", "radxa,cm3j-rpi-cm4-io";
 		category = "misc";
 		exclusive = "GPIO3_C2", "GPIO3_C3";
 		description = "Enable UART5-M1.
@@ -15,7 +15,8 @@ On Radxa ROCK 3C this is TX pin 32 and RX pin 33.
 On Radxa CM3S IO this is TX pin 35 and RX pin 40.
 On Radxa E25 hardware V1.3 this is TX pin 2 and RX pin 3.
 On Radxa E25 hardware V1.4 this is TX pin 8 and RX pin 10.
-On Radxa ZERO 3 this is TX pin 32 and RX pin 33.";
+On Radxa ZERO 3 this is TX pin 32 and RX pin 33.
+On Radxa CM3J RPI CM4 IO this is TX pin 12 and RX pin 35.";
 	};
 };
 

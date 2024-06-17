@@ -192,7 +192,9 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-i2c2-m0.dtbo \
 	rk3568-i2c2-m1.dtbo \
 	rk3568-i2c3-m0.dtbo \
+	rk3568-i2c3-m1.dtbo \
 	rk3568-i2c4-m0.dtbo \
+	rk3568-i2c5-m0.dtbo \
 	rk3568-npu-disable.dtbo \
 	rk3568-npu-enable.dtbo \
 	rk3568-pwm0-disable.dtbo \
@@ -223,6 +225,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-spi0-m0-cs0-spidev.dtbo \
 	rk3568-spi0-m1-cs0-spidev.dtbo \
 	rk3568-spi1-m1-cs0-spidev.dtbo \
+	rk3568-spi2-m1-cs0-spidev.dtbo \
 	rk3568-spi3-m0-cs0-mcp2515.dtbo \
 	rk3568-spi3-m0-cs0-spidev.dtbo \
 	rk3568-spi3-m0-cs0-waveshare35.dtbo \

@@ -1,0 +1,19 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable I2C3-M1";
+		compatible = "radxa,cm3j-rpi-cm4-io";
+		category = "misc";
+		exclusive = "GPIO3_B5", "GPIO3_B6", "i2c3";
+		description = "Enable I2C3-M1.
+On Radxa CM3J RPI CM4 IO this is SDA pin 3 and SCL pin 5.";
+	};
+};
+
+&i2c3 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c3m1_xfer>;
+};

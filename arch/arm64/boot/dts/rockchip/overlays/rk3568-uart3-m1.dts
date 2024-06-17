@@ -4,12 +4,14 @@
 / {
 	metadata {
 		title = "Enable UART3-M1";
-		compatible = "radxa,e25";
+		compatible = "radxa,e25", "radxa,cm3j-rpi-cm4-io";
 		category = "misc";
 		exclusive = "GPIO3_B7", "GPIO3_C0", "UART3";
 		description = "Enable UART3-M1.
 On Radxa ROCK 3A <= v1.2 this RX pin 37 & TX pin 7.
-On Radxa E25 this RX pin 26 & TX pin 7.";
+On Radxa E25 this RX pin 26 & TX pin 7.
+On Radxa CM3J RPI CM4 IO this RX pin 15 & TX pin 32.
+";
 	};
 };
 
