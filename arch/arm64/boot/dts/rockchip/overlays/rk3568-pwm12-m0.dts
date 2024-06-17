@@ -4,11 +4,12 @@
 / {
 	metadata {
 		title = "Enable PWM12-M0";
-		compatible = "unknown";
+		compatible = "radxa,cm3j-rpi-cm4-io";
 		category = "misc";
 		exclusive = "GPIO3_B7";
 		description = "Enable PWM12-M0.
-On Radxa ROCK 3A <= v1.2 this is pin 7.";
+On Radxa CM3J RPI CM4 IO this is pin 32.
+";
 	};
 };
 
