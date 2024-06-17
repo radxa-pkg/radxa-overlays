@@ -1,0 +1,20 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable PWM10-M0";
+		compatible = "radxa,cm3j-rpi-cm4-io";
+		category = "misc";
+		exclusive = "GPIO3_B5";
+		description = "Enable PWM10-M0.
+On Radxa CM3J RPI CM4 IO this is pin 5.
+";
+	};
+};
+
+&pwm10 {
+	status = "okay";
+	pinctrl-names = "active";
+	pinctrl-0 = <&pwm10m0_pins>;
+};

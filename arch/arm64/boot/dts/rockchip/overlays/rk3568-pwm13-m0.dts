@@ -4,12 +4,14 @@
 / {
 	metadata {
 		title = "Enable PWM13-M0";
-		compatible = "radxa,e25";
+		compatible = "radxa,e25", "radxa,cm3j-rpi-cm4-io";
 		category = "misc";
 		exclusive = "GPIO3_C0";
 		description = "Enable PWM13-M0.
 On Radxa ROCK 3A <= v1.2 this is pin 37.
-On Radxa E25 this is pin 26";
+On Radxa E25 this is pin 26.
+On Radxa CM3J RPI CM4 IO this is pin 15.
+";
 	};
 };
 
