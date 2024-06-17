@@ -299,6 +299,8 @@ dtb-$(CONFIG_CPU_RK3568) += \
 	radxa-cm3i-io-radxa-camera-8m-cam1.dtbo \
 	radxa-cm3i-io-radxa-camera-8m-cam2.dtbo \
 	radxa-cm3i-io-sata.dtbo \
+	radxa-cm3j-rpi-cm4-io-7inch-touchscreen-disp0.dtbo \
+	radxa-cm3j-rpi-cm4-io-7inch-touchscreen-disp1.dtbo \
 	radxa-cm3j-rpi-cm4-io-radxa-camera-8m-cam0.dtbo \
 	radxa-cm3j-rpi-cm4-io-radxa-camera-8m-cam1.dtbo \
 	radxa-cm3j-rpi-cm4-io-rpi-camera-v1p3-ov5647-cam0.dtbo \
