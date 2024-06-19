@@ -1,0 +1,11 @@
+#include "rk3588-dwc3_1-host.dts"
+
+/ {
+	metadata {
+		title = "Set OTG port 1 to Host mode for ROCK 5B V1.46+";
+		compatible = "radxa,rock-5b";
+		description = "Set OTG port 1 to Host mode for ROCK 5B V1.46+.
+This is the bottom USB 3.0 port.
+Use this when you want to connect USB devices.";
+	};
+};
