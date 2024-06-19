@@ -1,3 +1,17 @@
+radxa-overlays (0.1.9) jammy; urgency=medium
+
+  [ Alvin Xie ]
+  * fix: modify rock5 poe fan cooling maps
+  * feat: add cm3j rpi cm4 io camera overlays
+  * feat: add radxa cm3j rpi cm4 io 7inch touchscreen overlays
+  * feat: add cm3j rpi cm4 io 40pin overlays
+  * feat: add radxa cm3j rpi cm4 io 40 pin pwm overlay
+
+  [ Feng Zhang ]
+  * add rock 5b otg port1 dts
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Wed, 19 Jun 2024 08:19:36 +0000
+
 radxa-overlays (0.1.8) jammy; urgency=medium
 
   [ CodeChenL ]
