@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Set OTG port 0 to Peripheral mode";
-		compatible = "radxa,rock-5a", "radxa,rock-5b", "radxa,rock-5c", "radxa,nx5-io";
+		compatible = "radxa,rock-5a", "radxa,rock-5b", "radxa,rock-5c", "radxa,rock-5d", "radxa,nx5-io";
 		category = "misc";
 		exclusive = "usbdrd_dwc3-dr_mode";
 		description = "Set OTG port 0 to Peripheral mode.

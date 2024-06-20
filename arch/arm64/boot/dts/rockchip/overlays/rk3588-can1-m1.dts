@@ -6,13 +6,14 @@
 / {
 	metadata {
 		title = "Enable CAN1-M1";
-		compatible = "radxa,rock-5a", "radxa,rock-5b", "radxa,rock-5b-plus", "radxa,rock-5c";
+		compatible = "radxa,rock-5a", "radxa,rock-5b", "radxa,rock-5b-plus", "radxa,rock-5c", "radxa,rock-5d";
 		category = "misc";
 		exclusive = "GPIO4_B2", "GPIO4_B3";
 		description = "Enable CAN1-M0.
 On Radxa ROCK 5A this is RX pin 13 & TX pin 11.
 On Radxa ROCK 5B this is RX pin 5 & TX pin 3.
 On Radxa ROCK 5C this is RX pin 13 & TX pin 11.
+On Radxa ROCK 5D this is RX pin 13 & TX pin 11.
 ";
 	};
 };

@@ -8,7 +8,7 @@
 / {
 	metadata {
 		title = "Enable ALLNET 5inch DSI Display";
-		compatible = "radxa,rock-5a", "radxa,rock-5c";
+		compatible = "radxa,rock-5a", "radxa,rock-5c", "radxa,rock-5d";
 		category = "display";
 		exclusive = "dsi0";
 		description = "Enable ALLNET 5inch DSI Display";
