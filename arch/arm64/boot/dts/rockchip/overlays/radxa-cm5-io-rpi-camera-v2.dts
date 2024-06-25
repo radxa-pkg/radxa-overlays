@@ -10,7 +10,7 @@
 		compatible = "radxa,cm5-io";
 		category = "camera";
 		exclusive = "csi2_dphy0";
-		description = "Enable Raspberry Pi Camera V2 on CSI1.";
+		description = "Enable Raspberry Pi Camera V2 on CSI0.";
 	};
 };
 
@@ -47,7 +47,7 @@
 		clocks = <&clk_cam_24m>;
 		clock-names = "xvclk";
 
-		rockchip,camera-module-index = <0>;
+		rockchip,camera-module-index = <1>;
 		rockchip,camera-module-facing = "back";
 		rockchip,camera-module-name = "rpi-camera-v2";
 		rockchip,camera-module-lens-name = "default";
