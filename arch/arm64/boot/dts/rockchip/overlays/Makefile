@@ -458,6 +458,7 @@ dtb-$(CONFIG_CPU_RK3588) += \
 	radxa-cm5-io-radxa-display-10hd.dtbo \
 	radxa-cm5-io-radxa-display-8hd.dtbo \
 	radxa-cm5-io-raspi-7inch-touchscreen.dtbo \
+	radxa-cm5-io-rpi-camera-v1p3.dtbo \
 	radxa-cm5-io-rpi-camera-v2.dtbo \
 	radxa-cm5-rpi-cm4-io-rpi-camera-v1_3-cam0.dtbo \
 	radxa-cm5-rpi-cm4-io-rpi-camera-v1_3-cam1.dtbo \
