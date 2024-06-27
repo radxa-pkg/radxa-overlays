@@ -502,12 +502,14 @@ dtb-$(CONFIG_CPU_RK3588) += \
 	rock-5-itx-rpi-camera-v2-on-cam1.dtbo \
 	rock-5a-okdo-5mp-camera.dtbo \
 	rock-5a-radxa-camera-4k.dtbo \
+	rock-5a-radxa-camera-8m-219.dtbo \
 	rock-5a-radxa-display-10fhd.dtbo \
 	rock-5a-raspi-7inch-touchscreen.dtbo \
 	rock-5a-rpi-camera-v1_3.dtbo \
 	rock-5b-allnet-5inch-display.dtbo \
 	rock-5b-okdo-5mp-camera.dtbo \
 	rock-5b-radxa-camera-4k.dtbo \
+	rock-5b-radxa-camera-8m-219.dtbo \
 	rock-5b-radxa-display-10fhd.dtbo \
 	rock-5b-raspi-7inch-touchscreen.dtbo \
 	rock-5b-rpi-camera-v1_3.dtbo \
