@@ -1,3 +1,14 @@
+radxa-overlays (0.1.10) jammy; urgency=medium
+
+  [ Feng Zhang ]
+  * arm64: rockchip: add rock 5d overlays
+
+  [ Ken Wang ]
+  * add radxa cm5 io rpi camera v13 and update csi0 camera-module-index
+  * add radxa camera 8m 219 for rock 5a/b
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Thu, 27 Jun 2024 08:22:12 +0000
+
 radxa-overlays (0.1.9) jammy; urgency=medium
 
   [ Alvin Xie ]
