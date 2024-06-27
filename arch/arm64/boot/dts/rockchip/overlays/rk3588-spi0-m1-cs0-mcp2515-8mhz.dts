@@ -8,13 +8,14 @@
 / {
 	metadata {
 		title = "Enable MCP2515 with 8MHz external clock on SPI0-M1 over CS0";
-		compatible = "radxa,rock-5a", "radxa,rock-5c", "radxa,cm5-io";
+		compatible = "radxa,rock-5a", "radxa,rock-5c", "radxa,rock-5d", "radxa,cm5-io";
 		exclusive = "GPIO4_A2", "GPIO4_A1", "GPIO4_A0", "GPIO4_B2", "GPIO0_C7";
 		description = "Enable MCP2515 with 8MHz external clock on SPI0-M1 over CS0.
 MCP2515 is a SPI CAN controller from Microchip.
 On Radxa CM5 IO, the interrupt pin is pin 31.
 On Radxa ROCK 5A, the interrupt pin is pin 27.
 On Radxa ROCK 5C, the interrupt pin is pin 27.
+On Radxa ROCK 5D, the interrupt pin is pin 27.
 ";
 	};
 };

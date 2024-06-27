@@ -4,12 +4,13 @@
 / {
 	metadata {
 		title = "Enable UART6-M1";
-		compatible = "radxa,rock-5a", "radxa,rock-5c";
+		compatible = "radxa,rock-5a", "radxa,rock-5c", "radxa,rock-5d";
 		category = "misc";
 		exclusive= "GPIO1_A1", "GPIO1_A0";
 		description = "Enable UART6-M1.
 On Radxa ROCK 5A this is TX pin 19 and RX pin 21.
 On Radxa ROCK 5C this is TX pin 19 and RX pin 21.
+On Radxa ROCK 5D this is TX pin 19 and RX pin 21.
 ";
 	};
 };

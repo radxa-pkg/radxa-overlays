@@ -9,7 +9,7 @@
 / {
 	metadata {
 		title ="Enable Radxa Display 8HD";
-		compatible = "radxa,rock-5a", "radxa,rock-5c";
+		compatible = "radxa,rock-5a", "radxa,rock-5c", "radxa,rock-5d";
 		category = "display";
 		exclusive = "dsi0";
 		description = "Enable Radxa Display 8HD.";

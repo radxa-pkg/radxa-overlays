@@ -4,12 +4,13 @@
 / {
 	metadata {
 		title = "Enable PWM11-M1";
-		compatible = "radxa,rock-5a", "radxa,rock-5c";
+		compatible = "radxa,rock-5a", "radxa,rock-5c", "radxa,rock-5d";
 		category = "misc";
 		exclusive = "GPIO4_B4";
 		description = "Enable PWM11-M1.
 On Radxa ROCK 5A this is pin 15.
 On Radxa ROCK 5C this is pin 15.
+On Radxa ROCK 5D this is pin 15.
 ";
 	};
 };
