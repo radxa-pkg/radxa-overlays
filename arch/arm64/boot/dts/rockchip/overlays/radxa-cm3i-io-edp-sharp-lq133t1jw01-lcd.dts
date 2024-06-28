@@ -105,7 +105,7 @@
 			};
 		};
 
-		ports {
+		port {
 			panel_in_edp: endpoint {
 				remote-endpoint = <&edp_out_panel>;
 			};

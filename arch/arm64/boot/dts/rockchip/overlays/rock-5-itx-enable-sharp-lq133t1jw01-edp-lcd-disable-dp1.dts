@@ -105,7 +105,7 @@ This will disable DP1.";
 			};
 		};
 
-		ports {
+		port {
 			panel_in_edp0: endpoint {
 					remote-endpoint = <&edp0_out_panel>;
 			};
