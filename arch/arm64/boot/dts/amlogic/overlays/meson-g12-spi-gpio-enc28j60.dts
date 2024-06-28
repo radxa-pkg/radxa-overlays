@@ -22,7 +22,6 @@ INT=GPIOX_8";
 		compatible = "spi-gpio";
 		#address-cells = <1>;
 		#size-cells = <0>;
-		ranges;
 		mosi-gpios = <&gpio GPIOH_4 GPIO_ACTIVE_HIGH>;
 		miso-gpios = <&gpio GPIOH_5 GPIO_ACTIVE_HIGH>;
 		sck-gpios = <&gpio GPIOH_7 GPIO_ACTIVE_HIGH>;

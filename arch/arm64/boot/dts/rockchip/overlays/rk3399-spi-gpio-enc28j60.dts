@@ -22,7 +22,6 @@ MOSI=16 MISO=18 SCK=36 CS=38 INT=40";
 		compatible = "spi-gpio";
 		#address-cells = <1>;
 		#size-cells = <0>;
-		ranges;
 		gpio-mosi = <&gpio4 RK_PD2 GPIO_ACTIVE_HIGH>;
 		gpio-miso = <&gpio4 RK_PD4 GPIO_ACTIVE_HIGH>;
 		gpio-sck = <&gpio4 RK_PA4 GPIO_ACTIVE_HIGH>;
