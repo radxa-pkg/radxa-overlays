@@ -18,6 +18,8 @@ INT=40";
 
 &spi2 {
 	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
 	pinctrl-names = "default";
 	pinctrl-0 = <&spi2_clk &spi2_cs0 &spi2_rx &spi2_tx>;
 

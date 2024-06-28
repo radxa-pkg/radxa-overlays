@@ -96,6 +96,8 @@
 
 &dsi1 {
 	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
 
 	dsi1_panel: panel@0 {
 		status = "okay";
@@ -405,6 +407,8 @@
 &i2c2 {
 	status = "okay";
 	pinctrl-0 = <&i2c2m1_xfer>;
+	#address-cells = <1>;
+	#size-cells = <0>;
 
 	focaltech: focaltech@38 {
 		status = "okay";

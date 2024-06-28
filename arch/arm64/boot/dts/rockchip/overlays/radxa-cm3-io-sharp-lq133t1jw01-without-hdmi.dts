@@ -117,6 +117,8 @@ HDMI will be disabled.";
 	force-hpd;
 
 	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
 		edp_out: port@1 {
 			reg = <1>;
 			#address-cells = <1>;

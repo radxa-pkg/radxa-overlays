@@ -25,6 +25,8 @@
 
 &i2c2 {
 	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
 
 	ov5647: ov5647@36 {
 		status = "okay";

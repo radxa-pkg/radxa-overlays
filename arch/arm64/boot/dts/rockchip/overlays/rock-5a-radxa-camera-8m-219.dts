@@ -36,6 +36,8 @@
 
 &i2c3 {
 	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
 
 	camera_imx219: camera-imx219@10 {
 		compatible = "sony,imx219";
