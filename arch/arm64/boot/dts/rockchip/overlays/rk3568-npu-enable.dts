@@ -29,7 +29,6 @@
 &reserved_memory {
 	#address-cells = <2>;
 	#size-cells = <2>;
-	ranges;
 
 	rknpu_reserved: rknpu {
 		compatible = "shared-dma-pool";

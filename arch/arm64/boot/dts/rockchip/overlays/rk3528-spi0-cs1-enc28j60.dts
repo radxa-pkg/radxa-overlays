@@ -22,11 +22,9 @@ INT=15";
 	#size-cells = <0>;
 	pinctrl-names = "default";
 	max-freq = <50000000>;
-	pinctrl-0 = <&spi0_csn1 &spi0_pins>;
 	num-cs = <2>;
-	cs-gpios = <&gpio4 RK_PC1 GPIO_ACTIVE_LOW>;
 
-	ethernet: enc28j60@0 {
+	ethernet: enc28j60@1 {
 		compatible = "microchip,enc28j60";
 		reg = <1>;
 		spi-max-frequency = <20000000>;

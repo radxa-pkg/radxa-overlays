@@ -18,6 +18,8 @@ This overlay is NOT compatiable with regular ROCK 4C.";
 
 &spi5 {
 	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
 	pinctrl-names = "default";
 	pinctrl-0 = <&spi5_clk &spi5_tx &spi5_rx &spi5_cs0>;
 

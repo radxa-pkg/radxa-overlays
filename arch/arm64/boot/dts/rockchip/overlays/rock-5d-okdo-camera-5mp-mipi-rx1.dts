@@ -38,6 +38,8 @@
 	status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&i2c6m0_xfer>;
+	#address-cells = <1>;
+	#size-cells = <0>;
 
 	camera0_imx219: camera0-imx219@10 {
 		compatible = "sony,imx219";

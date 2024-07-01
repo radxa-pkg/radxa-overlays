@@ -67,6 +67,8 @@
 
 &csi2_dphy0 {
 	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
 	ports {
 		#address-cells = <1>;
 		#size-cells = <0>;
