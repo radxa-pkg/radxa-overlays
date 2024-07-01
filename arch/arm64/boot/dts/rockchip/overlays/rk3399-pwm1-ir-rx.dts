@@ -23,6 +23,7 @@
 	pinctrl-0 = <&pwm1_pin>;
 	pinctrl-names = "default";
 	interrupts = <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH 0>;
+	interrupt-parent = <&gic>;
 
 	ir_key1 {
 		rockchip,usercode = <0xff00>;
