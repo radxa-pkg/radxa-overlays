@@ -20,7 +20,7 @@
 	max-freq = <50000000>;
 	num-cs = <2>;
 
-	spidev@0 {
+	spidev@1 {
 		compatible = "rockchip,spidev";
 		status = "okay";
 		reg = <1>;

@@ -40,7 +40,7 @@ INT=15";
 	#size-cells = <0>;
 	num-cs = <2>;
 
-	can_mcp2515: can-mcp2515@0 {
+	can_mcp2515: can-mcp2515@1 {
 		status = "okay";
 		compatible = "microchip,mcp2515";
 		reg = <1>;
