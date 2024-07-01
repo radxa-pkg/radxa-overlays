@@ -35,7 +35,7 @@ build-dtbo: $(DTBO)
 
 %.dtbo: %.dts
 	cpp -nostdinc -undef -x assembler-with-cpp -E -I "$(KSRC)/include" "$<" "$@.tmp"
-	dtc -q -@ -I dts -O dtb -o "$@" "$@.tmp"
+	dtc -@ -I dts -O dtb -o "$@" "$@.tmp"
 
 DOCS		:=	SOURCE
 .PHONY: build-doc
