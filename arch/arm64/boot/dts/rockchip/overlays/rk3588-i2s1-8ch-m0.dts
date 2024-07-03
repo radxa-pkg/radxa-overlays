@@ -1,0 +1,54 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable I2S1 8-channel dummy sound card";
+		compatible = "radxa,rock-5a", "radxa,rock-5c", "radxa,rock-5d";
+		category = "misc";
+		exclusive = "GPIO4_A1", "GPIO4_A5", "GPIO4_B0", "GPIO4_B1", "GPIO4_B2", "GPIO4_B3", "GPIO4_B4", "i2s1_8ch";
+		description = "Enable I2S1 8-channel dummy sound card.
+This overlay is only for demonstration purpose.
+It does not support any specific hardware device.";
+	};
+};
+
+&{/} {
+        i2s1_dummy_codec: i2s1-dummy-codec {
+                compatible = "rockchip,dummy-codec";
+                #sound-dai-cells = <0>;
+        };
+
+        i2s1_dummy_sound: i2s1-dummy-sound {
+                compatible = "simple-audio-card";
+                simple-audio-card,format = "i2s";
+                simple-audio-card,name = "dummy-card";
+                simple-audio-card,mclk-fs = <256>;
+                status = "okay";
+
+                simple-audio-card,dai-link@0 {
+                        format = "i2s";
+                        cpu {
+                                sound-dai = <&i2s1_8ch>;
+                        };
+
+                        codec {
+                                sound-dai = <&i2s1_dummy_codec>;
+                        };
+                };
+        };
+};
+
+&i2s1_8ch {
+	pinctrl-0 = <&i2s1m0_lrck
+			&i2s1m0_sclk
+			&i2s1m0_sdi0
+			&i2s1m0_sdi3
+			&i2s1m0_sdo0
+			&i2s1m0_sdo1
+			&i2s1m0_sdo2
+			&i2s1m0_sdo3>;
+	rockchip,i2s-rx-route = <0 3 1 2>;
+	rockchip,i2s-tx-route = <0 1 2 3>;
+	status = "okay";
+};
