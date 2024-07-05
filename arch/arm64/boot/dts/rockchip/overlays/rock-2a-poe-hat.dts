@@ -40,6 +40,9 @@
 	};
 };
 
+// ROCK 2A does not have on-board fan header
+// Configure the system to support active cooling
+
 &threshold {
 	temperature = <60000>;
 };
