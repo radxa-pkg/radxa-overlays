@@ -5,7 +5,7 @@ Additional device tree overlays to support different hardware on Radxa products
 
 ## Build overlays in-tree
 
-You will need [this patch](https://github.com/radxa-repo/bsp/blob/main/linux/latest/0100-vendor/0001-VENDOR-Add-Radxa-overlays.patch) so this repo can be built with the kernel.
+You will need [this patch](https://github.com/radxa-repo/bsp/blob/main/linux/.stable-6.1/0100-vendor/0001-VENDOR-Add-Radxa-overlays.patch) so this repo can be built with the kernel.
 
 The official overlays are built in-tree, and is delivered as part of the kernel package.
 
