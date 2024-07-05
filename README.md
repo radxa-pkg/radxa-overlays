@@ -19,7 +19,7 @@ You can then run the following command to build overlays:
 make -j$(nproc)
 ```
 
-Please be aware this only build a subset of overlays, and any overlays that depend on vendor headers will fail. This is because the Makefile is intended to find overlays that are incompatible with upstream kernel.
+Please be aware this only builds a subset of overlays, and any overlays that depend on vendor headers will fail. This is because the Makefile is intended to find overlays that are incompatible with the upstream kernel.
 
 To delete built overlays, run the following command:
 
@@ -29,13 +29,13 @@ make clean
 
 ## Download prebuilt artifacts
 
-As part of our CI pipeline, the built overlays are uploaded at the end. You can find all CI runs [here](https://github.com/radxa/overlays/actions), and the artifact is located inside each indvidual run.
+As part of our CI pipeline, the built overlays are uploaded at the end. You can find all CI runs [here](https://github.com/radxa/overlays/actions), and the artifact is located inside each run.
 
 Please be aware that artifacts expire over time, and they are not officially tested versions.
 
 ## Code style
 
-We mandate reference style for our overlays. Please visit [DTO Syntax](https://source.android.com/docs/core/architecture/dto/syntax#reference) page to learn more.
+We mandate reference style for our overlays. Please visit the [DTO Syntax](https://source.android.com/docs/core/architecture/dto/syntax#reference) page to learn more.
 
 If your existing overlay uses `target-path`, then the Android documentation does not show a clear migration path. Below is an example of how to convert them:
 
@@ -65,7 +65,7 @@ If your existing overlay uses `target-path`, then the Android documentation does
 
 ## Metadata specs
 
-Currently, we mandate a custom `metadata` node in overlays. This data is parsed by [`rsetup`](https://github.com/radxa-pkg/rsetup) to provide a human readable description and conflict detection. Below is a sample `metadata` node with detailed guidelines after:
+Currently, we mandate a custom `metadata` node in overlays. This data is parsed by [`rsetup`](https://github.com/radxa-pkg/rsetup) to provide a human-readable description and conflict detection. Below is a sample `metadata` node with detailed guidelines:
 
 ```
 / {
@@ -83,7 +83,7 @@ Currently, we mandate a custom `metadata` node in overlays. This data is parsed 
 ### A. Title (string)
 
 1. `title` should not contain the product name.  
-   `rsetup` will only show compatible overlays with `compatible` field. As such, do not confuse users to second guess if an overlay is truly compatible when the product name is not explicitly mentioned.
+   `rsetup` will only show compatible overlays with `compatible` field defined. As such, do not confuse users to second guess if an overlay is truly compatible when the product name is not explicitly mentioned.
 2. `title` should not end with a period.
 
 ### B. Category (string)
@@ -93,16 +93,16 @@ Currently, we mandate a custom `metadata` node in overlays. This data is parsed 
 
 ### C. Compatible (array)
 
-1. `compatible` should not be an SoC unless it is truly compatible with every products using that SoC.  
+1. `compatible` should not be an SoC unless it is truly compatible with every product using that SoC.  
    `rsetup` will match the base device tree's `compatible` with the overlay's `compatible`. As long as one value from each match, the overlay is considered compatible. Since most products' device tree contains their SoC in `compatible`, setting SoC in overlay's `compatible` will make it compatible with every such product.  
    Explicit products list should be preferred to generic SoC matching.
-2. If a overlay is broken, `compatible` should be `unknown`.
+2. If an overlay is broken, `compatible` should be `unknown`.
 
 ### D. Description (string)
 
-1. `description` is a multi line text to describe the function of the overlay. It can be the same as `title` with an ending period.
+1. `description` is a multi-line text to describe the function of the overlay. It can be the same as `title` with an ending period.
 2. Newline in `description` should use `\n`.
-3. Hardware parameters should be listed at the end to help user to connect their devices.
+3. Hardware parameters should be listed at the end to help the user connecting their devices.
 
 ### E. Exclusive (array)
 
