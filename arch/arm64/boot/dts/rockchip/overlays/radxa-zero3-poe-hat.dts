@@ -34,12 +34,7 @@
 	};
 };
 
-&threshold {
-	temperature = <60000>;
-};
-
 &soc_thermal {
-	sustainable-power = <5000>; /* milliwatts */
 	cooling-maps {
 		map2 {
 			trip = <&target>;
