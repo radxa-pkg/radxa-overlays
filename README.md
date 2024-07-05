@@ -3,11 +3,30 @@
 
 Additional device tree overlays to support different hardware on Radxa products
 
+## Build overlay dkms package
+
+Due to the much more frequent development happening on the overlay compared to
+the kernel in general, we are once again splitting the overlay into a dedicated package.
+
+However, to guarantee the overlay is compatible with the installed kernel, this
+package will be delivered as a source code package using dkms, instead of a prebuilt
+binary package.
+
+You can build the dkms package using the below commands:
+
+```bash
+sudo apt-get update
+sudo apt-get build-dep --no-install-recommends -y .
+make all deb
+```
+
 ## Build overlays in-tree
 
 You will need [this patch](https://github.com/radxa-repo/bsp/blob/main/linux/.stable-6.1/0100-vendor/0001-VENDOR-Add-Radxa-overlays.patch) so this repo can be built with the kernel.
 
-The official overlays are built in-tree, and is delivered as part of the kernel package.
+This is how overlays were distributed previously as part of the kernel package.
+We are still supporting this for older kernels. Newer kernels like Rockchip 6.1
+kernel will use the above dkms package instead.
 
 ## Build overlays locally
 
