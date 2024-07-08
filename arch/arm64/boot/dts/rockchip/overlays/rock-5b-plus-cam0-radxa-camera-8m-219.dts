@@ -6,11 +6,11 @@
 
 / {
 	metadata {
-		title ="Enable Raspberry Pi Camera V2 on CAM1";
+		title ="Enable Radxa Camera 8M 219 on CAM0";
 		compatible = "radxa,rock-5b-plus";
 		category = "camera";
-		exclusive = "csi2_dphy4";
-		description = "Enable Raspberry Pi Camera V2 on CAM1.";
+		exclusive = "csi2_dphy0";
+		description = "Enable Radxa Camera 8M 219 on CAM0.";
 	};
 };
 
@@ -21,22 +21,20 @@
 		regulator-always-on;
 		regulator-boot-on;
 		enable-active-high;
-		gpio = <&gpio2 RK_PA6 GPIO_ACTIVE_HIGH>;
+		gpio = <&gpio1 RK_PB0 GPIO_ACTIVE_HIGH>;
 		pinctrl-names = "default";
 		pinctrl-0 = <&cam_pwdn_gpio>;
 	};
 
-	clk_cam_24m_1: external-camera-clock-24m-1 {
+	clk_cam_24m: external-camera-clock-24m {
 		compatible = "fixed-clock";
 		clock-frequency = <24000000>;
-		clock-output-names = "clk_cam_24m_1";
+		clock-output-names = "clk_cam_24m";
 		#clock-cells = <0>;
 	};
 };
 
-&i2c4 {
-	pinctrl-names = "default";
-	pinctrl-0 = <&i2c4m1_xfer>;
+&i2c3 {
 	status = "okay";
 	#address-cells = <1>;
 	#size-cells = <0>;
@@ -45,28 +43,28 @@
 		compatible = "sony,imx219";
 		reg = <0x10>;
 
-		clocks = <&clk_cam_24m_1>;
+		clocks = <&clk_cam_24m>;
 		clock-names = "xvclk";
 
-		rockchip,camera-module-index = <1>;
+		rockchip,camera-module-index = <0>;
 		rockchip,camera-module-facing = "back";
-		rockchip,camera-module-name = "rpi-camera-v2";
+		rockchip,camera-module-name = "RADXA-CAMERA-8M";
 		rockchip,camera-module-lens-name = "default";
 
 		port {
-			imx219_out4: endpoint {
-				remote-endpoint = <&mipidphy4_in_ucam1>;
+			imx219_out0: endpoint {
+				remote-endpoint = <&mipidphy0_in_ucam1>;
 				data-lanes = <1 2>;
 			};
 		};
 	};
 };
 
-&csi2_dphy1_hw {
+&csi2_dphy0_hw {
 	status = "okay";
 };
 
-&csi2_dphy4 {
+&csi2_dphy0 {
 	status = "okay";
 
 	ports {
@@ -78,9 +76,9 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			mipidphy4_in_ucam1: endpoint@2 {
+			mipidphy0_in_ucam1: endpoint@2 {
 				reg = <2>;
-				remote-endpoint = <&imx219_out4>;
+				remote-endpoint = <&imx219_out0>;
 				data-lanes = <1 2>;
 			};
 		};
@@ -90,15 +88,15 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			csidphy4_out: endpoint@0 {
+			csidphy0_out: endpoint@0 {
 				reg = <0>;
-				remote-endpoint = <&mipi4_csi2_input>;
+				remote-endpoint = <&mipi2_csi2_input>;
 			};
 		};
 	};
 };
 
-&mipi4_csi2 {
+&mipi2_csi2 {
 	status = "okay";
 
 	ports {
@@ -110,9 +108,9 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			mipi4_csi2_input: endpoint@1 {
+			mipi2_csi2_input: endpoint@1 {
 				reg = <1>;
-				remote-endpoint = <&csidphy4_out>;
+				remote-endpoint = <&csidphy0_out>;
 			};
 		};
 
@@ -121,9 +119,9 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			mipi4_csi2_output: endpoint@0 {
+			mipi2_csi2_output: endpoint@0 {
 				reg = <0>;
-				remote-endpoint = <&cif_mipi4_in0>;
+				remote-endpoint = <&cif_mipi2_in0>;
 			};
 		};
 	};
@@ -133,22 +131,22 @@
 	status = "okay";
 };
 
-&rkcif_mipi_lvds4 {
+&rkcif_mipi_lvds2 {
 	status = "okay";
 
 	port {
-		cif_mipi4_in0: endpoint {
-			remote-endpoint = <&mipi4_csi2_output>;
+		cif_mipi2_in0: endpoint {
+		remote-endpoint = <&mipi2_csi2_output>;
 		};
 	};
 };
 
-&rkcif_mipi_lvds4_sditf {
+&rkcif_mipi_lvds2_sditf {
 	status = "okay";
 
 	port {
-		mipi_lvds4_sditf: endpoint {
-			remote-endpoint = <&isp1_vir1>;
+		mipi_lvds2_sditf: endpoint {
+			remote-endpoint = <&isp0_vir0>;
 		};
 	};
 };
@@ -157,24 +155,24 @@
 	status = "okay";
 };
 
-&isp1_mmu {
+&isp0_mmu {
 	status = "okay";
 };
 
-&rkisp1 {
+&rkisp0 {
 	status = "okay";
 };
 
-&rkisp1_vir1 {
+&rkisp0_vir0 {
 	status = "okay";
 
 	port {
 		#address-cells = <1>;
 		#size-cells = <0>;
 
-		isp1_vir1: endpoint@0 {
+		isp0_vir0: endpoint@0 {
 			reg = <0>;
-			remote-endpoint = <&mipi_lvds4_sditf>;
+			remote-endpoint = <&mipi_lvds2_sditf>;
 		};
 	};
 };
@@ -182,7 +180,8 @@
 &pinctrl {
 	camera {
 		cam_pwdn_gpio: cam-pwdn-gpio {
-			rockchip,pins = <2 RK_PA6 RK_FUNC_GPIO &pcfg_pull_up>;
+			rockchip,pins = <1 RK_PB0 RK_FUNC_GPIO &pcfg_pull_up>;
 		};
 	};
 };
+

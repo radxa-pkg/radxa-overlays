@@ -6,11 +6,11 @@
 
 / {
 	metadata {
-		title ="Enable Raspberry Pi Camera V2 on CAM1";
+		title ="Enable Radxa Camera 8M 219 on CAM1";
 		compatible = "radxa,rock-5b-plus";
 		category = "camera";
 		exclusive = "csi2_dphy4";
-		description = "Enable Raspberry Pi Camera V2 on CAM1.";
+		description = "Enable Radxa Camera 8M 219 on CAM1.";
 	};
 };
 
@@ -50,7 +50,7 @@
 
 		rockchip,camera-module-index = <1>;
 		rockchip,camera-module-facing = "back";
-		rockchip,camera-module-name = "rpi-camera-v2";
+		rockchip,camera-module-name = "RADXA-CAMERA-8M";
 		rockchip,camera-module-lens-name = "default";
 
 		port {
