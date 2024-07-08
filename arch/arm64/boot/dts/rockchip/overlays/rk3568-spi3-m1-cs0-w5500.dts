@@ -1,0 +1,48 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+
+	metadata {
+		title = "Enable WIZnet W5500 SPI Ethernet controller on SPI3-M1 CS0";
+		compatible = "radxa,rock-3c", "radxa,zero3";
+		category = "misc";
+		exclusive = "GPIO4_C2", "GPIO4_C3", "GPIO4_C5", "GPIO4_C6", "GPIO3_C1";
+		description = "Enable WIZnet W5500 SPI Ethernet controller on SPI3-M1 CS0.
+INT=22";
+	};
+};
+
+&spi3{
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
+	pinctrl-names = "default", "high_speed";
+	pinctrl-0 = <&spi3m1_cs0 &spi3m1_pins>;
+	pinctrl-1 = <&spi3m1_cs0 &spi3m1_pins_hs>;
+
+	eth_w5500: eth-w5500@0 {
+		status = "okay";
+		compatible = "wiznet,w5500";
+		reg = <0>;
+		spi-max-frequency = <30000000>;
+
+		pinctrl-names = "default";
+		pinctrl-0 = <&w5500_int_pins>;
+
+		interrupt-parent = <&gpio3>;
+		interrupts = <RK_PC1 IRQ_TYPE_EDGE_FALLING>;
+	};
+};
+
+&pinctrl {
+	w5500 {
+		w5500_int_pins: w5500-int-pins {
+			rockchip,pins = <3 RK_PC1 RK_FUNC_GPIO &pcfg_pull_none>;
+		};
+	};
+};
