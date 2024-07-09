@@ -1,3 +1,33 @@
+radxa-overlays (0.1.11) jammy; urgency=medium
+
+  [ CodeChenL ]
+  * fix: add missing #address-cells and #size-cells properties
+  * fix: remove the null ranges property
+  * fix: correct wrong device tree node name
+  * fix: add missing node numbers
+  * fix: add missing interrupt-parent property
+  * fix: remove redundant pinctrl and cs-gpios definitions
+  * fix: modify correct node index
+
+  [ ZHANG Yuntian ]
+  * fix: print warning message
+  * fix: update broken link
+  * fix: correct grammar issues
+  * fix: document the new distribution method
+  * fix: add comment to note why we need to adjust system settings
+
+  [ bsp ]
+  * rk3588: add i2s1_8ch dummy sound card overlay
+
+  [ Nascs Fang ]
+  * feat: add w5500 support for rk3568-spi3
+
+  [ Ken Wang ]
+  * overlays: enable uart7-m2 for rock5b+
+  * overlays: add some camera support for rock5b+
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Tue, 09 Jul 2024 08:22:14 +0000
+
 radxa-overlays (0.1.10) jammy; urgency=medium
 
   [ Feng Zhang ]
