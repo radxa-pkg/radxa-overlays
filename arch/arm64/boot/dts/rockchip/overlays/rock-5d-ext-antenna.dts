@@ -1,0 +1,35 @@
+/dts-v1/;
+/plugin/;
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+
+/ {
+	metadata {
+		title = "Enable External Antenna";
+		compatible = "radxa,rock-5d";
+		category = "misc";
+		exclusive = "GPIO0_B2";
+		description = "Enable External Antenna.";
+	};
+};
+
+&{/} {
+	antenna_mux: antenna-mux {
+		status = "okay";
+		compatible = "regulator-fixed";
+                regulator-name = "antenna_mux";
+                gpio = <&gpio0 RK_PB2 GPIO_ACTIVE_LOW>;
+		regulator-always-on;
+		regulator-boot-on;
+		pinctrl-0 = <&ant_mux>;
+		pinctrl-names = "default";
+	};
+};
+
+&pinctrl {
+	antenna {
+		ant_mux: ant-mux {
+			rockchip,pins = <0 RK_PB2 RK_FUNC_GPIO &pcfg_pull_down>;
+		};
+	};
+};
