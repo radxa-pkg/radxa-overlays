@@ -1,0 +1,17 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Disable vcc5v0_host regulator";
+		compatible = "radxa,rock-4se";
+		category = "misc";
+		exclusive = "vcc5v0_host";
+		description = "Disable vcc5v0_host regulator.
+On ROCK 4SE, this controls the power to non-OTG ports.";
+	};
+};
+
+&vcc5v0_host {
+	status = "disabled";
+};

@@ -1,0 +1,17 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Disable vcc5v0_typec regulator";
+		compatible = "rockchip,rk3399";
+		category = "misc";
+		exclusive = "vcc5v0_typec";
+		description = "Disable vcc5v0_typec regulator.
+On ROCK 4, this controls the power to the OTG port.";
+	};
+};
+
+&vcc5v0_typec {
+	status = "disabled";
+};

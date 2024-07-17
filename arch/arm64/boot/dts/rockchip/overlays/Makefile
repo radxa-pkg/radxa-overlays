@@ -92,6 +92,8 @@ dtb-$(CONFIG_CLK_RK3399) += \
 	rk3399-uart0.dtbo \
 	rk3399-uart2.dtbo \
 	rk3399-uart4.dtbo \
+	rk3399-vcc5v0_host-off.dtbo \
+	rk3399-vcc5v0_typec-off.dtbo \
 	rk3399-w1-gpio4-d6.dtbo \
 	rock-4-okdo-5mp-camera.dtbo \
 	rock-4-raspi-7inch-touchscreen.dtbo \
