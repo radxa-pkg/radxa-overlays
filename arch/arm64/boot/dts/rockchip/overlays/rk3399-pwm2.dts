@@ -1,0 +1,16 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable PWM2";
+		compatible = "unknown";
+		category = "misc";
+		exclusive = "GPIO1_C3";
+		description = "Enable PWM2.";
+	};
+};
+
+&pwm2 {
+	status = "okay";
+};

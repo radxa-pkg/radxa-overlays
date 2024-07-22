@@ -1,0 +1,17 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable PWM3 on GPIO0_A6";
+		compatible = "unknown";
+		category = "misc";
+		exclusive = "GPIO0_A6", "pwm3";
+		description = "Enable PWM3 on GPIO0_A6.";
+	};
+};
+
+&pwm3 {
+	status = "okay";
+	pinctrl-0 = <&pwm3a_pin>;
+};
