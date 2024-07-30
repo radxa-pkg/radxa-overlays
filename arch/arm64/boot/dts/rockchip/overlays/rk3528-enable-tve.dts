@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable analog video output";
-		compatible = "radxa,rock-2a";
+		compatible = "radxa,rock-2a", "radxa,rock-2f";
 		category = "misc";
 		exclusive = "tve";
 		description = "Enable analog video output.

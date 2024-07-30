@@ -4,11 +4,13 @@
 / {
 	metadata {
 		title = "Enable UART2-M1";
-		compatible = "radxa,rock-2a";
+		compatible = "radxa,rock-2a", "radxa,rock-2f";
 		category = "misc";
-		exclusive = "GPIO1_B0", "GPIO1_B1";
+		exclusive = "GPIO1_B1", "GPIO1_B0";
 		description = "Enable UART2-M1.
-On Radxa ROCK 2A this is RX pin 31 & TX pin 33.";
+On Radxa ROCK 2A this is TX pin 33 & RX pin 31.
+On Radxa ROCK 2F this is TX pin 33 & RX pin 31.
+";
 	};
 };
 
