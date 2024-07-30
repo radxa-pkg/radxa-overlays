@@ -4,11 +4,13 @@
 / {
 	metadata {
 		title = "Enable PWM0-M0";
-		compatible = "radxa,rock-2a";
+		compatible = "radxa,rock-2a", "radxa,rock-2f";
 		category = "misc";
 		exclusive = "GPIO4_C3";
 		description = "Enable PWM0-M0.
-On Radxa ROCK 2A this is pin 32.";
+On Radxa ROCK 2A this is pin 32.
+On Radxa ROCK 2F this is pin 32.
+";
 	};
 };
 

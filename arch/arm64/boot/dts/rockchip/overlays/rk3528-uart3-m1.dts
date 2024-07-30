@@ -4,11 +4,13 @@
 / {
 	metadata {
 		title = "Enable UART3-M1";
-		compatible = "radxa,rock-2a";
+		compatible = "radxa,rock-2a", "radxa,rock-2f";
 		category = "misc";
-		exclusive = "GPIO4_B7", "GPIO4_C0";
+		exclusive = "GPIO4_C0", "GPIO4_B7";
 		description = "Enable UART3-M1.
-On Radxa ROCK 2A this is RX pin 11 & TX pin 13.";
+On Radxa ROCK 2A this is TX pin 13 & RX pin 11.
+On Radxa ROCK 2F this is TX pin 13 & RX pin 11.
+";
 	};
 };
 

@@ -4,11 +4,13 @@
 / {
 	metadata {
 		title = "Enable UART0-M0";
-		compatible = "radxa,rock-2a";
+		compatible = "radxa,rock-2a", "radxa,rock-2f";
 		category = "misc";
-		exclusive = "GPIO4_C7", "GPIO4_D0";
+		exclusive = "GPIO4_D0", "GPIO4_C7";
 		description = "Enable UART0-M0.
-On Radxa ROCK 2A this is RX pin 10 & TX pin 8.";
+On Radxa ROCK 2A this is TX pin 8 & RX pin 10.
+On Radxa ROCK 2F this is TX pin 8 & RX pin 10.
+";
 	};
 };
 

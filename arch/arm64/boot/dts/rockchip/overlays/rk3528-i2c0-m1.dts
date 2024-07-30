@@ -5,11 +5,13 @@
 / {
 	metadata {
 		title = "Enable I2C0-M1";
-		compatible = "radxa,rock-2a";
+		compatible = "radxa,rock-2a", "radxa,rock-2f";
 		category = "misc";
 		exclusive = "GPIO4_A0", "GPIO4_A1", "i2c0";
 		description = "Enable I2C0-M1.
-On Radxa 2A this is SDA pin 3 and SCL pin 5.";
+On Radxa 2A this is SDA pin 3 and SCL pin 5.
+On Radxa 2A this is SDA pin 3 and SCL pin 5.
+";
 	};
 };
 
