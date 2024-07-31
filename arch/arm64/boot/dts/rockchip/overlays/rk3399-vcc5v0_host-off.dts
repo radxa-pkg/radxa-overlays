@@ -6,12 +6,13 @@
 		title = "Disable vcc5v0_host regulator";
 		compatible = "radxa,rock-4se";
 		category = "misc";
-		exclusive = "vcc5v0_host";
+		exclusive = "vcc5v0_host", "GPIO4_D1";
 		description = "Disable vcc5v0_host regulator.
-On ROCK 4SE, this controls the power to non-OTG ports.";
+On ROCK 4SE, this controls the power to non-OTG ports.
+You can use `gpioset -m wait 4 25=<0/1>` to control the port power.";
 	};
 };
 
 &vcc5v0_host {
-	status = "disabled";
+	gpio = <0>;
 };
