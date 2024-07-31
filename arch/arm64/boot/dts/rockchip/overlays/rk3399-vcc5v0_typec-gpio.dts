@@ -3,12 +3,12 @@
 
 / {
 	metadata {
-		title = "Disable vcc5v0_typec regulator";
+		title = "Free vcc5v0_typec regulator control GPIO";
 		compatible = "rockchip,rk3399";
 		category = "misc";
 		exclusive = "vcc5v0_typec", "GPIO1_A3";
-		description = "Disable vcc5v0_typec regulator.
-On ROCK 4, this controls the power to the OTG port.
+		description = "Free vcc5v0_typec regulator control GPIO.
+On ROCK 4, this regulator controls the power to the OTG port.
 You can use `gpioset -m wait 1 3=<0/1>` to control the port power.";
 	};
 };
