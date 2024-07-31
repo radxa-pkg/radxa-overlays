@@ -4,10 +4,12 @@
 / {
 	metadata {
 		title = "Enable FIQ Debugger on UART1-M0";
-		compatible = "unknown";
+		compatible = "radxa,medge-rk3528a-io";
 		category = "misc";
 		exclusive = "GPIO4_A7", "GPIO4_A6";
-		description = "Enable FIQ Debugger on UART1-M0.";
+		description = "Enable FIQ Debugger on UART1-M0.
+On Radxa mEdge-RK3528A IO this is TX pin 7 & RX pin 32.		
+";
 	};
 };
 

@@ -4,12 +4,13 @@
 / {
 	metadata {
 		title = "Enable UART0-M0";
-		compatible = "radxa,rock-2a", "radxa,rock-2f";
+		compatible = "radxa,rock-2a", "radxa,rock-2f", "radxa,medge-rk3528a-io";
 		category = "misc";
 		exclusive = "GPIO4_D0", "GPIO4_C7";
 		description = "Enable UART0-M0.
 On Radxa ROCK 2A this is TX pin 8 & RX pin 10.
 On Radxa ROCK 2F this is TX pin 8 & RX pin 10.
+On Radxa mEdge-RK3528A IO this is TX pin 8 & RX pin 10.
 ";
 	};
 };

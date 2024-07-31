@@ -5,7 +5,7 @@
 / {
 	metadata {
 		title = "Set OTG port to be controlled by hardware switch";
-		compatible = "radxa,rock-2a", "radxa,rock-2f";
+		compatible = "radxa,rock-2a", "radxa,rock-2f", "radxa,medge-rk3528a-io";
 		category = "misc";
 		exclusive = "usbdrd_dwc3-dr_mode";
 		description = "Set OTG port to be controlled by hardware switch.";
