@@ -4,12 +4,13 @@
 / {
 	metadata {
 		title = "Enable FIQ Debugger on UART3-M0";
-		compatible = "radxa,rock-2a", "radxa,rock-2f";
+		compatible = "radxa,rock-2a", "radxa,rock-2f", "radxa,medge-rk3528a-io";
 		category = "misc";
 		exclusive = "GPIO4_B1", "GPIO4_B0";
 		description = "Enable FIQ Debugger on UART3-M0.
 On Radxa ROCK 2A this is TX pin 18 & RX pin 16.
 On Radxa ROCK 2F this is TX pin 18 & RX pin 16.
+On Radxa mEdge-RK3528A IO this is TX pin 18 & RX pin 16.
 ";
 	};
 };

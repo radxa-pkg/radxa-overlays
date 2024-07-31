@@ -1,0 +1,20 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable PWM4-M1";
+		compatible = "radxa,medge-rk3528a-io";
+		category = "misc";
+		exclusive = "GPIO1_A4";
+		description = "Enable PWM4-M1.
+On Radxa mEdge-RK3528A IO this is pin 15.
+";
+	};
+};
+
+&pwm4 {
+	status = "okay";
+	pinctrl-names = "active";
+	pinctrl-0 = <&pwm4m1_pins>;
+};

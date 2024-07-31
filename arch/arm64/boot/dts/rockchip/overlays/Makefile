@@ -114,6 +114,7 @@ dtb-$(CONFIG_CPU_RK3399) += \
 	rock-4-radxa-display-10hd.dtbo
 
 dtb-$(CONFIG_CLK_RK3528) += \
+	medge-rk3528a-io-enable-pcie.dtbo \
 	rk3528-dwc3-host.dtbo \
 	rk3528-dwc3-otg.dtbo \
 	rk3528-dwc3-peripheral.dtbo \
@@ -128,6 +129,7 @@ dtb-$(CONFIG_CLK_RK3528) += \
 	rk3528-pwm0-m0.dtbo \
 	rk3528-pwm3-m0.dtbo \
 	rk3528-pwm4-m0.dtbo \
+	rk3528-pwm4-m1.dtbo \
 	rk3528-pwm5-m0.dtbo \
 	rk3528-pwm6-m0.dtbo \
 	rk3528-spi0-cs1-enc28j60.dtbo \
