@@ -1,3 +1,28 @@
+radxa-overlays (0.1.12) jammy; urgency=medium
+
+  [ Feng Zhang ]
+  * rock 5d: add antenna toggle switch
+
+  [ ZHANG Yuntian ]
+  * feat: add overlays to turn off power supply to ROCK 4 USB ports
+  * feat: add missing RK3399 PWM overlays
+  * fix: do not disable regulator to override power
+  * fix: update USB regulator overlay description
+
+  [ Nascs Fang ]
+  * fix: remove i2c4-m3 from rock-5b-plus
+  * feat: open i2c8-m4 for rock-5b-plus
+  * feat: open uart4-m2 for rock-5b-plus
+
+  [ SongJun Li ]
+  * feat: add rock 2f to the overlays of the rk3528 series
+  * feat: add medge-rk3528a io board to the overlays of the rk3528 series
+
+  [ Stephen Chen ]
+  * feat: radxa-e52c: add support for setting usb host and peripheral mode
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Thu, 01 Aug 2024 02:25:53 +0000
+
 radxa-overlays (0.1.11) jammy; urgency=medium
 
   [ CodeChenL ]
