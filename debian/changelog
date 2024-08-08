@@ -1,3 +1,18 @@
+radxa-overlays (0.1.13) jammy; urgency=medium
+
+  [ ZHANG Yuntian ]
+  * fix: clean up RK3568 SPI3 exclusive
+
+  [ Mitchell Ma ]
+  * overlays: rk3588: add pull-up on i2c3-m1 and i2c8-m4
+  * overlays: disable i2c1-m0 for ROCK5B/ROCK5B+
+  * overlays: enable radxa 25w poe for ROCK5B+
+
+  [ Feng Zhang ]
+  * rock 5d: add radxa 8mp camera support on camera interface
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Thu, 08 Aug 2024 03:35:38 +0000
+
 radxa-overlays (0.1.12) jammy; urgency=medium
 
   [ Feng Zhang ]
