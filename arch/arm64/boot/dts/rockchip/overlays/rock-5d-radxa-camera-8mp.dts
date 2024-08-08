@@ -1,0 +1,12 @@
+#include "rock-5a-radxa-camera-8m-219.dts"
+
+/ {
+	metadata {
+		title ="Enable Radxa Camera 8MP on the Camera connector";
+		compatible = "radxa,rock-5d";
+		description = "Enable Radxa Camera 8MP on the Camera connector.
+The Camera connector is located on the bottom of the board.
+This is not the top MIPI-RX* connectors.
+";
+	};
+};

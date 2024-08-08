@@ -458,6 +458,7 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rock-5b-rpi-camera-v2.dtbo \
 	rock-5b-sata.dtbo \
 	rock-5d-ext-antenna.dtbo \
+	rock-5d-radxa-camera-8mp.dtbo \
 	rock-5d-rpi-camera-v1p3.dtbo \
 	rock-5d-rpi-camera-v2.dtbo \
 	rock-5d-okdo-camera-5mp.dtbo \
