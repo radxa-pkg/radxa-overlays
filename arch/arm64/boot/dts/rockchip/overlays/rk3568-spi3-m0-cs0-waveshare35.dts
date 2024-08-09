@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable Waveshare 3.5inch RPi LCD (C) on SPI3";
-		compatible = "radxa,cm3-io", "radxa,cm3-rpi-cm4-io";
+		compatible = "radxa,cm3-rpi-cm4-io";
 		category = "misc";
 		exclusive = "GPIO4_B0", "GPIO4_B2", "GPIO4_B3", "GPIO4_A6", "GPIO3_C6", "GPIO3_D3", "GPIO0_C7";
 		description = "Enable Waveshare 3.5inch RPi LCD (C) on SPI3.";
