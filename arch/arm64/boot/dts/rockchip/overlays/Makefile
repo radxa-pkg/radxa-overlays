@@ -424,6 +424,8 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-spi1-m2-cs1-spidev.dtbo \
 	rk3588-spi2-m1-cs0-spidev.dtbo \
 	rk3588-spi4-m2-cs0-spidev.dtbo \
+	rk3588-spi4-m2-cs0-waveshare35.dtbo \
+	rk3588-spi4-m2-cs0-waveshare35b.dtbo \
 	rk3588-uart1-m2.dtbo \
 	rk3588-uart2-m0.dtbo \
 	rk3588-uart2-m2.dtbo \
