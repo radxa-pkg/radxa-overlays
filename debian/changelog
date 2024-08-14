@@ -1,3 +1,18 @@
+radxa-overlays (0.1.14) jammy; urgency=medium
+
+  [ Nascs Fang ]
+  * fix: delete cm3-io waveshare35 support
+  * fix: replace the interrupt pin from gpio3_c6 to gpio4_c5
+  * feat: add waveshare lcd for 5a/5c/5d
+
+  [ ZHANG Yuntian ]
+  * fix: update GPIOZ_6's interrupt number
+
+  [ Ken Wang ]
+  * cm5io: add dwc3 host and devices support
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Wed, 14 Aug 2024 05:48:26 +0000
+
 radxa-overlays (0.1.13) jammy; urgency=medium
 
   [ ZHANG Yuntian ]
