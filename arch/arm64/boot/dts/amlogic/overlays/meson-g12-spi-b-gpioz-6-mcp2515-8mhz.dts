@@ -34,7 +34,7 @@ Uses Pin 18 (GPIOZ_6) for INT.";
 		pinctrl-0 = <&mcp2515_int_pins>;
 
 		interrupt-parent = <&gpio_intc>;
-		interrupts = <85 IRQ_TYPE_EDGE_FALLING>;
+		interrupts = <18 IRQ_TYPE_EDGE_FALLING>;
 
 		clocks = <&can0_osc>;
 	};
