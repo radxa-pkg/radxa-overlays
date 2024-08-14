@@ -1,0 +1,32 @@
+#define DISPLAY_SPI spi4
+#include "waveshare35-lcd.dtsi"
+
+/ {
+	metadata {
+		title = "Enable Waveshare 3.5inch RPi LCD (C) on SPI4";
+		compatible = "radxa,rock-5a", "radxa,rock-5c", "radxa,rock-5d";
+		category = "misc";
+		exclusive = "GPIO1_A2", "GPIO1_A0", "GPIO1_A1", "GPIO1_A3", "GPIO1_B0", "GPIO1_B5", "GPIO4_B3";
+		description = "Enable Waveshare 3.5inch RPi LCD (C) on SPI4.
+Touch panel is currently unsupported.";
+	};
+};
+
+&DISPLAY_SPI {
+	pinctrl-0 = <&spi4m2_pins>;
+	num-cs = <2>;
+	cs-gpios = <&gpio1 RK_PA3 GPIO_ACTIVE_LOW
+			&gpio1 RK_PA4 GPIO_ACTIVE_LOW>;
+};
+
+&ili9486 {
+	reset-gpios = <&gpio1 RK_PB5 GPIO_ACTIVE_LOW>;
+	dc-gpios = <&gpio1 RK_PB0 GPIO_ACTIVE_HIGH>;
+};
+
+&ads7846 {
+	status = "disabled";
+	interrupt-parent = <&gpio4>;
+	interrupts = <RK_PB3 IRQ_TYPE_EDGE_FALLING>;
+	pendown-gpio = <&gpio4 RK_PB3 GPIO_ACTIVE_HIGH>;
+};
