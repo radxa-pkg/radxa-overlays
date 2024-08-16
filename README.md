@@ -1,5 +1,5 @@
 # overlays
-[![build](https://github.com/radxa-pkg/radxa-overlays/actions/workflows/build.yml/badge.svg)](https://github.com/radxa-pkg/radxa-overlays/actions/workflows/build.yml) [![Build & Release](https://github.com/radxa-pkg/radxa-overlays/actions/workflows/release.yml/badge.svg)](https://github.com/radxa-pkg/radxa-overlays/actions/workflows/release.yml)
+[![Build & Release](https://github.com/radxa-pkg/radxa-overlays/actions/workflows/release.yml/badge.svg)](https://github.com/radxa-pkg/radxa-overlays/actions/workflows/release.yml)
 
 Additional device tree overlays to support different hardware on Radxa products
 
@@ -35,10 +35,13 @@ First, make sure you have the running kernel header, `gcc`, and `device-tree-com
 You can then run the following command to build overlays:
 
 ```bash
-make -j$(nproc)
+make build-dtbo -j$(nproc)
 ```
 
-Please be aware this only builds a subset of overlays, and any overlays that depend on vendor headers will fail. This is because the Makefile is intended to find overlays that are incompatible with the upstream kernel.
+Please be aware this only builds a subset of overlays, and any overlays that depend on vendor headers will fail,
+as this command will use the current system's kernel header.
+
+Please take a look at the [CI workflow](.github/workflows/release.yml#L65-L72) to see how to select installed vendor kernel header.
 
 To delete built overlays, run the following command:
 
