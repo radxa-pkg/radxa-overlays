@@ -13,7 +13,7 @@
 On Radxa ROCK 5A this is SDA pin 27 and SCL pin 28.
 On Radxa ROCK 5C this is SDA pin 27 and SCL pin 28.
 On Radxa ROCK 5D this is SDA pin 27 and SCL pin 28.
-On Radxa CM5-RPI-CM4-IO this is SDA pin 3 and SCL pin 5.
+On Radxa CM5-RPI-CM4-IO this is SDA pin 5 and SCL pin 3.
 ";
 	};
 };

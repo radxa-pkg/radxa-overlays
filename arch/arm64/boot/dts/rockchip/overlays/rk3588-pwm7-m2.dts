@@ -4,11 +4,12 @@
 / {
 	metadata {
 		title = "Enable PWM7-M2";
-		compatible = "radxa,nx5-io";
+		compatible = "radxa,nx5-io", "radxa,cm5-rpi-cm4-io";
 		category = "misc";
 		exclusive = "GPIO1_C3";
 		description = "Enable PWM7-M2.
-On Radxa NX5 IO this is pin 12.";
+On Radxa NX5 IO this is pin 12.
+On Radxa CM5 RPI CM4 IO this is pin 15.";
 	};
 };
 
