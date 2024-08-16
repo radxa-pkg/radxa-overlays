@@ -1,15 +1,83 @@
 name: Build & Release
 on:
   workflow_dispatch:
+  merge_group:
   pull_request:
   push:
-    branches:
-      - main
 
-permissions:
-  contents: write
+permissions: {}
       
 jobs:
+  build-dtbo:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [linux-rockchip, linux-rk356x, linux-stable, linux-rk2312]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Check if there is missing files
+        shell: bash
+        run: |
+          MISSING=0
+          for VENDOR in amlogic rockchip
+          do
+            OVERLAY_PATH="arch/arm64/boot/dts/$VENDOR/overlays"
+            for i in "$OVERLAY_PATH"/*.dts
+            do
+              OVERLAY_NAME="$(basename "$i")"
+              OVERLAY_NAME="${OVERLAY_NAME/.dts}.dtbo"
+              if ! grep "$OVERLAY_NAME" "${OVERLAY_PATH}/Makefile"* >/dev/null 2>/dev/null
+              then
+                echo "$OVERLAY_NAME is not included in $VENDOR Makefile!"
+                MISSING=1
+              fi
+            done
+          done
+          exit $MISSING
+      - name: Install dependencies
+        shell: bash
+        run: |
+          sudo apt update
+          sudo apt install -y --no-install-recommends device-tree-compiler
+          sudo dpkg --add-architecture arm64
+          case "${{ matrix.version }}" in
+            linux-rockchip)
+              wget https://github.com/radxa-pkg/linux-rockchip/releases/download/5.10.110-38/linux-headers-5.10.110-38-rockchip_5.10.110-38-7a04ba0ad_arm64.deb
+              sudo apt install ./linux-headers-5.10.110-38-rockchip_5.10.110-38-7a04ba0ad_arm64.deb
+              ;;
+            linux-rk356x)
+              wget https://github.com/radxa-pkg/linux-rk356x/releases/download/5.10.160-37/linux-headers-5.10.160-37-rk356x_5.10.160-37-ff919543b_arm64.deb
+              sudo apt install ./linux-headers-5.10.160-37-rk356x_5.10.160-37-ff919543b_arm64.deb
+              ;;
+            linux-rk2312)
+              wget https://github.com/radxa-pkg/linux-rk2312/releases/download/6.1.43-15/linux-headers-6.1.43-15-rk2312_6.1.43-15-3176a44da_arm64.deb
+              sudo apt install ./linux-headers-6.1.43-15-rk2312_6.1.43-15-3176a44da_arm64.deb
+              ;;
+          esac
+      - name: Build
+        shell: bash
+        run: |
+          case "${{ matrix.version }}" in
+            linux-stable)
+              make build-dtbo -j$(nproc)
+              ;;
+            linux-rockchip)
+              make build-dtbo -j$(nproc) KERNELRELEASE=5.10.110-38-rockchip CONFIG_ARCH_MESON=n CONFIG_CPU_RK3399=rockchip CONFIG_CPU_RK3588=rockchip
+              ;;
+            linux-rk356x)
+              make build-dtbo -j$(nproc) KERNELRELEASE=5.10.160-37-rk356x CONFIG_ARCH_MESON=n CONFIG_CPU_RK3528=rockchip CONFIG_CPU_RK3568=rockchip
+              ;;
+            linux-rk2312)
+              make build-dtbo -j$(nproc) KERNELRELEASE=6.1.43-15-rk2312 CONFIG_ARCH_MESON=n CONFIG_CPU_RK3588=rockchip
+              ;;
+          esac
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.version }}
+          path: |
+            arch/**/*.dtbo
   build:
     runs-on: ubuntu-latest
     outputs:
@@ -49,8 +117,10 @@ jobs:
           fi
   release:
     runs-on: ubuntu-latest
-    needs: build
-    if: ${{ github.event_name != 'pull_request' && needs.build.outputs.distro != 'UNRELEASED' }}
+    needs: [build-dtbo, build]
+    if: github.event_name != 'pull_request' && github.event_name != 'merge_group' && github.ref_name == 'main' && needs.build.outputs.distro != 'UNRELEASED'
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
