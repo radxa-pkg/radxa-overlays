@@ -19,7 +19,7 @@ On Radxa ROCK 5D this is pin 40.
 };
 
 &{/} {
-	w1: onewire@0 {
+	w1: onewire {
 		compatible = "w1-gpio";
 		gpios = <&gpio4 RK_PB1 GPIO_ACTIVE_HIGH>;
 		status = "okay";

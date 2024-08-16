@@ -41,7 +41,7 @@ Uses Pin 18 (GPIOX_8) for INT.";
 };
 
 &periphs_pinctrl {
-	mcp2515_int_pins: mcp2515-int-pins@0 {
+	mcp2515_int_pins: mcp2515-int-pins {
 		mux {
 			groups = "GPIOX_8";
 			function = "gpio_periphs";

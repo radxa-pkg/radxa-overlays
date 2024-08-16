@@ -30,17 +30,6 @@ When SPI flash is enabled, eMMC cannot be enabled on the same port.";
 		spi-tx-bus-width = <1>;
 		spi-rx-bus-width = <4>;
 		status = "okay";
-
-		partitions {
-			compatible = "fixed-partitions";
-			#address-cells = <1>;
-			#size-cells = <1>;
-
-			loader@0 {
-				label = "loader";
-				reg = <0x0 0x1000000>;
-			};
-		};
 	};
 };
 

@@ -44,8 +44,6 @@ MOSI=16 MISO=18 SCK=36 CS=38 INT=40";
 };
 
 &pinctrl {
-	#address-cells = <2>;
-	#size-cells = <2>;
 	enc28j60 {
 		enc28j60_int_pins: enc28j60-int-pins {
 			rockchip,pins = <4 RK_PA7 RK_FUNC_GPIO &pcfg_pull_up>;

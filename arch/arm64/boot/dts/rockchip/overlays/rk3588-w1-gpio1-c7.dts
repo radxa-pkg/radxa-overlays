@@ -16,7 +16,7 @@ On Radxa NX5 IO this is pin 40.";
 };
 
 &{/} {
-	w1: onewire@0 {
+	w1: onewire {
 		compatible = "w1-gpio";
 		gpios = <&gpio1 RK_PC7 GPIO_ACTIVE_HIGH>;
 		status = "okay";

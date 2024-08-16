@@ -16,7 +16,7 @@ On ROCK 4 this is pin 37.";
 };
 
 &{/} {
-	w1: onewire@0 {
+	w1: onewire {
 		compatible = "w1-gpio";
 		pinctrl-names = "default";
 		gpios = <&gpio4 RK_PD6 GPIO_ACTIVE_HIGH>;

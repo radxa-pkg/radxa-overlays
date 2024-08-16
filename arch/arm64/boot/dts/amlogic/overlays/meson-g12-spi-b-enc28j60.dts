@@ -38,7 +38,7 @@ INT=GPIOX_8";
 };
 
 &periphs_pinctrl {
-	enc28j60_int_pins: enc28j60-int-pins@0 {
+	enc28j60_int_pins: enc28j60-int-pins {
 		mux {
 			groups = "GPIOX_8";
 			function = "gpio_periphs";

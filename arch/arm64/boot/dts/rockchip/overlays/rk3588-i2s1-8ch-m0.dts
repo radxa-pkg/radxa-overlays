@@ -20,6 +20,8 @@ It does not support any specific hardware device.";
         };
 
         i2s1_dummy_sound: i2s1-dummy-sound {
+		#address-cells = <1>;
+		#size-cells = <0>;
                 compatible = "simple-audio-card";
                 simple-audio-card,format = "i2s";
                 simple-audio-card,name = "dummy-card";
@@ -27,6 +29,7 @@ It does not support any specific hardware device.";
                 status = "okay";
 
                 simple-audio-card,dai-link@0 {
+                        reg = <0>;
                         format = "i2s";
                         cpu {
                                 sound-dai = <&i2s1_8ch>;
