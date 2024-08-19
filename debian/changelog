@@ -1,3 +1,15 @@
+radxa-overlays (0.1.15) jammy; urgency=medium
+
+  [ Ken Wang ]
+  * add i2c/pwm for radxa cm5 rpi cm4 io
+
+  [ ZHANG Yuntian ]
+  * fix: resolve some build warnings
+  * fix: consolidate CI workflows
+  * docs: update build guide
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Mon, 19 Aug 2024 07:04:36 +0000
+
 radxa-overlays (0.1.14) jammy; urgency=medium
 
   [ Nascs Fang ]
