@@ -67,17 +67,17 @@
 
 &csi2_dphy0 {
 	status = "okay";
-
+	#address-cells = <1>;
+	#size-cells = <0>;
 	ports {
 		#address-cells = <1>;
 		#size-cells = <0>;
-
 		port@0 {
 			reg = <0>;
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			mipidphy0_in_ucam1: endpoint@2 {
+			mipidphy0_in_ucam1: endpoint@1 {
 				reg = <2>;
 				remote-endpoint = <&imx219_out0>;
 				data-lanes = <1 2>;
@@ -99,11 +99,9 @@
 
 &mipi2_csi2 {
 	status = "okay";
-
 	ports {
 		#address-cells = <1>;
 		#size-cells = <0>;
-
 		port@0 {
 			reg = <0>;
 			#address-cells = <1>;
@@ -114,7 +112,6 @@
 				remote-endpoint = <&csidphy0_out>;
 			};
 		};
-
 		port@1 {
 			reg = <1>;
 			#address-cells = <1>;
@@ -134,7 +131,6 @@
 
 &rkcif_mipi_lvds2 {
 	status = "okay";
-
 	port {
 		cif_mipi2_in0: endpoint {
 		remote-endpoint = <&mipi2_csi2_output>;
@@ -144,10 +140,9 @@
 
 &rkcif_mipi_lvds2_sditf {
 	status = "okay";
-
 	port {
 		mipi_lvds2_sditf: endpoint {
-			remote-endpoint = <&isp0_vir0>;
+			remote-endpoint = <&isp1_vir0>;
 		};
 	};
 };
@@ -156,22 +151,20 @@
 	status = "okay";
 };
 
-&isp0_mmu {
+&isp1_mmu {
 	status = "okay";
 };
 
-&rkisp0 {
+&rkisp1 {
 	status = "okay";
 };
 
-&rkisp0_vir0 {
+&rkisp1_vir0 {
 	status = "okay";
-
 	port {
 		#address-cells = <1>;
 		#size-cells = <0>;
-
-		isp0_vir0: endpoint@0 {
+		isp1_vir0: endpoint@0 {
 			reg = <0>;
 			remote-endpoint = <&mipi_lvds2_sditf>;
 		};
