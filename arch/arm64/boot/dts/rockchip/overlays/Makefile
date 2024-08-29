@@ -375,6 +375,8 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-i2c8-m2.dtbo \
 	rk3588-i2c8-m4.dtbo \
 	rk3588-i2s1-8ch-m0.dtbo \
+	rk3588-i2s2-2ch-m1.dtbo \
+	rk3588-i2s2-2ch-m1-hifiberry-dac.dtbo \
 	rk3588-mali-enable.dtbo \
 	rk3588-pwm0-m1.dtbo \
 	rk3588-pwm0-m2.dtbo \

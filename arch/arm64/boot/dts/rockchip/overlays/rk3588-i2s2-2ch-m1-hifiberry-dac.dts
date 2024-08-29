@@ -1,0 +1,44 @@
+/dts-v1/;
+/plugin/;
+/ {
+	metadata {
+		title = "Enable HiFiBerry DAC+ Light on I2S2-M1";
+		compatible = "radxa,rock-5b", "radxa,rock-5b-plus";
+		category = "audio";
+		description = "Enable HiFiBerry DAC+ Light on I2S2-M1.";
+		exclusive = "GPIO3_B5", "GPIO3_B6", "GPIO3_B2", "GPIO3_B3", "i2s2_2ch";
+	};
+};
+
+&{/} {
+	pcm5102a_codec: pcm5102a-codec {
+		compatible = "ti,pcm5102a";
+		#sound-dai-cells = <0>;
+		status = "okay";
+	};
+
+	sound_ext_card: sound-ext-card {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		status = "okay";
+		compatible = "simple-audio-card";
+		simple-audio-card,format = "i2s";
+		simple-audio-card,mclk-fs = <256>;
+		simple-audio-card,name = "snd_rpi_hifiberry_dac";
+		simple-audio-card,dai-link@0 {
+			reg = <0>;
+			format = "i2s";
+			cpu {
+				sound-dai = <&i2s2_2ch>;
+			};
+			codec {
+				sound-dai = <&pcm5102a_codec>;
+			};
+		};
+	};
+};
+
+&i2s2_2ch {
+	pinctrl-0 = <&i2s2m1_lrck &i2s2m1_sclk &i2s2m1_sdi &i2s2m1_sdo>;
+	status = "okay";
+};
