@@ -1,0 +1,53 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable DMA transfer mode for all UARTs";
+		compatible = "rockchip,rk3566", "rockchip,rk3568", "rockchip,rk3588";
+		category = "misc";
+		description = "Enable DMA transfer mode for all UARTs.
+DMA mode can help alleviating the CPU load when the data rate is high.
+It is not necessary to enable it at low data rate, as DMA requires additional resources to set up.";
+	};
+};
+
+&uart0 {
+	dma-names = "tx", "rx";
+};
+
+&uart1 {
+	dma-names = "tx", "rx";
+};
+
+&uart2 {
+	dma-names = "tx", "rx";
+};
+
+&uart3 {
+	dma-names = "tx", "rx";
+};
+
+&uart4 {
+	dma-names = "tx", "rx";
+};
+
+&uart5 {
+	dma-names = "tx", "rx";
+};
+
+&uart6 {
+	dma-names = "tx", "rx";
+};
+
+&uart7 {
+	dma-names = "tx", "rx";
+};
+
+&uart8 {
+	dma-names = "tx", "rx";
+};
+
+&uart9 {
+	dma-names = "tx", "rx";
+};
