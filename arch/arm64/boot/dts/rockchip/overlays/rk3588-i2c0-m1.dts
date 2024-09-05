@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable I2C0-M1";
-		compatible = "radxa,rock-5b", "radxa,rock-5b-plus";
+		compatible = "radxa,rock-5b", "radxa,rock-5b-plus", "radxa,rock-5t";
 		category = "misc";
 		exclusive = "GPIO4_C6", "GPIO4_C5";
 		description = "Enable I2C0-M1.

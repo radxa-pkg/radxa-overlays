@@ -549,7 +549,20 @@ dtb-$(CONFIG_CPU_RK3588) += \
 	rock-5b-plus-radxa-display-8hd.dtbo \
 	rock-5b-plus-radxa-display-10fhd.dtbo \
 	rock-5b-plus-radxa-display-10hd.dtbo \
-	rock-5d-radxa-camera-4k.dtbo
+	rock-5t-cam0-okdo-5mp-camera.dtbo \
+	rock-5t-cam0-radxa-camera-4k.dtbo \
+	rock-5t-cam0-radxa-camera-8m-219.dtbo \
+	rock-5t-cam1-okdo-5mp-camera.dtbo \
+	rock-5t-cam1-radxa-camera-4k.dtbo \
+	rock-5t-cam1-radxa-camera-8m-219.dtbo \
+	rock-5t-cam0-rpi-camera-v1p3.dtbo \
+	rock-5t-cam1-rpi-camera-v1p3.dtbo \
+	rock-5t-cam0-rpi-camera-v2.dtbo \
+	rock-5t-cam1-rpi-camera-v2.dtbo \
+	rock-5d-radxa-camera-4k.dtbo \
+	rock-5t-radxa-display-8hd.dtbo \
+	rock-5t-radxa-display-10fhd.dtbo \
+	rock-5t-radxa-display-10hd.dtbo
 
 dtb-$(CONFIG_ARCH_ROCKCHIP) += rockchip-watchdog.dtbo
 
