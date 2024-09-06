@@ -1,33 +1,17 @@
 /dts-v1/;
 /plugin/;
 
-#include <dt-bindings/pinctrl/rockchip.h>
-
 / {
 	metadata {
 		title = "Disable FIQ Debugger";
 		compatible = "rockchip,rk3399";
 		category = "misc";
-		exclusive = "GPIO4_C3", "GPIO4_C4", "fiq_debugger";
+		exclusive = "fiq_debugger";
 		description = "Disable FIQ Debugger.";
 	};
 };
 
 &fiq_debugger {
-	status = "disabled";
-};
-
-&pinctrl {
-	pinctrl-0 = <&gpio4_c3_c4>;
-	pinctrl-names = "default";
-
-	gpio_func {
-		gpio4_c3_c4: gpio4-c3-c4 {
-			rockchip,pins =
-				/* GPIO4_C3 */
-				<4 RK_PC3 RK_FUNC_GPIO &pcfg_pull_none>,
-				/* GPIO4_C4 */
-				<4 RK_PC4 RK_FUNC_GPIO &pcfg_pull_none>;
-		};
-	};
+	status = "okay";
+	rockchip,serial-id = <0xffffffff>;
 };

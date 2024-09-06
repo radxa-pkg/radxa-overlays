@@ -1,33 +1,7 @@
-/dts-v1/;
-/plugin/;
-
-#include <dt-bindings/pinctrl/rockchip.h>
+#include "rk3399-disable-fiq-debugger.dts"
 
 / {
 	metadata {
-		title = "Disable FIQ Debugger";
-		compatible = "radxa,rock-5a", "radxa,rock-5b", "radxa,rock-5b-plus", "radxa,rock-5c", "radxa,rock-5d", "radxa,rock-5t", "radxa,nx5-io", "radxa,cm5-io", "radxa,cm5-rpi-cm4-io";
-		category = "misc";
-		exclusive = "GPIO0_B5", "GPIO0_B6", "fiq_debugger";
-		description = "Disable FIQ Debugger.";
-	};
-};
-
-&fiq_debugger {
-	status = "disabled";
-};
-
-&pinctrl {
-	pinctrl-0 = <&gpio0_b5_b6>;
-	pinctrl-names = "default";
-
-	gpio_func {
-		gpio0_b5_b6: gpio0-b5-b6 {
-			rockchip,pins =
-				/* GPIO0_B5 */
-				<0 RK_PB5 RK_FUNC_GPIO &pcfg_pull_none>,
-				/* GPIO0_B6 */
-				<0 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
-		};
+		compatible = "rockchip,rk3588";
 	};
 };
