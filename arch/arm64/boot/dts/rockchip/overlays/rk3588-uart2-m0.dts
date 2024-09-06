@@ -1,12 +1,11 @@
-/dts-v1/;
-/plugin/;
+#include "rk3399-disable-fiq-debugger.dts"
 
 / {
 	metadata {
 		title = "Enable UART2-M0";
 		compatible = "radxa,rock-5a", "radxa,rock-5b", "radxa,rock-5b-plus", "radxa,rock-5c", "radxa,rock-5d", "radxa,rock-5t", "radxa,nx5-io", "radxa,cm5-io", "radxa,cm5-rpi-cm4-io";
 		category = "misc";
-		exclusive = "GPIO0_B5", "GPIO0_B6";
+		exclusive = "GPIO0_B5", "GPIO0_B6", "fiq_debugger";
 		description = "Enable UART2-M0.
 On Radxa ROCK 5A this is TX pin 8 & RX pin 10.
 On Radxa ROCK 5B this is TX pin 8 & RX pin 10.
@@ -23,8 +22,4 @@ On Radxa CM5 RPI CM4 IO this is TX pin 8 & RX pin 10.
 &uart2 {
 	status = "okay";
 	pinctrl-0 = <&uart2m0_xfer>;
-};
-
-&fiq_debugger {
-	status = "disabled";
 };
