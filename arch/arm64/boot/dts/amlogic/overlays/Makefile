@@ -10,6 +10,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
 	meson-g12-i2c-ee-m1-h.dtbo \
 	meson-g12-i2c-ee-m1-x.dtbo \
 	meson-g12-i2c-ee-m3-a-ds3231.dtbo \
+	meson-g12-i2c-ee-m3-a-pcf8563.dtbo \
 	meson-g12-i2c-ee-m3-a.dtbo \
 	meson-g12-pwm-b-h.dtbo \
 	meson-g12-pwm-b-z.dtbo \

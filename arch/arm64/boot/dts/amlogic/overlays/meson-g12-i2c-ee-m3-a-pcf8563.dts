@@ -1,0 +1,44 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/gpio/meson-g12a-gpio.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+	metadata {
+		title = "Enable NXP PCF8563 RTC on I2C_EE-M3";
+		compatible = "radxa,zero", "radxa,zero2";
+		category = "misc";
+		exclusive = "GPIOAO_3";
+		description = "Enable DS3231 RTC on I2C_EE-M3.
+INT = GPIOAO_3";
+	};
+};
+
+&i2c3 {
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
+	pinctrl-0 = <&i2c3_sck_a_pins &i2c3_sda_a_pins>;
+	pinctrl-names = "default";
+
+	pcf8563: pcf8563@51 {
+		compatible = "nxp,pcf8563";
+		reg = <0x51>;
+		#clock-cells = <1>;
+		interrupt-parent = <&gpio_intc>;
+		interrupts = <3 IRQ_TYPE_EDGE_FALLING>;
+	};
+};
+
+&ao_pinctrl {
+	pcf8563_int_pins: pcf8563-int-pins {
+		mux {
+			groups = "GPIOAO_3";
+			function = "gpio_aobus";
+			bias-pull-up;
+			drive-strength-microamp = <4000>;
+		};
+	};
+};
