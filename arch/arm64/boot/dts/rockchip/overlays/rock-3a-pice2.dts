@@ -1,0 +1,21 @@
+// ROCK 3A Pcie M.2 to sata
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable PCIe";
+		compatible = "radxa,rock-3a-sata";
+		category = "misc";
+		description = "Enable PCIe.
+When PCIe2x1 is enabled, SATA2 cannot be enabled on the same port.";
+	};
+};
+
+&pcie2x1 {
+	status = "okay";
+};
+
+&sata2 {
+	status = "disabled";
+};
