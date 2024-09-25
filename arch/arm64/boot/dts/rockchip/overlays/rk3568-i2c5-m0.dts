@@ -4,11 +4,12 @@
 / {
 	metadata {
 		title = "Enable I2C5-M0";
-		compatible = "radxa,cm3j-rpi-cm4-io", "radxa,zero3";
+		compatible = "radxa,cm3j-rpi-cm4-io", "radxa,rock-3c", "radxa,zero3";
 		category = "misc";
 		exclusive = "GPIO3_B3", "GPIO3_B4", "i2c5";
 		description = "Enable I2C5-M0.
 On Radxa CM3J RPI CM4 IO this is SDA pin 27 and SCL pin 28.
+On Radxa ROCK 3C this is SDA pin 31 and SCL pin 29.
 On Radxa ZERO 3 this is SDA pin 31 and SCL pin 29";
 	};
 };
