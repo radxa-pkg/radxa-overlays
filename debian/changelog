@@ -1,3 +1,25 @@
+radxa-overlays (0.1.17) jammy; urgency=medium
+
+  [ Ken Wang ]
+  * add some overlays support for rock 5t
+
+  [ Chen Jiali ]
+  * feat: add rockchip-uart-dma
+
+  [ ZHANG Yuntian ]
+  * fix: correctly disable FIQ debugger
+  * refactor: reuse existing FIQ debugger overlay
+  * feat: add pcf8563 overlay
+
+  [ Nascs Fang ]
+  * feat: add PCIe2x1 on rock 3a
+
+  [ vickash ]
+  * Add zero3 to rk3568-i2c5-m0.dts
+  * Add rock-3c to rk3568-i2c5-m0.dts
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Tue, 08 Oct 2024 10:33:31 +0000
+
 radxa-overlays (0.1.16) jammy; urgency=medium
 
   [ Chen Jiali ]
