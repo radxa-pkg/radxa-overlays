@@ -1,0 +1,17 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable UART1-M1";
+		compatible = "unknown";
+		category = "misc";
+		exclusive = "GPIO1_B6", "GPIO1_B7";
+		description = "Enable UART1-M1.";
+	};
+};
+
+&uart1 {
+	status = "okay";
+	pinctrl-0 = <&uart1m1_xfer>;
+};
