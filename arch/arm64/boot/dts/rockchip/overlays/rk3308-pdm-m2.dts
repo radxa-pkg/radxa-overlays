@@ -1,0 +1,60 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/clock/rk3308-cru.h>
+
+/ {
+	metadata {
+		title = "Enable PDM-M2";
+		compatible = "radxa,rockpis", "radxa,rock-s0";
+		category = "misc";
+		exclusive = "GPIO2_A6", "GPIO2_B5","GPIO2_B6", "GPIO2_B7", "GPIO2_C0", "i2s_8ch_0";
+		description = "Enable PDM-M2.
+On Radxa ROCK PI S V1.0 and V1.1 this is SCLK pin 28, SDI0 pin 30, SDI1 pin 32, SDI2 pin 34, no SDI3.
+On Radxa ROCK PI S V1.2 and V1.3 this is SCLK pin 46, SDI0 pin 28, SDI1 pin 30, SDI2 pin 32, SDI3 pin 34.
+On ROCK S0 this is SCLK pin 36, SDI0 pin 7, SDI1 pin 11, SDI2 pin 18, SDI3 pin 29";
+    };
+};
+
+&{/} {
+	pdm: pdm@ff380000 {
+		compatible = "rockchip,pdm";
+		reg = <0x0 0xff380000 0x0 0x1000>;
+		clocks = <&cru SCLK_PDM>, <&cru HCLK_PDM>;
+		clock-names = "pdm_clk", "pdm_hclk";
+		rockchip,mclk-calibrate;
+		#sound-dai-cells = <0>;
+		dmas = <&dmac1 12>;
+		dma-names = "rx";
+		pinctrl-names = "default";
+		pinctrl-0 = <&pdm_m2_clk
+				 &pdm_m2_sdi0
+				 &pdm_m2_sdi1
+				 &pdm_m2_sdi2
+				 &pdm_m2_sdi3>;
+		status = "okay";
+	};
+
+	pdm_mic_array: pdm-mic-array {
+		compatible = "simple-audio-card";
+		simple-audio-card,name = "rockchip,pdm-mic-array";
+		simple-audio-card,cpu {
+			sound-dai = <&pdm>;
+		};
+		simple-audio-card,codec {
+			sound-dai = <&dmic_codec>;
+		};
+	};
+
+	dmic_codec: dmic@0 {
+		compatible = "dmic-codec";
+		#sound-dai-cells = <0>;
+		num-channels = <4>;
+		wakeup-delay-ms = <50>;
+		modeswitch-delay-ms = <35>;
+	};
+};
+
+&i2s_8ch_0 {
+	status = "disabled";
+};
