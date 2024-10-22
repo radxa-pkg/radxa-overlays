@@ -29,6 +29,7 @@ dtb-$(CONFIG_CLK_RK3308) += \
 	rk3308-i2c2.dtbo \
 	rk3308-i2c3-m0.dtbo \
 	rk3308-i2c3-m1.dtbo \
+	rk3308-pdm-m2.dtbo \
 	rk3308-pwm2.dtbo \
 	rk3308-pwm3.dtbo \
 	rk3308-pwm4.dtbo \
