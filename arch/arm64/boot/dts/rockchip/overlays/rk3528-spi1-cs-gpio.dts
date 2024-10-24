@@ -1,0 +1,31 @@
+/dts-v1/;
+/plugin/;
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+
+/ {
+	metadata {
+		title = "Enable spidev on SPI1 over PIN_26";
+		compatible = "radxa,rock-2a", "radxa,rock-2f", "radxa,medge-rk3528a-io";
+		category = "misc";
+		exclusive = "GPIO1_B6", "GPIO1_B7", "GPIO1_C0", "GPIO4_C1";
+		description = "Enable spidev on SPI1 over PIN_26.";
+	};
+};
+
+&spi1 {
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
+	max-freq = <50000000>;
+	num-cs = <1>;
+    cs-gpios = <&gpio4 RK_PC1 GPIO_ACTIVE_LOW>;
+    pinctrl-0 = <&spi1_pins>;
+
+	spidev@0 {
+		compatible = "rockchip,spidev";
+		status = "okay";
+		reg = <0>;
+		spi-max-frequency = <50000000>;
+	};
+};
