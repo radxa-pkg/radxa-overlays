@@ -5,11 +5,12 @@
 
 / {
 	metadata {
-		title = "Enable spidev on SPI1 over PIN_26";
+		title = "Enable spidev on SPI1";
 		compatible = "radxa,rock-2a", "radxa,rock-2f", "radxa,medge-rk3528a-io";
 		category = "misc";
 		exclusive = "GPIO1_B6", "GPIO1_B7", "GPIO1_C0", "GPIO4_C1";
-		description = "Enable spidev on SPI1 over PIN_26.";
+		description = "Enable spidev on SPI1.
+CS pin is located on pin 26.";
 	};
 };
 
@@ -19,8 +20,8 @@
 	#size-cells = <0>;
 	max-freq = <50000000>;
 	num-cs = <1>;
-    cs-gpios = <&gpio4 RK_PC1 GPIO_ACTIVE_LOW>;
-    pinctrl-0 = <&spi1_pins>;
+	cs-gpios = <&gpio4 RK_PC1 GPIO_ACTIVE_LOW>;
+	pinctrl-0 = <&spi1_pins>;
 
 	spidev@0 {
 		compatible = "rockchip,spidev";
