@@ -19,7 +19,6 @@ CS pin is located on pin 24.";
 	#address-cells = <1>;
 	#size-cells = <0>;
 	max-freq = <50000000>;
-	num-cs = <1>;
 	cs-gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_LOW>;
 	pinctrl-0 = <&spi1_pins>;
 
