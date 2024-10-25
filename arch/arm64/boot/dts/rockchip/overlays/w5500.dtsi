@@ -1,0 +1,26 @@
+#ifndef __W5500_DTSI__
+#define __W5500_DTSI__
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/dts-v1/;
+/plugin/;
+
+#if !defined(W5500_SPI) && !defined(SPIDEV_NUM)
+#error "Required macros are undefined: W5500_SPI and SPIDEV_NUM."
+#endif
+
+&W5500_SPI{
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;   
+
+	eth_w5500: eth-w5500@0 {
+		status = "okay";
+		compatible = "wiznet,w5500";
+		reg = <0>;
+		spi-max-frequency = <30000000>;
+	};
+};
