@@ -1,0 +1,28 @@
+#ifndef __ENC28J60_DTSI__
+#define __ENC28J60_DTSI__
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/dts-v1/;
+/plugin/;
+
+#if !defined(ENC28J60_SPI) && !defined(SPIDEV_NUM)
+#error "Required macros are undefined: ENC28J60_SPI and SPIDEV_NUM."
+#endif
+
+&ENC28J60_SPI {
+	status = "okay";
+	max-freq = <10000000>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	ethernet: enc28j60@SPIDEV_NUM {
+		compatible = "microchip,enc28j60";
+		reg = <SPIDEV_NUM>;
+		spi-max-frequency = <20000000>;
+	};
+};
+
+#endif // __ENC28J60_DTSI__
