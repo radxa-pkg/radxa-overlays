@@ -1,5 +1,5 @@
-#define ENC28J60_SPI spi0
-#define SPIDEV_NUM 1
+#define ENC28J60_SPI spi1
+#define SPIDEV_NUM 0
 #include "enc28j60.dtsi"
 
 / {
@@ -13,16 +13,17 @@ INT=36";
 	};
 };
 
-#define ENC28J60_SPI spi0
-#define SPIDEV_NUM 0
-#include "enc28j60.dtsi"
-
 &pinctrl {
 	enc28j60 {
 		enc28j60_int_pins: enc28j60-int-pins {
 			rockchip,pins = <1 RK_PB4 RK_FUNC_GPIO &pcfg_pull_none>;
 		};
 	};
+};
+
+&ENC28J60_SPI {
+	cs-gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_LOW>;
+	pinctrl-0 = <&spi1_pins>;
 };
 
 &ethernet {
