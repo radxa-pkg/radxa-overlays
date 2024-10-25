@@ -25,32 +25,10 @@ INT=15";
 	};
 };
 
-&{/} {
-	can_mcp2515_osc: can-mcp2515-osc {
-		compatible = "fixed-clock";
-		clock-frequency = <12000000>;
-		#clock-cells = <0>;
-	};
-};
-
-&spi0 {
-	status = "okay";
-	max-freq = <10000000>;
-	#address-cells = <1>;
-	#size-cells = <0>;
-	num-cs = <2>;
-
-	can_mcp2515: can-mcp2515@1 {
-		status = "okay";
-		compatible = "microchip,mcp2515";
-		reg = <1>;
-		interrupt-parent = <&gpio4>;
-		interrupts = <RK_PC6 IRQ_TYPE_EDGE_FALLING>;
-		spi-max-frequency = <10000000>;
-		clocks = <&can_mcp2515_osc>;
-		vdd-supply = <&vcc_3v3_s3>;
-		xceiver-supply = <&vcc_3v3_s3>;
-		pinctrl-names = "default";
-		pinctrl-0 = <&mcp2515_int_pin>;
-	};
+&can_mcp2515 {
+	interrupt-parent = <&gpio4>;
+	interrupts = <RK_PC6 IRQ_TYPE_EDGE_FALLING>;
+	spi-max-frequency = <10000000>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&mcp2515_int_pin>;
 };
