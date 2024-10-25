@@ -1,0 +1,34 @@
+#define W5500_SPI spi0
+#define SPIDEV_NUM 1
+#include "W5500.dtsi"
+
+/ {
+	metadata {
+		title = "Enable W5500 on SPI1";
+		compatible = "radxa,rock-2a", "radxa,rock-2f", "radxa,medge-rk3528a-io";
+		category = "misc";
+		exclusive = "GPIO1_B4", "GPIO1_B6", "GPIO1_B7", "GPIO1_C0", "GPIO4_B6";
+		description = "Enable Microchip W5500 SPI Ethernet controller on SPI1.
+INT=15";
+	};
+};
+
+&pinctrl {
+	w5500 {
+		w5500_int_pins: w5500-int-pins {
+			rockchip,pins = <1 RK_PB4 RK_FUNC_GPIO &pcfg_pull_none>;
+		};
+	};
+};
+
+&W5500_SPI {
+	cs-gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_LOW>;
+	pinctrl-0 = <&spi1_pins>;   
+};
+
+&eth_w5500 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&w5500_int_pins>;
+	interrupt-parent = <&gpio1>;
+	interrupts = <RK_PB4 IRQ_TYPE_EDGE_FALLING>;
+};
