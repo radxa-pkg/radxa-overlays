@@ -1,0 +1,28 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/pinctrl/rockchip.h>
+
+/ {
+    metadata {
+        title = "Enable Infineon SLB9670 Trusted Platform Module (TPM) on SPI1";
+        category = "misc";
+        compatible = "rockchip,rk3399";
+        exclusive = "GPIO1_B0", "GPIO1_A7", "GPIO1_B1", "GPIO4_D5", "spi1";
+        description = "Enable Infineon SLB9670 Trusted Platform Module (TPM) on SPI1.\n Uses Pin 22 (GPIO4_D5) for CS.";
+    };
+};
+
+&spi1 {
+    status = "okay";
+    #address-cells = <1>;
+    #size-cells = <0>;
+    cs-gpios = <&gpio1 RK_PB2 RK_FUNC_GPIO>, <&gpio4 RK_PD5 RK_FUNC_GPIO>;
+
+    slb9670: slb9670@1 {
+        status = "okay";
+        compatible = "infineon,slb9670";
+        reg = <1>;
+        spi-max-frequency = <1000000>;
+    };
+};
