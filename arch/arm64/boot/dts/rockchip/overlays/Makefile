@@ -86,6 +86,7 @@ dtb-$(CONFIG_CLK_RK3399) += \
 	rk3399-radxa-25w-poe.dtbo \
 	rk3399-rga-400.dtbo \
 	rk3399-spi-gpio-enc28j60.dtbo \
+	rk3399-spi1-add-cs1.dtbo \
 	rk3399-spi1-enc28j60.dtbo \
 	rk3399-spi1-jedec-nor.dtbo \
 	rk3399-spi1-mcp2515-8mhz.dtbo \
@@ -108,7 +109,8 @@ dtb-$(CONFIG_CLK_RK3399) += \
 	rock-4-rpi-camera-v1_3.dtbo \
 	rock-4-rpi-camera-v2.dtbo \
 	rock-4-radxa-camera-8m.dtbo \
-	rock-4c-plus-raspi-7inch-touchscreen.dtbo
+	rock-4c-plus-raspi-7inch-touchscreen.dtbo \
+	tpm-slb9670.dtbo
 
 dtb-$(CONFIG_CPU_RK3399) += \
 	rk3399-cs003-display.dtbo \
