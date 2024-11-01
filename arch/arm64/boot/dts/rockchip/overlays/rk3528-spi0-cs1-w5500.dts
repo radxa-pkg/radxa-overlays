@@ -1,6 +1,6 @@
 #define W5500_SPI spi0
 #define SPIDEV_NUM 1
-#include "W5500.dtsi"
+#include "w5500.dtsi"
 
 / {
 	metadata {

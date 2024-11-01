@@ -24,3 +24,5 @@
 		spi-max-frequency = <30000000>;
 	};
 };
+
+#endif // __W5500_DTSI__

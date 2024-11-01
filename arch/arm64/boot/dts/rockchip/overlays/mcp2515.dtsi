@@ -30,7 +30,6 @@
 		status = "okay";
 		compatible = "microchip,mcp2515";
 		reg = <SPIDEV_NUM>;
-		spi-max-frequency = <10000000>;
 		clocks = <&can_mcp2515_osc>;
 		vdd-supply = <&vcc_3v3_s3>;
 		xceiver-supply = <&vcc_3v3_s3>;
