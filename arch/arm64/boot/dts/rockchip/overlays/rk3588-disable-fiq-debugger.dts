@@ -1,4 +1,4 @@
-#include "rk3399-disable-fiq-debugger.dts"
+#include "rk3568-disable-fiq-debugger.dts"
 
 / {
 	metadata {

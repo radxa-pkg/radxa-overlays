@@ -5,3 +5,7 @@
 		compatible = "rockchip,rk3566", "rockchip,rk3568";
 	};
 };
+
+&fiq_debugger {
+	status = "disabled";
+};
