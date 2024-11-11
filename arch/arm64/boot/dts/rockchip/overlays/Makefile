@@ -194,6 +194,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-fiq-debugger-uart9m1.dtbo \
 	rk3568-gmac1-disable.dtbo \
 	rk3568-gmac1-enable.dtbo \
+	rk3568-hdmi-disable.dtbo \
 	rk3568-i2c1.dtbo \
 	rk3568-i2c2-disable.dtbo \
 	rk3568-i2c2-m0-pca9555.dtbo \
@@ -567,7 +568,9 @@ dtb-$(CONFIG_CPU_RK3588) += \
 	rock-5t-radxa-display-10fhd.dtbo \
 	rock-5t-radxa-display-10hd.dtbo
 
-dtb-$(CONFIG_ARCH_ROCKCHIP) += rockchip-watchdog.dtbo \
+dtb-$(CONFIG_ARCH_ROCKCHIP) += \
+	rockchip-gpu-disable.dtbo \
+	rockchip-watchdog.dtbo \
 	rockchip-uart-dma.dtbo
 
 dtbotxt-$(CONFIG_ARCH_ROCKCHIP) += \
