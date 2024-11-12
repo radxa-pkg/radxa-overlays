@@ -11,7 +11,7 @@
 		title ="Enable Radxa Display 10HD";
 		compatible = "radxa,rock-5t";
 		category = "display";
-		exclusive = "dsi1";
+		exclusive = "dsi1", "GPIO1_A2";
 		description = "Enable Radxa Display 10HD.";
 	};
 };
@@ -21,7 +21,7 @@
 		status = "okay";
 		compatible = "regulator-fixed";
 		regulator-name = "vcc_lcd_mipi1";
-		gpio = <&gpio2 RK_PC2 GPIO_ACTIVE_HIGH>;
+		gpio = <&gpio1 RK_PA2 GPIO_ACTIVE_HIGH>;
 		enable-active-high;
 		regulator-boot-on;
 		regulator-state-mem {
@@ -68,6 +68,9 @@
 			248 249 250 251 252 253 254 255
 		>;
 		default-brightness-level = <200>;
+		enable-gpios = <&gpio2 RK_PC2 GPIO_ACTIVE_HIGH>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&dsi1_backlight_en>;
 	};
 };
 
