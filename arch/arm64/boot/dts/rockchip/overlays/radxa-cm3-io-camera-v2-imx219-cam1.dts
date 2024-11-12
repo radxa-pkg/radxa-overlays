@@ -15,24 +15,24 @@
 };
 
 &{/} {
-	ext_cam_clk_imx219: ext-cam-clk-imx219 {
+	ext_cam_clk_imx219_1: ext-cam-clk-imx219-1 {
 		status = "okay";
 		compatible = "fixed-clock";
 		clock-frequency = <24000000>;
-		clock-output-names = "ext_cam_clk_imx219";
+		clock-output-names = "ext_cam_clk_imx219_1";
 		#clock-cells = <0>;
 	};
 
-	camera_pwdn_gpio: camera-pwdn-gpio {
+	camera_pwdn_gpio_1: camera-pwdn-gpio-1 {
 		status = "okay";
 		compatible = "regulator-fixed";
-		regulator-name = "camera_pwdn_gpio";
+		regulator-name = "camera_pwdn_gpio_1";
 		regulator-always-on;
 		regulator-boot-on;
 		enable-active-high;
 		pwdn-gpios = <&gpio4 RK_PC1 GPIO_ACTIVE_HIGH>;
 		pinctrl-names = "default";
-		pinctrl-0 = <&cam_pwdn_gpio>;
+		pinctrl-0 = <&cam_pwdn_gpio_1>;
 	};
 };
 
@@ -44,23 +44,23 @@
 	#address-cells = <1>;
 	#size-cells = <0>;
 
-	imx219: imx219@10 {
+	imx219_1: imx219-1@10 {
 		status = "okay";
 		compatible = "sony,imx219";
 		reg = <0x10>;
 
-		clocks = <&ext_cam_clk_imx219>;
-		clock-names = "ext_cam_clk_imx219";
+		clocks = <&ext_cam_clk_imx219_1>;
+		clock-names = "ext_cam_clk_imx219_1";
 
 		rotation = <180>;
 
-		rockchip,camera-module-index = <1>;
+		rockchip,camera-module-index = <0>;
 		rockchip,camera-module-facing = "front";
 		rockchip,camera-module-name = "rpi-camera-v2";
 		rockchip,camera-module-lens-name = "default";
 
 		port {
-			imx219_out: endpoint {
+			imx219_out_1: endpoint {
 				remote-endpoint = <&csi2dphy1_uCAM1>;
 				data-lanes = <1 2>;
 			};
@@ -70,6 +70,10 @@
 
 &csi2_dphy_hw {
 	status = "okay";
+};
+
+&csi2_dphy0 {
+	status = "disabled";
 };
 
 &csi2_dphy1 {
@@ -86,7 +90,7 @@
 
 			csi2dphy1_uCAM1: endpoint@1 {
 				reg = <1>;
-				remote-endpoint = <&imx219_out>;
+				remote-endpoint = <&imx219_out_1>;
 				data-lanes = <1 2>;
 			};
 		};
@@ -137,7 +141,7 @@
 
 &pinctrl {
 	camera {
-		cam_pwdn_gpio: cam-pwdn-gpio {
+		cam_pwdn_gpio_1: cam-pwdn-gpio-1 {
 			rockchip,pins = <4 RK_PC1 RK_FUNC_GPIO &pcfg_pull_up>;
 		};
 	};
