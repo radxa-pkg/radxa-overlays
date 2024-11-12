@@ -58,7 +58,15 @@ clean-dtbo:
 
 .PHONY: clean
 clean: clean-dtbo
-	rm -rf debian/.debhelper debian/radxa-overlays-dkms debian/debhelper-build-stamp debian/files debian/*.debhelper.log debian/*.*.debhelper debian/*.substvars debian/tmp
+	rm -rf debian/.debhelper debian/radxa-overlays-dkms \
+		debian/debhelper-build-stamp debian/files debian/*.debhelper.log \
+		debian/*.*.debhelper debian/*.substvars debian/tmp \
+		.Module.symvers.cmd \
+		.modules.order.cmd \
+		Module.symvers \
+		modules.order \
+		.radxa-overlays.* \
+		radxa-overlays.*
 
 #
 # Release

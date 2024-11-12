@@ -2,3 +2,9 @@
 *.dtbo*
 SOURCE
 *.ko
+.Module.symvers.cmd
+.modules.order.cmd
+Module.symvers
+modules.order
+.radxa-overlays.*
+radxa-overlays.*
