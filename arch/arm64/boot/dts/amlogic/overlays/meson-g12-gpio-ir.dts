@@ -1,0 +1,37 @@
+/*
+  This overlay currently cannot work, due to meson GPIO chips do not support interrupts:
+  https://github.com/torvalds/linux/blob/f1b785f4c7870c42330b35522c2514e39a1e28e7/drivers/media/rc/gpio-ir-recv.c#L79
+  https://github.com/torvalds/linux/blob/f1b785f4c7870c42330b35522c2514e39a1e28e7/drivers/pinctrl/meson/pinctrl-meson.c#L609-L622
+  Previous attempts:
+  https://lore.kernel.org/all/5b352c8d-a426-fa73-58b7-0c935979492b@gmail.com/
+*/
+
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/gpio/meson-g12a-gpio.h>
+
+/ {
+	metadata {
+		title = "Enable IR receiver on GPIOX_9";
+		compatible = "unknown";
+		category = "misc";
+		exclusive = "GPIOX_9";
+		description = "Enable IR receiver on GPIOX_9.";
+	};
+};
+
+&{/} {
+	gpio_ir: gpio-ir {
+		compatible = "gpio-ir-receiver";
+
+		// pin number, high or low
+		gpios = <&gpio GPIOX_9 GPIO_ACTIVE_HIGH>;
+
+		// parameter for keymap name
+		linux,rc-map-name = "rc-rc6-mce";
+
+		status = "okay";
+	};
+};
