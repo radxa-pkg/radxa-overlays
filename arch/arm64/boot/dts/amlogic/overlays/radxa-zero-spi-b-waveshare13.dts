@@ -1,0 +1,39 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/gpio/meson-g12a-gpio.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+	metadata {
+		title = "Enable Waveshare General 1.3inch LCD display Module on SPI-B";
+		compatible = "radxa,zero";
+		category = "misc";
+		exclusive = "spicc1", "GPIOH_4", "GPIOH_5", "GPIOH_6", "GPIOH_7", "GPIOAO_3", "GPIOX_8";
+		description = "Enable Waveshare General 1.3inch LCD display Module on SPI-B.";
+	};
+};
+
+&spicc1 {
+	pinctrl-0 = <&spicc1_pins>;
+	pinctrl-names = "default";
+	cs-gpios = <&gpio GPIOH_6 GPIO_ACTIVE_LOW>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+	status = "okay";
+	st7789v: st7789v@0 {
+		compatible = "sitronix,st7789v";
+		reg = <0>;
+		spi-max-frequency = <12000000>;
+		rotate = <90>;
+		fps = <50>;
+		buswidth = <8>;
+		regwidth = <8>;
+		width = <170>;
+		height = <320>;
+		reset-gpios = <&gpio_ao GPIOAO_3 GPIO_ACTIVE_LOW>;
+		dc-gpios = <&gpio GPIOX_8 GPIO_ACTIVE_HIGH>;
+		debug = <0>; 
+	};
+};
