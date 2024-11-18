@@ -131,6 +131,8 @@ Currently, we mandate a custom `metadata` node in overlays. This data is parsed 
 1. `exclusive` should refer to the device tree node and property.
 2. For features that are muxed to a GPIO line, `exclusive` should be the GPIO ID.
 3. For features that use multiple GPIO lines, they should all be listed under `exclusive`.
+4. For complex overlay, list all GPIO lines used.
+   For exaple, some devices may use GPIO for interrupt, which is also used by another overlay.
 
 ### F. Package (array)
 
