@@ -1,0 +1,20 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Disable HDMI";
+		compatible = "rockchip,rk3568", "rockchip,rk3566";
+		category = "misc";
+		exclusive = "hdmi", "hdmi_sound";
+		description = "Disable HDMI.";
+	};
+};
+
+&hdmi {
+	status = "disabled";
+};
+
+&hdmi_sound {
+	status = "disabled";
+};

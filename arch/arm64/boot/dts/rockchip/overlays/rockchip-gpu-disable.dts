@@ -1,0 +1,16 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Disable GPU";
+		compatible = "rockchip,rk3308", "rockchip,rk3328", "rockchip,rk3399", "rockchip,rk3566", "rockchip,rk3568", "rockchip,rk3588";
+		category = "misc";
+		exclusive = "gpu";
+		description = "Disable GPU.";
+	};
+};
+
+&gpu {
+	status = "disabled";
+};
