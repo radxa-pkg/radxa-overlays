@@ -1,3 +1,25 @@
+radxa-overlays (0.1.18) jammy; urgency=medium
+
+  [ ZHANG Yuntian ]
+  * feat: add rk3588-uart1-m1
+  * fix: fiq_debugger must be disabled when using uart2-m0 pins
+  * feat: clean additional files created by DKMS build
+  * feat: add (non-working) GPIO IR overlay
+  * docs: explicitly require all GPIOs to be listed in exclusive
+
+  [ Chen Jiali ]
+  * feat: add overlay rk3308-pdm-m2
+  * feat: add rk3568-hdmi-disable and rockchip-gpu-disable
+
+  [ Ken Wang ]
+  * feat: add dsi1_backlight enable-gpios and change vcc_lcd_mipi1 enable gpio
+  * feat: cm3: enable dual imx219 camera
+
+  [ 叶离 ]
+  * feat:add radxa-zero-spi-b-waveshare35b
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Tue, 19 Nov 2024 06:44:20 +0000
+
 radxa-overlays (0.1.17) jammy; urgency=medium
 
   [ Ken Wang ]
