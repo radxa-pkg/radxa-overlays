@@ -1,3 +1,19 @@
+radxa-overlays (0.1.19) jammy; urgency=medium
+
+  [ ZHANG Yuntian ]
+  * feat: add RK3576 SoC and rk2410 kernel support
+
+  [ Ken Wang ]
+  * feat: add overlays description for rock 5t
+
+  [ Chen Jiali ]
+  * feat: rockchip: completion of renamed macro definitions
+
+  [ Logan147 ]
+  * feat: add radxa-zero-spi-b-waveshare13
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Mon, 25 Nov 2024 08:48:12 +0000
+
 radxa-overlays (0.1.18) jammy; urgency=medium
 
   [ ZHANG Yuntian ]
