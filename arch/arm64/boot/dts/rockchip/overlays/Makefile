@@ -14,6 +14,9 @@ endif
 ifeq ($(strip $(CONFIG_CPU_RK3568)), y)
 	CONFIG_CLK_RK3568 ?= y
 endif
+ifeq ($(strip $(CONFIG_CPU_RK3576)), y)
+	CONFIG_CLK_RK3576 ?= y
+endif
 ifeq ($(strip $(CONFIG_CPU_RK3588)), y)
 	CONFIG_CLK_RK3588 ?= y
 endif
@@ -335,6 +338,12 @@ dtb-$(CONFIG_CPU_RK3568) += \
 	rock-3b-radxa-display-10fhd.dtbo \
 	rock-3c-radxa-display-8hd.dtbo \
 	rock-3c-radxa-display-10hd.dtbo
+
+dtb-$(CONFIG_CLK_RK3576) += \
+
+
+dtb-$(CONFIG_CPU_RK3576) += \
+
 
 dtb-$(CONFIG_CLK_RK3588) += \
 	radxa-nx5-io-okdo-camera-5mp-cam0.dtbo \

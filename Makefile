@@ -6,6 +6,7 @@ CONFIG_CLK_RK3328 ?= rockchip
 CONFIG_CLK_RK3399 ?= rockchip
 CONFIG_CLK_RK3528 ?= rockchip
 CONFIG_CLK_RK3568 ?= rockchip
+CONFIG_CLK_RK3576 ?= rockchip
 CONFIG_CLK_RK3588 ?= rockchip
 CONFIG_ARCH_MESON ?= amlogic
 include $(wildcard arch/arm64/boot/dts/*/overlays/Makefile)

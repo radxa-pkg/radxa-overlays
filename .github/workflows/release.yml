@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [linux-rockchip, linux-rk356x, linux-stable, linux-rk2312]
+        version: [linux-rockchip, linux-rk356x, linux-stable, linux-rk2312, linux-rk2410]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -44,15 +44,19 @@ jobs:
           case "${{ matrix.version }}" in
             linux-rockchip)
               wget https://github.com/radxa-pkg/linux-rockchip/releases/download/5.10.110-38/linux-headers-5.10.110-38-rockchip_5.10.110-38-7a04ba0ad_arm64.deb
-              sudo apt install ./linux-headers-5.10.110-38-rockchip_5.10.110-38-7a04ba0ad_arm64.deb
+              sudo apt install ./linux-headers-*.deb
               ;;
             linux-rk356x)
               wget https://github.com/radxa-pkg/linux-rk356x/releases/download/5.10.160-37/linux-headers-5.10.160-37-rk356x_5.10.160-37-ff919543b_arm64.deb
-              sudo apt install ./linux-headers-5.10.160-37-rk356x_5.10.160-37-ff919543b_arm64.deb
+              sudo apt install ./linux-headers-*.deb
               ;;
             linux-rk2312)
               wget https://github.com/radxa-pkg/linux-rk2312/releases/download/6.1.43-15/linux-headers-6.1.43-15-rk2312_6.1.43-15-3176a44da_arm64.deb
-              sudo apt install ./linux-headers-6.1.43-15-rk2312_6.1.43-15-3176a44da_arm64.deb
+              sudo apt install ./linux-headers-*.deb
+              ;;
+            linux-rk2410)
+              wget https://github.com/radxa-pkg/linux-rk2410/releases/download/6.1.84-1/linux-headers-6.1.84-1-rk2410_6.1.84-1-697921484_arm64.deb
+              sudo apt install ./linux-headers-*.deb
               ;;
           esac
       - name: Build
@@ -70,6 +74,9 @@ jobs:
               ;;
             linux-rk2312)
               make build-dtbo -j$(nproc) KERNELRELEASE=6.1.43-15-rk2312 CONFIG_ARCH_MESON=n CONFIG_CPU_RK3588=rockchip
+              ;;
+            linux-rk2410)
+              make build-dtbo -j$(nproc) KERNELRELEASE=6.1.84-1-rk2410 CONFIG_ARCH_MESON=n CONFIG_CPU_RK3588=rockchip CONFIG_CPU_RK3576=rockchip
               ;;
           esac
       - name: Upload artifacts
