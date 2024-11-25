@@ -5,6 +5,7 @@
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/pinctrl/rockchip.h>
 #include <dt-bindings/display/drm_mipi_dsi.h>
+#include "dt-bindings/display/drm_mipi_dsi_overlay.h"
 
 / {
 	metadata {
