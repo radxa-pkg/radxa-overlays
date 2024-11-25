@@ -9,7 +9,8 @@
 		exclusive = "GPIO3_C3";
 		description = "Enable PWM15-M0.
 On Radxa ROCK 5B this is pin 7.
-On Radxa ROCK 5B+ this is pin 7.";
+On Radxa ROCK 5B+ this is pin 7.
+On Radxa ROCK 5T this is pin 7.";
 	};
 };
 

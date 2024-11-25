@@ -9,7 +9,8 @@
 		exclusive = "GPIO3_C1", "GPIO3_C0";
 		description = "Enable FIQ Debugger on UART7-M1.
 On Radxa ROCK 5B this is TX pin 15 & RX pin 11.
-On Radxa ROCK 5B+ this is TX pin 15 & RX pin 11.";
+On Radxa ROCK 5B+ this is TX pin 15 & RX pin 11.
+On Radxa ROCK 5T this is TX pin 15 & RX pin 11.";
 	};
 };
 

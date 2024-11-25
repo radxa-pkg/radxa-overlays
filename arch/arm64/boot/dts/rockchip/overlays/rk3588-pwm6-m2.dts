@@ -9,7 +9,8 @@
 		exclusive = "GPIO4_C5";
 		description = "Enable PWM6-M2.
 On Radxa ROCK 5B this is pin 28.
-On Radxa ROCK 5B+ this is pin 28.";
+On Radxa ROCK 5B+ this is pin 28.
+On Radxa ROCK 5T this is pin 28.";
 	};
 };
 

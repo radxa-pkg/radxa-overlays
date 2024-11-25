@@ -9,7 +9,8 @@
 		exclusive = "GPIO3_C3", "GPIO3_C1", "GPIO3_C0", "GPIO3_C2";
 		description = "Enable UART7-M1 with hardware flow control.
 On Radxa ROCK 5B this is CTSN pin 7, RTSN pin 32, RX pin 11, and TX pin 15.
-On Radxa ROCK 5B+ this is CTSN pin 7, RTSN pin 32, RX pin 11, and TX pin 15.";
+On Radxa ROCK 5B+ this is CTSN pin 7, RTSN pin 32, RX pin 11, and TX pin 15.
+On Radxa ROCK 5T this is CTSN pin 7, RTSN pin 32, RX pin 11, and TX pin 15.";
 	};
 };
 

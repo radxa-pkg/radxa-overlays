@@ -5,7 +5,7 @@
 
 / {
 	metadata {
-		title ="EEnable Raspberry Pi Camera V2 on CAM0";
+		title ="Enable Raspberry Pi Camera V2 on CAM0";
 		description = "Enable Raspberry Pi Camera V2 on CAM0.";
 	};
 };
