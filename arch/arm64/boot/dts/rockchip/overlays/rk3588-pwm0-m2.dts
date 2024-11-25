@@ -12,6 +12,7 @@ On Radxa ROCK 5A this is pin 23.
 On Radxa ROCK 5B+ this is pin 31.
 On Radxa ROCK 5C this is pin 23.
 On Radxa ROCK 5D this is pin 23.
+On Radxa ROCK 5T this is pin 31.
 On Radxa CM5-RPI-CM4-IO this is pin 40.
 ";
 	};

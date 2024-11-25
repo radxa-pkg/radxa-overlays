@@ -9,7 +9,8 @@
 		exclusive = "GPIO3_B1";
 		description = "Enable PWM2-M1.
 On Radxa ROCK 5B this is pin 36
-On Radxa ROCK 5B+ this is pin 36.";
+On Radxa ROCK 5B+ this is pin 36.
+On Radxa ROCK 5T this is pin 36.";
 	};
 };
 

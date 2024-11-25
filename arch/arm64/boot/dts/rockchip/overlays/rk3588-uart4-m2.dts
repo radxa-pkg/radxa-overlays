@@ -13,6 +13,7 @@ On Radxa ROCK 5B this is TX pin 23 & RX pin 19.
 On Radxa ROCK 5B+ this is TX pin 23 & RX pin 19.
 On Radxa ROCK 5C this is TX pin 7 & RX pin 29.
 On Radxa ROCK 5D this is TX pin 7 & RX pin 29.
+On Radxa ROCK 5T this is TX pin 23 & RX pin 19.
 On Radxa NX5 IO this is TX pin 23 & RX pin 19.
 On Radxa CM5 RPI CM4 IO this is TX pin 23 & RX pin 19.
 ";
