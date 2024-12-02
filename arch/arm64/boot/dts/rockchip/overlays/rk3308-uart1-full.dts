@@ -1,0 +1,28 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable UART1 with Hardware Flow Control";
+		compatible = "radxa,rockpis", "radxa,rock-s0";
+		category = "misc";
+		exclusive = "GPIO1_C6", "GPIO1_C7", "GPIO1_D0", "GPIO1_D1", "uart1", "i2c0", "spi2";
+		description = "Enable UART1 with Hardware Flow Control.
+On ROCK Pi S, this uses RTSN pin 19, CTSN pin 21, RX pin 23, and TX pin 24.
+On ROCK S0, this uses RTSN pin 19, CTSN pin 21, RX pin 23, and TX pin 24.";
+	};
+};
+
+&uart1 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart1_xfer &uart1_cts &uart1_rts>;
+};
+
+&spi2 {
+	status = "disabled";
+};
+
+&i2c0 {
+	status = "disabled";
+};
