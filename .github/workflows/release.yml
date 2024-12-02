@@ -55,7 +55,7 @@ jobs:
               sudo apt install ./linux-headers-*.deb
               ;;
             linux-rk2410)
-              wget https://github.com/radxa-pkg/linux-rk2410/releases/download/6.1.84-1/linux-headers-6.1.84-1-rk2410_6.1.84-1-697921484_arm64.deb
+              wget https://github.com/radxa-pkg/linux-rk2410/releases/download/6.1.84-1/linux-headers-6.1.84-1-rk2410_6.1.84-1-3bf163742_arm64.deb
               sudo apt install ./linux-headers-*.deb
               ;;
           esac
