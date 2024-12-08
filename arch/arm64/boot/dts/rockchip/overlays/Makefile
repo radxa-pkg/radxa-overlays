@@ -140,6 +140,11 @@ dtb-$(CONFIG_CLK_RK3528) += \
 	rk3528-spi0-cs1-enc28j60.dtbo \
 	rk3528-spi0-cs1-mcp2515.dtbo \
 	rk3528-spi0-cs1-spidev.dtbo \
+	rk3528-spi0-cs1-w5500.dtbo \
+	rk3528-spi1-cs-gpio-enc28j60.dtbo \
+	rk3528-spi1-cs-gpio-mcp2515.dtbo \
+	rk3528-spi1-cs-gpio-spidev.dtbo \
+	rk3528-spi1-cs-gpio-w5500.dtbo \
 	rk3528-uart0-m0.dtbo \
 	rk3528-uart1-m0.dtbo \
 	rk3528-uart2-m1.dtbo \

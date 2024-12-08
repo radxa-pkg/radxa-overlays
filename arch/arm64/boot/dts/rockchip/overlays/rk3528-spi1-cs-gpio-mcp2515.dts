@@ -1,0 +1,35 @@
+#define MCP2515_SPI spi1
+#define SPIDEV_NUM 0
+#include "mcp2515.dtsi"
+
+/ {
+	metadata {
+		title = "Enable MCP2515 on SPI1";
+		compatible = "radxa,rock-2a", "radxa,rock-2f", "radxa,medge-rk3528a-io";
+		category = "misc";
+		exclusive = "GPIO1_B4", "GPIO1_B6", "GPIO1_B7", "GPIO1_C0", "GPIO4_B6";
+		description = "Enable MCP2515 on SPI1 Over pin 36 with 12 MHz Crystal Oscillator.
+INT=36";
+	};
+};
+
+&pinctrl {
+	mcp2515_int_pin {
+		mcp2515_int_pin: mcp2515_int_pin {
+			rockchip,pins = <1 RK_PB4 RK_FUNC_GPIO &pcfg_pull_none>;
+		};
+	};
+};
+
+&MCP2515_SPI {
+	pinctrl-names = "default";
+	pinctrl-0 = <&spi1_pins>;
+	cs-gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_LOW>;
+};
+
+&can_mcp2515 {
+	interrupt-parent = <&gpio1>;
+	interrupts = <RK_PB4 IRQ_TYPE_EDGE_FALLING>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&mcp2515_int_pin>;
+};

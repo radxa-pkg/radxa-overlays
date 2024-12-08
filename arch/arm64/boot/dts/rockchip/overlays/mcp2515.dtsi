@@ -1,0 +1,40 @@
+#ifndef __MCP2515_DTSI__
+#define __MCP2515_DTSI__
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/dts-v1/;
+/plugin/;
+
+&{/} {
+	can_mcp2515_osc: can-mcp2515-osc {
+		compatible = "fixed-clock";
+		clock-frequency = <12000000>;
+		#clock-cells = <0>;
+	};
+};
+
+#if !defined(MCP2515_SPI) && !defined(SPIDEV_NUM)
+#error "Required macros are undefined: MCP2515_SPI and SPIDEV_NUM."
+#endif
+
+&MCP2515_SPI {
+	status = "okay";
+	max-freq = <10000000>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	can_mcp2515: can-mcp2515@SPIDEV_NUM {
+		status = "okay";
+		compatible = "microchip,mcp2515";
+		reg = <SPIDEV_NUM>;
+		clocks = <&can_mcp2515_osc>;
+		vdd-supply = <&vcc_3v3_s3>;
+		xceiver-supply = <&vcc_3v3_s3>;
+		spi-max-frequency = <10000000>;
+	};
+};
+
+#endif // __MCP2515_DTSI__
