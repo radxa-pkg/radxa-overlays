@@ -18,7 +18,7 @@
 };
 
 &hdmi1_in_vp1 {
-	status = "disabled";
+	status = "okay";
 };
 
 &hdmi1_in_vp0 {
