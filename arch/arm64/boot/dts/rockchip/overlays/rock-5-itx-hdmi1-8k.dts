@@ -23,7 +23,7 @@ This will disable DP0.";
 };
 
 &hdmi1_in_vp1 {
-	status = "disabled";
+	status = "okay";
 };
 
 &route_dp0 {
