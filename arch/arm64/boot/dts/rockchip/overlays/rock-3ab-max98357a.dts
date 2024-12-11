@@ -1,0 +1,50 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+
+/ {
+    metadata {
+        title = "Enable MAX97357A on I2S3-M0";
+        compatible = "radxa,rock-3a", "radxa,rock-3b";
+        category = "audio";
+        description = "Enable MAX97357A on I2S3-M0";
+        exclusive = "GPIO3_A0", "GPIO3_A3", "GPIO3_A4", "GPIO3_A5", "GPIO3_A6", "i2s3_2ch";
+    };
+};
+
+&{/} {
+    max98357a_codec: max98357a {
+        #sound-dai-cells = <0>;
+        compatible = "maxim,max98357a";
+        sdmode-gpios = <&gpio3 RK_PA0 GPIO_ACTIVE_HIGH>;
+        sdmode-delay = <5>;
+        status = "okay";
+    };
+
+    sound_ext_card: sound-ext-card {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        status = "okay";
+        compatible = "simple-audio-card";
+        simple-audio-card,format = "i2s";
+        simple-audio-card,mclk-fs = <256>;
+        simple-audio-card,name = "snd_max98357a_dac";
+        simple-audio-card,dai-link@0 {
+            reg = <0>;
+            format = "i2s";
+            cpu {
+                sound-dai = <&i2s3_2ch>;
+            };
+            codec {
+                sound-dai = <&max98357a_codec>;
+            };
+        };
+    };
+};
+
+&i2s3_2ch {
+    pinctrl-0 = <&i2s3m0_lrck &i2s3m0_sclk &i2s3m0_sdi &i2s3m0_sdo>;
+    status = "okay";
+};
