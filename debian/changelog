@@ -1,3 +1,17 @@
+radxa-overlays (0.1.20) jammy; urgency=medium
+
+  [ ZHANG Yuntian ]
+  * fix: update linux-rk2410 header package URL
+  * feat: add rk3308-uart1-full
+
+  [ Ken Wang ]
+  * feat: add vp1 for 8K HDMI output
+
+  [ Chen Jiali ]
+  * feat: add rock-3ab-max98357a
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Thu, 12 Dec 2024 06:02:04 +0000
+
 radxa-overlays (0.1.19) jammy; urgency=medium
 
   [ ZHANG Yuntian ]
