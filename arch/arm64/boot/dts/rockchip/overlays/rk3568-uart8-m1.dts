@@ -4,13 +4,12 @@
 / {
 	metadata {
 		title = "Enable UART8-M1";
-		compatible = "radxa,rock-3a", "radxa,cm3j-rpi-cm4-io";
+		compatible = "radxa,rock-3a";
 		category = "misc";
 		exclusive = "GPIO2_D7", "GPIO3_A0";
 		description = "Enable UART8-M1.
 On Radxa ROCK 3A <= v1.2 this is TX pin 29 and RX pin 31.
-On Radxa ROCK 3A >= v1.3 this is TX pin 29 and RX pin 31.
-On Radxa CM3J RPI CM4 IO this is TX pin 31 and RX pin 29.";
+On Radxa ROCK 3A >= v1.3 this is TX pin 29 and RX pin 31.";
 	};
 };
 
