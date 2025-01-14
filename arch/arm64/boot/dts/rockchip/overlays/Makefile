@@ -208,6 +208,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-i2c3-m1.dtbo \
 	rk3568-i2c4-m0.dtbo \
 	rk3568-i2c5-m0.dtbo \
+	rk3568-i2s3-m0.dtbo \
 	rk3568-npu-disable.dtbo \
 	rk3568-npu-enable.dtbo \
 	rk3568-pwm0-disable.dtbo \

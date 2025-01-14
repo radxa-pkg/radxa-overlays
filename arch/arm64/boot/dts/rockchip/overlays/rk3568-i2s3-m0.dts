@@ -1,0 +1,53 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+
+/ {
+	metadata {
+		title = "Enable I2S3-M0";
+		compatible = "radxa,rock-3c", "radxa,zero3";
+		category = "audio";
+		exclusive = "GPIO3_A3", "GPIO3_A4", "GPIO3_A6", "GPIO3_A5", "i2s3_2ch";
+		description = "Enable I2S3-M0.";
+	};
+};
+
+&{/} {
+	dummy_codec: dummy-codec {
+		compatible = "rockchip,dummy-codec";
+		#sound-dai-cells = <0>;
+	};
+
+	dummy_sound: dummy-sound {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		compatible = "simple-audio-card";
+		simple-audio-card,format = "i2s";
+		simple-audio-card,mclk-fs = <256>;
+		simple-audio-card,name = "dummy-sound";
+		simple-audio-card,dai-link@0 {
+			reg = <0>;
+			format = "i2s";
+			cpu {
+				sound-dai = <&i2s3_2ch>;
+			};
+			codec {
+				sound-dai = <&dummy_codec>;
+			};
+		};
+	};
+};
+
+&i2s3_2ch {
+	pinctrl-0 = <&i2s3m0_sclk
+			&i2s3m0_lrck
+			&i2s3m0_sdi
+			&i2s3m0_sdo>;
+	status = "okay";
+};
+
+&i2c3 {
+	status = "disabled";
+};
