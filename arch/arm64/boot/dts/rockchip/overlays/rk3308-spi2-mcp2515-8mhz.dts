@@ -1,0 +1,64 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+	metadata {
+		title = "Enable MCP2515 with 8MHz external clock on SPI2";
+		compatible = "radxa,rock-s0";
+		category = "misc";
+		exclusive = "GPIO1_C6", "GPIO1_C7", "GPIO1_D0", "GPIO1_D1", "GPIO2_B3", "spi2", "uart1", "uart2";
+		description = "Provide support for Microchip MCP2515 SPI CAN controller.
+Assumes 8MHz external clock.
+Uses Pin 22 (GPIO2_B3) for INT.";
+	};
+};
+
+&pinctrl {
+	mcp2515_int_pins {
+		mcp2515_int_pins: mcp2515_int_pin {
+			rockchip,pins = <2 RK_PB3 RK_FUNC_GPIO &pcfg_pull_none>;
+		};
+	};
+};
+
+&{/} {
+	can_mcp2515_osc: can-mcp2515-osc {
+		compatible = "fixed-clock";
+		clock-frequency = <8000000>;
+		#clock-cells = <0>;
+	};
+};
+
+&spi2 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&spi2_clk &spi2_csn0 &spi2_miso &spi2_mosi>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+	max-freq = <10000000>;
+
+	can_mcp2515: can-mcp2515@0 {
+		status = "okay";
+		compatible = "microchip,mcp2515";
+		reg = <0>;
+		interrupt-parent = <&gpio2>;
+		interrupts = <RK_PB3 IRQ_TYPE_EDGE_FALLING>;
+		spi-max-frequency = <10000000>;
+		clocks = <&can_mcp2515_osc>;
+		vdd-supply = <&vcc_io>;
+		xceiver-supply = <&vcc_io>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&mcp2515_int_pins>;
+	};
+};
+
+&uart1 {
+	status = "disabled";
+};
+
+&uart2 {
+	status = "disabled";
+};
