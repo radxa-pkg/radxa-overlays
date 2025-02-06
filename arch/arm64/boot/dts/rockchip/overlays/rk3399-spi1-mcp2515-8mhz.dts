@@ -27,7 +27,7 @@ Uses Pin 22 (GPIO4_D5) for INT.";
 &{/} {
 	can_mcp2515_osc: can-mcp2515-osc {
 		compatible = "fixed-clock";
-		clock-frequency = <12000000>;
+		clock-frequency = <8000000>;
 		#clock-cells = <0>;
 	};
 };
