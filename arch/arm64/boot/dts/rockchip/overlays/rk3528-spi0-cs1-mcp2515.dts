@@ -28,7 +28,7 @@ INT=15";
 &{/} {
 	can_mcp2515_osc: can-mcp2515-osc {
 		compatible = "fixed-clock";
-		clock-frequency = <12000000>;
+		clock-frequency = <8000000>;
 		#clock-cells = <0>;
 	};
 };
