@@ -1,0 +1,19 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable I2C5-M1";
+		compatible = "radxa,cm4-rpi-cm4-io";
+		category = "misc";
+		exclusive = "GPIO1_D5", "GPIO1_D4", "i2c5";
+		description = "Enable I2C5-M1.
+On Radxa CM4-RPI-CM4-IO this is SDA pin 11 and SCL pin 12.
+";
+	};
+};
+
+&i2c5 {
+	status = "okay";
+	pinctrl-0 = <&i2c5m1_xfer>;
+};
