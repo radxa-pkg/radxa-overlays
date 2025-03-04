@@ -1,3 +1,22 @@
+radxa-overlays (0.1.21) noble; urgency=medium
+
+  [ Mitchell Ma ]
+  * fix: remove uart8-m1 support for radxa-cm3j-rpi-cm4-io
+  * feat: rk3568 npu add cm3j-rpi-cm4-io support
+
+  [ ZHANG Yuntian ]
+  * chore: add missing build dependency
+
+  [ Chen Jiali ]
+  * feat: add rk3568-i2s3-m0
+  * fix: mcp2515: change all clock-frequency to 8000000
+  * feat: add rk3308-spi1-mcp2515-8mhz
+
+  [ Enrique Hernández Bello ]
+  * feat: adds rk3399-spi1-cs-gpio-slb9670
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Tue, 04 Mar 2025 01:58:40 +0000
+
 radxa-overlays (0.1.20) jammy; urgency=medium
 
   [ ZHANG Yuntian ]
