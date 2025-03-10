@@ -1,0 +1,19 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable UART7-M0";
+		compatible = "radxa,cm4-rpi-cm4-io";
+		category = "misc";
+		exclusive = "GPIO2_B6", "GPIO2_B7", "uart7";
+		description = "Enable UART7-M0.
+On Radxa CM4 RPI CM4 IO this is TX pin 16 & RX pin 18.
+";
+	};
+};
+
+&uart7 {
+	status = "okay";
+	pinctrl-0 = <&uart7m0_xfer>;
+};

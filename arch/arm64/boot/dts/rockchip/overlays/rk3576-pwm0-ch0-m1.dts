@@ -1,0 +1,18 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable PWM0-CH0-M1";
+		compatible = "radxa,cm4-rpi-cm4-io";
+		category = "misc";
+		exclusive = "GPIO1_C0", "pwm0_2ch_0";
+		description = "Enable PWM0-CH0-M1.
+On Radxa CM4-RPI-CM4-IO this is pin 26.";
+	};
+};
+
+&pwm0_2ch_0 {
+	status = "okay";
+	pinctrl-0 = <&pwm0m1_ch0>;
+};
