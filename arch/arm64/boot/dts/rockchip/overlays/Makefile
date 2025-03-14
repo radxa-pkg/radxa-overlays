@@ -44,6 +44,7 @@ dtb-$(CONFIG_CLK_RK3308) += \
 	rk3308-pwm10.dtbo \
 	rk3308-pwm11.dtbo \
 	rk3308-spi0-spidev.dtbo \
+	rk3308-spi1-enc28j60.dtbo \
 	rk3308-spi1-m1-spidev.dtbo \
 	rk3308-spi1-spidev.dtbo \
 	rk3308-spi2-mcp2515-8mhz.dtbo \
