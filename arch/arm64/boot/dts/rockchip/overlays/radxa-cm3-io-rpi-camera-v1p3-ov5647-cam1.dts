@@ -27,7 +27,7 @@
 &i2c0 {
 	status = "okay";
 	pinctrl-names = "default";
-	pinctrl-0 = <&i2c2m1_xfer>;
+	pinctrl-0 = <&i2c0_xfer>;
 	#address-cells = <1>;
 	#size-cells = <0>;
 
