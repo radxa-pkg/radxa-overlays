@@ -1,0 +1,36 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable SFC";
+		compatible = "rockchip,rk3588";
+		category = "misc";
+		exclusive = "sfc", "sdhci";
+		description = "Enable SFC.
+This will enable access to SPI NOR Flash and disable access to eMMC.
+If your system is installed on the eMMC, it will now be unbootable!";
+	};
+};
+
+&sfc {
+	status = "okay";
+	max-freq = <50000000>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&fspim0_pins>;
+
+	spi_flash: spi-flash@0 {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		compatible = "jedec,spi-nor";
+		reg = <0x0>;
+		spi-max-frequency = <50000000>;
+		spi-tx-bus-width = <1>;
+		spi-rx-bus-width = <4>;
+		status = "okay";
+	};
+};
+
+&sdhci {
+	status = "disabled";
+};

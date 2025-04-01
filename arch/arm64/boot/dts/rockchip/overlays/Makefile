@@ -389,6 +389,7 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-dwc3_1-host.dtbo \
 	rk3588-dwc3_1-peripheral.dtbo \
 	rk3588-enable-sdhci.dtbo \
+	rk3588-enable-sfc.dtbo \
 	rk3588-fiq-debugger-uart2m2.dtbo \
 	rk3588-fiq-debugger-uart3m1.dtbo \
 	rk3588-fiq-debugger-uart4m2.dtbo \
