@@ -1,0 +1,19 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable UART3-M2";
+		compatible = "radxa,cm4-rpi-cm4-io";
+		category = "misc";
+		exclusive = "GPIO1_C0", "GPIO1_C1", "uart3";
+		description = "Enable UART3-M2.
+On Radxa CM4 RPI CM4 IO this is TX pin 26 & RX pin 31.
+";
+	};
+};
+
+&uart3 {
+	status = "okay";
+	pinctrl-0 = <&uart3m2_xfer>;
+};

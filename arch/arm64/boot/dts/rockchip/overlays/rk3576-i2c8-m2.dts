@@ -1,0 +1,19 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable I2C8-M2";
+		compatible = "radxa,cm4-rpi-cm4-io";
+		category = "misc";
+		exclusive = "GPIO2_B7", "GPIO2_B6", "i2c8";
+		description = "Enable I2C8-M2.
+On Radxa CM4-RPI-CM4-IO this is SDA pin 18 and SCL pin 16.
+";
+	};
+};
+
+&i2c8 {
+	status = "okay";
+	pinctrl-0 = <&i2c8m2_xfer>;
+};

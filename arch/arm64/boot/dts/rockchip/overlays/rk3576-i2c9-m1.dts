@@ -1,0 +1,19 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable I2C9-M1";
+		compatible = "radxa,cm4-rpi-cm4-io";
+		category = "misc";
+		exclusive = "GPIO1_B4", "GPIO1_B5", "i2c9";
+		description = "Enable I2C9-M1.
+On Radxa CM4-RPI-CM4-IO this is SDA pin 23 and SCL pin 19.
+";
+	};
+};
+
+&i2c9 {
+	status = "okay";
+	pinctrl-0 = <&i2c9m1_xfer>;
+};

@@ -346,10 +346,33 @@ dtb-$(CONFIG_CPU_RK3568) += \
 	rock-3c-radxa-display-10hd.dtbo
 
 dtb-$(CONFIG_CLK_RK3576) += \
-
+	rk3576-i2c5-m1.dtbo \
+	rk3576-i2c6-m3.dtbo \
+	rk3576-i2c8-m1.dtbo \
+	rk3576-i2c8-m2.dtbo \
+	rk3576-i2c9-m1.dtbo \
+	rk3576-pwm0-ch0-m1.dtbo \
+	rk3576-pwm1-ch0-m1.dtbo \
+	rk3576-pwm1-ch0-m2.dtbo \
+	rk3576-pwm1-ch1-m1.dtbo \
+	rk3576-pwm1-ch2-m1.dtbo \
+	rk3576-pwm1-ch3-m1.dtbo \
+	rk3576-pwm1-ch4-m1.dtbo \
+	rk3576-pwm2-ch2-m1.dtbo \
+	rk3576-pwm2-ch3-m1.dtbo \
+	rk3576-pwm2-ch7-m2.dtbo \
+	rk3576-spi1-m0-cs0-spidev.dtbo \
+	rk3576-spi1-m0-cs1-spidev.dtbo \
+	rk3576-spi2-m1-cs0-spidev.dtbo \
+	rk3576-spi2-m1-cs1-spidev.dtbo \
+	rk3576-uart2-m0.dtbo \
+	rk3576-uart3-m2.dtbo \
+	rk3576-uart4-m1.dtbo \
+	rk3576-uart7-m0.dtbo
 
 dtb-$(CONFIG_CPU_RK3576) += \
-
+	rk3576-can1-m1.dtbo \
+	rk3576-can1-m3.dtbo
 
 dtb-$(CONFIG_CLK_RK3588) += \
 	radxa-nx5-io-okdo-camera-5mp-cam0.dtbo \
