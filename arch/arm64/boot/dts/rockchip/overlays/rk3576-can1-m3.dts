@@ -8,7 +8,7 @@
 		title = "Enable CAN1-M3";
 		compatible = "radxa,cm4-rpi-cm4-io", "radxa,rock-4d";
 		category = "misc";
-		exclusive = "GPIO3_A2", "GPIO3_A3";
+		exclusive = "GPIO3_A2", "GPIO3_A3", "can1";
 		description = "Enable CAN1-M3.
 On Radxa CM4-RPI-CM4-IO this is TX pin 29 and Rx pin 37.
 On Radxa ROCK 4D this is TX pin 29 and Rx pin 37.

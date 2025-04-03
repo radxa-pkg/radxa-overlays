@@ -11,7 +11,7 @@
 		title ="Enable Radxa Display 10HD";
 		compatible = "radxa,rock-4d";
 		category = "display";
-		exclusive = "dsi";
+		exclusive = "GPIO0_D1", "GPIO2_D5", "GPIO2_D6", "GPIO3_A0", "dsi", "i2c0";
 		description = "Enable Radxa Display 10HD.";
 	};
 };

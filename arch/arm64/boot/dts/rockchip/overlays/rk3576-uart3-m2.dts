@@ -6,7 +6,7 @@
 		title = "Enable UART3-M2";
 		compatible = "radxa,cm4-rpi-cm4-io", "radxa,rock-4d";
 		category = "misc";
-		exclusive = "GPIO1_C0", "GPIO1_C1";
+		exclusive = "GPIO1_C0", "GPIO1_C1", "uart3";
 		description = "Enable UART3-M2.
 On Radxa CM4 RPI CM4 IO this is TX pin 26 & RX pin 31.
 On Radxa ROCK 4D this is TX pin 26 and RX pin 31.

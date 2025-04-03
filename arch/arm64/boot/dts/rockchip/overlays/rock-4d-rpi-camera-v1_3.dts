@@ -9,7 +9,7 @@
 		title ="Enable Raspberry Pi Camera v1.3";
 		compatible = "radxa,rock-4d";
 		category = "camera";
-		exclusive = "csi2_dcphy0";
+		exclusive = "GPIO3_D6", "csi2_dcphy0", "i2c4";
 		description = "Enable Raspberry Pi Camera v1.3.";
 	};
 };

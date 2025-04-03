@@ -6,7 +6,7 @@
 		title = "Enable UART0-M0";
 		compatible = "radxa,rock-4d";
 		category = "misc";
-		exclusive = "GPIO0_D4", "GPIO0_D5";
+		exclusive = "GPIO0_D4", "GPIO0_D5", "uart0";
 		description = "Enable UART0-M0.
 On Radxa ROCK 4D this is RX pin 10 and TX pin 8.
 ";

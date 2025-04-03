@@ -11,7 +11,7 @@
 		title ="Enable Radxa Camera 4K";
 		compatible = "radxa,rock-4d";
 		category = "camera";
-		exclusive = "csi2_dphy0";
+		exclusive = "GPIO3_D0", "GPIO3_C7", "csi2_dphy0", "i2c5";
 		description = "Enable Radxa Camera 4K.";
 	};
 };
