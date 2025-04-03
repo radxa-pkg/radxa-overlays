@@ -1,3 +1,31 @@
+radxa-overlays (0.1.22) noble; urgency=medium
+
+  [ Stephen Chen ]
+  * feat: add rk3576 overlay
+  * fix: build CAN dtbo when CONFIG_CPU_RK3576 is defined
+  * fix: add "can1" to "exclusive" for rk3576 can1 dtbo
+
+  [ ZHANG Yuntian ]
+  * fix: add missing exclusives
+  * fix: remove mistakenly committed file
+  * chore: add missing build dependency
+  * feat: add rk2410-nocsf build test
+
+  [ Chen Jiali ]
+  * feat: add rk3308-spi1-enc28j60
+
+  [ Mitchell Ma ]
+  * fix: changed the i2c pinctrl of radxa-cm3-io rpi v1p3 cam1 to i2c0
+  * fix: changed the i2c pinctrl of radxa-cm3-io okdo 5mp cam1 to i2c0
+  * feat: add display and camera support for rock 4d
+  * feat: update rk3576 overlays to support rock 4d
+  * feat: fix rk3576 and rock 4d overlays metadata
+
+  [ lisongjun ]
+  * feat: add rk3588-sfc-enable
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Thu, 03 Apr 2025 10:31:54 +0000
+
 radxa-overlays (0.1.21) noble; urgency=medium
 
   [ Mitchell Ma ]
