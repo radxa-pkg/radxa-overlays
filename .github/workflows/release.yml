@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [linux-rockchip, linux-rk356x, linux-stable, linux-rk2312, linux-rk2410]
+        version: [linux-rockchip, linux-rk356x, linux-stable, linux-rk2312, linux-rk2410, linux-rk2410-nocsf]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -58,6 +58,10 @@ jobs:
               wget https://github.com/radxa-pkg/linux-rk2410/releases/download/6.1.84-1/linux-headers-6.1.84-1-rk2410_6.1.84-1-3bf163742_arm64.deb
               sudo apt install ./linux-headers-*.deb
               ;;
+            linux-rk2410-nocsf)
+              wget https://github.com/radxa-pkg/linux-rk2410-nocsf/releases/download/6.1.84-5/linux-headers-6.1.84-5-rk2410-nocsf_6.1.84-5_arm64.deb
+              sudo apt install ./linux-headers-*.deb
+              ;;
           esac
       - name: Build
         shell: bash
@@ -73,10 +77,13 @@ jobs:
               make build-dtbo -j$(nproc) KERNELRELEASE=5.10.160-37-rk356x CONFIG_ARCH_MESON=n CONFIG_CPU_RK3528=rockchip CONFIG_CPU_RK3568=rockchip
               ;;
             linux-rk2312)
-              make build-dtbo -j$(nproc) KERNELRELEASE=6.1.43-15-rk2312 CONFIG_ARCH_MESON=n CONFIG_CPU_RK3588=rockchip
+              make build-dtbo -j$(nproc) KERNELRELEASE=6.1.43-15-rk2312 CONFIG_ARCH_MESON=n CONFIG_CPU_RK3528=rockchip CONFIG_CPU_RK3588=rockchip
               ;;
             linux-rk2410)
-              make build-dtbo -j$(nproc) KERNELRELEASE=6.1.84-1-rk2410 CONFIG_ARCH_MESON=n CONFIG_CPU_RK3588=rockchip CONFIG_CPU_RK3576=rockchip
+              make build-dtbo -j$(nproc) KERNELRELEASE=6.1.84-1-rk2410 CONFIG_ARCH_MESON=n CONFIG_CPU_RK3588=rockchip
+              ;;
+            linux-rk2410-nocsf)
+              make build-dtbo -j$(nproc) KERNELRELEASE=6.1.84-5-rk2410-nocsf CONFIG_ARCH_MESON=n CONFIG_CPU_RK3568=rockchip CONFIG_CPU_RK3576=rockchip
               ;;
           esac
       - name: Upload artifacts
