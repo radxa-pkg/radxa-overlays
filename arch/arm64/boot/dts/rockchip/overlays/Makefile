@@ -346,6 +346,7 @@ dtb-$(CONFIG_CPU_RK3568) += \
 	rock-3c-radxa-display-10hd.dtbo
 
 dtb-$(CONFIG_CLK_RK3576) += \
+	rk3576-disable-fiq-debugger.dtbo \
 	rk3576-i2c5-m1.dtbo \
 	rk3576-i2c6-m3.dtbo \
 	rk3576-i2c8-m1.dtbo \
@@ -365,6 +366,8 @@ dtb-$(CONFIG_CLK_RK3576) += \
 	rk3576-spi1-m0-cs1-spidev.dtbo \
 	rk3576-spi2-m1-cs0-spidev.dtbo \
 	rk3576-spi2-m1-cs1-spidev.dtbo \
+	rk3576-uart0-m0.dtbo \
+	rk3576-uart10-m1.dtbo \
 	rk3576-uart2-m0.dtbo \
 	rk3576-uart3-m2.dtbo \
 	rk3576-uart4-m1.dtbo \

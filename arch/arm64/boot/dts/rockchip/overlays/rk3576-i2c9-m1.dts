@@ -4,11 +4,12 @@
 / {
 	metadata {
 		title = "Enable I2C9-M1";
-		compatible = "radxa,cm4-rpi-cm4-io";
+		compatible = "radxa,cm4-rpi-cm4-io", "radxa,rock-4d";
 		category = "misc";
-		exclusive = "GPIO1_B4", "GPIO1_B5", "i2c9";
+		exclusive = "GPIO1_B4", "GPIO1_B5";
 		description = "Enable I2C9-M1.
 On Radxa CM4-RPI-CM4-IO this is SDA pin 23 and SCL pin 19.
+On Radxa ROCK 4D this is SDA pin 23 and SCL pin 19.
 ";
 	};
 };
