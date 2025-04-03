@@ -4,12 +4,10 @@
 / {
 	metadata {
 		title = "Enable I2C6-M3";
-		compatible = "radxa,cm4-rpi-cm4-io";
+		compatible = "unknown";
 		category = "misc";
-		exclusive = "GPIO4_C7", "GPIO4_C6", "i2c6";
-		description = "Enable I2C6-M3.
-On Radxa CM4-RPI-CM4-IO this is SDA pin 27 and SCL pin 28.
-";
+		exclusive = "GPIO4_C6", "GPIO4_C7", "i2c6";
+		description = "Enable I2C6-M3.";
 	};
 };
 

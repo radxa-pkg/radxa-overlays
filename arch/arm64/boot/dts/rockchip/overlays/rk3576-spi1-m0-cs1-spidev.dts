@@ -4,9 +4,9 @@
 / {
 	metadata {
 		title = "Enable spidev on SPI1-M0 over CS1";
-		compatible = "radxa,cm4-rpi-cm4-io";
+		compatible = "radxa,cm4-rpi-cm4-io", "radxa,rock-4d";
 		category = "misc";
-		exclusive = "GPIO1_C0", "GPIO1_B4", "GPIO1_B5", "GPIO1_B6", "spi1";
+		exclusive = "GPIO1_B4", "GPIO1_B5", "GPIO1_B6", "GPIO1_C0", "spi1";
 		description = "Enable spidev on SPI1-M0 over CS1.";
 	};
 };

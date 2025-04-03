@@ -1,0 +1,7 @@
+#include "rk3568-disable-fiq-debugger.dts"
+
+/ {
+	metadata {
+		compatible = "rockchip,rk3576";
+	};
+};

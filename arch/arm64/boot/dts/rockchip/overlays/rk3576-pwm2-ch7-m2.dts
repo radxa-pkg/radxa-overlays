@@ -4,11 +4,13 @@
 / {
 	metadata {
 		title = "Enable PWM2-CH7-M2";
-		compatible = "radxa,cm4-rpi-cm4-io";
+		compatible = "radxa,cm4-rpi-cm4-io", "radxa,rock-4d";
 		category = "misc";
 		exclusive = "GPIO2_D7", "pwm2_8ch_7";
 		description = "Enable PWM2-CH7-M2.
-On Radxa CM4-RPI-CM4-IO this is pin 22.";
+On Radxa CM4-RPI-CM4-IO this is pin 22.
+On Radxa ROCK 4D this is pin 22.
+";
 	};
 };
 

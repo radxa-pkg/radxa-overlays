@@ -4,11 +4,10 @@
 / {
 	metadata {
 		title = "Enable PWM2-CH2-M1";
-		compatible = "radxa,cm4-rpi-cm4-io";
+		compatible = "unknown";
 		category = "misc";
 		exclusive = "GPIO4_C6", "pwm2_8ch_2";
-		description = "Enable PWM2-CH2-M1.
-On Radxa CM4-RPI-CM4-IO this is pin 28.";
+		description = "Enable PWM2-CH2-M1.";
 	};
 };
 
