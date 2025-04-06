@@ -1,0 +1,108 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/sound/meson-g12a-tohdmitx.h>
+#include <dt-bindings/clock/axg-audio-clkc.h>
+#include <dt-bindings/sound/meson-g12a-toacodec.h>
+
+/ {
+	metadata {
+		title = "Enable HiFiBerry DAC+ Light on TDMA";
+		compatible = "radxa,zero";
+		category = "audio";
+		description = "Enable HiFiBerry DAC+ Light on TDMA.";
+		exclusive = "GPIOX_9", "GPIOX_10", "GPIOX_11", "tdmif_a";
+	};
+};
+
+&{/} {
+	pcm5102a_codec: pcm5102a-codec {
+		compatible = "ti,pcm5102a";
+		#sound-dai-cells = <0>;
+		status = "okay";
+	};
+
+	sound {
+		audio-aux-devs = <&tdmout_a>, <&tdmout_b>;
+		audio-widgets = "Line", "Lineout";
+		audio-routing = "TDMOUT_A IN 0", "FRDDR_A OUT 0",
+				"TDMOUT_A IN 1", "FRDDR_B OUT 0",
+				"TDMOUT_A IN 2", "FRDDR_C OUT 0",
+				"TDM_A Playback", "TDMOUT_A OUT",
+				"TDMOUT_B IN 0", "FRDDR_A OUT 1",
+				"TDMOUT_B IN 1", "FRDDR_B OUT 1",
+				"TDMOUT_B IN 2", "FRDDR_C OUT 1",
+				"TDM_B Playback", "TDMOUT_B OUT",
+				"Lineout", "ACODEC LOLP",
+				"Lineout", "ACODEC LORP";
+
+		/* 8ch hdmi interface */
+		dai-link-3 {
+			codec-0 {
+				sound-dai = <&tohdmitx TOHDMITX_I2S_IN_B>;
+			};
+
+			codec-1 {
+				sound-dai = <&toacodec TOACODEC_IN_B>;
+			};
+
+			codec {
+				sound-dai = <&tohdmitx TOHDMITX_I2S_IN_B>;
+				status = "disabled";
+			};
+		};
+
+		dai-link-5 {
+			sound-dai = <&tdmif_a>;
+			dai-format = "i2s";
+			dai-tdm-slot-tx-mask-0 = <1 1>;
+			mclk-fs = <256>;
+
+			codec-0 {
+				sound-dai = <&tohdmitx TOHDMITX_I2S_IN_A>;
+			};
+
+			codec-1 {
+				sound-dai = <&toacodec TOACODEC_IN_A>;
+			};
+
+			codec-2 {
+				sound-dai = <&pcm5102a_codec>;
+			};
+		};
+
+		/* acodec glue */
+		dai-link-6 {
+			sound-dai = <&toacodec TOACODEC_OUT>;
+
+			codec {
+				sound-dai = <&acodec>;
+			};
+		};
+	};
+};
+
+&tdmif_a {
+	pinctrl-0 = <&tdm_a_dout0_pins>, <&tdm_a_fs_pins>, <&tdm_a_sclk_pins>;
+	pinctrl-names = "default";
+	status = "okay";
+
+	assigned-clocks = <&clkc_audio AUD_CLKID_TDM_SCLK_PAD0>,
+				 <&clkc_audio AUD_CLKID_TDM_LRCLK_PAD0>;
+	assigned-clock-parents = <&clkc_audio AUD_CLKID_MST_A_SCLK>,
+				 <&clkc_audio AUD_CLKID_MST_A_LRCLK>;
+	assigned-clock-rates = <0>, <0>;
+};
+
+&tdmout_a {
+	status = "okay";
+};
+
+&toacodec {
+	status = "okay";
+};
+
+&acodec {
+	AVDD-supply = <&vddao_1v8>;
+	status = "okay";
+};
