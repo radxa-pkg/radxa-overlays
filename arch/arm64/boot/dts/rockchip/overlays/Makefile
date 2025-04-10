@@ -347,6 +347,9 @@ dtb-$(CONFIG_CPU_RK3568) += \
 
 dtb-$(CONFIG_CLK_RK3576) += \
 	rk3576-disable-fiq-debugger.dtbo \
+	rk3576-dwc3-host.dtbo \
+	rk3576-dwc3-otg.dtbo \
+	rk3576-dwc3-peripheral.dtbo \
 	rk3576-i2c5-m1.dtbo \
 	rk3576-i2c6-m3.dtbo \
 	rk3576-i2c8-m1.dtbo \

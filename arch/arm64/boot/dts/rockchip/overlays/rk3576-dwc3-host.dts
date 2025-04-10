@@ -1,0 +1,18 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Set OTG port 0 to Host mode";
+		compatible = "radxa,rock-4d";
+		category = "misc";
+		exclusive = "usb_drd0_dwc3-dr_mode";
+		description = "Set OTG port 0 to Host mode.
+Use this when you want to connect USB devices.";
+	};
+};
+
+&usb_drd0_dwc3 {
+	status = "okay";
+	dr_mode = "host";
+};
