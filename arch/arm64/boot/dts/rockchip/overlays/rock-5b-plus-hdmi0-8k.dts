@@ -5,7 +5,7 @@
 / {
 	metadata {
 		title = "Enable 8K output on HDMI0";
-		compatible = "radxa,rock-5b-plus";
+		compatible = "radxa,rock-5b-plus", "radxa,rock-5t";
 		category = "display";
 		exclusive = "vp0", "hdmi0";
 		description = "Enable 8K output on HDMI0.
