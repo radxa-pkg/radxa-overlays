@@ -1,3 +1,16 @@
+radxa-overlays (0.1.23) noble; urgency=medium
+
+  [ Stephen Chen ]
+  * rk3576: add options to change OTG0 dr_mode
+
+  [ Ken Wang ]
+  * feat: add hdmi 8k for rock 5t
+
+  [ Chen Jiali ]
+  * feat: add mali-enable for rk356x and rk3576
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Thu, 17 Apr 2025 09:05:40 +0000
+
 radxa-overlays (0.1.22) noble; urgency=medium
 
   [ Stephen Chen ]
