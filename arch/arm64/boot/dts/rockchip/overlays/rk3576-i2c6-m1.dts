@@ -1,0 +1,19 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable I2C6-M1";
+		compatible = "unknown";
+		category = "misc";
+		exclusive = "GPIO1_C2", "GPIO1_C3", "i2c6";
+		description = "Enable I2C6-M1.
+On Radxa CM4 RPI CM4 IO this is SDA pin 7 and SCL pin 9.
+";
+	};
+};
+
+&i2c6 {
+	status = "okay";
+	pinctrl-0 = <&i2c6m1_xfer>;
+};

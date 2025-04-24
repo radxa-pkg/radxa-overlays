@@ -8,7 +8,7 @@
 		category = "misc";
 		exclusive = "GPIO1_C2", "pwm1_6ch_2";
 		description = "Enable PWM1-CH2-M1.
-On Radxa CM4-RPI-CM4-IO this is pin 32.
+On Radxa CM4 RPI CM4 IO this is pin 11.
 On Radxa ROCK 4D this is pin 33.
 ";
 	};
