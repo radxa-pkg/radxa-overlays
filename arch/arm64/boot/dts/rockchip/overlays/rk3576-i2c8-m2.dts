@@ -8,7 +8,7 @@
 		category = "misc";
 		exclusive = "GPIO2_B6", "GPIO2_B7", "i2c8";
 		description = "Enable I2C8-M2.
-On Radxa CM4-RPI-CM4-IO this is SDA pin 18 and SCL pin 16.
+On Radxa CM4 RPI CM4 IO this is SDA pin 18 and SCL pin 16.
 On Radxa ROCK 4D this is SDA pin 18 and SCL pin 16.
 ";
 	};
