@@ -183,6 +183,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	radxa-cm3s-io-csi1-rpi-camera-v1p3.dtbo \
 	radxa-cm3s-io-csi1-rpi-camera-v2.dtbo \
 	radxa-cm3s-io-csi1-radxa-camera-8m.dtbo \
+	radxa-cm4-rpi-cm4-io-raspberrypi-7inch-touchscreen.dtbo \
 	rk3568-can0-m0.dtbo \
 	rk3568-can1-m0.dtbo \
 	rk3568-can1-m1.dtbo \
