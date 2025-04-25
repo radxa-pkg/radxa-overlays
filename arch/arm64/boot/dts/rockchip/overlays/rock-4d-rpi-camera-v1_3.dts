@@ -188,6 +188,14 @@
 	status = "okay";
 };
 
+&i2c4m3_xfer {
+	rockchip,pins =
+		/* i2c4_scl_m3 */
+		<3 RK_PC0 11 &pcfg_pull_up_drv_level_3>,
+		/* i2c4_sda_m3 */
+		<3 RK_PB7 11 &pcfg_pull_up_drv_level_3>;
+};
+
 &pinctrl {
 	camera {
 		cam_pwdn_gpio: cam-pwdn-gpio {
