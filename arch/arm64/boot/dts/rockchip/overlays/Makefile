@@ -384,6 +384,11 @@ dtb-$(CONFIG_CLK_RK3576) += \
 	rk3576-w1-gpio1-d0.dtbo
 
 dtb-$(CONFIG_CPU_RK3576) += \
+	radxa-cm4-io-radxa-camera-4k.dtbo \
+	radxa-cm4-io-radxa-camera-8m-219-on-cam1.dtbo \
+	radxa-cm4-io-radxa-camera-8m-219-on-cam2.dtbo \
+	radxa-cm4-io-radxa-display-8hd.dtbo \
+	radxa-cm4-io-radxa-display-10hd.dtbo \
 	rk3576-can1-m1.dtbo \
 	rk3576-can1-m3.dtbo \
 	rock-4d-radxa-camera-4k.dtbo \
