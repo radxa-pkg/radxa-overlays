@@ -1,3 +1,19 @@
+radxa-overlays (0.1.24) noble; urgency=medium
+
+  [ Nascs Fang ]
+  * feat: add rpi 7'inch touch screen for radxa cm4 rpi cm4 io
+  * feat: add radxa 8m 219 camera for radxa cm4 rpi cm4 io
+  * feat: add watchdog for rk3576
+  * feat: add 40-PIN overlays for radxa cm4 rip cm4 io
+
+  [ Mitchell Ma ]
+  * overlays: rock-4d: increase the drive strength of i2c4 on rpi v1_3
+
+  [ Ken Wang ]
+  * overlay: add some csi and dsi for radxa cm4 io
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Wed, 30 Apr 2025 09:41:30 +0000
+
 radxa-overlays (0.1.23) noble; urgency=medium
 
   [ Stephen Chen ]
