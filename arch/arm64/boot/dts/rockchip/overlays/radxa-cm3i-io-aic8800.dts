@@ -1,0 +1,137 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/clock/rk3568-cru.h>
+
+/ {
+	metadata {
+		title = "Enable AIC8800 Wireless Module";
+		compatible = "radxa,cm3i";
+		category = "misc";
+		exclusive = "uart8", "GPIO2_B1", "GPIO3_D4", "GPIO4_B2", "GPIO4_B5", "GPIO4_B4";
+		description = "Enable AIC8800 Wireless Module.";
+	};
+};
+
+&{/} {
+	wireless_wlan: wireless-wlan {
+		compatible = "wlan-platdata";
+		rockchip,grf = <&grf>;
+		/* WIFI_REG_ON_H_GPIO3_D4 */
+		WIFI,poweren_gpio = <&gpio3 RK_PD4 GPIO_ACTIVE_HIGH>;
+		status = "okay";
+	};
+
+	wireless_bluetooth: wireless-bluetooth {
+		compatible = "bluetooth-platdata";
+		clocks = <&pmucru CLK_RTC_32K>;
+		clock-names = "ext_clock";
+		/* UART1_RTSn_M0 */
+		uart_rts_gpios = <&gpio2 RK_PB1 GPIO_ACTIVE_LOW>;
+		pinctrl-names = "default", "rts_gpio";
+		pinctrl-0 = <&uart8m0_rtsn>;
+		pinctrl-1 = <&uart8_gpios>; // UART8_RTS_M0
+		/* BT_REG_ON_H_GPIO4_B2 */
+		BT,reset_gpio    = <&gpio4 RK_PB2 GPIO_ACTIVE_HIGH>;
+		/* HOST_WAKE_BT_H_GPIO4_B5 */
+		BT,wake_gpio     = <&gpio4 RK_PB5 GPIO_ACTIVE_HIGH>;
+		/* BT_WAKE_HOST_H_GPIO4_B4 */
+		BT,wake_host_irq = <&gpio4 RK_PB4 GPIO_ACTIVE_HIGH>;
+		status = "okay";
+	};
+};
+
+&sdio_pwrseq {
+	compatible = "mmc-pwrseq-simple";
+	pinctrl-names = "default";
+	pinctrl-0 = <&wifi_enable_h_aic>;
+	/*
+	 * On the module itself this is one of these (depending
+	 * on the actual card populated):
+	 * - SDIO_RESET_L_WL_REG_ON
+	 * - PDN (power down when low)
+	 */
+	/* WIFI_REG_ON_H_GPIO3_D4 */
+	reset-gpios = <&gpio3 RK_PD4 GPIO_ACTIVE_LOW>;
+	mmc-pwrseq = <&sdio_pwrseq>;
+};
+
+&sdmmc2 {
+	status = "okay";
+	pinctrl-0 = <&sdmmc2m0_bus4 &sdmmc2m0_cmd &sdmmc2m0_clk>;
+};
+
+&brcmf {
+	status = "disabled";
+};
+
+&uart8 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart8m0_xfer &uart8m0_ctsn>;
+	auto-flow-control = <1>;
+};
+
+&bluetooth {
+	status = "disabled";
+};
+
+&pinctrl {
+	wifi2 {
+		wifi_enable_h_aic: wifi-enable-h {
+			/* WIFI_REG_ON_H_GPIO3_D4 */
+			rockchip,pins = <3 RK_PD4 RK_FUNC_GPIO &pcfg_pull_none>;
+		};
+	};
+
+	wireless-bluetooth {
+		uart8_gpios: uart8-gpios {
+			rockchip,pins = <2 RK_PB1 RK_FUNC_GPIO &pcfg_pull_none>; // UART8_RTS_M0
+		};
+	};
+
+	sdmmc2 {
+		/* omit-if-no-ref */
+		sdmmc2m0_bus4: sdmmc2m0-bus4 {
+			rockchip,pins =
+				/* sdmmc2_d0m0 */
+				<3 RK_PC6 3 &pcfg_pull_up_drv_level_12>,
+				/* sdmmc2_d1m0 */
+				<3 RK_PC7 3 &pcfg_pull_up_drv_level_12>,
+				/* sdmmc2_d2m0 */
+				<3 RK_PD0 3 &pcfg_pull_up_drv_level_12>,
+				/* sdmmc2_d3m0 */
+				<3 RK_PD1 3 &pcfg_pull_up_drv_level_12>;
+		};
+
+		/* omit-if-no-ref */
+		sdmmc2m0_clk: sdmmc2m0-clk {
+			rockchip,pins =
+				/* sdmmc2_clkm0 */
+				<3 RK_PD3 3 &pcfg_pull_up_drv_level_12>;
+		};
+
+		/* omit-if-no-ref */
+		sdmmc2m0_cmd: sdmmc2m0-cmd {
+			rockchip,pins =
+				/* sdmmc2_cmdm0 */
+				<3 RK_PD2 3 &pcfg_pull_up_drv_level_12>;
+		};
+
+		/* omit-if-no-ref */
+		sdmmc2m0_det: sdmmc2m0-det {
+			rockchip,pins =
+				/* sdmmc2_detm0 */
+				<3 RK_PD4 3 &pcfg_pull_up>;
+		};
+
+		/* omit-if-no-ref */
+		sdmmc2m0_pwren: sdmmc2m0-pwren {
+			rockchip,pins =
+				/* sdmmc2m0_pwren */
+				<3 RK_PD5 3 &pcfg_pull_none>;
+		};
+	};
+};
