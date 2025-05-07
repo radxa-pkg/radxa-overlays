@@ -1,0 +1,73 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+	metadata {
+		title = "Enable Walnut Pi 1.54inch LCD";
+		compatible = "radxa,zero3";
+		category = "misc";
+		exclusive = "GPIO4_C3", "GPIO4_C2", "GPIO4_C6", "GPIO3_B2", "GPIO3_C1", "GPIO3_A7", "GPIO3_A6", "GPIO3_A5", "spi3";
+		description = "Enable Walnut Pi 1.54inch LCD.";
+	};
+};
+
+&spi3{
+	status = "okay";
+	pinctrl-names = "default", "high_speed";
+	pinctrl-0 = <&spi3m1_cs0 &spi3m1_pins>;
+	pinctrl-1 = <&spi3m1_cs0 &spi3m1_pins_hs>;
+
+	st7789v@0 {
+		compatible = "sitronix,st7789v";
+		reg = <0>;
+		spi-max-frequency = <60000000>;
+		rotate = <0>;
+		fps = <30>;
+		buswidth = <4>;
+		regwidth = <4>;
+		width = <240>;
+		height = <240>;
+		cs-gpio = <&gpio4 RK_PC6 GPIO_ACTIVE_HIGH>;
+		dc-gpios = <&gpio3 RK_PB2 GPIO_ACTIVE_HIGH>;
+		reset-gpios = <&gpio3 RK_PC1 GPIO_ACTIVE_LOW>;
+		debug = <0>;
+    };
+};
+
+&{/} {
+    buttons_joystick {
+        compatible = "gpio-keys";
+        pinctrl-names = "default";
+        pinctrl-0 = <&buttons_joystick_pins>;
+
+        key1 {
+            label = "KEY1";
+            gpios = <&gpio3 RK_PA7 GPIO_ACTIVE_LOW>;
+        };
+
+        key2 {
+            label = "KEY2";
+            gpios = <&gpio3 RK_PA6 GPIO_ACTIVE_LOW>;
+        };
+
+        key3 {
+            label = "KEY3";
+            gpios = <&gpio3 RK_PA5 GPIO_ACTIVE_LOW>;
+        };
+    };
+};
+
+&pinctrl {
+    buttons_joystick {
+        buttons_joystick_pins: buttons-joystick-pins {
+            rockchip,pins = 
+                <3 RK_PA7 RK_FUNC_GPIO &pcfg_pull_up>,
+                <3 RK_PA6 RK_FUNC_GPIO &pcfg_pull_up>,
+                <3 RK_PA5 RK_FUNC_GPIO &pcfg_pull_up>;
+        };
+    };
+};
