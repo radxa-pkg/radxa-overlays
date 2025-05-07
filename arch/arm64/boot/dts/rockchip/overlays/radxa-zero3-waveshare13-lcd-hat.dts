@@ -1,0 +1,103 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+	metadata {
+		title = "Enable Waveshare 1.3inch LCD HAT";
+		compatible = "radxa,zero3";
+		category = "misc";
+		exclusive = "GPIO4_C3", "GPIO4_C2", "GPIO4_C6", "GPIO3_C1", "GPIO3_B2", "GPIO3_A2", "GPIO3_A5", "GPIO3_A6", "GPIO3_A7", "GPIO3_B4", "GPIO3_A4", "GPIO3_B3", "GPIO1_A4", "GPIO3_C3", "spi3";
+		description = "Enable Waveshare 1.3inch LCD HAT.";
+	};
+};
+
+&spi3{
+	status = "okay";
+	pinctrl-names = "default", "high_speed";
+	pinctrl-0 = <&spi3m1_cs0 &spi3m1_pins>;
+	pinctrl-1 = <&spi3m1_cs0 &spi3m1_pins_hs>;
+
+	st7789v@0 {
+		compatible = "sitronix,st7789v";
+		reg = <0>;
+		spi-max-frequency = <10000000>;
+		rotate = <270>;
+		fps = <60>;
+		buswidth = <4>;
+		regwidth = <4>;
+		width = <240>;
+		height = <240>;
+		cs-gpio = <&gpio4 RK_PC6 GPIO_ACTIVE_HIGH>;
+		dc-gpios = <&gpio3 RK_PC1 GPIO_ACTIVE_HIGH>;
+		reset-gpios = <&gpio3 RK_PA2 GPIO_ACTIVE_LOW>;
+		debug = <0>;
+    };
+};
+
+&{/} {
+    buttons_joystick {
+        compatible = "gpio-keys";
+        pinctrl-names = "default";
+        pinctrl-0 = <&buttons_joystick_pins>;
+
+        key1 {
+            label = "KEY1";
+            gpios = <&gpio3 RK_PA5 GPIO_ACTIVE_LOW>;
+        };
+
+        key2 {
+            label = "KEY2";
+            gpios = <&gpio3 RK_PA6 GPIO_ACTIVE_LOW>;
+        };
+
+        key3 {
+            label = "KEY3";
+            gpios = <&gpio3 RK_PA7 GPIO_ACTIVE_LOW>;
+        };
+
+        joy_up {
+            label = "JOY_UP";
+            gpios = <&gpio3 RK_PB4 GPIO_ACTIVE_LOW>;
+        };
+
+        joy_down {
+            label = "JOY_DOWN";
+            gpios = <&gpio3 RK_PA4 GPIO_ACTIVE_LOW>;
+        };
+
+        joy_left {
+            label = "JOY_LEFT";
+            gpios = <&gpio3 RK_PB3 GPIO_ACTIVE_LOW>;
+        };
+
+        joy_right {
+            label = "JOY_RIGHT";
+            gpios = <&gpio1 RK_PA4 GPIO_ACTIVE_LOW>;
+        };
+
+        joy_press {
+            label = "JOY_PRESS";
+            gpios = <&gpio3 RK_PC3 GPIO_ACTIVE_LOW>;
+        };
+    };
+};
+
+&pinctrl {
+    buttons_joystick {
+        buttons_joystick_pins: buttons-joystick-pins {
+            rockchip,pins = 
+                <3 RK_PA5 RK_FUNC_GPIO &pcfg_pull_up>,
+                <3 RK_PA6 RK_FUNC_GPIO &pcfg_pull_up>,
+                <3 RK_PA7 RK_FUNC_GPIO &pcfg_pull_up>,
+                <3 RK_PB4 RK_FUNC_GPIO &pcfg_pull_up>,
+                <3 RK_PA4 RK_FUNC_GPIO &pcfg_pull_up>,
+                <3 RK_PB3 RK_FUNC_GPIO &pcfg_pull_up>,
+                <1 RK_PA4 RK_FUNC_GPIO &pcfg_pull_up>,
+                <3 RK_PC3 RK_FUNC_GPIO &pcfg_pull_up>;
+        };
+    };
+};

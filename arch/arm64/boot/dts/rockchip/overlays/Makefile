@@ -341,6 +341,8 @@ dtb-$(CONFIG_CPU_RK3568) += \
 	radxa-zero3-poe-hat.dtbo \
 	radxa-zero3-disabled-ethernet.dtbo \
 	radxa-zero3-disabled-wireless.dtbo \
+	radxa-zero3-waveshare13-lcd-hat.dtbo \
+	radxa-zero3-walnutpi154-lcd.dtbo \
 	rock-3a-radxa-display-8hd.dtbo \
 	rock-3a-radxa-display-10hd.dtbo \
 	rock-3b-radxa-8inch-display.dtbo \
