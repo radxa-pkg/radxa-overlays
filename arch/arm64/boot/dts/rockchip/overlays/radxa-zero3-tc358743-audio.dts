@@ -1,0 +1,155 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/clock/rk3568-cru.h>
+
+/ {
+	metadata {
+		title = "Enable TC358743 w/ I2S3 Audio";
+		compatible = "radxa,zero3";
+		category = "camera";
+		exclusive = "csi2_dphy0", "GPIO4_C6", "GPIO3_A3", "GPIO3_A4", "GPIO3_A6", "GPIO3_A5", "i2s3_2ch";
+		description = "Enable TC358743 w/ I2S3 Audio.";
+	};
+};
+
+&{/} {
+	tc358743_clk: tc358743_clk {
+		#clock-cells = <0>;
+		status = "okay";
+		compatible = "fixed-clock";
+		clock-frequency = <27000000>;
+	};
+
+	tc358743_codec: dummy-codec {
+		#sound-dai-cells = <0>;
+		compatible = "rockchip,dummy-codec";
+		status = "okay";
+	};
+
+	dummy_sound: dummy-sound {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		compatible = "simple-audio-card";
+		simple-audio-card,format = "i2s";
+		simple-audio-card,mclk-fs = <256>;
+		simple-audio-card,bitclock-master = <&codec_dai>;
+		simple-audio-card,frame-master = <&codec_dai>;
+		simple-audio-card,name = "tc358743-hdmiin";
+		cpu_dai: simple-audio-card,cpu {
+			sound-dai = <&i2s3_2ch>;
+		};
+		codec_dai: simple-audio-card,codec {
+			sound-dai = <&tc358743_codec>;
+		};
+	};
+
+};
+
+&i2c2 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c2m1_xfer>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	tc358743_single_cam0: tc358743@0f {
+		status = "okay";
+		compatible = "toshiba,tc358743";
+		reg = <0x0f>;
+		clocks = <&tc358743_clk>;
+		#clock-cells = <0>;
+		clock-names = "refclk";
+		refclk = <&tc358743_clk>;
+		refclk_hz = <27000000>;
+		reset-gpios = <&gpio4 RK_PC6 GPIO_ACTIVE_LOW>;
+		
+		rockchip,camera-module-index = <0>;
+		rockchip,camera-module-facing = "back";
+		rockchip,camera-module-name = "tc358743";
+		rockchip,camera-module-lens-name = "default";
+
+
+		port@0 {
+			ucam_out0: endpoint {
+				remote-endpoint = <&mipi_in_ucam0>;
+				clock-noncontinuous;
+				data-lanes = <1 2 3 4>;
+				clock-lanes = <0>;
+				link-frequencies = /bits/ 64 <297000000>;
+			};
+		};
+	};
+};
+
+&csi2_dphy_hw {
+	status = "okay";
+};
+
+&csi2_dphy0 {
+	status = "okay";
+
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		port@0 {
+			reg = <0>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			mipi_in_ucam0: endpoint@1 {
+				reg = <1>;
+				remote-endpoint = <&ucam_out0>;
+				data-lanes = <1 2 3 4>;
+			};
+		};
+
+		port@1 {
+			reg = <1>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			dphy0_out: endpoint@1 {
+				reg = <1>;
+				remote-endpoint = <&isp0_in>;
+			};
+		};
+	};
+};
+
+&rkisp_vir0 {
+	status = "okay";
+
+	port {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		isp0_in: endpoint@0 {
+			reg = <0>;
+			remote-endpoint = <&dphy0_out>;
+		};
+	};
+};
+
+&rkisp {
+	status = "okay";
+};
+
+&rkisp_mmu {
+	status = "okay";
+};
+
+&rkcif_mmu {
+	status = "okay";
+};
+
+&rkcif {
+	status = "okay";
+};
+
+&i2s3_2ch {
+	status = "okay";
+};
