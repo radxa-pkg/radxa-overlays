@@ -405,6 +405,7 @@ dtb-$(CONFIG_CPU_RK3576) += \
 	rock-4d-rpi-camera-v2.dtbo
 
 dtb-$(CONFIG_CLK_RK3588) += \
+	radxa-e54c-spi-flash.dtbo \
 	radxa-nx5-io-okdo-camera-5mp-cam0.dtbo \
 	radxa-nx5-io-okdo-camera-5mp-cam1.dtbo \
 	radxa-nx5-io-rpi-camera-v1p3-cam0.dtbo \
