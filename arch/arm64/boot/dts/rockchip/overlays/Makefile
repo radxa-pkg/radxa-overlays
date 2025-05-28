@@ -397,6 +397,7 @@ dtb-$(CONFIG_CPU_RK3576) += \
 	radxa-cm4-io-radxa-display-10hd.dtbo \
 	rk3576-can1-m1.dtbo \
 	rk3576-can1-m3.dtbo \
+	rock-4d-radxa-25w-poe.dtbo \
 	rock-4d-radxa-camera-13m-214.dtbo \
 	rock-4d-radxa-camera-4k.dtbo \
 	rock-4d-radxa-camera-8m-219.dtbo \
