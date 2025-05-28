@@ -1,3 +1,22 @@
+radxa-overlays (0.1.25) noble; urgency=medium
+
+  [ 凌渊之尘 ]
+  * Add screen overlays
+
+  [ Nascs Fang ]
+  * feat: add  aic8800 for radxa-cm3i-io
+
+  [ gvsyn ]
+  * Add TC358743 DTS
+
+  [ Mitchell Ma ]
+  * feat: add radxa camera 13m 214 support for rock-4d and cm4-io
+
+  [ SongJun Li ]
+  * overlays: enable radxa 25w poe for ROCK 4D
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Wed, 28 May 2025 13:02:30 +0000
+
 radxa-overlays (0.1.24) noble; urgency=medium
 
   [ Nascs Fang ]
