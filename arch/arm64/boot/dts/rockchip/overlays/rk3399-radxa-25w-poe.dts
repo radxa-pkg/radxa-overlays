@@ -27,7 +27,7 @@
 	radxa_poe_pwm: radxa-poe-pwm {
 		compatible = "pwm-gpio";
 		#pwm-cells = <3>;
-		pwm-gpio = <&gpio2 RK_PB4 GPIO_ACTIVE_HIGH>;
+		gpios = <&gpio2 RK_PB4 GPIO_ACTIVE_HIGH>;
 	};
 
 	radxa_poe_fan: radxa-poe-fan {
