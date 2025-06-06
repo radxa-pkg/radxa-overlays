@@ -28,7 +28,9 @@ This overlay supports ROCK 3A v1.3 and later.";
 	radxa_poe_pwm: radxa-poe-pwm {
 		compatible = "pwm-gpio";
 		#pwm-cells = <3>;
+		// Outdated, retained for compatibility with kernel 5.10
 		pwm-gpio = <&gpio3 RK_PC3 GPIO_ACTIVE_HIGH>;
+		gpios = <&gpio3 RK_PC3 GPIO_ACTIVE_HIGH>;
 	};
 
 	radxa_poe_fan: radxa-poe-fan {
