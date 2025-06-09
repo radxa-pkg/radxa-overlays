@@ -27,7 +27,9 @@
 	radxa_poe_pwm: radxa-poe-pwm {
 		compatible = "pwm-gpio";
 		#pwm-cells = <3>;
+		// Outdated, retained for compatibility with kernel 5.10
 		pwm-gpio = <&gpio1 RK_PB4 GPIO_ACTIVE_HIGH>;
+		gpios = <&gpio1 RK_PB4 GPIO_ACTIVE_HIGH>;
 	};
 
 	radxa_poe_fan: radxa-poe-fan {
