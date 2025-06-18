@@ -1,3 +1,10 @@
+radxa-overlays (0.1.26) noble; urgency=medium
+
+  [ Jiali Chen ]
+  * fix: add `gpios` of `pwm-gpio`
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Wed, 18 Jun 2025 10:30:36 +0000
+
 radxa-overlays (0.1.25) noble; urgency=medium
 
   [ 凌渊之尘 ]
