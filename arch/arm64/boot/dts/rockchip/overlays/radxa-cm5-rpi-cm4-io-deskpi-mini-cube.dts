@@ -1,0 +1,115 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/pwm/pwm.h>
+#include <dt-bindings/thermal/thermal.h>
+
+/ {
+	metadata {
+		title = "Enable support for DeskPi Mini Cube";
+		category = "misc";
+		compatible = "radxa,cm5-rpi-cm4-io";
+		description = "Enable support for DeskPi Mini Cube.
+Due to hardware limitations, HDMI above the USB Type-C will not work.";
+		exclusive = "GPIO0_B5";
+		package = "rsetup-config-thermal-governor-step-wise";
+	};
+};
+
+&{/} {
+	deskpi_minicube_fan_pwm: deskpi-minicube-fan-pwm {
+		compatible = "pwm-gpio";
+		#pwm-cells = <3>;
+		// Outdated, retained for compatibility with kernel 5.10
+		pwm-gpio = <&gpio0 RK_PB5 GPIO_ACTIVE_HIGH>;
+		gpios = <&gpio0 RK_PB5 GPIO_ACTIVE_HIGH>;
+	};
+
+	deskpi_minicube_fan: deskpi-minicube-fan {
+		compatible = "pwm-fan";
+		#cooling-cells = <2>;
+		cooling-min-state = <0>;
+		cooling-max-state = <4>;
+		cooling-levels = <32 64 96 128 192 255>;
+		pwms = <&deskpi_minicube_fan_pwm 0 40000 0>;
+	};
+};
+
+&soc_thermal {
+	polling-delay = <1000>;
+	polling-delay-passive = <2000>;
+
+	trips {
+		trip0: trip-point@0 {
+			temperature = <55000>;
+			hysteresis = <2000>;
+			type = "active";
+		};
+
+		trip1: trip-point@1 {
+			temperature = <60000>;
+			hysteresis = <2000>;
+			type = "active";
+		};
+
+		trip2: trip-point@2 {
+			temperature = <65000>;
+			hysteresis = <2000>;
+			type = "active";
+		};
+
+		trip3: trip-point@3 {
+			temperature = <70000>;
+			hysteresis = <2000>;
+			type = "active";
+		};
+	};
+
+	cooling-maps {
+		map4 {
+			trip = <&trip0>;
+			cooling-device = <&deskpi_minicube_fan 0 1>;
+			contribution = <1024>;
+		};
+
+		map5 {
+			trip = <&trip1>;
+			cooling-device = <&deskpi_minicube_fan 1 2>;
+			contribution = <1024>;
+		};
+
+		map6 {
+			trip = <&trip2>;
+			cooling-device = <&deskpi_minicube_fan 2 3>;
+			contribution = <1024>;
+		};
+
+		map7 {
+			trip = <&trip3>;
+			cooling-device = <&deskpi_minicube_fan 3 4>;
+			contribution = <1024>;
+		};
+
+		map8 {
+			trip = <&threshold>;
+			cooling-device = <&deskpi_minicube_fan 4 5>;
+			contribution = <1024>;
+		};
+
+		map9 {
+			trip = <&target>;
+			cooling-device = <&deskpi_minicube_fan 5 6>;
+			contribution = <1024>;
+		};
+	};
+};
+
+&threshold {
+	type = "active";
+};
+
+&target {
+	type = "active";
+};
