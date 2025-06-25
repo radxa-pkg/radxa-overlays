@@ -34,7 +34,7 @@
 	#size-cells = <0>;
 
 	dsi1_panel: dsi-panel@0 {
-		compatible = "raspits,tc358762";
+		compatible = "raspits,tc358762-5inch", "raspits,tc358762";
 		reg = <0x0>;
 		status = "okay";
 
