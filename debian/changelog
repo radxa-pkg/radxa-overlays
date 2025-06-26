@@ -1,3 +1,13 @@
+radxa-overlays (0.1.27) noble; urgency=medium
+
+  [ Andrew Yong ]
+  * feat: Add DeskPi Mini Cube for Radxa CM5 (radxa,cm5-rpi-cm4-io)
+
+  [ Jiali Chen ]
+  * fix: rk356x: change raspits,tc358762 compatible and timings
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Thu, 26 Jun 2025 04:00:52 +0000
+
 radxa-overlays (0.1.26) noble; urgency=medium
 
   [ Jiali Chen ]
