@@ -32,11 +32,35 @@
 	status = "okay";
 	#address-cells = <1>;
 	#size-cells = <0>;
+	rockchip,lane-rate = <696>;
 
 	dsi0_panel: dsi-panel@0 {
 		compatible = "raspits,tc358762";
 		reg = <0x0>;
 		status = "okay";
+
+		display_timings0: display-timings {
+			native-mode = <&dsi0_timing>;
+
+			dsi0_timing: timing0 {
+				clock-frequency = <26000000>;
+				hactive = <800>;
+				vactive = <480>;
+
+				hsync-len = <5>;
+				hback-porch = <40>;
+				hfront-porch = <1>;
+
+				vsync-len = <1>;
+				vback-porch = <21>;
+				vfront-porch = <7>;
+
+				hsync-active = <0>;
+				vsync-active = <0>;
+				de-active = <0>;
+				pixelclk-active = <0>;
+			};
+		};
 
 		ports {
 			#address-cells = <1>;
