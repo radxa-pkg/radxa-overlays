@@ -1,0 +1,84 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+#include <dt-bindings/input/input.h>
+
+/ {
+    metadata {
+        title = "Enable Mini PiTFT 1.14 inch HAT";
+        compatible = "radxa,zero3";
+        category = "misc";
+        exclusive = "GPIO0_D1", "GPIO3_C1", "GPIO3_B0", "GPIO3_B1", "GPIO3_B2", "spi3";
+        description = "Enable Mini PiTFT 1.14 inch HAT.
+
+A custom kernel module is needed:
+github.com/radxa-pkg/radxa-overlays/pull/424";
+    };
+};
+
+&spi3 {
+    status = "okay";
+    pinctrl-names = "default", "high_speed";
+    pinctrl-0 = <&spi3m1_cs0 &spi3m1_pins>;
+    pinctrl-1 = <&spi3m1_cs0 &spi3m1_pins_hs>;
+
+    #address-cells = <1>;
+    #size-cells = <0>;
+
+    st7789v@0 {
+        compatible = "sitronix,st7789v";
+        reg = <0>;
+        spi-max-frequency = <10000000>;
+
+        rotate = <270>;
+        fps = <60>;
+
+        buswidth = <8>;
+        regwidth = <8>;
+
+        width = <135>;   // Full panel width
+        height = <240>;  // Full panel height
+
+        // Add these lines to set the offset
+        x-offset = <40>;  // Adjust this value as needed
+        y-offset = <53>;  // Adjust this value as needed
+
+        cs-gpio = <&gpio0 RK_PD1 GPIO_ACTIVE_HIGH>;
+        dc-gpios = <&gpio3 RK_PC1 GPIO_ACTIVE_HIGH>;
+        backlight-gpios = <&gpio3 RK_PB0 GPIO_ACTIVE_HIGH>;
+        debug = <0>;
+    };
+};
+
+&{/} {
+    buttons_joystick {
+        compatible = "gpio-keys";
+        pinctrl-names = "default";
+        pinctrl-0 = <&buttons_joystick_pins>;
+
+        key1 {
+            label = "KEY1";
+            linux,code = <KEY_UP>;
+            gpios = <&gpio3 RK_PB1 GPIO_ACTIVE_LOW>; // GPIO3_B1
+        };
+
+        key2 {
+            label = "KEY2";
+            linux,code = <KEY_DOWN>;
+            gpios = <&gpio3 RK_PB2 GPIO_ACTIVE_LOW>; // GPIO3_B2
+        };
+    };
+};
+
+&pinctrl {
+    buttons_joystick {
+        buttons_joystick_pins: buttons-joystick-pins {
+            rockchip,pins =
+                <3 RK_PB1 RK_FUNC_GPIO &pcfg_pull_up>,
+                <3 RK_PB2 RK_FUNC_GPIO &pcfg_pull_up>;
+        };
+    };
+};
