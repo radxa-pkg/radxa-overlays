@@ -17,9 +17,7 @@ A custom kernel module is needed:
 https://github.com/radxa-pkg/radxa-overlays/pull/424";
     };
 
-    fragment@0 {
-        target = <&spi3>;
-        __overlay__ {
+    &spi3 {
             status = "okay";
             pinctrl-names = "default", "high_speed";
             pinctrl-0 = <&spi3m1_cs0 &spi3m1_pins>;
