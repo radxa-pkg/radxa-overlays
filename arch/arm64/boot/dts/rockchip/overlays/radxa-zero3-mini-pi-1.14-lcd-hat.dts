@@ -12,7 +12,9 @@
         compatible = "radxa,zero3";
         category = "misc";
         exclusive = "GPIO0_D1", "GPIO3_C1", "GPIO3_B0", "GPIO3_B1", "GPIO3_B2", "spi3";
-        description = "Enable Mini PiTFT 1.14 inch HAT";
+        description = "Enable Mini PiTFT 1.14 inch HAT.
+A custom kernel module is needed:
+https://github.com/radxa-pkg/radxa-overlays/pull/424";
     };
 
     fragment@0 {
