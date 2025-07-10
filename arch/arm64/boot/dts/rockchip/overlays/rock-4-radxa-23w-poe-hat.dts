@@ -1,0 +1,62 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/pwm/pwm.h>
+#include <dt-bindings/thermal/thermal.h>
+
+/ {
+	metadata {
+		title = "Enable Radxa 23W PoE+ HAT";
+		category = "misc";
+		compatible = "radxa,rockpi4a", "radxa,rockpi4b", "radxa,rockpi4a-plus", "radxa,rockpi4b-plus", "radxa,rock-4se";
+		description = "Enable Radxa 23W PoE+ HAT (F4).";
+		exclusive = "GPIO4_C6", "pwm1";
+		package = "rsetup-config-thermal-governor-step-wise";
+	};
+};
+
+&{/} {
+	fan0: pwm-fan {
+		compatible = "pwm-fan";
+		#cooling-cells = <2>;
+		cooling-levels = <0 64 128 192 255>;
+		pwms = <&pwm1 0 40000 0>;
+	};
+};
+
+&pwm1 {
+	pinctrl-0 = <&pwm1_pin>;
+	status = "okay";
+};
+
+&threshold {
+	temperature = <60000>;
+};
+
+&target {
+	temperature = <100000>;
+};
+
+&soc_crit {
+	temperature = <105000>;
+};
+
+&soc_thermal {
+	sustainable-power = <5000>; /* milliwatts */
+	cooling-maps {
+		map3 {
+			trip = <&target>;
+			cooling-device =
+				<&fan0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
+			contribution = <8192>;
+		};
+		map4 {
+			trip = <&threshold>;
+			cooling-device =
+				<&fan0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
+			contribution = <8192>;
+		};
+	};
+};
