@@ -111,6 +111,7 @@ dtb-$(CONFIG_CLK_RK3399) += \
 	rock-4-rpi-camera-v1_3.dtbo \
 	rock-4-rpi-camera-v2.dtbo \
 	rock-4-radxa-camera-8m.dtbo \
+	rock-4-radxa-23w-poe-hat.dtbo \
 	rock-4c-plus-raspi-7inch-touchscreen.dtbo
 
 dtb-$(CONFIG_CPU_RK3399) += \
