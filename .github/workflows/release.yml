@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [linux-rockchip, linux-rk356x, linux-stable, linux-rk2312, linux-rk2410, linux-rk2410-nocsf]
+        version: [linux-rockchip, linux-rk356x, linux-stable, linux-rk2312, linux-rk2410, linux-rk2410-nocsf, linux-aw2501]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -20,7 +20,7 @@ jobs:
         shell: bash
         run: |
           MISSING=0
-          for VENDOR in amlogic rockchip
+          for VENDOR in amlogic rockchip allwinner
           do
             OVERLAY_PATH="arch/arm64/boot/dts/$VENDOR/overlays"
             for i in "$OVERLAY_PATH"/*.dts
@@ -62,6 +62,10 @@ jobs:
               wget https://github.com/radxa-pkg/linux-rk2410-nocsf/releases/download/6.1.84-5/linux-headers-6.1.84-5-rk2410-nocsf_6.1.84-5_arm64.deb
               sudo apt install ./linux-headers-*.deb
               ;;
+            linux-aw2501)
+              wget https://github.com/radxa-pkg/linux-aw2501/releases/download/5.15.147-2/linux-headers-5.15.147-2-aw2501_5.15.147-2_arm64.deb
+              sudo apt install ./linux-headers-*.deb
+              ;;
           esac
       - name: Build
         shell: bash
@@ -71,19 +75,22 @@ jobs:
               make build-dtbo -j$(nproc)
               ;;
             linux-rockchip)
-              make build-dtbo -j$(nproc) KERNELRELEASE=5.10.110-38-rockchip CONFIG_ARCH_MESON=n CONFIG_CPU_RK3399=rockchip CONFIG_CPU_RK3588=rockchip
+              make build-dtbo -j$(nproc) KERNELRELEASE=5.10.110-38-rockchip CONFIG_ARCH_MESON=n CONFIG_CPU_RK3399=rockchip CONFIG_CPU_RK3588=rockchip CONFIG_ARCH_SUNXI=n
               ;;
             linux-rk356x)
-              make build-dtbo -j$(nproc) KERNELRELEASE=5.10.160-37-rk356x CONFIG_ARCH_MESON=n CONFIG_CPU_RK3528=rockchip CONFIG_CPU_RK3568=rockchip
+              make build-dtbo -j$(nproc) KERNELRELEASE=5.10.160-37-rk356x CONFIG_ARCH_MESON=n CONFIG_CPU_RK3528=rockchip CONFIG_CPU_RK3568=rockchip CONFIG_ARCH_SUNXI=n
               ;;
             linux-rk2312)
-              make build-dtbo -j$(nproc) KERNELRELEASE=6.1.43-15-rk2312 CONFIG_ARCH_MESON=n CONFIG_CPU_RK3528=rockchip CONFIG_CPU_RK3588=rockchip
+              make build-dtbo -j$(nproc) KERNELRELEASE=6.1.43-15-rk2312 CONFIG_ARCH_MESON=n CONFIG_CPU_RK3528=rockchip CONFIG_CPU_RK3588=rockchip CONFIG_ARCH_SUNXI=n
               ;;
             linux-rk2410)
-              make build-dtbo -j$(nproc) KERNELRELEASE=6.1.84-1-rk2410 CONFIG_ARCH_MESON=n CONFIG_CPU_RK3588=rockchip
+              make build-dtbo -j$(nproc) KERNELRELEASE=6.1.84-1-rk2410 CONFIG_ARCH_MESON=n CONFIG_CPU_RK3588=rockchip CONFIG_ARCH_SUNXI=n
               ;;
             linux-rk2410-nocsf)
-              make build-dtbo -j$(nproc) KERNELRELEASE=6.1.84-5-rk2410-nocsf CONFIG_ARCH_MESON=n CONFIG_CPU_RK3568=rockchip CONFIG_CPU_RK3576=rockchip
+              make build-dtbo -j$(nproc) KERNELRELEASE=6.1.84-5-rk2410-nocsf CONFIG_ARCH_MESON=n CONFIG_CPU_RK3568=rockchip CONFIG_CPU_RK3576=rockchip CONFIG_ARCH_SUNXI=n
+              ;;
+            linux-aw2501)
+              make build-dtbo -j$(nproc) KERNELRELEASE=5.15.147-2-aw2501 CONFIG_ARCH_SUNXI=allwinner CONFIG_ARCH_SUN55IW3=allwinner
               ;;
           esac
       - name: Upload artifacts

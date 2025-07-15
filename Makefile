@@ -9,11 +9,13 @@ CONFIG_CLK_RK3568 ?= rockchip
 CONFIG_CLK_RK3576 ?= rockchip
 CONFIG_CLK_RK3588 ?= rockchip
 CONFIG_ARCH_MESON ?= amlogic
+CONFIG_ARCH_SUNXI ?= allwinner
 include $(wildcard arch/arm64/boot/dts/*/overlays/Makefile)
 
+DTBO-ALLWINNER	:=	$(addprefix arch/arm64/boot/dts/allwinner/overlays/,$(dtb-allwinner))
 DTBO-AMLOGIC	:=	$(addprefix arch/arm64/boot/dts/amlogic/overlays/,$(dtb-amlogic))
 DTBO-ROCKCHIP	:=	$(addprefix arch/arm64/boot/dts/rockchip/overlays/,$(dtb-rockchip))
-DTBO		:=	$(DTBO-AMLOGIC) $(DTBO-ROCKCHIP)
+DTBO		:=	$(DTBO-AMLOGIC) $(DTBO-ROCKCHIP) $(DTBO-ALLWINNER)
 TMP		:=	$(addsuffix .tmp,$(DTBO))
 
 .PHONY: all
