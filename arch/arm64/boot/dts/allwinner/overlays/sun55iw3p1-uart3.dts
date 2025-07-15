@@ -1,0 +1,31 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    metadata {
+        title = "Enable UART3";
+        compatible = "radxa,cubie-a5e";
+        category = "misc";
+        exclusive = "PI11", "PI12", "uart3";
+        description = "Enable UART3.
+On Radxa Cubie A5E, this is pin 16 and pin 31.
+";
+    };
+};
+
+&uart3_pins_a {
+    pins = "PI11", "PI12";
+    function = "uart3";
+};
+
+&uart3_pins_b {
+    pins = "PI11", "PI12";
+    function = "gpio_in";
+};
+
+&uart3 {
+	pinctrl-names = "default", "sleep";
+	pinctrl-0 = <&uart3_pins_a>;
+	pinctrl-1 = <&uart3_pins_b>;
+	status = "okay";
+};
