@@ -1,3 +1,14 @@
+radxa-overlays (0.1.28) noble; urgency=medium
+
+  [ Mitchell Ma ]
+  * fix: rock-4: rpi-7inch: change raspits,tc358762 compatible and timings
+  * feat: add radxa 23w poe overlay for rock 4
+
+  [ Jiali Chen ]
+  * feat: add allwinner supports
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Tue, 15 Jul 2025 10:17:12 +0000
+
 radxa-overlays (0.1.27) noble; urgency=medium
 
   [ Andrew Yong ]
