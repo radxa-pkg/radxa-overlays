@@ -1,0 +1,52 @@
+/dts-v1/;
+/plugin/;
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/gpio/sun4i-gpio.h>
+
+/ {
+	metadata {
+		title = "Enable USB 3.0 and disable PCIe";
+		compatible = "radxa,cubie-a5e";
+		category = "misc";
+		exclusive = "usbc2", "xhci2";
+		description = "Enable USB 3.0 and disable PCIe.
+This is a hardware limitation.";
+	};
+};
+
+&{/} {
+	gma340_usb3: gma340-usb3 {
+		compatible = "regulator-fixed";
+		regulator-name = "gma340-usb3";
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		regulator-always-on;
+		gpio = <&pio PB 6 GPIO_ACTIVE_LOW>;
+	};
+};
+
+&combophy {
+	phy_use_sel = <1>;
+};
+
+&usbc2 {
+	drvvbus-supply = <&reg_usb1_vbus>;
+	wakeup-source;
+	usb_detect_mode = <0x0>;
+	aw,vbus-shared-quirk;
+	status = "okay";
+};
+
+&xhci2 {
+	drvvbus-supply = <&reg_usb1_vbus>;
+	dr_mode = "host";
+	status = "okay";
+};
+
+&u2phy {
+	status = "okay";
+};
+
+&pcie {
+	status = "disabled";
+};
