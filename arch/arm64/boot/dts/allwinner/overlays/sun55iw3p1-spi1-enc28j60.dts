@@ -1,0 +1,56 @@
+/dts-v1/;
+/plugin/;
+#include <dt-bindings/spi/sunxi-spi.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+#include <dt-bindings/gpio/sun4i-gpio.h>
+
+/{
+	metadata {
+		title = "Enable ENC28J60 on SPI1";
+		compatible = "radxa,cubie-a5e";
+		category = "misc";
+		exclusive = "PI4", "PI2", "PI5", "PI3", "PI1";
+		description = "Provide support for Microchip ENC28J60 SPI Ethernet controller on GPIO pins.
+Pin definition:
+MOSI=40 MISO=38 SCK=36 CS=12 INT=32";
+	};
+};
+
+&pio {
+	spi1_pins_default: spi1@0 {
+		pins = "PI4", "PI5", "PI3";
+		function = "spi1";
+		drive-strength = <10>;
+	};
+
+	spi1_pins_cs: spi1@1 {
+		pins = "PI2";
+		function = "spi1";
+		drive-strength = <10>;
+		bias-pull-up;   /* cs, hold, wp should be pulled up */
+	};
+
+	spi1_pins_sleep: spi1@2 {
+		pins = "PI4", "PI2", "PI5", "PI3";
+		function = "gpio_in";
+		drive-strength = <10>;
+	};
+};
+
+&spi1 {
+	clock-frequency = <12000000>;
+	pinctrl-0 = <&spi1_pins_default &spi1_pins_cs>;
+	pinctrl-1 = <&spi1_pins_sleep>;
+	pinctrl-names = "default", "sleep";
+	sunxi,spi-bus-mode = <SUNXI_SPI_BUS_MASTER>;
+	sunxi,spi-cs-mode = <SUNXI_SPI_CS_SOFT>;
+	status = "okay";
+
+	enc28j60: ethernet@0 {
+		compatible = "microchip,enc28j60";
+		reg = <0>;
+		interrupt-parent = <&pio>;
+		interrupts = <PI 1 IRQ_TYPE_EDGE_FALLING>;
+		spi-max-frequency = <12000000>;
+	};
+};

@@ -1,0 +1,34 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable PWM0-7";
+		compatible = "radxa,cubie-a5e";
+		category = "misc";
+		exclusive = "PI6";
+		description = "Enable PWM0-7.
+On Radxa Cubie A5E this is pin 33.
+";
+	};
+};
+
+&pio {
+	pwm0_7_pin_active: pwm0_7@0 {
+		pins = "PI6";
+		function = "pwm0_7";
+		drive-strength = <10>;
+	};
+
+	pwm0_7_pin_sleep: pwm0_7@1 {
+		pins = "PI6";
+		function = "gpio_in";
+	};
+};
+
+&pwm0_7 {
+	pinctrl-names = "active", "sleep";
+	pinctrl-0 = <&pwm0_7_pin_active>;
+	pinctrl-1 = <&pwm0_7_pin_sleep>;
+	status = "okay";
+};

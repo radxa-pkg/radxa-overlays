@@ -1,0 +1,37 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable TWI1";
+		compatible = "radxa,cubie-a5e";
+		category = "misc";
+		exclusive = "PB5", "PB4";
+		description = "Enable TWI1.
+On Radxa Cubie A5E this is SDA pin 3 & SCL pin 5.";
+    };
+};
+
+&pio {
+	twi1_pins_default: twi1@0 {
+		pins = "PB4", "PB5";
+		function = "twi1";
+		drive-strength = <10>;
+		bias-pull-up;
+	};
+
+	twi1_pins_sleep: twi1@1 {
+		pins = "PB4", "PB5";
+		function = "gpio_in";
+	};
+};
+
+&twi1 {
+	clock-frequency = <400000>;
+	pinctrl-0 = <&twi1_pins_default>;
+	pinctrl-1 = <&twi1_pins_sleep>;
+	pinctrl-names = "default", "sleep";
+	/* For stability and backwards compatibility, we recommend setting ‘twi_drv_used’ to 1 */
+	twi_drv_used = <1>;
+	status = "okay";
+};

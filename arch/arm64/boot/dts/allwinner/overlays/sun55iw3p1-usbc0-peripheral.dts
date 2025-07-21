@@ -1,0 +1,17 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Set USBC0 to Peripheral mode";
+		compatible = "radxa,cubie-a5e";
+		category = "misc";
+		exclusive = "usbc0_usb_port_type";
+		description = "Set USBC0 to Peripheral mode.
+Use this when you want to connect to another computer.";
+	};
+};
+
+&usbc0 {
+	usb_port_type = <0x0>;
+};
