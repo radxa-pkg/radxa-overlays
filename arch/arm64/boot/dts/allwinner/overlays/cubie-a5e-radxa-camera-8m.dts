@@ -1,0 +1,131 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/gpio/sun4i-gpio.h>
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+
+/ {
+	metadata {
+		title = "Enable Radxa Camera 8M 219";
+		compatible = "radxa,cubie-a5e";
+		category = "camera";
+		exclusive = "vind0", "csi0", "PE8", "PE9", "PE13", "PE14";
+		description = "Enable Radxa Camera 8M 219.";
+	};
+};
+
+&csi0 {
+	status = "okay";
+};
+
+&tdm0 {
+	work_mode = <0>;
+	status = "okay";
+};
+
+&isp00 {
+	work_mode = <0>;
+	status = "okay";
+};
+
+&scaler00 {
+	work_mode = <0>;
+	status = "okay";
+};
+
+&scaler10 {
+	work_mode = <0>;
+	status = "okay";
+};
+
+&scaler20 {
+	work_mode = <0>;
+	status = "okay";
+};
+
+&scaler30 {
+	work_mode = <0>;
+	status = "okay";
+};
+
+&sensor0 {
+	device_type = "sensor0";
+	sensor0_mname = "imx219";
+	sensor0_twi_cci_id = <4>;
+	sensor0_twi_addr = <0x20>;
+	sensor0_mclk_id = <0>;
+	sensor0_pos = "rear";
+	sensor0_isp_used = <1>;
+	sensor0_fmt = <1>;
+	sensor0_stby_mode = <0>;
+	sensor0_vflip = <0>;
+	sensor0_hflip = <0>;
+	sensor0_cameravdd-supply = <>;
+	sensor0_cameravdd_vol = <>;
+	sensor0_iovdd-supply = <>;
+	sensor0_iovdd_vol = <>;
+	sensor0_avdd-supply = <>;
+	sensor0_avdd_vol = <>;
+	sensor0_dvdd-supply = <>;
+	sensor0_dvdd_vol = <>;
+	sensor0_power_en = <>;
+	sensor0_reset = <&pio PE 9 GPIO_ACTIVE_LOW>;
+	sensor0_pwdn = <&pio PE 8 GPIO_ACTIVE_HIGH>;
+	status = "okay";
+};
+
+&vinc00 {
+	device_type = "vinc0";
+	compatible = "allwinner,sunxi-vin-core";
+	reg = <0x0 0x05830000 0x0 0x1000>;
+	interrupts = <GIC_SPI 122 IRQ_TYPE_LEVEL_HIGH>;
+	vinc0_csi_sel = <0>;
+	vinc0_mipi_sel = <0>;
+	vinc0_isp_sel = <0>;
+	vinc0_isp_tx_ch = <0>;
+	vinc0_tdm_rx_sel = <0>;
+	vinc0_rear_sensor_sel = <0>;
+	vinc0_front_sensor_sel = <0>;
+	vinc0_sensor_list = <0>;
+	device_id = <0>;
+	work_mode = <0x0>;
+	iommus = <&mmu_aw 1 0>;
+	status = "okay";
+};
+
+&vind0 {
+	csi_top = <360000000>;
+	csi_isp = <300000000>;
+	vind_mclkpin-supply = <&reg_aldo2>;
+	vind_mclkpin_vol = <1800000>;
+	vind_mcsipin-supply = <&reg_cldo1>;
+	vind_mcsipin_vol = <1800000>;
+	vind_mipipin-supply = <&reg_cldo3>;
+	vind_mipipin_vol = <3300000>;
+	status = "okay";
+};
+
+&twi4 {
+	clock-frequency = <400000>;
+	pinctrl-0 = <&twi4_pins_default>;
+	pinctrl-1 = <&twi4_pins_sleep>;
+	pinctrl-names = "default", "sleep";
+	/* For stability and backwards compatibility, we recommend setting ‘twi_drv_used’ to 1 */
+	twi_drv_used = <1>;
+	status = "okay";
+};
+
+&pio {
+	twi4_pins_default: twi4@0 {
+		pins = "PE13", "PE14";
+		function = "twi4";
+		drive-strength = <20>;
+		bias-pull-up;
+	};
+
+	twi4_pins_sleep: twi4@1 {
+		pins = "PE13", "PE14";
+		function = "gpio_in";
+	};
+};

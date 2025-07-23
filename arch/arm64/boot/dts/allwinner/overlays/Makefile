@@ -6,7 +6,9 @@ dtb-$(CONFIG_ARCH_SUN55IW3) += \
 	sun55iw3p1-twi1.dtbo \
 	sun55iw3p1-uart3.dtbo \
 	sun55iw3p1-usbc0-peripheral.dtbo \
-	sun55iw3p1-usbc0-host.dtbo 
+	sun55iw3p1-usbc0-host.dtbo \
+	cubie-a5e-radxa-camera-8m.dtbo \
+	cubie-a5e-radxa-display-8hd.dtbo
 
 targets += $(dtb-y)
 
