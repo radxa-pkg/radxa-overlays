@@ -1,0 +1,177 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/gpio/sun4i-gpio.h>
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+
+/ {
+	metadata {
+		title = "Enable Radxa Camera 4K";
+		compatible = "radxa,cubie-a7a";
+		category = "camera";
+		exclusive = "vind0", "csi1", "csi2", "PE8", "PE9", "PE3", "PE4";
+		description = "Enable Radxa Camera 4K IMX415.";
+	};
+};
+
+&vind0 {
+	csi_top = <704000000>;
+	csi_isp = <704000000>;
+	vind_mclkpin-supply = <&reg_bldo1>; /* vcc-pe */
+	vind_mclkpin_vol = <1800000>;
+	vind_mcsipin-supply = <&reg_bldo1>; /* vcc-pk */
+	vind_mcsipin_vol = <1800000>;
+	vind_mipipin-supply = <&reg_bldo1>; /* vcc-mcsi */
+	vind_mipipin_vol = <1800000>;
+	status = "okay";
+};
+
+&csi1 {
+	status = "okay";
+};
+
+&mipi1 {
+	status = "okay";
+	pinctrl-0 = <>;
+	pinctrl-1 = <>;
+};
+
+&tdm0 {
+	work_mode = <1>;
+	status = "okay";
+};
+
+&isp00 {
+	work_mode = <1>;
+	status = "okay";
+};
+
+&isp01 {
+	status = "okay";
+};
+
+&scaler00 {
+	work_mode = <1>;
+	status = "okay";
+};
+
+&scaler01 {
+	status = "okay";
+};
+
+&scaler10 {
+	work_mode = <1>;
+	status = "okay";
+};
+
+&scaler11 {
+	status = "okay";
+};
+
+&scaler20 {
+	work_mode = <1>;
+	status = "okay";
+};
+
+&scaler30 {
+	work_mode = <1>;
+	status = "okay";
+};
+
+&sensor0 {
+	device_type = "sensor0";
+	sensor0_mname = "imx415_mipi";
+	sensor0_twi_addr = <0x34>;
+	sensor0_twi_cci_id = <3>;
+	sensor0_mclk_id = <1>;
+	sensor0_pos = "rear";
+	sensor0_isp_used = <1>;
+	sensor0_fmt = <1>;
+	sensor0_stby_mode = <0>;
+	sensor0_vflip = <0>;
+	sensor0_hflip = <0>;
+	sensor0_reset = <&pio PE 9 GPIO_ACTIVE_LOW>;
+	sensor0_pwdn = <&pio PE 8 GPIO_ACTIVE_HIGH>;
+	status = "okay";
+};
+
+&vinc00 {
+	vinc0_csi_sel = <1>;
+	vinc0_mipi_sel = <1>;
+	vinc0_isp_sel = <0>;
+	vinc0_isp_tx_ch = <0>;
+	vinc0_tdm_rx_sel = <0>;
+	vinc0_rear_sensor_sel = <0>;
+	vinc0_front_sensor_sel = <0>;
+	vinc0_sensor_list = <0>;
+	device_id = <0>;
+	work_mode = <0x1>;
+	status = "okay";
+};
+
+&vinc01 {
+	vinc1_csi_sel = <1>;
+	vinc1_mipi_sel = <1>;
+	vinc1_isp_sel = <1>;
+	vinc1_isp_tx_ch = <0>;
+	vinc1_tdm_rx_sel = <1>;
+	vinc1_rear_sensor_sel = <0>;
+	vinc1_front_sensor_sel = <0>;
+	vinc1_sensor_list = <0>;
+	device_id = <1>;
+	status = "okay";
+};
+
+&vinc10 {
+	vinc4_csi_sel = <1>;
+	vinc4_mipi_sel = <1>;
+	vinc4_isp_sel = <0>;
+	vinc4_isp_tx_ch = <0>;
+	vinc4_tdm_rx_sel = <0>;
+	vinc4_rear_sensor_sel = <0>;
+	vinc4_front_sensor_sel = <0>;
+	vinc4_sensor_list = <0>;
+	device_id = <4>;
+	work_mode = <1>;
+	status = "okay";
+};
+
+&vinc11 {
+	vinc5_csi_sel = <1>;
+	vinc5_mipi_sel = <1>;
+	vinc5_isp_sel = <1>;
+	vinc5_isp_tx_ch = <0>;
+	vinc5_tdm_rx_sel = <1>;
+	vinc5_rear_sensor_sel = <0>;
+	vinc5_front_sensor_sel = <0>;
+	vinc5_sensor_list = <0>;
+	device_id = <5>;
+	status = "okay";
+};
+
+&twi3 {
+	clock-frequency = <400000>;
+	pinctrl-0 = <&twi3_pins_default>;
+	pinctrl-1 = <&twi3_pins_sleep>;
+	pinctrl-names = "default", "sleep";
+	/* For stability and backwards compatibility, we recommend setting ‘twi_drv_used’ to 1 */
+	twi_drv_used = <1>;
+	no_suspend = <1>;
+	twi-supply = <&reg_bldo1>;
+	status = "okay";
+};
+
+&pio {
+	twi3_pins_default: twi3@0 {
+		pins = "PE3", "PE4";
+		function = "twi3";
+		drive-strength = <10>;
+		bias-pull-up;
+	};
+
+	twi3_pins_sleep: twi3@1 {
+		pins = "PE3", "PE4";
+		function = "gpio_in";
+	};
+};

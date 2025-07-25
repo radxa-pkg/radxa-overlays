@@ -1,5 +1,4 @@
 dtb-$(CONFIG_ARCH_SUN55IW3) += \
-	radxa-cubie-a5e-enbale-usb3.dtbo \
 	sun55iw3p1-pwm0-7.dtbo \
 	sun55iw3p1-spi1-enc28j60.dtbo \
 	sun55iw3p1-spi1-spidev.dtbo \
@@ -7,8 +6,12 @@ dtb-$(CONFIG_ARCH_SUN55IW3) += \
 	sun55iw3p1-uart3.dtbo \
 	sun55iw3p1-usbc0-peripheral.dtbo \
 	sun55iw3p1-usbc0-host.dtbo \
-	cubie-a5e-radxa-camera-8m.dtbo \
-	cubie-a5e-radxa-display-8hd.dtbo
+	cubie-a5e-enable-usb3.dtbo \
+	cubie-a5e-radxa-camera-8m-219.dtbo \
+	cubie-a5e-radxa-display-8hd.dtbo \
+	cubie-a7a-radxa-camera-8m-219.dtbo \
+	cubie-a7a-radxa-camera-13m-214.dtbo \
+	cubie-a7a-radxa-camera-4k-415.dtbo
 
 targets += $(dtb-y)
 
