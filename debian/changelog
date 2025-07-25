@@ -1,3 +1,13 @@
+radxa-overlays (0.1.29) noble; urgency=medium
+
+  [ SongJun Li ]
+  * Add radxa cubie a5e and sun55iw3p1 overlays
+
+  [ Feng Zhang ]
+  * cubie a5e: add radxa 8HD display and 8M camera
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Fri, 25 Jul 2025 09:10:03 +0000
+
 radxa-overlays (0.1.28) noble; urgency=medium
 
   [ Mitchell Ma ]
