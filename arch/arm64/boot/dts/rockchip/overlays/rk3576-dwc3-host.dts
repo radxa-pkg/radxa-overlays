@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Set OTG port 0 to Host mode";
-		compatible = "radxa,rock-4d";
+		compatible = "radxa,cm4-io", "radxa,rock-4d";
 		category = "misc";
 		exclusive = "usb_drd0_dwc3-dr_mode";
 		description = "Set OTG port 0 to Host mode.

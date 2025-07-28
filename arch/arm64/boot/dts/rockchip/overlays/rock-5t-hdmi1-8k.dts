@@ -1,0 +1,13 @@
+/dts-v1/;
+/plugin/;
+#include <dt-bindings/clock/rk3588-cru.h>
+#include "rock-5b-plus-hdmi1-8k.dts"
+
+/ {
+	metadata {
+		title = "Enable 8K output on HDMI2";
+		compatible = "radxa,rock-5t";
+		description = "Enable 8K output on HDMI2.
+8K cannot be enabled on HDMI1 and HDMI2 at the same time.";
+	};
+};
