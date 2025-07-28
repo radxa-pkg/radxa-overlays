@@ -7,11 +7,13 @@
 / {
 	metadata {
 		title = "Enable 1-Wire on GPIO1_D0";
-		compatible = "radxa,cm4-rpi-cm4-io";
+		compatible = "radxa,cm4-rpi-cm4-io", "radxa,cm4-io", "radxa,rock-4d";
 		category = "misc";
 		exclusive = "GPIO1_D0";
 		description = "Enable 1-Wire on GPIO1_D0.
 On Radxa CM4 RPI CM4 IO this is pin 40.
+On Radxa CM4 IO this is pin 40.
+On Radxa ROCK 4D this is pin 40.
 ";
 	};
 };

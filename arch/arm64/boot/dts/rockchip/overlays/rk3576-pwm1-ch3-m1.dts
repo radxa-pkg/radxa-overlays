@@ -4,11 +4,12 @@
 / {
 	metadata {
 		title = "Enable PWM1-CH3-M1";
-		compatible = "radxa,cm4-rpi-cm4-io", "radxa,rock-4d";
+		compatible = "radxa,cm4-rpi-cm4-io", "radxa,cm4-io", "radxa,rock-4d";
 		category = "misc";
 		exclusive = "GPIO1_D2", "pwm1_6ch_3";
 		description = "Enable PWM1-CH3-M1.
 On Radxa CM4 RPI CM4 IO this is pin 35.
+On Radxa CM4 IO this is pin 35.
 On Radxa ROCK 4D this is pin 35.
 ";
 	};
