@@ -25,6 +25,10 @@ This is a hardware limitation.";
 	};
 };
 
+&gma340_pcie {
+	status = "disabled";
+};
+
 &combophy {
 	phy_use_sel = <1>;
 };
