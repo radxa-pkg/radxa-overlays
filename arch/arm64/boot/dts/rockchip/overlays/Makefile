@@ -391,12 +391,19 @@ dtb-$(CONFIG_CLK_RK3576) += \
 	rk3576-w1-gpio1-d0.dtbo
 
 dtb-$(CONFIG_CPU_RK3576) += \
+	radxa-cm4-io-okdo-5mp-camera-on-cam1.dtbo \
+	radxa-cm4-io-okdo-5mp-camera-on-cam2.dtbo \
 	radxa-cm4-io-radxa-camera-13m-214.dtbo \
 	radxa-cm4-io-radxa-camera-4k.dtbo \
 	radxa-cm4-io-radxa-camera-8m-219-on-cam1.dtbo \
 	radxa-cm4-io-radxa-camera-8m-219-on-cam2.dtbo \
 	radxa-cm4-io-radxa-display-8hd.dtbo \
+	radxa-cm4-io-radxa-display-10fhd.dtbo \
 	radxa-cm4-io-radxa-display-10hd.dtbo \
+	radxa-cm4-io-rpi-camera-v1p3-on-cam1.dtbo \
+	radxa-cm4-io-rpi-camera-v1p3-on-cam2.dtbo \
+	radxa-cm4-io-rpi-camera-v2-on-cam1.dtbo \
+	radxa-cm4-io-rpi-camera-v2-on-cam2.dtbo \
 	rk3576-can1-m1.dtbo \
 	rk3576-can1-m3.dtbo \
 	rock-4d-radxa-25w-poe.dtbo \
@@ -606,6 +613,7 @@ dtb-$(CONFIG_CPU_RK3588) += \
 	rock-5a-rpi-camera-v1_3.dtbo \
 	rock-5b-allnet-5inch-display.dtbo \
 	rock-5b-okdo-5mp-camera.dtbo \
+	rock-5b-radxa-camera-13m-214.dtbo \
 	rock-5b-radxa-camera-4k.dtbo \
 	rock-5b-radxa-camera-8m-219.dtbo \
 	rock-5b-radxa-display-10fhd.dtbo \
