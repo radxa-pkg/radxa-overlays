@@ -28,20 +28,9 @@
 		enable-active-high;
 	};
 
-	reg_backlight: reg-backlight {
-		compatible = "regulator-fixed";
-		regulator-name = "reg-backlight";
-		regulator-min-microvolt = <3300000>;
-		regulator-max-microvolt = <3300000>;
-		regulator-always-on;
-		regulator-boot-on;
-		gpio = <&pio PD 23 GPIO_ACTIVE_HIGH>;
-		enable-active-high;
-	};
-
 	backlight0: backlight0 {
 		compatible = "pwm-backlight";
-		power-supply = <&reg_backlight>;
+		enable-gpio = <&pio PD 23 GPIO_ACTIVE_HIGH>;
 		brightness-levels = <
 			0   1   2   3   4   5   6   7
 			8   9  10  11  12  13  14  15
