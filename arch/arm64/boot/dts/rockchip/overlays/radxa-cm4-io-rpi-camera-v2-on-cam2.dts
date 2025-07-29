@@ -6,11 +6,11 @@
 
 / {
 	metadata {
-		title ="Enable Radxa Camera 8M 219 on CAM2";
+		title ="Enable Raspberry Pi Camera V2 on CAM2";
 		compatible = "radxa,cm4-io";
 		category = "camera";
 		exclusive = "GPIO2_D1", "csi2_dphy2", "i2c0";
-		description = "Enable Radxa Camera 8M 219 on CAM2.";
+		description = "Enable Raspberry Pi Camera V2 on CAM2.";
 	};
 };
 
@@ -19,6 +19,7 @@
 		compatible = "regulator-fixed";
 		regulator-name = "camera_pwdn_gpio_2";
 		regulator-always-on;
+		regulator-boot-on;
 		enable-active-high;
 		gpio = <&gpio2 RK_PD1 GPIO_ACTIVE_HIGH>;
 		pinctrl-names = "default";
@@ -49,7 +50,7 @@
 		clock-names = "xvclk";
 		rockchip,camera-module-index = <1>;
 		rockchip,camera-module-facing = "back";
-		rockchip,camera-module-name = "RADXA-CAMERA-8M";
+		rockchip,camera-module-name = "rpi-camera-v2";
 		rockchip,camera-module-lens-name = "default";
 
 		port {
@@ -182,21 +183,21 @@
 	};
 };
 
-&rkisp_vir0_sditf {
-	status = "okay";
-};
+// &rkisp_vir0_sditf {
+// 	status = "okay";
+// };
 
-&rkvpss {
-	status = "okay";
-};
+// &rkvpss {
+// 	status = "okay";
+// };
 
-&rkvpss_mmu {
-	status = "okay";
-};
+// &rkvpss_mmu {
+// 	status = "okay";
+// };
 
-&rkvpss_vir0 {
-	status = "okay";
-};
+// &rkvpss_vir0 {
+// 	status = "okay";
+// };
 
 &pinctrl {
 	camera {

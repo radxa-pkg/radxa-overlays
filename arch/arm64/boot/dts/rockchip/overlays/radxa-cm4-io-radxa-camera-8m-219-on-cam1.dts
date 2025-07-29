@@ -19,7 +19,6 @@
 		compatible = "regulator-fixed";
 		regulator-name = "camera_pwdn_gpio_1";
 		regulator-always-on;
-		regulator-boot-on;
 		enable-active-high;
 		gpio = <&gpio2 RK_PC5 GPIO_ACTIVE_HIGH>;
 		pinctrl-names = "default";
@@ -181,21 +180,21 @@
 	};
 };
 
-// &rkisp_vir0_sditf {
-// 	status = "okay";
-// };
+&rkisp_vir0_sditf {
+	status = "okay";
+};
 
-// &rkvpss {
-// 	status = "okay";
-// };
+&rkvpss {
+	status = "okay";
+};
 
-// &rkvpss_mmu {
-// 	status = "okay";
-// };
+&rkvpss_mmu {
+	status = "okay";
+};
 
-// &rkvpss_vir0 {
-// 	status = "okay";
-// };
+&rkvpss_vir0 {
+	status = "okay";
+};
 
 &pinctrl {
 	camera {

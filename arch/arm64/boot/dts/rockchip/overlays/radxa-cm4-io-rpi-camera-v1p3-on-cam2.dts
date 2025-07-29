@@ -6,29 +6,20 @@
 
 / {
 	metadata {
-		title ="Enable Radxa Camera 8M 219 on CAM2";
+		title ="Enable Raspberry Pi Camera v1.3 on CAM2";
 		compatible = "radxa,cm4-io";
 		category = "camera";
 		exclusive = "GPIO2_D1", "csi2_dphy2", "i2c0";
-		description = "Enable Radxa Camera 8M 219 on CAM2.";
+		description = "Enable Raspberry Pi Camera v1.3 on CAM2.";
 	};
 };
 
 &{/} {
-	camera_pwdn_gpio_2: camera-pwdn-gpio-2 {
-		compatible = "regulator-fixed";
-		regulator-name = "camera_pwdn_gpio_2";
-		regulator-always-on;
-		enable-active-high;
-		gpio = <&gpio2 RK_PD1 GPIO_ACTIVE_HIGH>;
-		pinctrl-names = "default";
-		pinctrl-0 = <&cam_pwdn_gpio_2>;
-	};
-
-	clk_cam_24m_2: external-camera-clock-24m-2 {
+	clk_cam_25m_2: external-camera-clock-25m-2 {
+		status = "okay";
 		compatible = "fixed-clock";
-		clock-frequency = <24000000>;
-		clock-output-names = "clk_cam_24m_2";
+		clock-frequency = <25000000>;
+		clock-output-names = "clk_cam_25m_2";
 		#clock-cells = <0>;
 	};
 };
@@ -41,19 +32,20 @@
 	#size-cells = <0>;
 
 
-	imx219_2: imx219-2@10 {
+	ov5647_2: ov5647-2@36 {
 		status = "okay";
-		compatible = "sony,imx219";
-		reg = <0x10>;
-		clocks = <&clk_cam_24m_2>;
+		compatible = "ovti,ov5647";
+		reg = <0x36>;
+		clocks = <&clk_cam_25m_2>;
+		pwdn-gpios = <&gpio2 RK_PD1 GPIO_ACTIVE_LOW>;
 		clock-names = "xvclk";
 		rockchip,camera-module-index = <1>;
 		rockchip,camera-module-facing = "back";
-		rockchip,camera-module-name = "RADXA-CAMERA-8M";
+		rockchip,camera-module-name = "rpi-camera-v1p3";
 		rockchip,camera-module-lens-name = "default";
 
 		port {
-			imx219_out2: endpoint {
+			ov5647_out2: endpoint {
 				remote-endpoint = <&mipidphy2_in_ucam2>;
 				data-lanes = <1 2>;
 			};
@@ -83,7 +75,7 @@
 
 			mipidphy2_in_ucam2: endpoint@2 {
 				reg = <2>;
-				remote-endpoint = <&imx219_out2>;
+				remote-endpoint = <&ov5647_out2>;
 				data-lanes = <1 2>;
 			};
 		};
@@ -196,12 +188,4 @@
 
 &rkvpss_vir0 {
 	status = "okay";
-};
-
-&pinctrl {
-	camera {
-		cam_pwdn_gpio_2: cam-pwdn-gpio-2 {
-			rockchip,pins = <2 RK_PD1 RK_FUNC_GPIO &pcfg_pull_up>;
-		};
-	};
 };
