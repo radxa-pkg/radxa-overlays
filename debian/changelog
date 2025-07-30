@@ -1,3 +1,18 @@
+radxa-overlays (0.1.30) noble; urgency=medium
+
+  [ Ken Wang ]
+  * overlays: add some overlay
+
+  [ Zhaoming Luo ]
+  * feat: add mali-enable for rk3399
+
+  [ Feng Zhang ]
+  * overlay: cubie-a5e: display-8hd: using enable-gpio
+  * overlay: cubie-a5e: camera-8m: add missing mipi0 node
+  * overlay: cubie-a5e: usb3: Disable conflicting nodes
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Wed, 30 Jul 2025 08:16:43 +0000
+
 radxa-overlays (0.1.29) noble; urgency=medium
 
   [ SongJun Li ]
