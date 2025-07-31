@@ -11,7 +11,8 @@ dtb-$(CONFIG_ARCH_SUN55IW3) += \
 	cubie-a5e-radxa-display-8hd.dtbo \
 	cubie-a7a-radxa-camera-8m-219.dtbo \
 	cubie-a7a-radxa-camera-13m-214.dtbo \
-	cubie-a7a-radxa-camera-4k-415.dtbo
+	cubie-a7a-radxa-camera-4k-415.dtbo \
+	cubie-a7a-radxa-display-8hd.dtbo
 
 targets += $(dtb-y)
 
