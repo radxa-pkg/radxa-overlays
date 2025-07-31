@@ -8,7 +8,7 @@
 / {
 	metadata {
 		title = "Enable Radxa Camera 13M";
-		compatible = "radxa,cubie-a7a";
+		compatible = "radxa,cubie-a7a","radxa,cubie-a7z";
 		category = "camera";
 		exclusive = "vind0", "csi1", "csi2", "PE8", "PE9", "PE3", "PE4";
 		description = "Enable Radxa Camera 13M IMX214.";
