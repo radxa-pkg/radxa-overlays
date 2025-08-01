@@ -1,0 +1,93 @@
+/dts-v1/;
+/plugin/;
+
+/{
+	metadata {
+		title = "Enable I2S4";
+		compatible = "radxa,cubie-a7a";
+		category = "misc";
+		exclusive = "i2s4_plat", "i2s4_mach", "PK1", "PK0", "PK2", "PK3", "PK4";
+		description = "Enable I2S4 2-channel dummy sound card.
+This overlay is only for demonstration purpose.
+It does not support any specific hardware device.";
+	};
+};
+
+&pio {
+	/* i2s4 pins */
+	i2s4_pins_a: i2s4@0 {
+		pins = "PK1";
+		function = "i2s4_mclk";
+		allwinner,drive = <1>;
+		bias-disable;
+	};
+
+	i2s4_pins_b: i2s4@1 {
+		pins = "PK0";
+		function = "i2s4_bclk";
+		allwinner,drive = <1>;
+		bias-disable;
+	};
+
+	i2s4_pins_c: i2s4@2 {
+		pins = "PK2";
+		function = "i2s4_lrck";
+		allwinner,drive = <1>;
+		bias-disable;
+	};
+
+	i2s4_pins_d: i2s4@3 {
+		pins = "PK3";
+		function = "i2s4_din0";
+		allwinner,drive = <1>;
+		bias-pull-down;
+	};
+
+	i2s4_pins_e: i2s4@4 {
+		pins = "PK4";
+		function = "i2s4_dout0";
+		allwinner,drive = <1>;
+		bias-pull-down;
+	};
+
+	i2s4_pins_f: i2s4@5 {
+		pins = "PK1", "PK0", "PK2", "PK3", "PK4";
+		function = "io_disabled";
+		allwinner,drive = <1>;
+		bias-disable;
+	};
+};
+
+&i2s4_plat {
+	tdm-num = <4>;
+	tx-pin = <0>;
+	rx-pin = <0>;
+
+	tx-hub-en;
+	rx-sync-en;
+
+	pinctrl-used;
+	pinctrl-names = "default","sleep";
+	pinctrl-0 = <&i2s4_pins_a &i2s4_pins_b &i2s4_pins_c &i2s4_pins_d &i2s4_pins_e>;
+	pinctrl-1 = <&i2s4_pins_f>;
+
+	status = "okay";
+};
+
+&i2s4_mach {
+	soundcard-mach,format = "i2s";
+	soundcard-mach,frame-master	= <&i2s4_cpu>;
+	soundcard-mach,bitclock-master = <&i2s4_cpu>;
+	/* soundcard-mach,frame-inversion; */
+	/* soundcard-mach,bitclock-inversion; */
+	soundcard-mach,slot-num = <2>;
+	soundcard-mach,slot-width = <32>;
+	status = "okay";
+	i2s4_cpu: soundcard-mach,cpu {
+		sound-dai = <&i2s4_plat>;
+		soundcard-mach,pll-fs	= <1>;
+		soundcard-mach,mclk-fs	= <0>;
+	};
+	i2s4_codec: soundcard-mach,codec {
+	};
+};
