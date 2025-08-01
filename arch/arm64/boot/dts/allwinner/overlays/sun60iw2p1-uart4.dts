@@ -1,0 +1,36 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable UART4";
+		compatible = "radxa,cubie-a7a", "radxa,cubie-a7z";
+		category = "misc";
+		exclusive = "PJ24", "PJ25", "uart4";
+		description = "Enable UART4.
+On Radxa Cubie A7A, this is pin 16 and pin 18.
+On Radxa Cubie A7Z, this is pin 16 and pin 18.
+";
+	};
+};
+
+&pio {
+	uart4_pins_active: uart4_pins@0 {
+		pins = "PJ24", "PJ25";
+		function = "uart4";
+		drive-strength = <10>;
+	};
+
+	uart4_pins_sleep: uart4_pins@1 {
+		pins = "PJ24", "PJ25";
+		function = "io_disabled";
+		drive-strength = <10>;
+	};
+};
+
+&uart4 {
+	pinctrl-names = "default", "sleep";
+	pinctrl-0 = <&uart4_pins_active>;
+	pinctrl-1 = <&uart4_pins_sleep>;
+	status = "okay";
+};

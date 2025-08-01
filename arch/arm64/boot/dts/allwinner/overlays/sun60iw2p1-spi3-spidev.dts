@@ -1,0 +1,53 @@
+/dts-v1/;
+/plugin/;
+#include <dt-bindings/spi/sunxi-spi.h>
+
+/{
+	metadata {
+		title = "Enable spidev on SPI3";
+		compatible = "radxa,cubie-a7a";
+		category = "misc";
+		exclusive = "spi3", "PK5", "PK6", "PK7", "PK8";
+		description = "Enable spidev on SPI3 on pin 29, 31, 33 & 37.";
+	};
+};
+
+&pio {
+	spi3_pins_default: spi3@0 {
+		pins = "PK5", "PK6", "PK7";
+		function = "spi3";
+		drive-strength = <10>;
+	};
+
+	spi3_pins_cs: spi3@1 {
+		pins = "PK8";
+		function = "spi3";
+		drive-strength = <10>;
+		bias-pull-up; /* cs, hold, wp should be pulled up */
+	};
+
+	spi3_pins_sleep: spi3@2 {
+		pins = "PK5", "PK6", "PK7", "PK8";
+		function = "gpio_in";
+		drive-strength = <10>;
+	};
+};
+
+&spi3 {
+	clock-frequency = <50000000>;
+	pinctrl-0 = <&spi3_pins_default &spi3_pins_cs>;
+	pinctrl-1 = <&spi3_pins_sleep>;
+	pinctrl-names = "default", "sleep";
+	sunxi,spi-bus-mode = <SUNXI_SPI_BUS_MASTER>;
+	sunxi,spi-cs-mode = <SUNXI_SPI_CS_AUTO>;
+	status = "okay";
+
+	spidev0 {
+		compatible = "rohm,dh2228fv";
+		reg = <0x0>;
+		spi-max-frequency = <100000000>;
+		spi-rx-bus-width = <1>;
+		spi-tx-bus-width = <1>;
+		status = "okay";	
+	};
+};

@@ -1,0 +1,39 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable TWI7";
+		compatible = "radxa,cubie-a7a", "radxa,cubie-a7z";
+		category = "misc";
+		exclusive = "twi7", "PJ22", "PJ23";
+		description = "Enable TWI7.
+On Radxa Cubie A7A this is SDA pin 3 & SCL pin 5.
+On Radxa Cubie A7Z this is SDA pin 3 & SCL pin 5.
+";
+    };
+};
+
+&pio {
+	twi7_pins_default: twi7@0 {
+		pins = "PJ22", "PJ23";
+		function = "twi7";
+		drive-strength = <10>;
+		bias-pull-up;
+	};
+
+	twi7_pins_sleep: twi7@1 {
+		pins = "PJ22", "PJ23";
+		function = "gpio_in";
+	};
+};
+
+&twi7 {
+	clock-frequency = <400000>;
+	pinctrl-0 = <&twi7_pins_default>;
+	pinctrl-1 = <&twi7_pins_sleep>;
+	pinctrl-names = "default", "sleep";
+	/* For stability and backwards compatibility, we recommend setting ‘twi_drv_used’ to 1 */
+	twi_drv_used = <1>;
+	status = "okay";
+};
