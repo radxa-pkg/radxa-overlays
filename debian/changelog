@@ -1,3 +1,18 @@
+radxa-overlays (0.1.31) noble; urgency=medium
+
+  [ Ken Wang ]
+  * overlays: add some overlays for radxa cm4 io
+
+  [ Feng Zhang ]
+  * overlay: cubie-a7a: add radxa camera support
+  * overlay: cubie-a7a: add radxa display 8hd support
+  * overlay: camera: add cubie-a7z compatibility
+
+  [ SongJun Li ]
+  * overlay: allwinner: add cubie a7a/a7z 40pin support
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Sat, 02 Aug 2025 09:14:04 +0000
+
 radxa-overlays (0.1.30) noble; urgency=medium
 
   [ Ken Wang ]
