@@ -15,13 +15,13 @@ On Radxa Cubie A7Z this is pin 19.
 };
 
 &pio {
-	pwm1_2_pins_active: pwm1@0 {
+	pwm1_2_pins_active: pwm1-2-pins-active {
 		pins = "PD12";
 		function = "pwm1_2";
 		drive-strength = <10>;
 	};
 
-	pwm1_2_pins_sleep: pwm1@1 {
+	pwm1_2_pins_sleep: pwm1-2-pins-sleep {
 		pins = "PD12";
 		function = "gpio_in";
 		bias-pull-down;
