@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [linux-rockchip, linux-rk356x, linux-stable, linux-rk2312, linux-rk2410, linux-rk2410-nocsf, linux-aw2501]
+        version: [linux-rockchip, linux-rk356x, linux-stable, linux-rk2312, linux-rk2410, linux-rk2410-nocsf, linux-aw2501, linux-a733]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -66,6 +66,10 @@ jobs:
               wget https://github.com/radxa-pkg/linux-aw2501/releases/download/5.15.147-2/linux-headers-5.15.147-2-aw2501_5.15.147-2_arm64.deb
               sudo apt install ./linux-headers-*.deb
               ;;
+            linux-a733)
+              wget https://github.com/radxa-pkg/linux-a733/releases/download/5.15.147-2/linux-headers-5.15.147-2-a733_5.15.147-2_arm64.deb
+              sudo apt install ./linux-headers-*.deb
+              ;;
           esac
       - name: Build
         shell: bash
@@ -91,6 +95,9 @@ jobs:
               ;;
             linux-aw2501)
               make build-dtbo -j$(nproc) KERNELRELEASE=5.15.147-2-aw2501 CONFIG_ARCH_SUNXI=allwinner CONFIG_ARCH_SUN55IW3=allwinner
+              ;;
+            linux-a733)
+              make build-dtbo -j$(nproc) KERNELRELEASE=5.15.147-2-a733 CONFIG_ARCH_SUNXI=allwinner CONFIG_ARCH_SUN60IW2=allwinner
               ;;
           esac
       - name: Upload artifacts
