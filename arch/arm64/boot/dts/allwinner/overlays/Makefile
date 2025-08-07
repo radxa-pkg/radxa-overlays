@@ -18,6 +18,7 @@ dtb-$(CONFIG_ARCH_SUN60IW2) += \
 	sun60iw2p1-spi3-spidev.dtbo \
 	sun60iw2p1-twi7.dtbo \
 	sun60iw2p1-uart4.dtbo \
+	cubie-a7a-radxa-25w-poe.dtbo \
 	cubie-a7a-radxa-camera-8m-219.dtbo \
 	cubie-a7a-radxa-camera-13m-214.dtbo \
 	cubie-a7a-radxa-camera-4k-415.dtbo \
