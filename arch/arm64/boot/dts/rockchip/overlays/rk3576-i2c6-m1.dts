@@ -4,11 +4,10 @@
 / {
 	metadata {
 		title = "Enable I2C6-M1";
-		compatible = "radxa,cm4-io", "radxa,rock-4d";
+		compatible = "radxa,rock-4d";
 		category = "misc";
 		exclusive = "GPIO1_C2", "GPIO1_C3", "i2c6";
 		description = "Enable I2C6-M1.
-On Radxa CM4 IO this is SDA pin 7 and SCL pin 33.
 On Radxa ROCK 4D this is SDA pin 7 and SCL pin 33.
 ";
 	};

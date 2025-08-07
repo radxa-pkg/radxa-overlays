@@ -3,11 +3,11 @@
 
 / {
 	metadata {
-		title = "Enable Raspiberry Pi 7-inch Touchscreen on DISP1";
-		compatible = "radxa,cm4-rpi-cm4-io";
+		title = "Enable Raspiberry Pi 7-inch Touchscreen";
+		compatible = "radxa,cm4-io";
 		category = "display";
 		exclusive = "dsi";
-		description = "Enable Raspiberry Pi 7-inch Touchscreen on DISP1.";
+		description = "Enable Raspiberry Pi 7-inch Touchscreen.";
 	};
 };
 
@@ -21,30 +21,6 @@
 		compatible = "raspits,tc358762";
 		reg = <0x0>;
 		status = "okay";
-		rockchip,lane-rate = <600>;
-
-		display_timings0: display-timings {
-			native-mode = <&dsi0_timing>;
-
-			dsi0_timing: timing0 {
-				clock-frequency = <26000000>;
-				hactive = <800>;
-				vactive = <480>;
-
-				hsync-len = <85>;
-				hback-porch = <55>;
-				hfront-porch = <42>;
-
-				vsync-len = <12>;
-				vback-porch = <7>;
-				vfront-porch = <10>;
-
-				hsync-active = <0>;
-				vsync-active = <0>;
-				de-active = <0>;
-				pixelclk-active = <0>;
-			};
-		};
 
 		ports {
 			#address-cells = <1>;

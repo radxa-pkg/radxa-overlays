@@ -4,11 +4,12 @@
 / {
 	metadata {
 		title = "Enable UART10-M1";
-		compatible = "radxa,cm4-io", "radxa,rock-4d";
+		compatible = "radxa,cm4-rpi-cm4-io", "radxa,cm4-io", "radxa,rock-4d";
 		category = "misc";
 		exclusive = "GPIO1_D0", "GPIO1_D1", "uart10";
 		description = "Enable UART10-M1.
 On Radxa CM4 IO this is TX pin 40 and RX pin 12.
+On Radxa CM4 RPI CM4 IO this is TX pin 40 and RX pin 12.
 On Radxa ROCK 4D this is TX pin 40 and RX pin 12.
 ";
 	};

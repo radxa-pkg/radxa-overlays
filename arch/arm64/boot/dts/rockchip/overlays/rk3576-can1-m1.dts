@@ -6,12 +6,10 @@
 / {
 	metadata {
 		title = "Enable CAN1-M1";
-		compatible = "radxa,cm4-rpi-cm4-io", "radxa,cm4-io", "radxa,rock-4d";
+		compatible = "radxa,rock-4d";
 		category = "misc";
 		exclusive = "GPIO4_C6", "GPIO4_C7", "can1";
 		description = "Enable CAN1-M1.
-On Radxa CM4 IO this is TX pin 28 and RX pin 27.
-On Radxa CM4 RPI CM4 IO this is TX pin 28 and RX pin 27.
 On Radxa ROCK 4D this is TX pin 28 and RX pin 27.
 ";
 	};
