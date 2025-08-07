@@ -342,37 +342,14 @@
 	twi-supply = <&reg_bldo2>;
 	status = "okay";
 
-	ctp@14 {
-		compatible = "allwinner,goodix";
+	gt911@14 {
+		compatible = "goodix,gt911";
 		reg = <0x14>;
-		device_type = "ctp";
-		ctp_name = "gt9xxnew_ts";
-		ctp_twi_id = <0x2>;
-		ctp_twi_addr = <0x14>;
-		ctp_screen_max_x = <0x500>;
-		ctp_screen_max_y = <0x320>;
-		ctp_revert_x_flag = <0x0>;
-		ctp_revert_y_flag = <0x0>;
-		ctp_exchange_x_y_flag = <0x0>;
-		ctp_int_port = <&pio PD 18 IRQ_TYPE_LEVEL_HIGH>;
-		ctp_wakeup = <&pio PD 19 GPIO_ACTIVE_HIGH>;
-		status = "okay";
-	};
-
-	ctp@5d {
-		compatible = "allwinner,goodix";
-		reg = <0x5d>;
-		device_type = "ctp";
-		ctp_name = "gt9xxnew_ts";
-		ctp_twi_id = <0x2>;
-		ctp_twi_addr = <0x5d>;
-		ctp_screen_max_x = <0x500>;
-		ctp_screen_max_y = <0x320>;
-		ctp_revert_x_flag = <0x0>;
-		ctp_revert_y_flag = <0x0>;
-		ctp_exchange_x_y_flag = <0x0>;
-		ctp_int_port = <&pio PD 18 IRQ_TYPE_LEVEL_HIGH>;
-		ctp_wakeup = <&pio PD 19 GPIO_ACTIVE_HIGH>;
+		pinctrl-names = "default";
+		interrupt-parent = <&pio>;
+		interrupts = <PD 18 IRQ_TYPE_EDGE_FALLING>;
+		irq-gpios = <&pio PD 18 GPIO_ACTIVE_HIGH>;
+		reset-gpios = <&pio PD 19 GPIO_ACTIVE_HIGH>;
 		status = "okay";
 	};
 };
