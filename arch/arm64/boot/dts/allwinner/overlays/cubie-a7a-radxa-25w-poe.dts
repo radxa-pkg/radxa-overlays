@@ -1,0 +1,60 @@
+/dts-v1/;
+/plugin/;
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/gpio/sun4i-gpio.h>
+#include <dt-bindings/pwm/pwm.h>
+#include <dt-bindings/thermal/thermal.h>
+
+/ {
+	metadata {
+		title = "Enable Radxa 25W PoE+ HAT";
+		category = "misc";
+		compatible = "radxa,cubie-a7a";
+		description = "Enable Radxa 25W PoE+ HAT.";
+		exclusive = "PB0", "PK7";
+		package = "rsetup-config-thermal-governor-step-wise";
+	};
+};
+
+&{/} {
+	radxa_pow_w1: radxa-poe-w1 {
+		compatible = "w1-gpio";
+		gpios = <&pio PB 0 GPIO_ACTIVE_HIGH>;
+		status = "okay";
+	};
+
+	gpio_pwm: gpio-pwn {
+		compatible = "pwm-gpio";
+		#pwm-cells = <3>;
+		pwm-gpio = <&pio PK 7 GPIO_ACTIVE_HIGH>;
+	};
+
+	radxa_poe_fan: radxa-poe-fan {
+		compatible = "pwm-fan";
+		#cooling-cells = <2>;
+		cooling-min-state = <0>;
+		cooling-max-state = <4>;
+		cooling-levels = <0 64 128 192 255>;
+		pwms = <&gpio_pwm 0 40000 PWM_POLARITY_INVERTED>;
+	};
+};
+
+&cpul_thermal_zone {
+	cooling-maps {
+		map2 {
+			trip = <&cpul_threshold>;
+			cooling-device = <&radxa_poe_fan 2 THERMAL_NO_LIMIT>;
+			contribution = <1024>;
+		};
+	};
+};
+
+&cpub_thermal_zone {
+	cooling-maps {
+		map2 {
+			trip = <&cpub_threshold>;
+			cooling-device = <&radxa_poe_fan 2 THERMAL_NO_LIMIT>;
+			contribution = <1024>;
+		};
+	};
+};
