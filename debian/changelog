@@ -1,3 +1,24 @@
+radxa-overlays (0.1.32) noble; urgency=medium
+
+  [ Jiali Chen ]
+  * fix: allwinner: change goodix driver
+
+  [ SongJun Li ]
+  * overlay: allwinner: Add CONFIG_ARCH_SUN60IW2 and reorganize overlays
+  * overlay: cubie-a7a: add radxa 25w poe+ hat support
+  * overlay: allwinner: Rename PWM pin nodes in sun60iw2p1-pwm1-2 overlay
+
+  [ Feng Zhang ]
+  * fix: allwinner: camera: change the titie
+
+  [ Ken Wang ]
+  * overlay: update some overlay
+
+  [ dependabot[bot] ]
+  * chore(deps): bump actions/download-artifact from 4 to 5
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Fri, 08 Aug 2025 11:31:03 +0000
+
 radxa-overlays (0.1.31) noble; urgency=medium
 
   [ Ken Wang ]
