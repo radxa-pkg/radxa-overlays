@@ -15,7 +15,7 @@ jobs:
         version: [linux-rockchip, linux-rk356x, linux-stable, linux-rk2312, linux-rk2410, linux-rk2410-nocsf, linux-aw2501, linux-a733]
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Check if there is missing files
         shell: bash
         run: |
@@ -112,7 +112,7 @@ jobs:
       distro: ${{ steps.distro_check.outputs.distro }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           submodules: recursive
           fetch-depth: 0
@@ -151,7 +151,7 @@ jobs:
       contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           submodules: recursive
           fetch-depth: 0
