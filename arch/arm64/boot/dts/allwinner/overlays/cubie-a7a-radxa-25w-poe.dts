@@ -43,7 +43,7 @@
 	cooling-maps {
 		map2 {
 			trip = <&cpul_threshold>;
-			cooling-device = <&radxa_poe_fan 2 THERMAL_NO_LIMIT>;
+			cooling-device = <&radxa_poe_fan THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
 			contribution = <1024>;
 		};
 	};
@@ -53,7 +53,7 @@
 	cooling-maps {
 		map2 {
 			trip = <&cpub_threshold>;
-			cooling-device = <&radxa_poe_fan 2 THERMAL_NO_LIMIT>;
+			cooling-device = <&radxa_poe_fan THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
 			contribution = <1024>;
 		};
 	};
