@@ -15,8 +15,22 @@
 	};
 };
 
+&vind0 {
+	csi_top = <500000000>;
+	csi_isp = <300000000>;
+	vind_mclkpin-supply = <&reg_aldo2>;
+	vind_mclkpin_vol = <1800000>;
+	vind_mcsipin-supply = <&reg_cldo1>;
+	vind_mcsipin_vol = <1800000>;
+	vind_mipipin-supply = <&reg_cldo3>;
+	vind_mipipin_vol = <3300000>;
+	status = "okay";
+};
+
 &csi0 {
 	status = "okay";
+	pinctrl-0 = <>;
+	pinctrl-1 = <>;
 };
 
 &mipi0 {
@@ -24,32 +38,44 @@
 };
 
 &tdm0 {
-	work_mode = <0>;
+	work_mode = <1>;
 	status = "okay";
 };
 
 &isp00 {
-	work_mode = <0>;
+	work_mode = <1>;
+	status = "okay";
+};
+
+&isp01 {
 	status = "okay";
 };
 
 &scaler00 {
-	work_mode = <0>;
+	work_mode = <1>;
+	status = "okay";
+};
+
+&scaler01 {
 	status = "okay";
 };
 
 &scaler10 {
-	work_mode = <0>;
+	work_mode = <1>;
+	status = "okay";
+};
+
+&scaler11 {
 	status = "okay";
 };
 
 &scaler20 {
-	work_mode = <0>;
+	work_mode = <1>;
 	status = "okay";
 };
 
 &scaler30 {
-	work_mode = <0>;
+	work_mode = <1>;
 	status = "okay";
 };
 
@@ -65,25 +91,12 @@
 	sensor0_stby_mode = <0>;
 	sensor0_vflip = <0>;
 	sensor0_hflip = <0>;
-	sensor0_cameravdd-supply = <>;
-	sensor0_cameravdd_vol = <>;
-	sensor0_iovdd-supply = <>;
-	sensor0_iovdd_vol = <>;
-	sensor0_avdd-supply = <>;
-	sensor0_avdd_vol = <>;
-	sensor0_dvdd-supply = <>;
-	sensor0_dvdd_vol = <>;
-	sensor0_power_en = <>;
 	sensor0_reset = <&pio PE 9 GPIO_ACTIVE_LOW>;
 	sensor0_pwdn = <&pio PE 8 GPIO_ACTIVE_HIGH>;
 	status = "okay";
 };
 
 &vinc00 {
-	device_type = "vinc0";
-	compatible = "allwinner,sunxi-vin-core";
-	reg = <0x0 0x05830000 0x0 0x1000>;
-	interrupts = <GIC_SPI 122 IRQ_TYPE_LEVEL_HIGH>;
 	vinc0_csi_sel = <0>;
 	vinc0_mipi_sel = <0>;
 	vinc0_isp_sel = <0>;
@@ -93,20 +106,57 @@
 	vinc0_front_sensor_sel = <0>;
 	vinc0_sensor_list = <0>;
 	device_id = <0>;
-	work_mode = <0x0>;
-	iommus = <&mmu_aw 1 0>;
+	work_mode = <1>;
 	status = "okay";
 };
 
-&vind0 {
-	csi_top = <360000000>;
-	csi_isp = <300000000>;
-	vind_mclkpin-supply = <&reg_aldo2>;
-	vind_mclkpin_vol = <1800000>;
-	vind_mcsipin-supply = <&reg_cldo1>;
-	vind_mcsipin_vol = <1800000>;
-	vind_mipipin-supply = <&reg_cldo3>;
-	vind_mipipin_vol = <3300000>;
+&vinc01 {
+	vinc1_csi_sel = <0>;
+	vinc1_mipi_sel = <0>;
+	vinc1_isp_sel = <1>;
+	vinc1_isp_tx_ch = <0>;
+	vinc1_tdm_rx_sel = <1>;
+	vinc1_rear_sensor_sel = <0>;
+	vinc1_front_sensor_sel = <0>;
+	vinc1_sensor_list = <0>;
+	device_id = <1>;
+	status = "okay";
+};
+
+&vinc10 {
+	vinc4_csi_sel = <0>;
+	vinc4_mipi_sel = <0>;
+	vinc4_isp_sel = <0>;
+	vinc4_isp_tx_ch = <0>;
+	vinc4_tdm_rx_sel = <0>;
+	vinc4_rear_sensor_sel = <0>;
+	vinc4_front_sensor_sel = <0>;
+	vinc4_sensor_list = <0>;
+	device_id = <4>;
+	work_mode = <1>;
+	status = "okay";
+};
+
+&vinc11 {
+	vinc5_csi_sel = <0>;
+	vinc5_mipi_sel = <0>;
+	vinc5_isp_sel = <1>;
+	vinc5_isp_tx_ch = <0>;
+	vinc5_tdm_rx_sel = <1>;
+	vinc5_rear_sensor_sel = <0>;
+	vinc5_front_sensor_sel = <0>;
+	vinc5_sensor_list = <0>;
+	device_id = <5>;
+	status = "okay";
+};
+
+&vinc20 {
+	work_mode = <1>;
+	status = "okay";
+};
+
+&vinc30 {
+	work_mode = <1>;
 	status = "okay";
 };
 
