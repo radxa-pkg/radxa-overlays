@@ -1,3 +1,5 @@
+This fork is for the Waveshare 2.0 inch display (https://www.waveshare.com/2inch-lcd-module.htm)
+
 # overlays
 [![Build & Release](https://github.com/radxa-pkg/radxa-overlays/actions/workflows/release.yml/badge.svg)](https://github.com/radxa-pkg/radxa-overlays/actions/workflows/release.yml)
 
