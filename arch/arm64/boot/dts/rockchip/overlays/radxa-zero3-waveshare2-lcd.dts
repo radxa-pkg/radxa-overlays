@@ -1,0 +1,39 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+	metadata {
+		title = "Enable Waveshare 2inch LCD Display Module";
+		compatible = "radxa,zero3";
+		category = "display";
+		exclusive = "GPIO4_C2", "GPIO4_C3", "GPIO4_C5", "GPIO4_C6", "GPIO3_C1", "GPIO3_A2", "spi3";
+		description = "Enable Waveshare 2inch LCD Display Module.
+MISO is not used by the device, but currently this overlay will still take ownership of this pin.";
+	};
+};
+
+&spi3{
+	status = "okay";
+	pinctrl-names = "default", "high_speed";
+	pinctrl-0 = <&spi3m1_cs0 &spi3m1_pins>;
+	pinctrl-1 = <&spi3m1_cs0 &spi3m1_pins_hs>;
+
+	st7789v@0 {
+		compatible = "sitronix,st7789v";
+		reg = <0>;
+		spi-max-frequency = <50000000>;
+		rotate = <90>;
+		fps = <60>;
+		buswidth = <8>;
+		regwidth = <8>;
+		width = <240>;
+		height = <320>;
+		dc-gpios = <&gpio3 RK_PC1 GPIO_ACTIVE_HIGH>;
+		reset-gpios = <&gpio3 RK_PA2 GPIO_ACTIVE_LOW>;
+		debug = <0>;
+    };
+};
