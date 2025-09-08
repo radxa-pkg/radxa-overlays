@@ -9,7 +9,7 @@
 	metadata {
 		title = "Enable Waveshare 2inch LCD Display Module";
 		compatible = "radxa,zero3";
-		category = "misc";
+		category = "display";
 		exclusive = "GPIO4_C3", "GPIO4_C2", "GPIO4_C6", "GPIO3_C1", "GPIO3_B2", "GPIO3_A2", "GPIO3_A5", "GPIO3_A6", "GPIO3_A7", "GPIO3_B4", "GPIO3_A4", "GPIO3_B3", "GPIO1_A4", "GPIO3_C3", "spi3";
 		description = "Enable Waveshare 2inch LCD Display Module.";
 	};
