@@ -15,7 +15,7 @@ jobs:
     - name: "Install Nix"
       uses: "cachix/install-nix-action@v26"
     - name: "Use cachix"
-      uses: "cachix/cachix-action@v14"
+      uses: "cachix/cachix-action@v16"
       with:
         name: "devenv"
     - name: "Install devenv.sh"
