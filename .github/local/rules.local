@@ -1,0 +1,5 @@
+override_dh_dkms:
+	dh_dkms -V $(DEB_VERSION)
+
+override_dh_install:
+	DEB_VERSION=$(DEB_VERSION) dh_install -X arch/arm64/boot/dts/rockchip/overlays/Makefile.rk3588-can
