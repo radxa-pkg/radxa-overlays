@@ -3,33 +3,33 @@
 
 / {
 	metadata {
-		title = "Enable TWI1";
+		title = "Enable TWI2";
 		compatible = "radxa,cubie-a5e";
 		category = "misc";
-		exclusive = "PB5", "PB4", "twi1";
-		description = "Enable TWI1.
-On Radxa Cubie A5E this is SDA pin 3 & SCL pin 5.";
+		exclusive = "PI15", "PI16", "twi2";
+		description = "Enable TWI2.
+On Radxa Cubie A5E this is SDA pin 27 & SCL pin 28.";
     };
 };
 
 &pio {
-	twi1_pins_default: twi1@0 {
-		pins = "PB4", "PB5";
-		function = "twi1";
+	twi2_pins_default: twi2@0 {
+		pins = "PI15", "PI16";
+		function = "twi2";
 		drive-strength = <10>;
 		bias-pull-up;
 	};
 
-	twi1_pins_sleep: twi1@1 {
-		pins = "PB4", "PB5";
+	twi2_pins_sleep: twi2@1 {
+		pins = "PI15", "PI16";
 		function = "gpio_in";
 	};
 };
 
-&twi1 {
+&twi2 {
 	clock-frequency = <400000>;
-	pinctrl-0 = <&twi1_pins_default>;
-	pinctrl-1 = <&twi1_pins_sleep>;
+	pinctrl-0 = <&twi2_pins_default>;
+	pinctrl-1 = <&twi2_pins_sleep>;
 	pinctrl-names = "default", "sleep";
 	/* For stability and backwards compatibility, we recommend setting ‘twi_drv_used’ to 1 */
 	twi_drv_used = <1>;
