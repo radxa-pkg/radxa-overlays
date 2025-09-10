@@ -4,40 +4,40 @@
 
 /{
 	metadata {
-		title = "Enable spidev on SPI1";
+		title = "Enable spidev on SPI2";
 		compatible = "radxa,cubie-a5e";
 		category = "misc";
-		exclusive = "PI4", "PI2", "PI5", "PI3";
-		description = "Enable spidev on SPI1 on
-pin 36(CLK), 40(MOSI), 38(MISO), 12(CS0)";
+		exclusive = "PI6", "PI7", "PI8", "PI12";
+		description = "Enable spidev on SPI2 on
+pin 7(CLK), 29(MOSI), 31(MISO), 33(CS0).";
 	};
 };
 
 &pio {
-	spi1_pins_default: spi1@0 {
-		pins = "PI4", "PI5", "PI3";
-		function = "spi1";
+	spi2_pins_default: spi2@0 {
+		pins = "PI7", "PI8", "PI12";
+		function = "spi2";
 		drive-strength = <10>;
 	};
 
-	spi1_pins_cs: spi1@1 {
-		pins = "PI2";
-		function = "spi1";
+	spi2_pins_cs: spi2@1 {
+		pins = "PI6";
+		function = "spi2";
 		drive-strength = <10>;
 		bias-pull-up; /* cs, hold, wp should be pulled up */
 	};
 
-	spi1_pins_sleep: spi1@2 {
-		pins = "PI4", "PI2", "PI5", "PI3";
+	spi2_pins_sleep: spi2@2 {
+		pins = "PI6", "PI7", "PI8", "PI12";
 		function = "gpio_in";
 		drive-strength = <10>;
 	};
 };
 
-&spi1 {
+&spi2 {
 	clock-frequency = <50000000>;
-	pinctrl-0 = <&spi1_pins_default &spi1_pins_cs>;
-	pinctrl-1 = <&spi1_pins_sleep>;
+	pinctrl-0 = <&spi2_pins_default &spi2_pins_cs>;
+	pinctrl-1 = <&spi2_pins_sleep>;
 	pinctrl-names = "default", "sleep";
 	sunxi,spi-bus-mode = <SUNXI_SPI_BUS_MASTER>;
 	sunxi,spi-cs-mode = <SUNXI_SPI_CS_SOFT>;

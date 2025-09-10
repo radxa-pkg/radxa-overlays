@@ -1,0 +1,31 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    metadata {
+        title = "Enable UART7";
+        compatible = "radxa,cubie-a5e";
+        category = "misc";
+        exclusive = "PB13", "PB14", "uart7";
+        description = "Enable UART7.
+On Radxa Cubie A5E, this is pin 19 and pin 21.
+";
+    };
+};
+
+&uart7_pins_a {
+    pins = "PB13", "PB14";
+    function = "uart7";
+};
+
+&uart7_pins_b {
+    pins = "PB13", "PB14";
+    function = "gpio_in";
+};
+
+&uart7 {
+	pinctrl-names = "default", "sleep";
+	pinctrl-0 = <&uart7_pins_a>;
+	pinctrl-1 = <&uart7_pins_b>;
+	status = "okay";
+};
