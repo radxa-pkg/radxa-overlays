@@ -1,0 +1,52 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable I2S1 2-channel dummy sound card";
+		compatible = "radxa,e24c";
+		category = "misc";
+		exclusive = "GPIO4_A4", "GPIO4_A5", "GPIO4_A6", "GPIO4_A7", "GPIO4_B4", "sai1";
+		description = "Enable I2S1 2-channel dummy sound card.
+This overlay is only for demonstration purpose.
+It does not support any specific hardware device.";
+	};
+};
+
+&{/} {
+	dummy_codec: dummy-codec {
+		compatible = "rockchip,dummy-codec";
+		#sound-dai-cells = <0>;
+	};
+
+	dummy_sound: dummy-sound {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		compatible = "simple-audio-card";
+		simple-audio-card,format = "i2s";
+		simple-audio-card,name = "dummy-card";
+		simple-audio-card,mclk-fs = <256>;
+		status = "okay";
+
+		simple-audio-card,dai-link@0 {
+		    reg = <0>;
+		    format = "i2s";
+		    cpu {
+			    sound-dai = <&sai1>;
+		    };
+
+		    codec {
+			    sound-dai = <&dummy_codec>;
+		    };
+		};
+	};
+};
+
+&sai1 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2s1_sclk
+					&i2s1_lrck
+					&i2s1_sdi0
+					&i2s1_sdo0>;
+	status = "okay";
+};
