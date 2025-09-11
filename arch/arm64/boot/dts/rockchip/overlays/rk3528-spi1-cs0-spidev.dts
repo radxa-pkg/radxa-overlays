@@ -1,0 +1,31 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+
+/ {
+	metadata {
+		title = "Enable spidev on SPI1 over CS0";
+		compatible = "radxa,e24c";
+		category = "misc";
+		exclusive = "GPIO1_B6", "GPIO1_B7", "GPIO1_C0", "GPIO1_C1";
+		description = "Enable spidev on SPI1 over CS0.";
+	};
+};
+
+&spi1 {
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
+	max-freq = <50000000>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&spi1_csn0 &spi1_pins>;
+
+	spidev@0 {
+		compatible = "rockchip,spidev";
+		status = "okay";
+		reg = <0>;
+		spi-max-frequency = <50000000>;
+	};
+};

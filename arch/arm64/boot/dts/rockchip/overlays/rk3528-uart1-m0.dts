@@ -4,11 +4,12 @@
 / {
 	metadata {
 		title = "Enable UART1-M0";
-		compatible = "radxa,medge-rk3528a-io";
+		compatible = "radxa,medge-rk3528a-io", "radxa,e24c";
 		category = "misc";
 		exclusive = "GPIO4_A7", "GPIO4_A6";
 		description = "Enable UART1-M0.
-On Radxa mEdge-RK3528A IO this is TX pin 7 & RX pin 32.		
+On Radxa mEdge-RK3528A IO this is TX pin 7 & RX pin 32.
+On Radxa E24C this is TX pin 10 & RX pin 14.
 ";
 	};
 };
