@@ -41,6 +41,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
 	meson-g12-watchdog.dtbo \
 	radxa-zero-emmc-full-speed.dtbo \
 	radxa-zero-enable-vddio_c.dtbo \
+	radxa-zero-i2s-hifiberry-dac.dtbo \
 	radxa-zero-led-8-off.dtbo \
 	radxa-zero-led-10-off.dtbo \
 	radxa-zero-spi-b-waveshare13.dtbo \
