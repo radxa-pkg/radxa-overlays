@@ -1,0 +1,36 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable UART3";
+		compatible = "radxa,cubie-a7a", "radxa,cubie-a7z";
+		category = "misc";
+		exclusive = "PJ22", "PJ23", "uart3";
+		description = "Enable UART3.
+On Radxa Cubie A7A, TX is pin 5 and RX is pin 3.
+On Radxa Cubie A7Z, TX is pin 5 and RX is pin 3.
+";
+	};
+};
+
+&pio {
+	uart3_pins_active: uart3_pins@0 {
+		pins = "PJ22", "PJ23";
+		function = "uart3";
+		drive-strength = <10>;
+	};
+
+	uart3_pins_sleep: uart3_pins@1 {
+		pins = "PJ22", "PJ23";
+		function = "io_disabled";
+		drive-strength = <10>;
+	};
+};
+
+&uart3 {
+	pinctrl-names = "default", "sleep";
+	pinctrl-0 = <&uart3_pins_active>;
+	pinctrl-1 = <&uart3_pins_sleep>;
+	status = "okay";
+};

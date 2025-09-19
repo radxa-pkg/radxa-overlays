@@ -5,10 +5,11 @@
 /{
 	metadata {
 		title = "Enable spidev on SPI1";
-		compatible = "radxa,cubie-a7z";
+		compatible = "radxa,cubie-a7a", "radxa,cubie-a7z";
 		category = "misc";
 		exclusive = "spi1", "PD11", "PD12", "PD13", "PD10";
-		description = "Enable spidev on SPI1 on pin 23, 19, 21 & 24.";
+		description = "Enable spidev on SPI1 on
+pin 21(CLK), 23(MOSI), 19(MISO), 24(CS0)";
 	};
 };
 

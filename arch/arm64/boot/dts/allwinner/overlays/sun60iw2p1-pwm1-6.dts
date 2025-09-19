@@ -1,0 +1,36 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable PWM1-6";
+		compatible = "radxa,cubie-a7a", "radxa,cubie-a7z";
+		category = "misc";
+		exclusive = "PJ24";
+		description = "Enable PWM1-6.
+On Radxa Cubie A7A this is pin 16.
+On Radxa Cubie A7Z this is pin 16.
+";
+	};
+};
+
+&pio {
+	pwm1_6_pins_active: pwm1-6-pins-active {
+		pins = "PJ24";
+		function = "pwm1_6";
+		drive-strength = <10>;
+	};
+
+	pwm1_6_pins_sleep: pwm1-6-pins-sleep {
+		pins = "PJ24";
+		function = "gpio_in";
+		bias-pull-down;
+	};
+};
+
+&pwm1_6 {
+	pinctrl-names = "active", "sleep";
+	pinctrl-0 = <&pwm1_6_pins_active>;
+	pinctrl-1 = <&pwm1_6_pins_sleep>;
+	status = "okay";
+};
