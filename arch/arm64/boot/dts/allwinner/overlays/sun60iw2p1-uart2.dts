@@ -1,0 +1,36 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable UART2";
+		compatible = "radxa,cubie-a7a", "radxa,cubie-a7z";
+		category = "misc";
+		exclusive = "PB0", "PB1", "uart2";
+		description = "Enable UART2.
+On Radxa Cubie A7A, TX is pin 7 and RX is pin 11.
+On Radxa Cubie A7Z, TX is pin 7 and RX is pin 11.
+";
+	};
+};
+
+&pio {
+	uart2_pins_active: uart2_pins@0 {
+		pins = "PB0", "PB1";
+		function = "uart2";
+		drive-strength = <10>;
+	};
+
+	uart2_pins_sleep: uart2_pins@1 {
+		pins = "PB0", "PB1";
+		function = "io_disabled";
+		drive-strength = <10>;
+	};
+};
+
+&uart2 {
+	pinctrl-names = "default", "sleep";
+	pinctrl-0 = <&uart2_pins_active>;
+	pinctrl-1 = <&uart2_pins_sleep>;
+	status = "okay";
+};

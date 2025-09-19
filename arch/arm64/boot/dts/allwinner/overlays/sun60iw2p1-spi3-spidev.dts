@@ -8,7 +8,8 @@
 		compatible = "radxa,cubie-a7a";
 		category = "misc";
 		exclusive = "spi3", "PK5", "PK6", "PK7", "PK8";
-		description = "Enable spidev on SPI3 on pin 29, 31, 33 & 37.";
+		description = "Enable spidev on SPI3 on
+pin 29(CLK), 31(MOSI), 33(MISO), 37(CS0)";
 	};
 };
 

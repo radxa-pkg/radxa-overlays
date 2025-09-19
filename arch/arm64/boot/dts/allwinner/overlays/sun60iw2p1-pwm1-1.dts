@@ -1,0 +1,36 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable PWM1-1";
+		compatible = "radxa,cubie-a7a", "radxa,cubie-a7z";
+		category = "misc";
+		exclusive = "PD11";
+		description = "Enable PWM1-1.
+On Radxa Cubie A7A this is pin 23.
+On Radxa Cubie A7Z this is pin 23.
+";
+	};
+};
+
+&pio {
+	pwm1_1_pins_active: pwm1-1-pins-active {
+		pins = "PD11";
+		function = "pwm1_1";
+		drive-strength = <10>;
+	};
+
+	pwm1_1_pins_sleep: pwm1-1-pins-sleep {
+		pins = "PD11";
+		function = "gpio_in";
+		bias-pull-down;
+	};
+};
+
+&pwm1_1 {
+	pinctrl-names = "active", "sleep";
+	pinctrl-0 = <&pwm1_1_pins_active>;
+	pinctrl-1 = <&pwm1_1_pins_sleep>;
+	status = "okay";
+};
