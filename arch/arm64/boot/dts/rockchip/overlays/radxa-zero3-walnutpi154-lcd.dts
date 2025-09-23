@@ -27,8 +27,8 @@
 		spi-max-frequency = <60000000>;
 		rotate = <0>;
 		fps = <30>;
-		buswidth = <4>;
-		regwidth = <4>;
+		buswidth = <8>;
+		regwidth = <8>;
 		width = <240>;
 		height = <240>;
 		cs-gpio = <&gpio4 RK_PC6 GPIO_ACTIVE_HIGH>;
