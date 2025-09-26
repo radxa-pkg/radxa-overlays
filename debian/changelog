@@ -1,3 +1,21 @@
+radxa-overlays (0.2.1) noble; urgency=medium
+
+  [ Mitchell Ma ]
+  * feat: add some overlays support for Radxa E24C
+  * feat: update some overlays related to rk3528 dwc3 host/otg
+
+  [ Feng Zhang ]
+  * feat: add more overlays for cubie-a5e
+  * feat: allwinner: a733: add more overlays
+
+  [ Jiali Chen ]
+  * feat: radxa-cubie-a5e: add Radxa Camera 4K/13M support
+
+  [ 凌渊之尘 ]
+  * fix: change buswidth and regwidth to 8
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Fri, 26 Sep 2025 07:12:30 +0000
+
 radxa-overlays (0.2.0) noble; urgency=medium
 
   [ Jiali Chen ]
