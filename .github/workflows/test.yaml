@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [linux-rockchip, linux-rk356x, linux-stable, linux-rk2312, linux-rk2410, linux-rk2410-nocsf, linux-aw2501, linux-a733]
+        version: [linux-rockchip, linux-rk356x, linux-stable, linux-rk2312, linux-rk2410, linux-rk2410-nocsf, linux-aw2501, linux-a733, linux-qcom]
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -20,7 +20,7 @@ jobs:
         shell: bash
         run: |
           MISSING=0
-          for VENDOR in amlogic rockchip allwinner
+          for VENDOR in amlogic rockchip allwinner qcom
           do
             OVERLAY_PATH="arch/arm64/boot/dts/$VENDOR/overlays"
             for i in "$OVERLAY_PATH"/*.dts
@@ -70,6 +70,10 @@ jobs:
               wget https://github.com/radxa-pkg/linux-a733/releases/download/5.15.147-2/linux-headers-5.15.147-2-a733_5.15.147-2_arm64.deb
               sudo apt install ./linux-headers-*.deb
               ;;
+            linux-qcom)
+              wget https://github.com/radxa-pkg/linux-qcom/releases/download/6.16.7-1/linux-headers-6.16.7-1-qcom_6.16.7-1_arm64.deb
+              sudo apt install ./linux-headers-*.deb
+              ;;
           esac
       - name: Build
         shell: bash
@@ -79,25 +83,28 @@ jobs:
               make build-dtbo -j$(nproc)
               ;;
             linux-rockchip)
-              make build-dtbo -j$(nproc) KERNELRELEASE=5.10.110-38-rockchip CONFIG_ARCH_MESON=n CONFIG_CPU_RK3399=rockchip CONFIG_CPU_RK3588=rockchip CONFIG_ARCH_SUNXI=n
+              make build-dtbo -j$(nproc) KERNELRELEASE=5.10.110-38-rockchip CONFIG_ARCH_MESON=n CONFIG_CPU_RK3399=rockchip CONFIG_CPU_RK3588=rockchip CONFIG_ARCH_SUNXI=n CONFIG_ARCH_QCOM=n
               ;;
             linux-rk356x)
-              make build-dtbo -j$(nproc) KERNELRELEASE=5.10.160-37-rk356x CONFIG_ARCH_MESON=n CONFIG_CPU_RK3528=rockchip CONFIG_CPU_RK3568=rockchip CONFIG_ARCH_SUNXI=n
+              make build-dtbo -j$(nproc) KERNELRELEASE=5.10.160-37-rk356x CONFIG_ARCH_MESON=n CONFIG_CPU_RK3528=rockchip CONFIG_CPU_RK3568=rockchip CONFIG_ARCH_SUNXI=n CONFIG_ARCH_QCOM=n
               ;;
             linux-rk2312)
-              make build-dtbo -j$(nproc) KERNELRELEASE=6.1.43-15-rk2312 CONFIG_ARCH_MESON=n CONFIG_CPU_RK3528=rockchip CONFIG_CPU_RK3588=rockchip CONFIG_ARCH_SUNXI=n
+              make build-dtbo -j$(nproc) KERNELRELEASE=6.1.43-15-rk2312 CONFIG_ARCH_MESON=n CONFIG_CPU_RK3528=rockchip CONFIG_CPU_RK3588=rockchip CONFIG_ARCH_SUNXI=n CONFIG_ARCH_QCOM=n
               ;;
             linux-rk2410)
-              make build-dtbo -j$(nproc) KERNELRELEASE=6.1.84-1-rk2410 CONFIG_ARCH_MESON=n CONFIG_CPU_RK3588=rockchip CONFIG_ARCH_SUNXI=n
+              make build-dtbo -j$(nproc) KERNELRELEASE=6.1.84-1-rk2410 CONFIG_ARCH_MESON=n CONFIG_CPU_RK3588=rockchip CONFIG_ARCH_SUNXI=n CONFIG_ARCH_QCOM=n
               ;;
             linux-rk2410-nocsf)
-              make build-dtbo -j$(nproc) KERNELRELEASE=6.1.84-5-rk2410-nocsf CONFIG_ARCH_MESON=n CONFIG_CPU_RK3568=rockchip CONFIG_CPU_RK3576=rockchip CONFIG_ARCH_SUNXI=n
+              make build-dtbo -j$(nproc) KERNELRELEASE=6.1.84-5-rk2410-nocsf CONFIG_ARCH_MESON=n CONFIG_CPU_RK3568=rockchip CONFIG_CPU_RK3576=rockchip CONFIG_ARCH_SUNXI=n CONFIG_ARCH_QCOM=n
               ;;
             linux-aw2501)
-              make build-dtbo -j$(nproc) KERNELRELEASE=5.15.147-2-aw2501 CONFIG_ARCH_SUNXI=allwinner CONFIG_ARCH_SUN55IW3=allwinner
+              make build-dtbo -j$(nproc) KERNELRELEASE=5.15.147-2-aw2501 CONFIG_ARCH_SUNXI=allwinner CONFIG_ARCH_SUN55IW3=allwinner CONFIG_ARCH_QCOM=n
               ;;
             linux-a733)
-              make build-dtbo -j$(nproc) KERNELRELEASE=5.15.147-2-a733 CONFIG_ARCH_SUNXI=allwinner CONFIG_ARCH_SUN60IW2=allwinner
+              make build-dtbo -j$(nproc) KERNELRELEASE=5.15.147-2-a733 CONFIG_ARCH_SUNXI=allwinner CONFIG_ARCH_SUN60IW2=allwinner CONFIG_ARCH_QCOM=n
+              ;;
+            linux-qcom)
+              make build-dtbo -j$(nproc) KERNELRELEASE=6.16.7-1-qcom CONFIG_ARCH_MESON=n CONFIG_ARCH_QCOM=qcom
               ;;
           esac
       - name: Upload artifacts

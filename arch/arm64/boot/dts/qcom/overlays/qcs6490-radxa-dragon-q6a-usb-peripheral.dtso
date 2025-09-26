@@ -1,0 +1,11 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2025 Radxa Computer (Shenzhen) Co., Ltd.
+ */
+
+/dts-v1/;
+/plugin/;
+
+&usb_1_dwc3 {
+	dr_mode = "peripheral";
+};
