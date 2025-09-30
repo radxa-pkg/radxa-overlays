@@ -11,6 +11,16 @@
 #include <dt-bindings/pinctrl/qcom,pmic-gpio.h>
 #include <dt-bindings/pwm/pwm.h>
 
+/ {
+	metadata {
+		title = "Enable Radxa Display 10FHD";
+		compatible = "radxa,dragon-q6a";
+		category = "display";
+		exclusive = "mdss_dsi";
+		description = "Enable Radxa Display 10FHD.";
+	};
+};
+
 &{/} {
 	vcc_3v3_lcd: vcc-3v3-lcd-regulator {
 		compatible = "regulator-fixed";

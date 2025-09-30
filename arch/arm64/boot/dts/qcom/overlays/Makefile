@@ -9,7 +9,8 @@ dtb-$(CONFIG_ARCH_QCOM) += qcs6490-radxa-dragon-q6a-cam1-imx577.dtbo \
 targets += $(dtb-y)
 
 always-y		:= $(dtb-y)
-clean-files		:= *.dtbo *.scr
+clean-files		:= *.dtbo
 
+# HACK: fix build dtbo from dkms using kernel header
 DTC						?=	/usr/bin/dtc
 override DTC_INCLUDE	:=	$(srctree)/include

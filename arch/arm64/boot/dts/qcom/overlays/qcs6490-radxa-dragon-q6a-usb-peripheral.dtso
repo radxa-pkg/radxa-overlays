@@ -6,6 +6,17 @@
 /dts-v1/;
 /plugin/;
 
+/ {
+	metadata {
+		title = "Set OTG port to Peripheral mode";
+		compatible = "radxa,dragon-q6a";
+		category = "misc";
+		exclusive = "usb_1_dwc3";
+		description = "Set OTG port to Peripheral mode.
+Use this when you want to connect to another computer.";
+	};
+};
+
 &usb_1_dwc3 {
 	dr_mode = "peripheral";
 };

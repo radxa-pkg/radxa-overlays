@@ -9,6 +9,16 @@
 #include <dt-bindings/clock/qcom,camcc-sc7280.h>
 #include <dt-bindings/gpio/gpio.h>
 
+/ {
+	metadata {
+		title = "Enable Radxa Camera 8M 219 on CAM2";
+		compatible = "radxa,dragon-q6a";
+		category = "camera";
+		exclusive = "csiphy2";
+		description = "Enable Radxa Camera 8M 219 on CAM2.";
+	};
+};
+
 &{/} {
 	ext_cam_clk_imx219: ext-cam-clk-imx219 {
 		status = "okay";

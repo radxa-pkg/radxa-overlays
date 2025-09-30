@@ -9,6 +9,16 @@
 #include <dt-bindings/clock/qcom,camcc-sc7280.h>
 #include <dt-bindings/gpio/gpio.h>
 
+/ {
+	metadata {
+		title = "Enable IMX577 camera on CAM1";
+		compatible = "radxa,dragon-q6a";
+		category = "camera";
+		exclusive = "csiphy0";
+		description = "Enable IMX577 camera sensor on CAM1.";
+	};
+};
+
 &{/reserved-memory} {
 	linux,cma {
 		compatible = "shared-dma-pool";

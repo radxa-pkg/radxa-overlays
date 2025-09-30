@@ -23,9 +23,8 @@ TMP		:=	$(addsuffix .tmp,$(DTBO))
 .PHONY: build-dtbo
 build-dtbo: $(DTBO)
 
-%.dtbo: %.dts
-	cpp -nostdinc -undef -x assembler-with-cpp -E -I "$(KSRC)/include" "$<" "$@.tmp"
-	dtc -@ -I dts -O dtb -o "$@" "$@.tmp"
+%.dtso: %.dts
+	cp "$<" "$@"
 
 %.dtbo: %.dtso
 	cpp -nostdinc -undef -x assembler-with-cpp -E -I "$(KSRC)/include" "$<" "$@.tmp"

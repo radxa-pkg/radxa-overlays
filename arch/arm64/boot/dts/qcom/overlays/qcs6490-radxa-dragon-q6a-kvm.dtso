@@ -6,6 +6,16 @@
 /dts-v1/;
 /plugin/;
 
+/ {
+	metadata {
+		title = "Enable KVM virtualization support";
+		compatible = "radxa,dragon-q6a";
+		category = "misc";
+		exclusive = "gpu_zap_shader";
+		description = "Enable KVM virtualization support.";
+	};
+};
+
 &{/chosen} {
 	radxa,enable-kvm = <1>;
 };
