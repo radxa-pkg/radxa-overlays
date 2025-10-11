@@ -153,6 +153,7 @@ dtb-$(CONFIG_CLK_RK3528) += \
 	rk3528-uart3-m0.dtbo \
 	rk3528-uart3-m1.dtbo \
 	rk3528-uart7-m0.dtbo \
+	radxa-e24c-spiflash.dtbo \
 	rock-2a-eeprom.dtbo \
 	rock-2a-enable-pcie.dtbo \
 	rock-2a-poe-hat.dtbo
