@@ -86,3 +86,19 @@
 		};
 	};
 };
+
+&tlmm {
+	cam0_default: cam0-default-state {
+		pins = "gpio64";
+		function = "cam_mclk";
+		drive-strength = <2>;
+		bias-disable;
+	};
+
+	cam0_suspend: cam0-suspend-state {
+		pins = "gpio64";
+		function = "cam_mclk";
+		drive-strength = <2>;
+		bias-pull-down;
+	};
+};
