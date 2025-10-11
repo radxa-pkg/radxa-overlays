@@ -11,12 +11,12 @@
 		title = "Set OTG port to Peripheral mode";
 		compatible = "radxa,dragon-q6a";
 		category = "misc";
-		exclusive = "usb_1_dwc3";
+		exclusive = "usb_1";
 		description = "Set OTG port to Peripheral mode.
 Use this when you want to connect to another computer.";
 	};
 };
 
-&usb_1_dwc3 {
+&usb_1 {
 	dr_mode = "peripheral";
 };
