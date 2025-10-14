@@ -1,3 +1,17 @@
+radxa-overlays (0.2.2) noble; urgency=medium
+
+  [ voxpop9 ]
+  * Waveshare 2.0 Inch SPI screen
+
+  [ Guoguo ]
+  * feat: add qcom
+  * feat: update qcom overlay for linux-qcom 6.17.1
+
+  [ Mitchell Ma ]
+  * feat: add spiflash support for radxa-e24c
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Tue, 14 Oct 2025 02:37:34 +0000
+
 radxa-overlays (0.2.1) noble; urgency=medium
 
   [ Mitchell Ma ]
