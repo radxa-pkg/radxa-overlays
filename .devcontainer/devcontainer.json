@@ -8,6 +8,7 @@
         "mkhl.direnv",
         "github.vscode-github-actions",
         "grafana.vscode-jsonnet",
+        "ms-vscode.cpptools-extension-pack",
         "ms-vscode.makefile-tools",
         "vivaxy.vscode-conventional-commits"
       ]
