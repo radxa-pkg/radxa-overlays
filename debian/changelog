@@ -1,3 +1,10 @@
+radxa-overlays (0.2.3) noble; urgency=medium
+
+  [ Ken Wang ]
+  * overlays: add some overlays for rock5t-Industrial
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Wed, 15 Oct 2025 09:10:32 +0000
+
 radxa-overlays (0.2.2) noble; urgency=medium
 
   [ voxpop9 ]
