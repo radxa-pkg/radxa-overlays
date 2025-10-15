@@ -4,10 +4,11 @@
 / {
 	metadata {
 		title = "Enable I2C7-M3";
-		compatible = "unknown";
+		compatible = "radxa,rock-5t-industrial";
 		category = "misc";
 		exclusive = "GPIO4_B2", "GPIO4_B3";
-		description = "Enable I2C7-M3.";
+		description = "Enable I2C7-M3.
+On Radxa ROCK 5T Industrial this is TX pin 7 & RX pin 32.";
 	};
 };
 

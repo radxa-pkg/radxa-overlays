@@ -1,32 +1,29 @@
 /dts-v1/;
 /plugin/;
 
-#include <dt-bindings/clock/rk3588-cru.h>
-#include <dt-bindings/power/rk3588-power.h>
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/pinctrl/rockchip.h>
 
 / {
 	metadata {
-		title ="Enable OKDO 5MP Camera on CAM0";
-		compatible = "radxa,rock-5t", "radxa,rock-5t-industrial";
+		title ="Enable OKDO 5MP Camera on CAM1";
+		compatible = "radxa,rock-5t-industrial";
 		category = "camera";
-		exclusive = "csi2_dphy0";
-		description = "Enable OKDO 5MP Camera on CAM0.";
+		exclusive = "csi2_dphy1";
+		description = "Enable OKDO 5MP Camera on CAM1.";
 	};
 };
 
 &{/} {
-	clk_cam_25m: external-camera-clock-25m {
+	clk_cam_25m_1: external-camera-clock-25m-1 {
 		status = "okay";
 		compatible = "fixed-clock";
 		clock-frequency = <25000000>;
-		clock-output-names = "clk_cam_25m";
+		clock-output-names = "clk_cam_25m_1";
 		#clock-cells = <0>;
 	};
 };
-
-&i2c3 {
+&i2c6 {
 	status = "okay";
 	#address-cells = <1>;
 	#size-cells = <0>;
@@ -35,28 +32,28 @@
 		status = "okay";
 		compatible = "ovti,ov5647";
 		reg = <0x36>;
-		clocks = <&clk_cam_25m>;
-		pwdn-gpios = <&gpio1 RK_PD3 GPIO_ACTIVE_LOW>;
-		clock-names = "ext_cam_clk";
-		rockchip,camera-module-index = <0>;
+		clocks = <&clk_cam_25m_1>;
+		pwdn-gpios = <&gpio2 RK_PA6 GPIO_ACTIVE_LOW>;
+		clock-names = "ext_cam_clk_1";
+		rockchip,camera-module-index = <1>;
 		rockchip,camera-module-facing = "back";
 		rockchip,camera-module-name = "OKDO-5MP";
 		rockchip,camera-module-lens-name = "default";
 
 		port {
-			ov5647_out0: endpoint {
-				remote-endpoint = <&mipidphy0_in_ucam1>;
+			ov5647_out4: endpoint {
+				remote-endpoint = <&mipidphy4_in_ucam1>;
 				data-lanes = <1 2>;
 			};
 		};
 	};
 };
 
-&csi2_dphy0_hw {
+&csi2_dphy1_hw {
 	status = "okay";
 };
 
-&csi2_dphy0 {
+&csi2_dphy4 {
 	status = "okay";
 
 	ports {
@@ -68,9 +65,9 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			mipidphy0_in_ucam1: endpoint@2 {
+			mipidphy4_in_ucam1: endpoint@2 {
 				reg = <2>;
-				remote-endpoint = <&ov5647_out0>;
+				remote-endpoint = <&ov5647_out4>;
 				data-lanes = <1 2>;
 			};
 		};
@@ -80,15 +77,15 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			csidphy0_out: endpoint@0 {
+			csidphy4_out: endpoint@0 {
 				reg = <0>;
-				remote-endpoint = <&mipi2_csi2_input>;
+				remote-endpoint = <&mipi4_csi2_input>;
 			};
 		};
 	};
 };
 
-&mipi2_csi2 {
+&mipi4_csi2 {
 	status = "okay";
 
 	ports {
@@ -100,9 +97,9 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			mipi2_csi2_input: endpoint@1 {
+			mipi4_csi2_input: endpoint@1 {
 				reg = <1>;
-				remote-endpoint = <&csidphy0_out>;
+				remote-endpoint = <&csidphy4_out>;
 			};
 		};
 
@@ -111,9 +108,9 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			mipi2_csi2_output: endpoint@0 {
+			mipi4_csi2_output: endpoint@0 {
 				reg = <0>;
-				remote-endpoint = <&cif_mipi2_in0>;
+				remote-endpoint = <&cif_mipi4_in0>;
 			};
 		};
 	};
@@ -123,22 +120,22 @@
 	status = "okay";
 };
 
-&rkcif_mipi_lvds2 {
+&rkcif_mipi_lvds4 {
 	status = "okay";
 
 	port {
-		cif_mipi2_in0: endpoint {
-			remote-endpoint = <&mipi2_csi2_output>;
+		cif_mipi4_in0: endpoint {
+			remote-endpoint = <&mipi4_csi2_output>;
 		};
 	};
 };
 
-&rkcif_mipi_lvds2_sditf {
+&rkcif_mipi_lvds4_sditf {
 	status = "okay";
 
 	port {
-		mipi_lvds2_sditf: endpoint {
-			remote-endpoint = <&isp0_vir0>;
+		mipi_lvds4_sditf: endpoint {
+			remote-endpoint = <&isp1_vir1>;
 		};
 	};
 };
@@ -147,24 +144,24 @@
 	status = "okay";
 };
 
-&isp0_mmu {
+&isp1_mmu {
 	status = "okay";
 };
 
-&rkisp0 {
+&rkisp1 {
 	status = "okay";
 };
 
-&rkisp0_vir0 {
+&rkisp1_vir1 {
 	status = "okay";
 
 	port {
 		#address-cells = <1>;
 		#size-cells = <0>;
 
-		isp0_vir0: endpoint@0 {
+		isp1_vir1: endpoint@0 {
 			reg = <0>;
-			remote-endpoint = <&mipi_lvds2_sditf>;
+			remote-endpoint = <&mipi_lvds4_sditf>;
 		};
 	};
 };
@@ -172,7 +169,7 @@
 &pinctrl {
 	camera {
 		cam_pwdn_gpio: cam-pwdn-gpio {
-			rockchip,pins = <1 RK_PD3 RK_FUNC_GPIO &pcfg_pull_up>;
+			rockchip,pins = <2 RK_PA6 RK_FUNC_GPIO &pcfg_pull_up>;
 		};
 	};
 };

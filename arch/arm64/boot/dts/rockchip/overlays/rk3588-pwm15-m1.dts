@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable PWM15-M1";
-		compatible = "radxa,rock-5a", "radxa,rock-5b", "radxa,rock-5b-plus", "radxa,rock-5c", "radxa,rock-5d", "radxa,rock-5t", "radxa,nx5-io";
+		compatible = "radxa,rock-5a", "radxa,rock-5b", "radxa,rock-5b-plus", "radxa,rock-5c", "radxa,rock-5d", "radxa,rock-5t-industrial", "radxa,rock-5t", "radxa,nx5-io";
 		category = "misc";
 		exclusive = "GPIO4_B3";
 		description = "Enable PWM15-M1.
@@ -13,6 +13,7 @@ On Radxa ROCK 5B this is pin 3.
 On Radxa ROCK 5B+ this is pin 3.
 On Radxa ROCK 5C this is pin 11.
 On Radxa ROCK 5D this is pin 11.
+On Radxa ROCK 5T Industrial this is pin 3.
 On Radxa ROCK 5T this is pin 3.
 On Radxa NX5 IO this is pin 32.
 ";
