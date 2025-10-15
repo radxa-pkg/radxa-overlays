@@ -7,12 +7,13 @@
 / {
 	metadata {
 		title = "Enable 1-Wire on GPIO3_B3";
-		compatible = "radxa,rock-5b", "radxa,rock-5b-plus", "radxa,rock-5t";
+		compatible = "radxa,rock-5b", "radxa,rock-5b-plus", "radxa,rock-5t-industrial", "radxa,rock-5t";
 		category = "misc";
 		exclusive = "GPIO3_B3";
 		description = "Enable 1-Wire on GPIO3_B3.
 On Radxa ROCK 5B this is pin 40.
 On Radxa ROCK 5B+ this is pin 40.
+On Radxa ROCK 5T Industrial this is pin 40.
 On Radxa ROCK 5T this is pin 40.";
 	};
 };

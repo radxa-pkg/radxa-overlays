@@ -6,12 +6,13 @@
 / {
 	metadata {
 		title = "Enable I2C3-M1";
-		compatible = "radxa,rock-5b", "radxa,rock-5b-plus", "radxa,rock-5t";
+		compatible = "radxa,rock-5b", "radxa,rock-5b-plus", "radxa,rock-5t", "radxa,rock-5t-industrial";
 		category = "misc";
 		exclusive = "GPIO3_B7", "GPIO3_C0";
 		description = "Enable I2C3-M1.
 On Radxa ROCK 5B this is SDA pin 15 & SCL pin 13.
 On Radxa ROCK 5B+ this is SDA pin 15 & SCL pin 13.
+On Radxa ROCK 5T Industrial this is TX pin 15 & RX pin 13.
 On Radxa ROCK 5T this is SDA pin 15 & SCL pin 13.";
 	};
 };

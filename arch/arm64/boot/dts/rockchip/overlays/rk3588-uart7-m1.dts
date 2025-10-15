@@ -4,12 +4,13 @@
 / {
 	metadata {
 		title = "Enable UART7-M1";
-		compatible = "radxa,rock-5b", "radxa,rock-5b-plus", "radxa,rock-5t";
+		compatible = "radxa,rock-5b", "radxa,rock-5b-plus", "radxa,rock-5t-industrial", "radxa,rock-5t";
 		category = "misc";
 		exclusive = "GPIO3_C1", "GPIO3_C0"; 
 		description = "Enable UART7-M1.
 On Radxa ROCK 5B this is RX pin 11 and TX pin 15.
 On Radxa ROCK 5B+ this is RX pin 11 and TX pin 15.
+On Radxa ROCK 5T Industrial this is RX pin 11 and TX pin 15.
 On Radxa ROCK 5T this is RX pin 11 and TX pin 15.";
 	};
 };

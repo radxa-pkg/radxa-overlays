@@ -8,7 +8,7 @@
 		category = "misc";
 		exclusive = "GPIO1_D4", "GPIO1_D5", "i2c5";
 		description = "Enable I2C5-M1.
-On Radxa CM4 RPI CM4 IO this is SDA pin 11 and SCL pin 12.
+On Radxa CM4 RPI CM4 IO this is SDA pin 32 and SCL pin 36.
 On Radxa CM4 IO this is SDA pin 32 and SCL pin 36.
 On Radxa ROCK 4D this is SDA pin 32 and SCL pin 36.
 ";

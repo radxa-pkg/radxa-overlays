@@ -8,7 +8,7 @@
 / {
 	metadata {
 		title = "Enable MCP2515 with 8MHz external clock on SPI0-M2 over CS0";
-		compatible = "radxa,rock-5b", "radxa,rock-5b-plus", "radxa,rock-5t", "radxa,nx5-io", "radxa,cm5-rpi-cm4-io";
+		compatible = "radxa,rock-5b", "radxa,rock-5b-plus", "radxa,rock-5t-industrial", "radxa,rock-5t", "radxa,nx5-io", "radxa,cm5-rpi-cm4-io";
 		category = "misc";
 		exclusive = "GPIO1_B2", "GPIO1_B1", "GPIO1_B3", "GPIO1_B4", "GPIO1_B5";
 		description = "Provide support for Microchip MCP2515 SPI CAN controller.

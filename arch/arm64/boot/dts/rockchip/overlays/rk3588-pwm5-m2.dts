@@ -4,12 +4,13 @@
 / {
 	metadata {
 		title = "Enable PWM5-M2";
-		compatible = "radxa,rock-5b", "radxa,rock-5b-plus", "radxa,rock-5t";
+		compatible = "radxa,rock-5b", "radxa,rock-5b-plus", "radxa,rock-5t-industrial", "radxa,rock-5t";
 		category = "misc";
 		exclusive = "GPIO4_C4";
 		description = "Enable PWM5-M2.
 On Radxa ROCK 5B this is pin 18.
 On Radxa ROCK 5B+ this is pin 18.
+On Radxa ROCK 5T Industrial this is pin 18.
 On Radxa ROCK 5T this is pin 18.";
 	};
 };

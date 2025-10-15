@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable UART4-M2";
-		compatible = "radxa,rock-5a", "radxa,rock-5b", "radxa,rock-5b-plus", "radxa,rock-5c", "radxa,rock-5d", "radxa,rock-5t", "radxa,nx5-io", "radxa,cm5-rpi-cm4-io";
+		compatible = "radxa,rock-5a", "radxa,rock-5b", "radxa,rock-5b-plus", "radxa,rock-5c", "radxa,rock-5d", "radxa,rock-5t-industrial", "radxa,rock-5t", "radxa,nx5-io", "radxa,cm5-rpi-cm4-io";
 		category = "misc";
 		exclusive= "GPIO1_B3", "GPIO1_B2";
 		description = "Enable UART4-M2.
@@ -13,6 +13,7 @@ On Radxa ROCK 5B this is TX pin 23 & RX pin 19.
 On Radxa ROCK 5B+ this is TX pin 23 & RX pin 19.
 On Radxa ROCK 5C this is TX pin 7 & RX pin 29.
 On Radxa ROCK 5D this is TX pin 7 & RX pin 29.
+On Radxa ROCK 5T Industrial this is TX pin 23 & RX pin 19.
 On Radxa ROCK 5T this is TX pin 23 & RX pin 19.
 On Radxa NX5 IO this is TX pin 23 & RX pin 19.
 On Radxa CM5 RPI CM4 IO this is TX pin 23 & RX pin 19.

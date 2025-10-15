@@ -4,13 +4,14 @@
 / {
 	metadata {
 		title = "Enable I2C4-M3";
-		compatible = "radxa,rock-5a", "radxa,rock-5c", "radxa,rock-5d", "radxa,cm5-rpi-cm4-io";
+		compatible = "radxa,rock-5a", "radxa,rock-5c", "radxa,rock-5d", "radxa,rock-5t-industrial", "radxa,cm5-rpi-cm4-io";
 		category = "misc";
 		exclusive = "GPIO1_A2", "GPIO1_A3";
 		description = "Enable I2C4-M3.
 On Radxa ROCK 5A this is SDA pin 23 and SCL pin 24.
 On Radxa ROCK 5C this is SDA pin 23 and SCL pin 24.
 On Radxa ROCK 5D this is SDA pin 23 and SCL pin 24.
+On Radxa ROCK 5T Industrial this is TX pin 31 & RX pin 29.
 On Radxa CM5-RPI-CM4-IO this is SDA pin 40 and SCL pin 12.
 ";
 	};
