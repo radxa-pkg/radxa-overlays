@@ -166,10 +166,6 @@
 	status = "disabled";
 };
 
-&virtual_pd {
-	status = "disabled";
-};
-
 &tcphy0 {
 	extcon = <0>;
 	status = "okay";
