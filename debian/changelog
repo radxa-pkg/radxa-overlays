@@ -1,3 +1,12 @@
+radxa-overlays (0.2.4) noble; urgency=medium
+
+  [ Jiali Chen ]
+  * fix: rock-4c-plus: remove virtual_pd node
+  * fix: rock-4c-plus-raspi-7inch: switch panel driver
+  * fix: rk3399: change some deprecated overlays metadata
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Tue, 21 Oct 2025 08:30:22 +0000
+
 radxa-overlays (0.2.3) noble; urgency=medium
 
   [ Ken Wang ]
