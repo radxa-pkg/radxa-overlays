@@ -1,3 +1,11 @@
+radxa-overlays (0.2.5) noble; urgency=medium
+
+  [ Ken Wang ]
+  * overlay: i2c3m3: modify the correct compatible
+  * overlay: delete rock-5t-industrial
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Wed, 22 Oct 2025 10:25:32 +0000
+
 radxa-overlays (0.2.4) noble; urgency=medium
 
   [ Jiali Chen ]
