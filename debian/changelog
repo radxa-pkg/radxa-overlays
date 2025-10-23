@@ -1,3 +1,11 @@
+radxa-overlays (0.2.6) noble; urgency=medium
+
+  [ Ken Wang ]
+  * overlays: delete uart7 for rock5t-industrial
+  * rk3588: mark enable sfc overlay as unknown
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Thu, 23 Oct 2025 06:39:39 +0000
+
 radxa-overlays (0.2.5) noble; urgency=medium
 
   [ Ken Wang ]
