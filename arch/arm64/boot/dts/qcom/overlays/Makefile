@@ -1,4 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0
+# dtso can only build on kernel >= 6.2
+# https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=363547d2191cbc32ca954ba75d72908712398ff2
+ifeq ($(shell [ $(VERSION) -gt 6 ] || ( [ $(VERSION) -eq 6 ] && [ $(PATCHLEVEL) -ge 2 ] ) && echo 0), 0)
 dtb-$(CONFIG_ARCH_QCOM) += qcs6490-radxa-dragon-q6a-cam1-imx577.dtbo \
 	qcs6490-radxa-dragon-q6a-cam2-radxa-camera-8m-219.dtbo \
 	qcs6490-radxa-dragon-q6a-cam3-radxa-camera-8m-219.dtbo \
@@ -14,3 +17,4 @@ clean-files		:= *.dtbo
 # HACK: fix build dtbo from dkms using kernel header
 DTC						?=	/usr/bin/dtc
 override DTC_INCLUDE	:=	$(srctree)/include
+endif
