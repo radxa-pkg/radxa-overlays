@@ -5,7 +5,7 @@
 	metadata {
 		title = "Enable eDP and disable HDMI sound card";
 		compatible = "radxa,cubie-a7z";
-		category = "display";
+		category = "misc";
 		exclusive = "i2s3_mach", "i2s3_plat", "i2s3_cpu", "i2s3_codec";
 		description = "Enable eDP and disable HDMI sound card.";
 	};
