@@ -1,0 +1,40 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Reroute audio from HDMI to Type-C DisplayPort";
+		compatible = "radxa,cubie-a7z";
+		category = "misc";
+		exclusive = "i2s3_mach", "i2s3_plat", "i2s3_cpu", "i2s3_codec";
+		description = "Reroute audio from HDMI to Type-C DisplayPort.
+
+Due to the limitation of the platform, the I2S audio codec can only be used by either HDMI or eDP, not both at the same time.
+This is connected to HDMI by default.
+Enable this overlay when playing audio via Type-C DisplayPort.";
+	};
+};
+
+&i2s3_plat {
+	/* av:  */
+	/* av not need dai-type */
+	dai-type;
+	status	= "okay";
+};
+
+&i2s3_mach {
+	soundcard-mach,playback-only;
+	soundcard-mach,name = "allwinner-edp";
+	status = "okay";
+};
+
+&i2s3_cpu {
+	/* av: */
+	soundcard-mach,pll-fs = <4>;
+	soundcard-mach,mclk-fs = <512>;
+};
+
+&i2s3_codec {
+	/* edp: */
+	sound-dai = <&edp0>;
+};
