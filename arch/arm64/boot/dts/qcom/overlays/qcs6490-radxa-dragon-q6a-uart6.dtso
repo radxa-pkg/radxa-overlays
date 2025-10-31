@@ -1,0 +1,30 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2025 Radxa Computer (Shenzhen) Co., Ltd.
+ */
+
+/dts-v1/;
+/plugin/;
+
+/ {
+    metadata {
+        title = "Enable Radxa Q6A uart6 on gp24,gp25,gp26,gp27";
+        compatible = "radxa,dragon-q6a";
+        category = "misc";
+        exclusive = "uart6","i2c6","spi6";
+        description = "Q6A uart6 on gp24,gp25,gp26,gp27.";
+    };
+};
+
+&spi6 {
+	status = "disabled";
+};
+
+&i2c6 {
+	status = "disabled";
+};
+
+&uart6 {
+	qcom,enable-gsi-dma;
+	status = "okay";
+};
