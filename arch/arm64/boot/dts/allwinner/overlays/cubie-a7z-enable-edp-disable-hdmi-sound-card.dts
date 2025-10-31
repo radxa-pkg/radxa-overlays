@@ -1,0 +1,36 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable eDP and disable HDMI sound card";
+		compatible = "radxa,cubie-a7z";
+		category = "misc";
+		exclusive = "i2s3_mach", "i2s3_plat", "i2s3_cpu", "i2s3_codec";
+		description = "Enable eDP and disable HDMI sound card.";
+	};
+};
+
+&i2s3_plat {
+	/* av:  */
+	/* av not need dai-type */
+	dai-type;
+	status	= "okay";
+};
+
+&i2s3_mach {
+	soundcard-mach,playback-only;
+	soundcard-mach,name = "allwinner-edp";
+	status = "okay";
+};
+
+&i2s3_cpu {
+	/* av: */
+	soundcard-mach,pll-fs = <4>;
+	soundcard-mach,mclk-fs = <512>;
+};
+
+&i2s3_codec {
+	/* edp: */
+	sound-dai = <&edp0>;
+};
