@@ -1,3 +1,19 @@
+radxa-overlays (0.2.7) noble; urgency=medium
+
+  [ HE Zhengyu ]
+  * feat: add kernel version check for dtso
+
+  [ Feng Zhang ]
+  * overlays: allwinner: cubie-a7z: add edp sound card support
+
+  [ rjgawuie ]
+  * add uart6/12 dts for qcs6490.
+
+  [ dependabot[bot] ]
+  * chore(deps): bump actions/upload-artifact from 4 to 5
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Tue, 04 Nov 2025 07:42:01 +0000
+
 radxa-overlays (0.2.6) noble; urgency=medium
 
   [ Ken Wang ]
