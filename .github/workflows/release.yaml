@@ -64,7 +64,7 @@ jobs:
         fi | tee -a "$GITHUB_OUTPUT"
       shell: "bash"
   release:
-    if: "${{ github.event_name != 'pull_request' && needs.build.outputs.distro != 'UNRELEASED' }}"
+    if: "${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && needs.build.outputs.distro != 'UNRELEASED' }}"
     needs: "build"
     permissions:
       contents: "write"
@@ -135,6 +135,7 @@ name: "Build & Release"
   push:
     branches:
     - "main"
+    - "gh-readonly-queue/main/pr-*"
     paths-ignore:
     - "docs/**"
     - "theme/**"
