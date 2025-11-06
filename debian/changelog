@@ -1,3 +1,14 @@
+radxa-overlays (0.2.8) noble; urgency=medium
+
+  [ SongJun Li ]
+  * overlay: qcom: radxa-dragon-q6a: add 8hd support
+  * fix: radxa-dragon-q6a-radxa-8hd: fix lcd panel reset gpio polarity
+
+  [ rjgawuie ]
+  * Add spi6/7/12/14 cs0 spidev for qcs6490
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Thu, 06 Nov 2025 06:47:55 +0000
+
 radxa-overlays (0.2.7) noble; urgency=medium
 
   [ HE Zhengyu ]
