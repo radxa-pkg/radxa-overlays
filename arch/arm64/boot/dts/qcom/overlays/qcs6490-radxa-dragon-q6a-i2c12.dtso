@@ -9,7 +9,7 @@
 / {
     metadata {
         title = "Enable I2C12";
-        compatible = "radxa,dragon-q6a";
+        compatible = "unknown";
         category = "misc";
         exclusive = "spi12", "uart12", "i2c12", "gpio48", "gpio49";
         description = "Enable I2C12.
