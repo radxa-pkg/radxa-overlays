@@ -1,0 +1,33 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2025 Radxa Computer (Shenzhen) Co., Ltd.
+ */
+
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable I2C6";
+		compatible = "radxa,dragon-q6a";
+		category = "misc";
+		exclusive = "uart6","i2c6","spi6";
+		description = "Enable I2C6. 
+On Radxa Dragon Q6A, this is pin 5(scl), 3(sda).";
+	};
+};
+
+&spi6 {
+	status = "disabled";
+};
+
+&i2c6 {
+	qcom,enable-gsi-dma;
+	status = "okay";
+
+	clock-frequency = <1000000>;
+};
+
+&uart6 {
+	status = "disabled";
+};
