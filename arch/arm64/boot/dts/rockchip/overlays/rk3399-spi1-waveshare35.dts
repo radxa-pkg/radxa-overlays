@@ -3,20 +3,17 @@
 
 / {
 	metadata {
-		title = "Enable Waveshare 3.5inch RPi LCD (C) on SPI1";
+		title = "Enable Waveshare 3.5inch RPi LCD (C) on SPI1 (No Touch Support)";
 		compatible = "rockchip,rk3399";
 		category = "misc";
 		exclusive = "GPIO1_B0", "GPIO1_A7", "GPIO1_B1", "GPIO1_B2", "GPIO4_D2", "GPIO4_D4", "GPIO4_D5" ;
-		description = "Enable Waveshare 3.5inch RPi LCD (C) on SPI1.";
+		description = "Enable Waveshare 3.5inch RPi LCD (C) on SPI1 (No Touch Support).
+Due to hardware conflict, touch is not available when using with ROCK 4.";
 	};
 };
 
 &DISPLAY_SPI {
-	num-cs = <2>;
-	cs-gpios = <&gpio1 RK_PB2 GPIO_ACTIVE_HIGH
-			&gpio4 RK_PD2 GPIO_ACTIVE_HIGH>;
-	pinctrl-names = "default", "high_speed";
-	pinctrl-0 = <&spi1_clk &spi1_rx &spi1_tx>;
+	pinctrl-0 = <&spi1_clk &spi1_cs0 &spi1_rx &spi1_tx>;
 };
 
 &ili9486 {
@@ -25,7 +22,5 @@
 };
 
 &ads7846 {
-	interrupts = <RK_PC2 IRQ_TYPE_EDGE_FALLING>;
-	interrupt-parent = <&gpio4>;
-	pendown-gpio = <&gpio4 RK_PC2 GPIO_ACTIVE_HIGH>;
+	status = "disabled";
 };

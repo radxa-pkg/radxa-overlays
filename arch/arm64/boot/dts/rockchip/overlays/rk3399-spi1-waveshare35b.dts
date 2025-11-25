@@ -9,12 +9,6 @@ Due to hardware conflict, touch is not available when using with ROCK 4.";
 	};
 };
 
-&DISPLAY_SPI {
-	/delete-property/ num-cs;
-	/delete-property/ cs-gpios;
-	pinctrl-0 = <&spi1_clk &spi1_cs0 &spi1_rx &spi1_tx>;
-};
-
 &ili9486 {
 	init = <0x10000b0 0x0
 			0x1000011
@@ -30,8 +24,4 @@ Due to hardware conflict, touch is not available when using with ROCK 4.";
 			0x1000011
 			0x20000ff
 			0x1000029>;
-};
-
-&ads7846 {
-	status = "disabled";
 };
