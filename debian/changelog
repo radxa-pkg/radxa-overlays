@@ -1,3 +1,17 @@
+radxa-overlays (0.2.9) noble; urgency=medium
+
+  [ rjgawuie ]
+  * Add i2c12 for qcs6490
+
+  [ Nascs Fang ]
+  * fix: delete q6a i2c12
+  * feat: add i2c0/2/6/14
+
+  [ Jiali Chen ]
+  * fix: rk3399-spi1-waveshare35: remove ads7846
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Thu, 27 Nov 2025 08:32:45 +0000
+
 radxa-overlays (0.2.8) noble; urgency=medium
 
   [ SongJun Li ]
