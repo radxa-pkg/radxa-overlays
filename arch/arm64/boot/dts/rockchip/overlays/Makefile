@@ -637,6 +637,8 @@ dtb-$(CONFIG_CPU_RK3588) += \
 	rock-5b-plus-cam1-rpi-camera-v1p3.dtbo \
 	rock-5b-plus-cam0-rpi-camera-v2.dtbo \
 	rock-5b-plus-cam1-rpi-camera-v2.dtbo \
+	rock-5b-plus-cam0-waveshare-imx415-8mp-camera.dtbo \
+	rock-5b-plus-cam1-waveshare-imx415-8mp-camera.dtbo \
 	rock-5b-plus-hdmi0-8k.dtbo \
 	rock-5b-plus-hdmi1-8k.dtbo \
 	rock-5b-plus-radxa-display-8hd.dtbo \
