@@ -6,7 +6,7 @@
         title = "Enable Waveshare 3.5inch RPi LCD (B) on SPI12";
         compatible = "radxa,dragon-q6a";
         category = "misc";
-        exclusive = "spi12", "uart12", "i2c12", "gpio48", "gpio49", "gpio50", "gpio51", "gpio55", "gpio29";
+        exclusive = "spi12", "uart12", "i2c12", "gpio48", "gpio49", "gpio50", "gpio51", "gpio55", "gpio57", "gpio27", "gpio29";
         description = "Enable Waveshare 3.5inch RPi LCD (B) on SPI12.";
     };
 };
