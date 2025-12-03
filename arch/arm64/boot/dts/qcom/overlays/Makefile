@@ -18,6 +18,7 @@ dtb-$(CONFIG_ARCH_QCOM) += qcs6490-radxa-dragon-q6a-cam1-imx577.dtbo \
 	qcs6490-radxa-dragon-q6a-spi12-waveshare35c.dtbo \
 	qcs6490-radxa-dragon-q6a-spi6-cs0-spidev.dtbo \
 	qcs6490-radxa-dragon-q6a-spi7-cs0-spidev.dtbo \
+	qcs6490-radxa-dragon-q6a-spi12-cs0-mcp2515-8mhz.dtbo \
 	qcs6490-radxa-dragon-q6a-spi12-cs0-spidev.dtbo \
 	qcs6490-radxa-dragon-q6a-spi14-cs0-spidev.dtbo \
 	qcs6490-radxa-dragon-q6a-uart6-flowctl.dtbo \
