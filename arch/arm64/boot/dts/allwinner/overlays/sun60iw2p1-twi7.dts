@@ -4,12 +4,13 @@
 / {
 	metadata {
 		title = "Enable TWI7";
-		compatible = "radxa,cubie-a7a", "radxa,cubie-a7z";
+		compatible = "radxa,cubie-a7a", "radxa,cubie-a7z", "radxa,cubie-a7s";
 		category = "misc";
 		exclusive = "twi7", "PJ22", "PJ23";
 		description = "Enable TWI7.
 On Radxa Cubie A7A this is SDA pin 3 & SCL pin 5.
 On Radxa Cubie A7Z this is SDA pin 3 & SCL pin 5.
+On Radxa Cubie A7S this is SDA pin 3 & SCL pin 5.
 ";
     };
 };

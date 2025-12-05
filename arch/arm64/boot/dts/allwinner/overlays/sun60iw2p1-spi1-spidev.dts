@@ -5,7 +5,7 @@
 /{
 	metadata {
 		title = "Enable spidev on SPI1";
-		compatible = "radxa,cubie-a7a", "radxa,cubie-a7z";
+		compatible = "radxa,cubie-a7a", "radxa,cubie-a7z", "radxa,cubie-a7s";
 		category = "misc";
 		exclusive = "spi1", "PD11", "PD12", "PD13", "PD10";
 		description = "Enable spidev on SPI1 on

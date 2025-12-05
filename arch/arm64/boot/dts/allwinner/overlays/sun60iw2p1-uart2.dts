@@ -4,12 +4,13 @@
 / {
 	metadata {
 		title = "Enable UART2";
-		compatible = "radxa,cubie-a7a", "radxa,cubie-a7z";
+		compatible = "radxa,cubie-a7a", "radxa,cubie-a7z", "radxa,cubie-a7s";
 		category = "misc";
 		exclusive = "PB0", "PB1", "uart2";
 		description = "Enable UART2.
 On Radxa Cubie A7A, TX is pin 7 and RX is pin 11.
 On Radxa Cubie A7Z, TX is pin 7 and RX is pin 11.
+On Radxa Cubie A7S, TX is pin 7 and RX is pin 11.
 ";
 	};
 };
