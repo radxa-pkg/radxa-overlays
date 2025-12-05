@@ -4,12 +4,13 @@
 / {
 	metadata {
 		title = "Enable PWM1-7";
-		compatible = "radxa,cubie-a7a", "radxa,cubie-a7z";
+		compatible = "radxa,cubie-a7a", "radxa,cubie-a7z", "radxa,cubie-a7s";
 		category = "misc";
 		exclusive = "PJ25";
 		description = "Enable PWM1-7.
 On Radxa Cubie A7A this is pin 18.
 On Radxa Cubie A7Z this is pin 18.
+On Radxa Cubie A7S this is pin 18.
 ";
 	};
 };

@@ -4,12 +4,13 @@
 / {
 	metadata {
 		title = "Enable UART4";
-		compatible = "radxa,cubie-a7a", "radxa,cubie-a7z";
+		compatible = "radxa,cubie-a7a", "radxa,cubie-a7z", "radxa,cubie-a7s";
 		category = "misc";
 		exclusive = "PJ24", "PJ25", "uart4";
 		description = "Enable UART4.
 On Radxa Cubie A7A, this is pin 16 and pin 18.
 On Radxa Cubie A7Z, this is pin 16 and pin 18.
+On Radxa Cubie A7S, this is pin 16 and pin 18.
 ";
 	};
 };

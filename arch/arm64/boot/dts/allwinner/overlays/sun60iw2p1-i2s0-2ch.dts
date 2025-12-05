@@ -4,7 +4,7 @@
 /{
 	metadata {
 		title = "Enable I2S0";
-		compatible = "radxa,cubie-a7z";
+		compatible = "radxa,cubie-a7z", "radxa,cubie-a7s";
 		category = "misc";
 		exclusive = "i2s0_plat", "i2s0_mach", "PB4", "PB5", "PB6", "PB8", "PB7";
 		description = "Enable I2S0 2-channel dummy sound card.
