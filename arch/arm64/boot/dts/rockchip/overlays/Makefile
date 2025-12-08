@@ -389,6 +389,7 @@ dtb-$(CONFIG_CLK_RK3576) += \
 	rk3576-uart0-m0.dtbo \
 	rk3576-uart10-m1.dtbo \
 	rk3576-uart2-m0.dtbo \
+	rk3576-uart2-m1.dtbo \
 	rk3576-uart3-m2.dtbo \
 	rk3576-uart4-m1.dtbo \
 	rk3576-uart7-m0.dtbo \
@@ -409,7 +410,15 @@ dtb-$(CONFIG_CPU_RK3576) += \
 	radxa-cm4-io-rpi-camera-v1p3-on-cam2.dtbo \
 	radxa-cm4-io-rpi-camera-v2-on-cam1.dtbo \
 	radxa-cm4-io-rpi-camera-v2-on-cam2.dtbo \
+	radxa-nx4-c200-radxa-camera-8m-219-on-cam0.dtbo \
+	radxa-nx4-c200-radxa-camera-8m-219-on-cam1.dtbo \
+	radxa-nx4-c200-rpi-camera-v1p3-on-cam0.dtbo \
+	radxa-nx4-c200-rpi-camera-v1p3-on-cam1.dtbo \
+	radxa-nx4-c200-rpi-camera-v2-on-cam0.dtbo \
+	radxa-nx4-c200-rpi-camera-v2-on-cam1.dtbo \
+	rk3576-can0-m3.dtbo \
 	rk3576-can1-m1.dtbo \
+	rk3576-can1-m2.dtbo \
 	rk3576-can1-m3.dtbo \
 	rock-4d-radxa-25w-poe.dtbo \
 	rock-4d-radxa-camera-13m-214.dtbo \
