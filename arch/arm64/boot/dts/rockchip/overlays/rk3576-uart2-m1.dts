@@ -1,0 +1,19 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable UART2-M1";
+		compatible = "radxa,nx4-c200";
+		category = "misc";
+		exclusive = "GPIO4_B4", "GPIO4_B5", "uart2";
+		description = "Enable UART2-M1.
+On Radxa NX4 ORIN C200 this is TX pin 10 and RX pin 8.
+";
+	};
+};
+
+&uart2 {
+	status = "okay";
+	pinctrl-0 = <&uart2m1_xfer>;
+};
