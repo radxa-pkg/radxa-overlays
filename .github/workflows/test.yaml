@@ -15,7 +15,7 @@ jobs:
         version: [linux-rockchip, linux-rk356x, linux-stable, linux-rk2312, linux-rk2410, linux-rk2410-nocsf, linux-aw2501, linux-a733, linux-qcom]
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Check if there is missing files
         shell: bash
         run: |
