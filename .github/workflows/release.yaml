@@ -5,7 +5,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
     - name: "Checkout"
-      uses: "actions/checkout@v5"
+      uses: "actions/checkout@v6"
       with:
         fetch-depth: 0
         fetch-tags: true
@@ -64,14 +64,14 @@ jobs:
         fi | tee -a "$GITHUB_OUTPUT"
       shell: "bash"
   release:
-    if: "${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && needs.build.outputs.distro != 'UNRELEASED' }}"
+    if: "${{ github.event_name != 'pull_request' && needs.build.outputs.distro != 'UNRELEASED' }}"
     needs: "build"
     permissions:
       contents: "write"
     runs-on: "ubuntu-latest"
     steps:
     - name: "Checkout"
-      uses: "actions/checkout@v5"
+      uses: "actions/checkout@v6"
     - name: "Download generated debs"
       uses: "actions/download-artifact@v6"
       with:
@@ -135,7 +135,6 @@ name: "Build & Release"
   push:
     branches:
     - "main"
-    - "gh-readonly-queue/main/pr-*"
     paths-ignore:
     - "docs/**"
     - "theme/**"
