@@ -1,3 +1,25 @@
+radxa-overlays (0.2.10) noble; urgency=medium
+
+  [ Mitchell Ma ]
+  * feat: add Waveshare IMX415 8MP camera support for ROCK 5B+
+  * feat: add radxa-nx4-c200 overlay support
+
+  [ Nascs Fang ]
+  * feat: add waveshare 3.5 inch model b
+  * feat: add ssd1306 oled for q6a
+  * feat: add mcp2515 for q6a
+
+  [ rjgawuie ]
+  * feat: add waveshare 3.5 inch model c
+
+  [ Feng Zhang ]
+  * overlay: allwinner: Add cubie a7s support
+
+  [ dependabot[bot] ]
+  * chore(deps): bump actions/checkout from 5 to 6
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Mon, 08 Dec 2025 10:19:36 +0000
+
 radxa-overlays (0.2.9) noble; urgency=medium
 
   [ rjgawuie ]
