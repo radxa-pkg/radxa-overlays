@@ -1,4 +1,8 @@
 # SPDX-License-Identifier: GPL-2.0
+# dtso can only build on kernel >= 6.2
+# https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=363547d2191cbc32ca954ba75d72908712398ff2
+ifeq ($(shell [ $(VERSION) -gt 6 ] || ( [ $(VERSION) -eq 6 ] && [ $(PATCHLEVEL) -ge 2 ] ) && echo 0), 0)
+
 dtb-$(CONFIG_ARCH_MESON) += \
 	meson-g12-disable-gpu.dtbo \
 	meson-g12-disable-hdmi.dtbo \
@@ -56,3 +60,9 @@ targets += $(dtb-y) $(dtbotxt-y)
 
 always-y		:= $(dtb-y) $(dtbotxt-y)
 clean-files		:= *.dtbo *.scr
+
+# HACK: fix build dtbo from dkms using kernel header
+DTC						?=	/usr/bin/dtc
+override DTC_INCLUDE	:=	$(srctree)/include
+
+endif
