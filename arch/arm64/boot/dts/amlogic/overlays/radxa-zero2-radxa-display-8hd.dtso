@@ -1,0 +1,202 @@
+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+/*
+ * Copyright (c) 2019 BayLibre, SAS
+ * Copyright (c) 2025 Radxa Computer (Shenzhen) Co., Ltd.
+ * Author: Neil Armstrong <narmstrong@baylibre.com>
+ * Author: Jiali Chen <chenjiali@radxa.com>
+ */
+
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/gpio/meson-g12a-gpio.h>
+#include <dt-bindings/pwm/pwm.h>
+#include <dt-bindings/clock/g12a-clkc.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/interrupt-controller/amlogic,meson-g12a-gpio-intc.h>
+
+#include "meson-g12-disable-hdmi.dtso"
+
+/ {
+    metadata {
+		title = "Enable Radxa Display 8HD AD002";
+		compatible = "radxa,zero2";
+		category = "display";
+		exclusive = "mipi_dsi", "hdmi";
+		description = "Enable Radxa Display 8HD AD002.";
+    };
+};
+
+&{/} {
+	lcd_vcc: regulator-lcd-vcc {
+		compatible = "regulator-fixed";
+		regulator-name = "LCD_VCC";
+		vin-supply = <&vcc_3v3>;
+		enable-active-high;
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		gpios = <&gpio GPIOA_8 GPIO_ACTIVE_HIGH>;
+	};
+
+
+	bl_pwm: bl-pwm {
+		compatible = "pwm-gpio";
+		#pwm-cells = <3>;
+		gpios = <&gpio GPIOZ_12 GPIO_ACTIVE_HIGH>;
+	};
+
+	dsi1_backlight: dsi1-backlight {
+		status = "okay";
+		compatible = "pwm-backlight";
+		pwms = <&bl_pwm 0 1000000 0>;
+		brightness-levels = <
+			0  20  20  21  21  22  22  23
+			23  24  24  25  25  26  26  27
+			27  28  28  29  29  30  30  31
+			31  32  32  33  33  34  34  35
+			35  36  36  37  37  38  38  39
+			40  41  42  43  44  45  46  47
+			48  49  50  51  52  53  54  55
+			56  57  58  59  60  61  62  63
+			64  65  66  67  68  69  70  71
+			72  73  74  75  76  77  78  79
+			80  81  82  83  84  85  86  87
+			88  89  90  91  92  93  94  95
+			96  97  98  99 100 101 102 103
+			104 105 106 107 108 109 110 111
+			112 113 114 115 116 117 118 119
+			120 121 122 123 124 125 126 127
+			128 129 130 131 132 133 134 135
+			136 137 138 139 140 141 142 143
+			144 145 146 147 148 149 150 151
+			152 153 154 155 156 157 158 159
+			160 161 162 163 164 165 166 167
+			168 169 170 171 172 173 174 175
+			176 177 178 179 180 181 182 183
+			184 185 186 187 188 189 190 191
+			192 193 194 195 196 197 198 199
+			200 201 202 203 204 205 206 207
+			208 209 210 211 212 213 214 215
+			216 217 218 219 220 221 222 223
+			224 225 226 227 228 229 230 231
+			232 233 234 235 236 237 238 239
+			240 241 242 243 244 245 246 247
+			248 249 250 251 252 253 254 255
+		>;
+		default-brightness-level = <200>;
+	};
+};
+
+&mipi_dsi {
+	#address-cells = <1>;
+	#size-cells = <0>;
+	status = "okay";
+
+
+	assigned-clocks = <&clkc CLKID_GP0_PLL>,
+			  <&clkc CLKID_MIPI_DSI_PXCLK_SEL>,
+			  <&clkc CLKID_MIPI_DSI_PXCLK>,
+			  <&clkc CLKID_CTS_ENCL_SEL>,
+			  <&clkc CLKID_VCLK2_SEL>;
+	assigned-clock-parents = <0>,
+				 <&clkc CLKID_GP0_PLL>,
+				 <0>,
+				 <&clkc CLKID_VCLK2_DIV1>,
+				 <&clkc CLKID_GP0_PLL>;
+	assigned-clock-rates = <0>,
+			       <0>,
+			       <420000000>,
+			       <0>,
+			       <0>;
+	panel@0 {
+		compatible = "radxa,display-8hd-ad002", "jadard,jd9365da-h3";
+		reg = <0>;
+		vdd-supply = <&lcd_vcc>;
+		vccio-supply = <&vddao_1v8>;
+		backlight = <&dsi1_backlight>;
+		reset-gpios = <&gpio_ao GPIOAO_6 GPIO_ACTIVE_LOW>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&panel_default_pins>;
+
+
+		port {
+			mipi_in_panel: endpoint {
+				remote-endpoint = <&mipi_out_panel>;
+			};
+		};
+	};
+
+
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		port@1 {
+			mipi_out_panel: endpoint {
+				remote-endpoint = <&mipi_in_panel>;
+			};
+		};
+	};
+};
+
+&i2c3 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+	pinctrl-0 = <&i2c3_sda_a_pins>, <&i2c3_sck_a_pins>;
+	pinctrl-names = "default";
+	status = "okay";
+
+
+	touchscreen@14 {
+		compatible = "goodix,gt9271";
+		reg = <0x14>;
+		interrupt-parent = <&gpio_intc>;
+		interrupts = <IRQID_GPIOA_7 IRQ_TYPE_LEVEL_HIGH>;
+		irq-gpios = <&gpio GPIOA_7 GPIO_ACTIVE_HIGH>;
+		pinctrl-0 = <&ts_int_conn>, <&ts_rst_conn>;
+		pinctrl-names = "default";
+		reset-gpios = <&gpio GPIOA_9 GPIO_ACTIVE_HIGH>;
+		touchscreen-size-x = <800>;
+		touchscreen-size-y = <1280>;
+	};
+};
+
+&mipi_analog_dphy {
+	status = "okay";
+};
+
+&mipi_dphy {
+	status = "okay";
+};
+
+&ao_pinctrl {
+	panel_default_pins: panel_default_pins {
+		mux {
+			groups = "GPIOAO_6";
+			function = "gpio_aobus";
+			bias-disable;
+			drive-strength-microamp = <4000>;
+		};
+	};
+};
+
+&periphs_pinctrl {
+	ts_int_conn: ts-int-conn-state {
+		mux {
+			pins = "GPIOA_7";
+			function = "gpio_periphs";
+			bias-disable;
+		};
+	};
+
+	ts_rst_conn: ts-rst-conn-state {
+		mux {
+			pins = "GPIOA_9";
+			function = "gpio_periphs";
+			drive-strength-microamp = <4000>;
+			bias-disable;
+		};
+	};
+};
