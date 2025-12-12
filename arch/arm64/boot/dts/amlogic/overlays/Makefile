@@ -51,7 +51,8 @@ dtb-$(CONFIG_ARCH_MESON) += \
 	radxa-zero-spi-b-waveshare35b.dtbo \
 	radxa-zero-uart-ao-b-89.dtbo \
 	radxa-zero2-enable-vddio_c.dtbo \
-	radxa-zero2-radxa-25w-poe.dtbo
+	radxa-zero2-radxa-25w-poe.dtbo \
+	radxa-zero2-radxa-display-8hd.dtbo
 
 dtbotxt-$(CONFIG_ARCH_MESON) += \
 	README.overlays
