@@ -9,7 +9,7 @@
 		category = "misc";
 		exclusive = "spi1", "PD11", "PD12", "PD13", "PD10";
 		description = "Enable spidev on SPI1 on
-pin 21(CLK), 23(MOSI), 19(MISO), 24(CS0)";
+pin 21(MISO), 23(CLK), 19(MOSI), 24(CS0)";
 	};
 };
 

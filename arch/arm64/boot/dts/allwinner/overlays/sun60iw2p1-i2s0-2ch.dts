@@ -9,7 +9,10 @@
 		exclusive = "i2s0_plat", "i2s0_mach", "PB4", "PB5", "PB6", "PB8", "PB7";
 		description = "Enable I2S0 2-channel dummy sound card.
 This overlay is only for demonstration purpose.
-It does not support any specific hardware device.";
+It does not support any specific hardware device.
+On Radxa Cubie A7Z, this is pin_36(mclk), pin_12(bclk), pin_35(lrck), pin_38(din0), pin_40(dout0).
+On Radxa Cubie A7S, this is pin_36(mclk), pin_12(bclk), pin_35(lrck), pin_37(din0), pin_38(dout0).
+";
 	};
 };
 
