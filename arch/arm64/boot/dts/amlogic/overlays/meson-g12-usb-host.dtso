@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Set OTG port to Host mode";
-		compatible = "radxa,zero", "radxa,zero2";
+		compatible = "unknown";
 		category = "misc";
 		exclusive = "usb";
 		description = "Set OTG port to Host mode.
