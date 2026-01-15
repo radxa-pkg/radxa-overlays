@@ -36,6 +36,7 @@ dtb-$(CONFIG_ARCH_SUN60IW2) += \
 	sun60iw2p1-uart2.dtbo \
 	sun60iw2p1-uart3.dtbo \
 	sun60iw2p1-uart4.dtbo \
+	cubie-a7a-enable-sunxi-ac101-sound-card.dtbo \
 	cubie-a7a-radxa-25w-poe.dtbo \
 	cubie-a7a-radxa-camera-8m-219.dtbo \
 	cubie-a7a-radxa-camera-13m-214.dtbo \

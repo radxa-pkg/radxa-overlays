@@ -1,0 +1,102 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/gpio/sun4i-gpio.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+	metadata {
+		title = "Enable Allwinner AC101 Codec";
+		compatible = "radxa,cubie-a7a";
+		category = "misc";
+		exclusive = "PL11", "PB2", "i2s0_cpu", "i2s0_plat";
+		description = "Enable Allwinner AC101 Codec";
+	};
+};
+
+&ac101b {
+	status = "disabled";
+};
+
+&s_twi2 {
+	ac101: ac101@1a {
+		#sound-dai-cells = <0>;
+		compatible = "allwinner,sunxi-ac101";
+		reg = <0x1a>;
+		sysclk-src = "MCLK";
+		pcm-bit-first = "MSB";
+		frame-sync-width = <1>;
+		hp-plug-gpio = <&r_pio PL 11 GPIO_ACTIVE_HIGH>;
+		hp-det-gpio = <&pio PB 2 GPIO_ACTIVE_HIGH>;
+		jack-det-threshold = <1>;
+		jack-key-det-threshold = <10>;
+		jack-det-debouce-time = <15>;
+		jack-key-det-debouce-time = <2>;
+
+		/* jack-key-det-voltage = <min max> */
+		jack-key-det-voltage-hook = <23 24>;
+		jack-key-det-voltage-up = <21 22>;
+		jack-key-det-voltage-down = <18 20>;
+		/* jack-key-det-voltage-voice = <1 1> */
+
+		/* rglt */
+		rglt-max = <2>;
+		rglt0-mode = "PMU";
+		rglt0-voltage = <3300000>;
+		rglt0-supply = <&reg_aldo5>;
+
+		rglt1-mode = "PMU";
+		rglt1-voltage = <1800000>;
+		rglt1-supply = <&reg_bldo4>;
+		status = "okay";
+	};
+};
+
+&i2s0_mach {
+	soundcard-mach,format = "i2s";
+	soundcard-mach,frame-master = <&i2s0_cpu>;
+	soundcard-mach,bitclock-master = <&i2s0_cpu>;
+	/* soundcard-mach,frame-inversion; */
+	/* soundcard-mach,bitclock-inversion; */
+	soundcard-mach,name = "sunxi-ac101";
+	soundcard-mach,slot-num = <4>;
+	soundcard-mach,slot-width = <16>;
+	soundcard-mach,jack-support = <4>;
+	soundcard-mach,pin-switches =
+		"MIC1", "MIC2",
+		"LINEINL", "LINEINR",
+		"HPOUTL", "HPOUTR",
+		"LINEOUTL", "LINEOUTR",
+		"SPK";
+	soundcard-mach,routing =
+		"MIC1P_PIN", "MIC1",
+		"MIC1N_PIN", "MIC1",
+		"MIC2P_PIN", "MIC2",
+		"MIC2N_PIN", "MIC2",
+		"LINEINL_PIN", "LINEINL",
+		"LINEINR_PIN", "LINEINR",
+		"LINEOUTL", "LINEOUTLP_PIN",
+		"LINEOUTL", "LINEOUTLN_PIN",
+		"LINEOUTR", "LINEOUTRP_PIN",
+		"LINEOUTR", "LINEOUTRN_PIN",
+		"SPK", "LINEOUTLP_PIN",
+		"SPK", "LINEOUTLN_PIN",
+		"SPK", "LINEOUTRP_PIN",
+		"SPK", "LINEOUTRN_PIN",
+		"HPOUTL", "HPOUTL_PIN",
+		"HPOUTR", "HPOUTR_PIN";
+	status = "okay";
+
+	i2s0_cpu: soundcard-mach,cpu {
+		sound-dai = <&i2s0_plat>;
+		/* note: pll freq = 24.576M or 22.5792M * pll-fs */
+		soundcard-mach,pll-fs = <1>;
+		soundcard-mach,mclk-fs = <2>;
+		soundcard-mach,mclk-fp = <11289600 12288000>;
+	};
+
+	i2s0_codec: soundcard-mach,codec {
+		sound-dai = <&ac101>;
+	};
+};
