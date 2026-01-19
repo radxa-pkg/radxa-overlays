@@ -1,3 +1,17 @@
+radxa-overlays (0.2.12) noble; urgency=medium
+
+  [ dependabot[bot] ]
+  * chore(deps): bump actions/upload-artifact from 5 to 6
+
+  [ Jiali Chen ]
+  * fix: set compatible to "unknown" for meson-g12-usb*dtso
+  * fix: set compatible to "unknown" for meson-g12-uart-ao-a
+
+  [ Feng Zhang ]
+  * overlay: cubie-a7a: add sunxi-ac101
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Mon, 19 Jan 2026 02:34:58 +0000
+
 radxa-overlays (0.2.11) noble; urgency=medium
 
   [ Jiali Chen ]
