@@ -1,3 +1,10 @@
+radxa-overlays (0.2.13) noble; urgency=medium
+
+  [ SongJun Li ]
+  * feat: add radxa-camera-4k overlay for q6a
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Tue, 20 Jan 2026 03:49:50 +0000
+
 radxa-overlays (0.2.12) noble; urgency=medium
 
   [ dependabot[bot] ]
