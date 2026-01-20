@@ -13,6 +13,7 @@ dtb-$(CONFIG_ARCH_QCOM) += qcs6490-radxa-dragon-q6a-cam1-imx577.dtbo \
 	qcs6490-radxa-dragon-q6a-i2c12.dtbo \
 	qcs6490-radxa-dragon-q6a-i2c14.dtbo \
 	qcs6490-radxa-dragon-q6a-kvm.dtbo \
+	qcs6490-radxa-dragon-q6a-poe-hat.dtbo \
 	qcs6490-radxa-dragon-q6a-radxa-display-8hd.dtbo \
 	qcs6490-radxa-dragon-q6a-radxa-display-10fhd.dtbo \
 	qcs6490-radxa-dragon-q6a-spi12-waveshare35b.dtbo \
