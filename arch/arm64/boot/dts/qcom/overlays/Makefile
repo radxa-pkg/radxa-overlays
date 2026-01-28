@@ -4,6 +4,7 @@
 ifeq ($(shell [ $(VERSION) -gt 6 ] || ( [ $(VERSION) -eq 6 ] && [ $(PATCHLEVEL) -ge 2 ] ) && echo 0), 0)
 dtb-$(CONFIG_ARCH_QCOM) += qcs6490-radxa-dragon-q6a-cam1-imx577.dtbo \
 	qcs6490-radxa-dragon-q6a-cam1-radxa-camera-4k.dtbo \
+	qcs6490-radxa-dragon-q6a-cam1-radxa-camera-13m-214.dtbo \
 	qcs6490-radxa-dragon-q6a-cam2-radxa-camera-8m-219.dtbo \
 	qcs6490-radxa-dragon-q6a-cam3-radxa-camera-8m-219.dtbo \
 	qcs6490-radxa-dragon-q6a-i2c0.dtbo \
