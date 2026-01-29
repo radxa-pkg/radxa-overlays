@@ -1,3 +1,17 @@
+radxa-overlays (0.2.14) noble; urgency=medium
+
+  [ SongJun Li ]
+  * feat: add poe-hat overlay for q6a
+  * feat: add radxa-camera-13m overlay for q6a
+  * fix: radxa-dragon-q6a-radxa-camera-13m: Fix camera reset GPIO polarity
+
+  [ ZHANG Yuntian ]
+  * fix: limit package release to related SoC repo
+  * fix: newer kernel uses different extension
+  * fix: update with new pinctrl group
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Thu, 29 Jan 2026 11:13:08 +0000
+
 radxa-overlays (0.2.13) noble; urgency=medium
 
   [ SongJun Li ]
