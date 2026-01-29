@@ -64,7 +64,7 @@
 
 		reg = <0x10>;
 
-		reset-gpios = <&tlmm 20 GPIO_ACTIVE_HIGH>;
+		reset-gpios = <&tlmm 20 GPIO_ACTIVE_LOW>;
 		enable-gpios = <&tlmm 36 GPIO_ACTIVE_HIGH>;
 		pinctrl-names = "default", "suspend";
 		pinctrl-0 = <&cam0_default>;
