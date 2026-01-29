@@ -12,7 +12,7 @@
 };
 
 &pwm_ab {
-	pinctrl-0 = <&pwm_a_e_pins &pwm_b_z_pins>;
+	pinctrl-0 = <&pwm_a_e_pins>, <&pwm_b_z0_pins>;
 	pinctrl-names = "default";
 	clocks = <&xtal>;
 	clock-names = "clkin0";
