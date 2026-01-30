@@ -1,3 +1,10 @@
+radxa-overlays (0.2.15) noble; urgency=medium
+
+  [ Chongbiao Chen ]
+  * chore: set I2C clock frequency to 100 kHz
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Fri, 30 Jan 2026 03:35:27 +0000
+
 radxa-overlays (0.2.14) noble; urgency=medium
 
   [ SongJun Li ]
