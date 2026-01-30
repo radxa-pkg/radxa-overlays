@@ -25,7 +25,7 @@ On Radxa Dragon Q6A, this is pin 5(scl), 3(sda).";
 	qcom,enable-gsi-dma;
 	status = "okay";
 
-	clock-frequency = <1000000>;
+	clock-frequency = <100000>;
 };
 
 &uart6 {
