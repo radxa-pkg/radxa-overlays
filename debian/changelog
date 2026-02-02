@@ -1,3 +1,10 @@
+radxa-overlays (0.2.16) noble; urgency=medium
+
+  [ Sophon ]
+  * qcom: Update KVM overlay for q6a
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Mon, 02 Feb 2026 06:11:52 +0000
+
 radxa-overlays (0.2.15) noble; urgency=medium
 
   [ Chongbiao Chen ]
