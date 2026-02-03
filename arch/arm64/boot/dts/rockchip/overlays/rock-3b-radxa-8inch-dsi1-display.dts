@@ -3,112 +3,70 @@
 
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/interrupt-controller/irq.h>
 #include <dt-bindings/display/drm_mipi_dsi.h>
 #include "dt-bindings/display/drm_mipi_dsi_overlay.h"
-#include <dt-bindings/interrupt-controller/irq.h>
 
 / {
 	metadata {
-		title = "Enable Radxa Display 8HD on DSI0";
+		title ="Enable Radxa Display 8HD on DSI1";
 		compatible = "radxa,rock-3b";
 		category = "display";
-		exclusive = "dsi0";
-		description = "Enable Radxa Display 8HD on DSI0.";
+		exclusive = "dsi1";
+		description = "Enable Radxa Display 8HD on DSI1.
+pin02 for panel Vcc-5v.
+pin21 for panel backlight Pwm.	
+pin25 for panel Gnd.
+pin29 for tp Int.
+pin31 for tp Rst.";
 	};
 };
 
 &{/} {
-	vcc_lcd_dsi0: vcc-lcd-dsi0 {
+	vcc_lcd_dsi1: vcc-lcd-dsi1 {
 		status = "okay";
 		compatible = "regulator-fixed";
-		regulator-name = "vcc_lcd_mipi1";
-		gpio = <&gpio0 RK_PD5 GPIO_ACTIVE_HIGH>;
+		regulator-name = "vcc_lcd_mipi_dsi1";
+		gpio = <&gpio0 RK_PC7 GPIO_ACTIVE_HIGH>;
 		enable-active-high;
-		regulator-boot-on;
+		regulator-always-on;
 		regulator-state-mem {
 			regulator-off-in-suspend;
 		};
 	};
 
-	backlight_dsi0: backlight-dsi0 {
+	backlight_dsi1: backlight-dsi1 {
 		status = "okay";
 		compatible = "pwm-backlight";
-		pwms = <&pwm2 0 25000 0>;
-		brightness-levels = <
-			0  20  20  21  21  22  22  23
-			23  24  24  25  25  26  26  27
-			27  28  28  29  29  30  30  31
-			31  32  32  33  33  34  34  35
-			35  36  36  37  37  38  38  39
-			40  41  42  43  44  45  46  47
-			48  49  50  51  52  53  54  55
-			56  57  58  59  60  61  62  63
-			64  65  66  67  68  69  70  71
-			72  73  74  75  76  77  78  79
-			80  81  82  83  84  85  86  87
-			88  89  90  91  92  93  94  95
-			96  97  98  99 100 101 102 103
-			104 105 106 107 108 109 110 111
-			112 113 114 115 116 117 118 119
-			120 121 122 123 124 125 126 127
-			128 129 130 131 132 133 134 135
-			136 137 138 139 140 141 142 143
-			144 145 146 147 148 149 150 151
-			152 153 154 155 156 157 158 159
-			160 161 162 163 164 165 166 167
-			168 169 170 171 172 173 174 175
-			176 177 178 179 180 181 182 183
-			184 185 186 187 188 189 190 191
-			192 193 194 195 196 197 198 199
-			200 201 202 203 204 205 206 207
-			208 209 210 211 212 213 214 215
-			216 217 218 219 220 221 222 223
-			224 225 226 227 228 229 230 231
-			232 233 234 235 236 237 238 239
-			240 241 242 243 244 245 246 247
-			248 249 250 251 252 253 254 255
-		>;
-		default-brightness-level = <200>;
+		pwms = <&pwm12 0 25000 0>;
+		brightness-levels = <0 255>;
+		num-interpolated-steps = <255>;  
+		default-brightness-level = <250>;
 	};
 };
 
-&pwm2 {
+&pwm12 {
 	status = "okay";
+	pinctrl-names = "active";
+	pinctrl-0 = <&pwm12m1_pins>;
 };
 
-&dsi0 {
+&dsi1 {
 	status = "okay";
+	#rockchip,lane-rate = <480>;
 	#address-cells = <1>;
 	#size-cells = <0>;
-	rockchip,lane-rate = <480>;
 
-	dsi0_panel: panel@0 {
+    dsi1_panel: panel@1 {
 		status = "okay";
 		compatible = "simple-panel-dsi";
 		reg = <0>;
-		backlight = <&backlight_dsi0>;
-
-		power-supply = <&vcc_lcd_dsi0>;
-		reset-gpios = <&gpio2 RK_PD3 GPIO_ACTIVE_LOW>;
-		pinctrl-names = "default";
-		pinctrl-0 = <&dsi0_lcd_rst_gpio>;
-
-		prepare-delay-ms = <120>;
-		reset-delay-ms = <120>;
-		init-delay-ms = <120>;
-		stbyb-delay-ms = <120>;
-		enable-delay-ms = <100>;
-		disable-delay-ms = <120>;
-		unprepare-delay-ms = <120>;
-
-		width-mm = <135>;
-		height-mm = <216>;
-
-		dsi,flags = <(MIPI_DSI_MODE_VIDEO | MIPI_DSI_MODE_VIDEO_BURST |
-			MIPI_DSI_MODE_LPM | MIPI_DSI_MODE_EOT_PACKET)>;
-		dsi,format = <MIPI_DSI_FMT_RGB888>;
-		dsi,lanes  = <4>;
-
+		backlight = <&backlight_dsi1>;
+		width-mm = <107>;
+		height-mm = <199>;
+		dsi,flags = <(MIPI_DSI_MODE_VIDEO | MIPI_DSI_MODE_VIDEO_BURST | MIPI_DSI_MODE_LPM | MIPI_DSI_MODE_EOT_PACKET)>;
+        dsi,format = <MIPI_DSI_FMT_RGB888>;
+		dsi,lanes  = <2>;
 		panel-init-sequence = [
 			15 00 02 E0 00
 			15 00 02 E1 93
@@ -117,7 +75,7 @@
 			15 00 02 80 03
 			15 00 02 E0 01
 			15 00 02 00 00
-			15 00 02 01 7E
+			15 00 02 01 72
 			15 00 02 03 00
 			15 00 02 04 65
 			15 00 02 0C 74
@@ -153,7 +111,7 @@
 			15 00 02 5D 78
 			15 00 02 5E 63
 			15 00 02 5F 54
-			15 00 02 60 49
+			15 00 02 60 48
 			15 00 02 61 45
 			15 00 02 62 38
 			15 00 02 63 3D
@@ -279,8 +237,10 @@
 			15 00 02 0E 2A
 			15 00 02 36 59
 			15 00 02 E0 00
-			05 78 01 11
-			05 14 01 29
+			15 00 02 80 01
+			15 00 02 E0 00
+			15 00 02 11 00
+			15 78 02 29 00
 		];
 
 		panel-exit-sequence = [
@@ -288,37 +248,32 @@
 			05 00 01 10
 		];
 
-		display_timings0: display-timings {
-			native-mode = <&dsi1_timing0>;
-
-			dsi1_timing0: timing0 {
+		disp_timings1: display-timings {
+			native-mode = <&dsi0_timing1>;
+			dsi0_timing1: timing1 {
 				clock-frequency = <70000000>;
 				hactive = <800>;
 				vactive = <1280>;
-
-				hsync-len = <18>;
+				hsync-len = <20>;
 				hback-porch = <20>;
 				hfront-porch = <40>;
-
 				vsync-len = <4>;
-				vback-porch = <20>;
-				vfront-porch = <20>;
-
+				vback-porch = <28>;
+				vfront-porch = <30>;
 				hsync-active = <0>;
 				vsync-active = <0>;
 				de-active = <0>;
-				pixelclk-active = <1>;
+				pixelclk-active = <0>;
 			};
 		};
 
 		ports {
 			#address-cells = <1>;
 			#size-cells = <0>;
-
 			port@0 {
 				reg = <0>;
-				panel_in_dsi0: endpoint {
-					remote-endpoint = <&dsi0_out_panel>;
+				panel_in_dsi: endpoint {
+					remote-endpoint = <&dsi_out_panel>;
 				};
 			};
 		};
@@ -330,41 +285,42 @@
 
 		port@1 {
 			reg = <1>;
-			dsi0_out_panel: endpoint {
-				remote-endpoint = <&panel_in_dsi0>;
+			dsi_out_panel: endpoint {
+				remote-endpoint = <&panel_in_dsi>;
 			};
 		};
 	};
 };
 
-&video_phy0 {
+&video_phy1 {
 	status = "okay";
 };
 
-&dsi0_in_vp0 {
+&dsi1_in_vp0 {
 	status = "disabled";
 };
 
-&dsi0_in_vp1 {
+&dsi1_in_vp1 {
 	status = "okay";
 };
 
-&vp0_out_dsi0 {
+&vp0_out_dsi1 {
 	status = "disabled";
 };
 
-&vp1_out_dsi0 {
+&vp1_out_dsi1 {
 	status = "okay";
 };
 
-&route_dsi0 {
+&route_dsi1 {
 	status = "okay";
-	connect = <&vp1_out_dsi0>;
+	connect = <&vp1_out_dsi1>;
 };
 
-&i2c2 {
+&i2c3 {
 	status = "okay";
-	pinctrl-0 = <&i2c2m0_xfer>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c3m1_xfer>;
 	clock-frequency = <400000>;
 	#address-cells = <1>;
 	#size-cells = <0>;
@@ -375,27 +331,20 @@
 		reg = <0x14>;
 		pinctrl-names = "default";
 		pinctrl-0 = <&gt9xx_gpio>;
-		touch-gpio = <&gpio3 RK_PC4 IRQ_TYPE_LEVEL_HIGH>;
-		reset-gpio = <&gpio3 RK_PC5 GPIO_ACTIVE_HIGH>;
+		touch-gpio = <&gpio2 RK_PD7 IRQ_TYPE_LEVEL_HIGH>;
+		reset-gpio = <&gpio3 RK_PA0 GPIO_ACTIVE_HIGH>;
 		max-x = <800>;
 		max-y = <1280>;
 		tp-size = <9112>;
-		tp-supply = <&vcc3v3_sys>;
 	};
 };
 
 &pinctrl {
-	dsi0-lcd {
-		dsi0_lcd_rst_gpio: dsi0-lcd-rst-gpio {
-			rockchip,pins = <2 RK_PD3 RK_FUNC_GPIO &pcfg_pull_up>;
-		};
-	};
-
 	gt9xx {
 		gt9xx_gpio: gt9xx-gpio {
 			rockchip,pins =
-			<3 RK_PC5 RK_FUNC_GPIO &pcfg_pull_up>,
-			<3 RK_PC4 RK_FUNC_GPIO &pcfg_pull_none>;
+				<3 RK_PA0 RK_FUNC_GPIO &pcfg_pull_none>,
+				<2 RK_PD7 RK_FUNC_GPIO &pcfg_pull_up>;
 		};
 	};
 };
