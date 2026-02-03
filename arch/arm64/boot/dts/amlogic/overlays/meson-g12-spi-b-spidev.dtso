@@ -23,7 +23,7 @@
 	#size-cells = <0>;
 	status = "okay";
 	spidev@0 {
-		compatible = "armbian,spi-dev";
+		compatible = "semtech,sx1301";
 		status = "okay";
 		spi-max-frequency = <10000000>;
 		reg = <0>;
