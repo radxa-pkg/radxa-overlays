@@ -1,0 +1,18 @@
+#include "radxa-zero-spi-b-waveshare35b.dtso"
+
+/ {
+	metadata {
+		title = "Enable Waveshare 3.5inch RPi LCD (A) on SPI-B";
+		description = "Enable Waveshare 3.5inch RPi LCD (A) on SPI-B.
+Uses Pin 18 (GPIOX_8) for LCD_RS,
+Pin 7 (GPIOAO_3) for RST,
+Pin 24 (GPIOH_6) for LCD_CS,
+Pin 11 (GPIOAO_2) for TP_IRQ,
+Pin 26 (GPIOX_9) for TP_CS.";
+	};
+};
+
+&ili9486 {
+	compatible = "waveshare,rpi-lcd-35", "ilitek,ili9486";
+	rotation = <180>;
+};
