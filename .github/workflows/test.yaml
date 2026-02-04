@@ -12,7 +12,15 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [linux-rockchip, linux-rk356x, linux-stable, linux-rk2312, linux-rk2410, linux-rk2410-nocsf, linux-aw2501, linux-a733, linux-qcom, linux-qc2509]
+        version:
+          - linux-stable
+          - linux-rk2312
+          - linux-rk2410
+          - linux-rk2410-nocsf
+          - linux-aw2501
+          - linux-a733
+          - linux-qcom
+          - linux-qc2509
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -42,14 +50,6 @@ jobs:
           sudo apt install -y --no-install-recommends device-tree-compiler
           sudo dpkg --add-architecture arm64
           case "${{ matrix.version }}" in
-            linux-rockchip)
-              wget https://github.com/radxa-pkg/linux-rockchip/releases/download/5.10.110-38/linux-headers-5.10.110-38-rockchip_5.10.110-38-7a04ba0ad_arm64.deb
-              sudo apt install ./linux-headers-*.deb
-              ;;
-            linux-rk356x)
-              wget https://github.com/radxa-pkg/linux-rk356x/releases/download/5.10.160-37/linux-headers-5.10.160-37-rk356x_5.10.160-37-ff919543b_arm64.deb
-              sudo apt install ./linux-headers-*.deb
-              ;;
             linux-rk2312)
               wget https://github.com/radxa-pkg/linux-rk2312/releases/download/6.1.43-15/linux-headers-6.1.43-15-rk2312_6.1.43-15-3176a44da_arm64.deb
               sudo apt install ./linux-headers-*.deb
@@ -86,12 +86,6 @@ jobs:
             linux-stable)
               make build-dtbo -j$(nproc)
               ;;
-            linux-rockchip)
-              make build-dtbo -j$(nproc) KERNELRELEASE=5.10.110-38-rockchip CONFIG_ARCH_MESON=n CONFIG_CPU_RK3399=rockchip CONFIG_CPU_RK3588=rockchip CONFIG_ARCH_SUNXI=n CONFIG_ARCH_QCOM=n
-              ;;
-            linux-rk356x)
-              make build-dtbo -j$(nproc) KERNELRELEASE=5.10.160-37-rk356x CONFIG_ARCH_MESON=n CONFIG_CPU_RK3528=rockchip CONFIG_CPU_RK3568=rockchip CONFIG_ARCH_SUNXI=n CONFIG_ARCH_QCOM=n
-              ;;
             linux-rk2312)
               make build-dtbo -j$(nproc) KERNELRELEASE=6.1.43-15-rk2312 CONFIG_ARCH_MESON=n CONFIG_CPU_RK3528=rockchip CONFIG_CPU_RK3588=rockchip CONFIG_ARCH_SUNXI=n CONFIG_ARCH_QCOM=n
               ;;
@@ -108,10 +102,10 @@ jobs:
               make build-dtbo -j$(nproc) KERNELRELEASE=5.15.147-2-a733 CONFIG_ARCH_SUNXI=allwinner CONFIG_ARCH_SUN60IW2=allwinner CONFIG_ARCH_QCOM=n
               ;;
             linux-qcom)
-              make build-dtbo -j$(nproc) KERNELRELEASE=6.16.7-1-qcom CONFIG_ARCH_MESON=n CONFIG_ARCH_QCOM=qcom
+              make build-dtbo -j$(nproc) KERNELRELEASE=6.16.7-1-qcom
               ;;
             linux-qc2509)
-              make build-dtbo -j$(nproc) KERNELRELEASE=6.8.12-4-qc2509 CONFIG_ARCH_MESON=n CONFIG_ARCH_QCOM=qcom
+              make build-dtbo -j$(nproc) KERNELRELEASE=6.8.12-4-qc2509
               ;;
           esac
       - name: Upload artifacts
