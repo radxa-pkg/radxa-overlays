@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [linux-rockchip, linux-rk356x, linux-stable, linux-rk2312, linux-rk2410, linux-rk2410-nocsf, linux-aw2501, linux-a733, linux-qcom]
+        version: [linux-rockchip, linux-rk356x, linux-stable, linux-rk2312, linux-rk2410, linux-rk2410-nocsf, linux-aw2501, linux-a733, linux-qcom, linux-qc2509]
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -74,6 +74,10 @@ jobs:
               wget https://github.com/radxa-pkg/linux-qcom/releases/download/6.16.7-1/linux-headers-6.16.7-1-qcom_6.16.7-1_arm64.deb
               sudo apt install ./linux-headers-*.deb
               ;;
+            linux-qc2509)
+              wget https://github.com/radxa-pkg/linux-qc2509/releases/download/6.8.12-4/linux-headers-6.8.12-4-qc2509_6.8.12-4_arm64.deb
+              sudo apt install ./linux-headers-*.deb
+              ;;
           esac
       - name: Build
         shell: bash
@@ -105,6 +109,9 @@ jobs:
               ;;
             linux-qcom)
               make build-dtbo -j$(nproc) KERNELRELEASE=6.16.7-1-qcom CONFIG_ARCH_MESON=n CONFIG_ARCH_QCOM=qcom
+              ;;
+            linux-qc2509)
+              make build-dtbo -j$(nproc) KERNELRELEASE=6.8.12-4-qc2509 CONFIG_ARCH_MESON=n CONFIG_ARCH_QCOM=qcom
               ;;
           esac
       - name: Upload artifacts
