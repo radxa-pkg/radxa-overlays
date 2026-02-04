@@ -7,6 +7,9 @@
  */
 
 #include <dt-bindings/firmware/qcom,scm.h>
+#ifndef QCOM_SCM_VMID_SELF_OWNER
+#define QCOM_SCM_VMID_SELF_OWNER	0xffffffff
+#endif
 
 /dts-v1/;
 /plugin/;
