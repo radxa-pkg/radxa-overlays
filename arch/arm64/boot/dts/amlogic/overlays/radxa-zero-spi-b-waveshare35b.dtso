@@ -11,45 +11,51 @@
 		compatible = "radxa,zero";
 		category = "misc";
 		exclusive = "spicc1", "GPIOH_4", "GPIOH_5", "GPIOH_6", "GPIOH_7", "GPIOAO_3", "GPIOX_8", "GPIOX_9", "GPIOAO_2";
-		description = "Enable Waveshare 3.5inch RPi LCD (B) on SPI-B.";
+		description = "Enable Waveshare 3.5inch RPi LCD (B) on SPI-B.
+Uses Pin 18 (GPIOX_8) for LCD_RS,
+Pin 7 (GPIOAO_3) for RST,
+Pin 24 (GPIOH_6) for LCD_CS,
+Pin 11 (GPIOAO_2) for TP_IRQ,
+Pin 26 (GPIOX_9) for TP_CS.
+";
 	};
 };
 
 &spicc1 {
 	pinctrl-0 = <&spicc1_pins>;
 	pinctrl-names = "default";
-	cs-gpios = <&gpio GPIOH_6 GPIO_ACTIVE_LOW  &gpio GPIOX_9 GPIO_ACTIVE_LOW>;
+	cs-gpios = <&gpio GPIOH_6 GPIO_ACTIVE_LOW>,
+			   <&gpio GPIOX_9 GPIO_ACTIVE_LOW>;
 	#address-cells = <1>;
 	#size-cells = <0>;
 	status = "okay";
 	ili9486: ili9486@0 {
-		compatible = "ilitek,ili9486";
+		compatible = "waveshare,rpi-lcd-35-b", "ilitek,ili9486";
 		reg = <0>;
-		spi-max-frequency = <120000000>;
-		txbuflen = <32768>;
-		rotate = <90>;
-		bgr = <0>;
-		fps = <50>;
+		spi-max-frequency = <2000000>;
+		rotation = <0>;
 		buswidth = <8>;
 		regwidth = <16>;
-		reset-gpios = <&gpio_ao GPIOAO_3 GPIO_ACTIVE_LOW>;
+		reset-gpios = <&gpio_ao GPIOAO_3 GPIO_ACTIVE_HIGH>;
 		dc-gpios = <&gpio GPIOX_8 GPIO_ACTIVE_HIGH>;
-		debug = <0>; 
 	};
 
 	ads7846: ads7846@1 {
 		compatible = "ti,ads7846";
 		status = "okay";
 		reg = <1>;
-		id = <1>;
 		spi-max-frequency = <2000000>;
 		ti,x-plate-ohms = /bits/ 16 <60>;
 		ti,pressure-max = /bits/ 16 <255>;
-		ti,swap-xy = <0>;
-		ti,invert-y = <1>;
+		touchscreen-inverted-y;
+		touchscreen-swapped-x-y;
+		ti,x-min = /bits/ 16 <200>;
+		ti,x-max = /bits/ 16 <3800>;
+		ti,y-min = /bits/ 16 <300>;
+		ti,y-max = /bits/ 16 <3800>;
 		interrupts = <2 IRQ_TYPE_EDGE_FALLING>;
 		interrupt-parent = <&gpio_intc>;
-		pendown-gpio = <&gpio_ao GPIOAO_2 GPIO_ACTIVE_HIGH>;
+		pendown-gpio = <&gpio_ao GPIOAO_2 GPIO_ACTIVE_LOW>;
 		vcc-supply = <&ao_5v>;
 	};
 };

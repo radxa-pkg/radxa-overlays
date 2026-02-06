@@ -48,6 +48,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
 	radxa-zero-led-8-off.dtbo \
 	radxa-zero-led-10-off.dtbo \
 	radxa-zero-spi-b-waveshare13.dtbo \
+	radxa-zero-spi-b-waveshare35a.dtbo \
 	radxa-zero-spi-b-waveshare35b.dtbo \
 	radxa-zero-uart-ao-b-89.dtbo \
 	radxa-zero2-enable-vddio_c.dtbo \
