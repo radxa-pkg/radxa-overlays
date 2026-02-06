@@ -1,3 +1,17 @@
+radxa-overlays (0.2.17) noble; urgency=medium
+
+  [ Xinming Chen ]
+  * rock-3b:dsi1 add 2 lan 8hd overlay
+
+  [ Chongbiao Chen ]
+  * fix: define QCOM_SCM_VMID_SELF_OWNER if not define
+  * chore: add linux-qc2509 build test
+
+  [ ZHANG Yuntian ]
+  * ci: update test coverage
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Fri, 06 Feb 2026 02:40:42 +0000
+
 radxa-overlays (0.2.16) noble; urgency=medium
 
   [ Sophon ]
