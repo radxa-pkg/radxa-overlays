@@ -1,3 +1,12 @@
 &led_power_151 {
 	status = "disabled";
 };
+
+&gpio_ao {
+    gpio-line-names =
+		/* GPIOAO */
+		"PIN_8", "PIN_10", "PIN_28", "PIN_27", "PIN_32", "", "", "",
+		"", "PIN_37", "PIN_38", "PIN_40",
+		/* GPIOE */
+		"", "", "";
+};
