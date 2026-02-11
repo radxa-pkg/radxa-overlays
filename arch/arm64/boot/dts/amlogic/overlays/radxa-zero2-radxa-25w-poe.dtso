@@ -10,7 +10,7 @@
 	metadata {
 		title = "Enable Radxa 25W PoE+ HAT";
 		category = "misc";
-		compatible = "radxa,zero2";
+		compatible = "unknown";
 		description = "Enable Radxa 25W PoE+ HAT.";
 		exclusive = "i2c0", "GPIOAO_8", "GPIOZ_2", "GPIOZ_0", "GPIOZ_1";
 		package = "rsetup-config-thermal-governor-step-wise";
