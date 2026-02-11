@@ -161,7 +161,7 @@
 	/* For stability and backwards compatibility, we recommend setting ‘twi_drv_used’ to 1 */
 	twi_drv_used = <1>;
 	no_suspend = <1>;
-	twi-supply = <&reg_bldo2>;
+	twi-supply = <&reg_dc1sw1>;
 	status = "okay";
 
 	gt9271@5d {
