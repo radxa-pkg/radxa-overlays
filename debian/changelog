@@ -1,3 +1,22 @@
+radxa-overlays (0.2.18) noble; urgency=medium
+
+  [ Jiali Chen ]
+  * fix: use effective compatible to enable spidev
+  * fix: refactor radxa-zero-spi-b-waveshare35
+  * fix: radxa-zero-led-*-off: add gpio-line-names
+  * fix: hide radxa-zero2-radxa-25w-poe
+
+  [ Feng Zhang ]
+  * fix: cubie-a7a: radxa display: correct power supply
+
+  [ William Norman ]
+  * feat: add drm display for q6a waveshare 3.5 inch lcd
+
+  [ Stefan Schüller ]
+  * feat: Added st7789 pi-1.14-lcd
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Sat, 14 Feb 2026 03:23:47 +0000
+
 radxa-overlays (0.2.17) noble; urgency=medium
 
   [ Xinming Chen ]
