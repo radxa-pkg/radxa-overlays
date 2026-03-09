@@ -3,7 +3,7 @@
 
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/pinctrl/rockchip.h>
-#include <rk3576-csi2_dphy2.dtsi>
+#include "rk3576-csi2_dphy2.dtsi"
 
 / {
 	metadata {
