@@ -18,7 +18,11 @@
   "features": {
     "ghcr.io/devcontainers/features/nix:1": {
       "version": "latest",
-      "packages": "cachix,direnv,devenv",
+      "packages": [
+        "cachix",
+        "direnv",
+        "devenv"
+      ],
       "useAttributePath": true,
       "extraNixConfig": [
         "experimental-features = nix-command flakes",
@@ -38,12 +42,19 @@
       "source": "${localWorkspaceFolder}/.devcontainer/.direnv",
       "target": "${containerWorkspaceFolder}/.direnv",
       "type": "bind"
+    },
+    {
+      "source": "/var/run/docker.sock",
+      "target": "/var/run/docker.sock",
+      "type": "bind"
     }
   ],
   "workspaceMount": "source=${localWorkspaceFolder}/..,target=/workspaces,type=bind,consistency=cached",
   "runArgs": [
     // https://github.com/moby/moby/issues/27195#issuecomment-1410745778
-    "--ulimit", "nofile=1024:524288"
+    "--ulimit", "nofile=1024:524288",
+    // Docker gid is 118
+    "--group-add", "118"
   ],
   "overrideCommand": true,
   "updateContentCommand": "make devcontainer_setup"
