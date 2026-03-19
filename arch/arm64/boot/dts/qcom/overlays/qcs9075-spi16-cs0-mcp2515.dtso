@@ -1,0 +1,56 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2026 Radxa Computer (Shenzhen) Co., Ltd.
+ */
+
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+	metadata {
+		title = "Enable MCP2515 on SPI16 CS0";
+		compatible = "radxa,vmarc-q9075-io";
+		category = "misc";
+		exclusive = "GPIO86", "GPIO87", "GPIO88", "GPIO89", "GPIO90";
+		description = "Enable MCP2515 with 8MHz external clock on SPI16 over CS0.
+On Radxa VMARC Q9075 IO, the interrupt pin is pin 26.";
+	};
+};
+
+&{/} {
+	can_mcp2515_osc: can-mcp2515-osc {
+		compatible = "fixed-clock";
+		clock-frequency = <8000000>;
+		#clock-cells = <0>;
+	};
+};
+
+&spi16 {
+	qcom,load-firmware;
+	qcom,xfer-mode = <1>;
+	pinctrl-0 = <&qup_spi16_default>;
+	pinctrl-names = "default";
+	status = "okay";
+
+	can_mcp2515: can-mcp2515@0 {
+		status = "okay";
+		compatible = "microchip,mcp2515";
+		reg = <0>;
+        interrupt-names = "mcp2515_irq";
+        interrupts-extended = <&tlmm 90 IRQ_TYPE_LEVEL_LOW>;
+		spi-max-frequency = <10000000>;
+		clocks = <&can_mcp2515_osc>;
+		vdd-supply = <&vcc3v3_sys_regulator>;
+		xceiver-supply = <&vcc3v3_sys_regulator>;
+	};
+};
+
+&uart16 {
+	status = "disabled";
+};
+
+&i2c16 {
+	status = "disabled";
+};

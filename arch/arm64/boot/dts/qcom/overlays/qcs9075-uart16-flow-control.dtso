@@ -1,0 +1,34 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2026 Radxa Computer (Shenzhen) Co., Ltd.
+ */
+
+/dts-v1/;
+/plugin/;
+
+/ {
+    metadata {
+        title = "Enable UART16 with Flow Control";
+        compatible = "radxa,vmarc-q9075-io";
+        category = "misc";
+        exclusive = "spi16", "uart16", "i2c16", "gpio86", "gpio87", "gpio88", "gpio89";
+        description = "Enable UART16 with Flow Control.
+On Radxa VMARC Q9075 IO, this is pin 21(cts), pin 19(rts), pin 23(tx), pin 24(rx)";
+    };
+};
+
+&spi16 {
+	status = "disabled";
+};
+
+&uart16 {
+	qcom,load-firmware;
+	qcom,xfer-mode = <1>;
+    pinctrl-0 = <&qup_uart16_default>;
+    pinctrl-names = "default";
+	status = "okay";
+};
+
+&i2c16 {
+	status = "disabled";
+};

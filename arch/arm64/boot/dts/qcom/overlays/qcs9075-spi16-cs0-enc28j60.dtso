@@ -1,0 +1,45 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2026 Radxa Computer (Shenzhen) Co., Ltd.
+ */
+
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+	metadata {
+		title = "Enable ENC28J60 on SPI16 CS0";
+		compatible = "radxa,vmarc-q9075-io";
+		category = "misc";
+		exclusive = "GPIO86", "GPIO87", "GPIO88", "GPIO89", "GPIO90";
+		description = "Enable Microchip ENC28J60 SPI Ethernet controller on SPI16 CS0.
+On Radxa VMARC Q9075 IO, the interrupt pin is pin 26.";
+	};
+};
+
+&spi16 {
+	qcom,load-firmware;
+	qcom,xfer-mode = <1>;
+	pinctrl-0 = <&qup_spi16_default>;
+	pinctrl-names = "default";
+	status = "okay";
+
+	ethernet: enc28j60@0 {
+		compatible = "microchip,enc28j60";
+		reg = <0>;
+		spi-max-frequency = <20000000>;
+		status = "okay";
+		interrupt-names = "enc28j60_irq";
+		interrupts-extended = <&tlmm 90 IRQ_TYPE_LEVEL_LOW>;
+	};
+};
+
+&uart16 {
+	status = "disabled";
+};
+
+&i2c16 {
+	status = "disabled";
+};

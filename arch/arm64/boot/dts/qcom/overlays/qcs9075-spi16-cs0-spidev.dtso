@@ -1,0 +1,38 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2026 Radxa Computer (Shenzhen) Co., Ltd.
+ */
+
+/dts-v1/;
+/plugin/;
+
+/ {
+    metadata {
+        title = "Enable spidev on SPI16 over CS0";
+        compatible = "radxa,vmarc-q9075-io";
+        category = "misc";
+        exclusive = "spi16", "uart16", "i2c16", "gpio86", "gpio87", "gpio88", "gpio89";
+        description = "Enable spidev on SPI16 over CS0.";
+    };
+};
+
+&spi16 {
+	qcom,load-firmware;
+	qcom,xfer-mode = <1>;
+	status = "okay";
+
+	spidev@0 {
+		compatible = "rohm,dh2228fv";
+		reg = <0>;
+		spi-max-frequency = <10000000>;
+		spi-cpha;
+	};
+};
+
+&uart16 {
+	status = "disabled";
+};
+
+&i2c16 {
+	status = "disabled";
+};
