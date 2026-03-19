@@ -1,0 +1,32 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2026 Radxa Computer (Shenzhen) Co., Ltd.
+ */
+
+/dts-v1/;
+/plugin/;
+
+/ {
+    metadata {
+        title = "Enable I2C18";
+        compatible = "radxa,vmarc-q9075-io";
+        category = "misc";
+        exclusive = "spi18", "uart18", "i2c18", "gpio95", "gpio96";
+        description = "Enable I2C18.
+On Radxa VMARC Q9075 IO, this is pin 27(sda) & pin 28(scl).";
+    };
+};
+
+&spi18 {
+	status = "disabled";
+};
+
+&uart18 {
+	status = "disabled";
+};
+
+&i2c18 {
+	qcom,load-firmware;
+	qcom,xfer-mode = <1>;
+	status = "okay";
+};
