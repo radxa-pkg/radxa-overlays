@@ -1,3 +1,24 @@
+radxa-overlays (0.2.19) noble; urgency=medium
+
+  [ Stephen Chen ]
+  * feat: qualcomm: Add qcs9075-usb0-peripheral
+
+  [ Chongbiao Chen ]
+  * chore: disable dragon q6a uart12
+
+  [ ZHANG Yuntian ]
+  * fix: allow multiple cameras to be used on NX4
+  * fix: incorrect file extension
+  * fix: include path
+
+  [ SongJun Li ]
+  * feat: rock-5a-spi-flash: Add support for radxa e54c
+
+  [ Jiali Chen ]
+  * fix: allwinner: some Hack for linux-aw2511
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Thu, 19 Mar 2026 11:27:53 +0000
+
 radxa-overlays (0.2.18) noble; urgency=medium
 
   [ Jiali Chen ]
