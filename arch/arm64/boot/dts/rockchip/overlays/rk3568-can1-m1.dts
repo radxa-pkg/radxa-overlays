@@ -6,7 +6,7 @@
 / {
 	metadata {
 		title = "Enable CAN1-M1";
-		compatible = "radxa,rock-3a", "radxa,rock-3b";
+		compatible = "unknown";
 		category = "misc";
 		exclusive = "GPIO4_C3", "GPIO4_C2";
 		description = "Enable CAN1-M1.
