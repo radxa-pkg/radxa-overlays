@@ -9,8 +9,13 @@
         title = "Enable MAX97357A on I2S3-M0";
         compatible = "radxa,rock-3a", "radxa,rock-3b";
         category = "audio";
-        description = "Enable MAX97357A on I2S3-M0";
         exclusive = "GPIO3_A0", "GPIO3_A3", "GPIO3_A4", "GPIO3_A5", "GPIO3_A6", "i2s3_2ch";
+        description = "Enable MAX97357A on I2S3-M0.
+pin12 for BCLK.
+pin14 for GAIN(optional).
+pin35 for LRC.
+pin31 for SD(optional).
+pin40 for DIN.";
     };
 };
 
