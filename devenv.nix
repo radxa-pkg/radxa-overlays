@@ -45,3 +45,4 @@
 
   starship.enable = true;
 }
+

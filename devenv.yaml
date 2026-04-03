@@ -4,3 +4,4 @@ inputs:
     inputs:
       nixpkgs:
         follows: nixpkgs
+
