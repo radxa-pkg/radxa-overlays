@@ -1,3 +1,21 @@
+radxa-overlays (0.2.20) noble; urgency=medium
+
+  [ ZHANG Yuntian ]
+  * chore: add Allwinner SoC repo
+
+  [ Xinming Chen ]
+  * chore: add MAX98357A pin connect description
+  * Overlay: remove rk3568 CAN support
+  * chore: 3a: optimize dsi backlight & add pin info
+
+  [ Nascs Fang ]
+  * feat: add qcs9075 overlays
+
+  [ dependabot[bot] ]
+  * chore(deps): bump actions/upload-artifact from 6 to 7
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Fri, 03 Apr 2026 08:04:43 +0000
+
 radxa-overlays (0.2.19) noble; urgency=medium
 
   [ Stephen Chen ]
