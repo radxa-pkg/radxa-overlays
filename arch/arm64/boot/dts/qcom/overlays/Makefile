@@ -26,8 +26,12 @@ dtb-$(CONFIG_ARCH_QCOM) += qcs6490-radxa-dragon-q6a-cam1-imx577.dtbo \
 	qcs6490-radxa-dragon-q6a-spi14-cs0-spidev.dtbo \
 	qcs6490-radxa-dragon-q6a-uart6-flowctl.dtbo \
 	qcs6490-radxa-dragon-q6a-uart6.dtbo \
+	qcs6490-radxa-dragon-q6a-uart7-flowctl.dtbo \
+	qcs6490-radxa-dragon-q6a-uart7.dtbo \
 	qcs6490-radxa-dragon-q6a-uart12-flowctl.dtbo \
 	qcs6490-radxa-dragon-q6a-uart12.dtbo \
+	qcs6490-radxa-dragon-q6a-uart14-flowctl.dtbo \
+	qcs6490-radxa-dragon-q6a-uart14.dtbo \
 	qcs6490-radxa-dragon-q6a-usb-peripheral.dtbo \
 	qcs9075-i2c16.dtbo \
 	qcs9075-i2c18.dtbo \
