@@ -11,7 +11,7 @@
 		title = "Enable I2C2";
 		compatible = "radxa,dragon-q6a";
 		category = "misc";
-		exclusive = "uart2","i2c2","spi2";
+		exclusive = "uart2","i2c2","spi2","gpio8","gpio9";
 		description = "Enable I2C2. 
 On Radxa Dragon Q6A, this is pin 28(scl), 27(sda).";
 	};

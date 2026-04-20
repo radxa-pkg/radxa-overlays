@@ -11,7 +11,7 @@
         title = "Enable UART6";
         compatible = "radxa,dragon-q6a";
         category = "misc";
-        exclusive = "uart6","i2c6","spi6";
+        exclusive = "uart6","i2c6","spi6","gpio26","gpio27";
         description = "Enable UART6. 
 On Radxa Dragon Q6A, this is pin 16(tx), 18(rx).";
     };
