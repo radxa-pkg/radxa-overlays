@@ -11,7 +11,7 @@
 		title = "Enable SSD1306 OLED Display on I2C6";
 		compatible = "radxa,dragon-q6a";
 		category = "display";
-		exclusive = "uart6", "i2c6", "spi6";
+		exclusive = "uart6", "i2c6", "spi6", "gpio24", "gpio25";
 		description = "Enable SSD1306 OLED Display on I2C6.
 
 The display resolution is fixed at 128x64.

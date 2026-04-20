@@ -11,7 +11,7 @@
 		title = "Enable I2C14";
 		compatible = "radxa,dragon-q6a";
 		category = "misc";
-		exclusive = "uart14","i2c14","spi14";
+		exclusive = "uart14","i2c14","spi14","gpio56","gpio57";
 		description = "Enable I2C14. 
 On Radxa Dragon Q6A, this is pin 22(scl), 33(sda).";
 	};

@@ -11,7 +11,7 @@
         title = "Enable UART12 with Flow Control";
         compatible = "radxa,dragon-q6a";
         category = "misc";
-        exclusive = "spi12", "uart12", "i2c12";
+        exclusive = "spi12", "uart12", "i2c12", "gpio48", "gpio49", "gpio50", "gpio51";
         description = "Enable UART12 with Flow Control. 
 On Radxa Dragon Q6A, this is pin 19(rts), 21(cts), 23(tx), 24(rx).";
     };

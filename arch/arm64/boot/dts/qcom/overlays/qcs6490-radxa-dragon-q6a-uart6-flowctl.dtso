@@ -11,7 +11,7 @@
         title = "Enable UART6 with Flow Control";
         compatible = "radxa,dragon-q6a";
         category = "misc";
-        exclusive = "uart6","i2c6","spi6";
+        exclusive = "uart6","i2c6","spi6","gpio24","gpio25","gpio26","gpio27";
         description = "Enable UART6 with Flow Control. 
 On Radxa Dragon Q6A, this is pin  3(cts), 5(rts),16(tx), 18(rx).";
     };

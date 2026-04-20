@@ -11,7 +11,7 @@
         title = "Enable UART12";
         compatible = "unknown";
         category = "misc";
-        exclusive = "spi12", "uart12", "i2c12";
+        exclusive = "spi12", "uart12", "i2c12", "gpio50", "gpio51";
         description = "Enable UART12. 
 On Radxa Dragon Q6A, this is pin 23(tx), 24(rx).";
     };
