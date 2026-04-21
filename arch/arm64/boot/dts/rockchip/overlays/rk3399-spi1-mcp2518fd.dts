@@ -1,0 +1,98 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+	metadata {
+		title = "Enable Waveshare 2-CH CAN FD HAT with 40MHz external clock on SPI1 and GPIO";
+		compatible = "radxa,rock-4c-plus";
+		category = "misc";
+		exclusive = "spi1", "GPIO1_B0", "GPIO1_A7", "GPIO1_B1", "GPIO1_B2",
+"GPIO4_D4", "GPIO4_D5", "GPIO4_A3", "GPIO4_A5", "GPIO4_A6", "GPIO4_A7";
+		description = "Provide support for Waveshare 2-CH CAN FD HAT
+with Microchip MCP2518FD SPI CAN controller. Assumes 40MHz external clock.";
+	};
+};
+
+&{/} {
+	can_mcp2518_osc: can-mcp2518-osc {
+		compatible = "fixed-clock";
+		clock-frequency = <40000000>;
+		#clock-cells = <0>;
+	};
+
+	spi_gpio0: spi-gpio0 {
+		compatible = "spi-gpio";
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		pinctrl-names = "default";
+		pinctrl-0 = <&spi_gpio0_pins>;
+
+		gpio-mosi = <&gpio4 RK_PA6 GPIO_ACTIVE_HIGH>;
+		gpio-miso = <&gpio4 RK_PA5 GPIO_ACTIVE_HIGH>;
+		gpio-sck = <&gpio4 RK_PA7 GPIO_ACTIVE_HIGH>;
+		cs-gpios = <&gpio4 RK_PA3 GPIO_ACTIVE_LOW>;
+		num-chipselects = <1>;
+		status = "okay";
+
+		canfd1: can@0 {
+			compatible = "microchip,mcp2518fd";
+			pinctrl-names = "default";
+			pinctrl-0 = <&mcp2518fd1_int_pins>;
+			clocks = <&can_mcp2518_osc>;
+			interrupt-parent = <&gpio4>;
+			interrupts = <RK_PD4 IRQ_TYPE_LEVEL_LOW>;
+			reg = <0>;
+			spi-max-frequency = <8000000>;
+		};
+	};
+};
+
+&spi1 {
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	canfd0: can@0 {
+		compatible = "microchip,mcp2518fd";
+		pinctrl-names = "default";
+		pinctrl-0 = <&mcp2518fd0_int_pins>;
+		clocks = <&can_mcp2518_osc>;
+		interrupt-parent = <&gpio4>;
+		interrupts = <RK_PD5 IRQ_TYPE_LEVEL_LOW>;
+		reg = <0>;
+		spi-max-frequency = <8000000>;
+	};
+};
+
+&pinctrl {
+	spi_gpio0_pins {
+		spi_gpio0_pins: spi-gpio0-pins {
+			rockchip,pins =
+				/* MOSI */
+				<4 RK_PA6 RK_FUNC_GPIO &pcfg_pull_none_12ma>,
+				/* MISO */
+				<4 RK_PA5 RK_FUNC_GPIO &pcfg_pull_none>,
+				/* SCK */
+				<4 RK_PA7 RK_FUNC_GPIO &pcfg_pull_none_12ma>,
+				/* CS */
+				<4 RK_PA3 RK_FUNC_GPIO &pcfg_pull_none_12ma>;
+		};
+	};
+
+	mcp2518fd0_int_pins {
+		mcp2518fd0_int_pins: mcp2518fd0_int_pin {
+			rockchip,pins = <4 RK_PD5 RK_FUNC_GPIO &pcfg_pull_none>;
+		};
+	};
+
+	mcp2518fd1_int_pins {
+		mcp2518fd1_int_pins: mcp2518fd1_int_pin {
+			rockchip,pins = <4 RK_PD4 RK_FUNC_GPIO &pcfg_pull_none>;
+		};
+	};
+};
