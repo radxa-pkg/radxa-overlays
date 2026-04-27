@@ -23,15 +23,6 @@
 		#clock-cells = <0>;
 	};
 
-	ov5647_1_pwdn_gpio: ov5647-1-pwdn-gpio {
-		status = "okay";
-		compatible = "regulator-fixed";
-		regulator-name = "ov5647_1_pwdn_gpio";
-		regulator-always-on;
-		regulator-boot-on;
-		enable-active-high;
-		gpio = <&gpio3 RK_PB0 GPIO_ACTIVE_LOW>;
-	};
 };
 
 &i2c0 {
@@ -48,6 +39,7 @@
 		reg = <0x36>;
 		clocks = <&ext_cam_ov5647_clk_1>;
 		clock-names = "xvclk";
+		pwdn-gpios = <&gpio3 RK_PB0 GPIO_ACTIVE_LOW>;
 		rockchip,camera-module-index = <0>;
 		rockchip,camera-module-facing = "front";
 		rockchip,camera-module-name = "rpi-camera-v1p3";
