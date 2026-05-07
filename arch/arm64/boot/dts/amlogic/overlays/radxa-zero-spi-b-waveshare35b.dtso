@@ -34,10 +34,10 @@ Pin 24 (GPIOH_6) for LCD_CS (24).
 		compatible = "waveshare,rpi-lcd-35-b", "ilitek,ili9486";
 		reg = <0>;
 		spi-max-frequency = <2000000>;
-		rotation = <90>;
+		rotation = <0>;
 		buswidth = <8>;
 		regwidth = <16>;
-		reset-gpios = <&gpio_ao GPIOAO_3 GPIO_ACTIVE_LOW>;
+		reset-gpios = <&gpio_ao GPIOAO_3 GPIO_ACTIVE_HIGH>;
 		dc-gpios = <&gpio GPIOX_8 GPIO_ACTIVE_HIGH>;
 	};
 
@@ -45,17 +45,17 @@ Pin 24 (GPIOH_6) for LCD_CS (24).
 		compatible = "ti,ads7846";
 		status = "okay";
 		reg = <1>;
-		spi-max-frequency = <50000>;
+		spi-max-frequency = <2000000>;
 		ti,x-plate-ohms = /bits/ 16 <60>;
 		ti,y-plate-ohms = /bits/ 16 <60>;
 		ti,pressure-max = /bits/ 16 <255>;
-		touchscreen-inverted-y;
+		touchscreen-inverted-x;
 		touchscreen-swapped-x-y;
 		ti,x-min = /bits/ 16 <200>;
 		ti,x-max = /bits/ 16 <3800>;
 		ti,y-min = /bits/ 16 <300>;
 		ti,y-max = /bits/ 16 <3800>;
-		interrupts = <2 IRQ_TYPE_EDGE_FALLING>;
+		interrupts = <IRQID_GPIOAO_2 IRQ_TYPE_EDGE_FALLING>;
 		interrupt-parent = <&gpio_intc>;
 		pendown-gpio = <&gpio_ao GPIOAO_2 GPIO_ACTIVE_LOW>;
 		vcc-supply = <&ao_5v>;

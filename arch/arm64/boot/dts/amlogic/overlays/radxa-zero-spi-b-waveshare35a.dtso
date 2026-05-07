@@ -4,15 +4,21 @@
 	metadata {
 		title = "Enable Waveshare 3.5inch RPi LCD (A) on SPI-B";
 		description = "Enable Waveshare 3.5inch RPi LCD (A) on SPI-B.
-Uses Pin 18 (GPIOX_8) for LCD_RS,
-Pin 7 (GPIOAO_3) for RST,
-Pin 24 (GPIOH_6) for LCD_CS,
-Pin 11 (GPIOAO_2) for TP_IRQ,
-Pin 12 (GPIOX_9) for TP_CS.";
+Uses Pin 7/27 (GPIOAO_3) for RST (22)*,
+Pin 11/28 (GPIOAO_2) for TP_IRQ (11),
+Pin 12 (GPIOX_9) for TP_CS (26)*,
+Pin 18 (GPIOX_8) for LCD_RS (18),
+Pin 24 (GPIOH_6) for LCD_CS (24).
+";
 	};
 };
 
 &ili9486 {
 	compatible = "waveshare,rpi-lcd-35", "ilitek,ili9486";
 	rotation = <180>;
+};
+
+&ads7846 {
+	/delete-property/ touchscreen-inverted-x;
+	touchscreen-inverted-y;
 };
