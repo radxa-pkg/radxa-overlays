@@ -1,3 +1,16 @@
+radxa-overlays (0.2.22) noble; urgency=medium
+
+  [ Zhaoming Luo ]
+  * fix: rk3568: CM3J RPI CM4 IO uses TX pin 26 RX pin 36
+
+  [ ZHANG Yuntian ]
+  * fix: change display orientation
+
+  [ Xinming Chen ]
+  * fix: rock-3a: change 10hd vp mapping
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Sat, 09 May 2026 06:09:09 +0000
+
 radxa-overlays (0.2.21) noble; urgency=medium
 
   [ liangyuanjin ]
