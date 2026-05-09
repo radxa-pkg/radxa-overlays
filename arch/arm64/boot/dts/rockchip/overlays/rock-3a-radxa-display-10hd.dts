@@ -318,7 +318,7 @@ pin25 for panel Gnd.";
 	};
 };
 
-&dsi1_in_vp0 {
+&dsi1_in_vp1 {
 	status = "okay";
 };
 
@@ -326,17 +326,13 @@ pin25 for panel Gnd.";
 	status = "okay";
 };
 
-&hdmi_in_vp0 {
-	status = "disabled";
-};
-
-&hdmi {
+&dsi1_in_vp0 {
 	status = "disabled";
 };
 
 &route_dsi1 {
-	status = "disabled";
-	connect = <&vp0_out_dsi1>;
+	status = "okay";
+	connect = <&vp1_out_dsi1>;
 };
 
 &i2c3 {
