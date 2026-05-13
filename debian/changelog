@@ -1,3 +1,14 @@
+radxa-overlays (0.2.23) noble; urgency=medium
+
+  [ ZHANG Yuntian ]
+  * Update pkg.conf.template
+
+  [ Xinming Chen ]
+  * fix: radxa-cm3i-io: change okdo pwdn-gpio configuration
+  * fix: radxa-cm3i-io: fix 10fhd compatibility and backlight issues
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Wed, 13 May 2026 07:02:05 +0000
+
 radxa-overlays (0.2.22) noble; urgency=medium
 
   [ Zhaoming Luo ]
