@@ -22,16 +22,6 @@
 		clock-output-names = "ext_cam_ov5647_clk_2";
 		#clock-cells = <0>;
 	};
-
-	ov5647_2_pwdn_gpio: ov5647-2-pwdn-gpio {
-		status = "okay";
-		compatible = "regulator-fixed";
-		regulator-name = "ov5647_2_pwdn_gpio";
-		regulator-always-on;
-		regulator-boot-on;
-		enable-active-high;
-		gpio = <&gpio4 RK_PC5 GPIO_ACTIVE_LOW>;
-	};
 };
 
 &i2c5 {
@@ -47,6 +37,7 @@
 		reg = <0x36>;
 		clocks = <&ext_cam_ov5647_clk_2>;
 		clock-names = "xvclk";
+		pwdn-gpios = <&gpio4 RK_PC5 GPIO_ACTIVE_LOW>;
 		rockchip,camera-module-index = <1>;
 		rockchip,camera-module-facing = "back";
 		rockchip,camera-module-name = "OKDO-5MP";
