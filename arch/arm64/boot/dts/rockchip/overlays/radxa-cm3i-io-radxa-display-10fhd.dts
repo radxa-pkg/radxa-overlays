@@ -19,25 +19,24 @@
 };
 
 &{/} {
-	vcc_lcd_dsi0: vcc-lcd-dsi0 {
+	vcc_lcd_dsi0_v1p3_board: vcc-lcd-dsi0-v1p4-board {
 		status = "okay";
 		compatible = "regulator-fixed";
-		regulator-name = "vcc_lcd_mipi";
-		gpio = <&gpio0 RK_PB0 GPIO_ACTIVE_HIGH>;
+		regulator-name = "vcc_lcd_mipi_v1p3_board";
 		enable-active-high;
-		regulator-always-on;
+		gpio = <&gpio0 RK_PB0 GPIO_ACTIVE_HIGH>;
 		regulator-state-mem {
 			regulator-off-in-suspend;
 		};
 	};
 
-	vcc_lcd_dsi0_v1p4_board: vcc-lcd-dsi0-v1p4-board {
+	vcc_lcd_dsi0: vcc-lcd-dsi0 {
 		status = "okay";
 		compatible = "regulator-fixed";
-		regulator-name = "vcc_lcd_mipi_v1p4_board";
+		regulator-name = "vcc_lcd_mipi";
 		gpio = <&gpio3 RK_PB2 GPIO_ACTIVE_HIGH>;
+		vin-supply = <&vcc_lcd_dsi0_v1p3_board>;
 		enable-active-high;
-		regulator-always-on;
 		regulator-state-mem {
 			regulator-off-in-suspend;
 		};
@@ -60,6 +59,7 @@
 		compatible = "pwm-backlight";
 		pwms = <&pwm6 0 25000 PWM_POLARITY_INVERTED>;
 		brightness-levels = <0 255>;
+		power-supply = <&vcc_lcd_dsi0>;
 		num-interpolated-steps = <255>;
 		default-brightness-level = <200>;
 	};
@@ -80,7 +80,6 @@
 		reg = <0>;
 		backlight = <&backlight_dsi0>;
 
-		power-supply = <&vcc_lcd_dsi0>;
 		reset-gpios = <&gpio3 RK_PC0 GPIO_ACTIVE_LOW>;
 		pinctrl-names = "default";
 		pinctrl-0 = <&dsi0_lcd_rst_gpio>;
@@ -110,7 +109,7 @@
 			05 00 01 10
 		];
 
-				display-timings {
+		display-timings {
 			native-mode = <&timing0>;
 			timing0: timing0 {
 				clock-frequency = <120000000>;
