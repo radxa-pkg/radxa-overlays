@@ -307,6 +307,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rock-3c-radxa-camera-8m.dtbo
 
 dtb-$(CONFIG_CPU_RK3568) += \
+	radxa-cm3-io-e23-i2c2-m0-pca9555.dtbo \
 	radxa-cm3-io-jymx1013833281be-display.dtbo \
 	radxa-cm3-io-radxa-10p1inch-display.dtbo \
 	radxa-cm3-io-radxa-display-8hd.dtbo \
@@ -318,6 +319,7 @@ dtb-$(CONFIG_CPU_RK3568) += \
 	radxa-cm3-sodimm-io-radxa-display-8hd.dtbo \
 	radxa-cm3-sodimm-io-radxa-display-10hd.dtbo \
 	radxa-cm3-sodimm-io-raspberrypi-7inch-touchscreen.dtbo \
+	radxa-cm3-sodimm-i2c2-m1-pca9555.dtbo \
 	radxa-cm3i-io-aic8800.dtbo \
 	radxa-cm3i-io-edp-sharp-lq133t1jw01-lcd.dtbo \
 	radxa-cm3i-io-okdo-5mp-camera-cam1.dtbo \
