@@ -7,7 +7,7 @@
 / {
 	metadata {
 		title = "Enable PCIe on Radxa Taco";
-		compatible = "radxa,cm3-io", "radxa,cm3-rpi-cm4-io";
+		compatible = "unknown";
 		category = "misc";
 		exclusive = "pcie2x1";
 		description = "Enable PCIe on Radxa Taco.
