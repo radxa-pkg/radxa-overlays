@@ -41,7 +41,8 @@ dtb-$(CONFIG_ARCH_QCOM) += qcs6490-radxa-dragon-q6a-cam1-imx577.dtbo \
 	qcs9075-uart16-flow-control.dtbo \
 	qcs9075-uart16.dtbo \
 	qcs9075-uart20.dtbo \
-	qcs9075-usb0-peripheral.dtbo
+	qcs9075-usb0-peripheral.dtbo \
+	sc8280xp-radxa-dragon-q8b-fpc-pcie.dtbo
 
 targets += $(dtb-y)
 
