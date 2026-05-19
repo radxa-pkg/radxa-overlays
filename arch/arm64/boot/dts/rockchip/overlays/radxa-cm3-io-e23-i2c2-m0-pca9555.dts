@@ -8,11 +8,12 @@
 /{
 	metadata {
 		title = "Enable NXP PCA9555 I2C GPIO multiplexer on I2C2-M0";
-		compatible = "radxa,rock-3a", "radxa,rock-3b";
+		compatible = "radxa,cm3-io","radxa,e23";
 		category = "misc";
-		exclusive = "GPIO0_B5", "GPIO0_B6", "GPIO3_C2";
+		exclusive = "GPIO0_B5", "GPIO0_B6", "GPIO4_B2";
 		description = "Enable NXP PCA9555 I2C GPIO multiplexer on I2C2-M0.
-On Radxa ROCK-3A and ROCK-3B pin 07 is I2C_SCL, pin 16 is I2C_SDA, pin 32 is interrupt pin(optional).";
+On Radxa CM3-IO pin 03 is I2C_SDA, pin 05 is I2C_SCL, pin 19 is interrupt pin(optional).
+On Radxa E23 pin 27 is I2C_SDA, pin 28 is I2C_SCL, pin 19 is interrupt pin(optional).";
 	};
 };
 
@@ -30,8 +31,8 @@ On Radxa ROCK-3A and ROCK-3B pin 07 is I2C_SCL, pin 16 is I2C_SDA, pin 32 is int
 		#gpio-cells = <2>;
 		interrupt-controller;
 		#interrupt-cells = <2>;
-		interrupt-parent = <&gpio3>;
-		interrupts = <RK_PC2 IRQ_TYPE_LEVEL_HIGH>;
+		interrupt-parent = <&gpio4>;
+		interrupts = <RK_PB2 IRQ_TYPE_LEVEL_HIGH>;
 		pinctrl-names = "default";
 		pinctrl-0 = <&pca_int>;
 		status = "okay";
@@ -41,7 +42,7 @@ On Radxa ROCK-3A and ROCK-3B pin 07 is I2C_SCL, pin 16 is I2C_SDA, pin 32 is int
 &pinctrl {
 	pca {
 		pca_int: pca-int {
-			rockchip,pins = <3 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
+			rockchip,pins = <4 RK_PB2 RK_FUNC_GPIO &pcfg_pull_none>;
 		};
 	};
 };
