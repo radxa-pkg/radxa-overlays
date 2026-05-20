@@ -9,9 +9,9 @@
 / {
 	metadata {
 		title ="Enable Radxa Camera 13M 214";
-		compatible = "radxa,rock-5b";
+		compatible = "radxa,rock-5a", "radxa,rock-5c";
 		category = "camera";
-		exclusive = "GPIO1_B0", "GPIO4_A0", "csi2_dphy0", "i2c3";
+		exclusive = "csi2_dphy0";
 		description = "Enable Radxa Camera 13M 214.";
 	};
 };
@@ -36,16 +36,16 @@
 		status = "okay";
 		compatible = "sony,imx214";
 		reg = <0x10>;
-		clocks = <&cru CLK_MIPI_CAMARAOUT_M3>;
+		clocks = <&cru CLK_MIPI_CAMARAOUT_M2>;
 		clock-names = "xvclk";
 		pinctrl-names = "default";
-		pinctrl-0 = <&mipim0_camera3_clk>;
+		pinctrl-0 = <&mipim0_camera2_clk>;
 		power-domains = <&power RK3588_PD_VI>;
-		pwdn-gpios = <&gpio1 RK_PB0 GPIO_ACTIVE_HIGH>;
-		reset-gpios = <&gpio4 RK_PA0 GPIO_ACTIVE_HIGH>;
+		pwdn-gpios = <&gpio1 RK_PD3 GPIO_ACTIVE_HIGH>;
+		reset-gpios = <&gpio1 RK_PD2 GPIO_ACTIVE_HIGH>;
 		rockchip,camera-module-index = <0>;
 		rockchip,camera-module-facing = "back";
-		rockchip,camera-module-name = "RADXA-CAMERA-13M";
+		rockchip,camera-module-name = "RADXA-CAMERA-13M-214";
 		rockchip,camera-module-lens-name = "DEFAULT";
 		lens-focus = <&dw9714>;
 		port {

@@ -8,11 +8,11 @@
 
 / {
 	metadata {
-		title ="Enable Radxa Camera 13M 214";
-		compatible = "radxa,rock-5b";
+		title ="Enable Radxa Camera 13M 214 on CAM0";
+		compatible = "radxa,rock-5b-plus";
 		category = "camera";
-		exclusive = "GPIO1_B0", "GPIO4_A0", "csi2_dphy0", "i2c3";
-		description = "Enable Radxa Camera 13M 214.";
+		exclusive = "csi2_dphy0";
+		description = "Enable Radxa Camera 13M 214 on CAM0.";
 	};
 };
 
@@ -29,7 +29,7 @@
 		rockchip,vcm-rated-current = <85>;
 		rockchip,vcm-step-mode = <3>;
 		rockchip,camera-module-index = <0>;
-		rockchip,camera-module-facing = "back";
+		rockchip,camera-module-facing = "front";
 	};
 
 	imx214: imx214@10 {
@@ -44,7 +44,7 @@
 		pwdn-gpios = <&gpio1 RK_PB0 GPIO_ACTIVE_HIGH>;
 		reset-gpios = <&gpio4 RK_PA0 GPIO_ACTIVE_HIGH>;
 		rockchip,camera-module-index = <0>;
-		rockchip,camera-module-facing = "back";
+		rockchip,camera-module-facing = "front";
 		rockchip,camera-module-name = "RADXA-CAMERA-13M";
 		rockchip,camera-module-lens-name = "DEFAULT";
 		lens-focus = <&dw9714>;

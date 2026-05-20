@@ -8,11 +8,11 @@
 
 / {
 	metadata {
-		title ="Enable Radxa Camera 13M 214";
-		compatible = "radxa,rock-5b";
+		title ="Enable Radxa Camera 13M 214 on CAM0";
+		compatible = "radxa,rock-5-itx";
 		category = "camera";
-		exclusive = "GPIO1_B0", "GPIO4_A0", "csi2_dphy0", "i2c3";
-		description = "Enable Radxa Camera 13M 214.";
+		exclusive = "csi2_dphy0";
+		description = "Enable Radxa Camera 13M 214 on CAM0.";
 	};
 };
 
@@ -21,7 +21,7 @@
 	#address-cells = <1>;
 	#size-cells = <0>;
 
-	dw9714: dw9714@c {
+	dw9714_0: dw9714-0@c {
 		compatible = "dongwoon,dw9714";
 		status = "okay";
 		reg = <0x0c>;
@@ -32,7 +32,7 @@
 		rockchip,camera-module-facing = "back";
 	};
 
-	imx214: imx214@10 {
+	imx214_0: imx214-0@10 {
 		status = "okay";
 		compatible = "sony,imx214";
 		reg = <0x10>;
@@ -42,12 +42,12 @@
 		pinctrl-0 = <&mipim0_camera3_clk>;
 		power-domains = <&power RK3588_PD_VI>;
 		pwdn-gpios = <&gpio1 RK_PB0 GPIO_ACTIVE_HIGH>;
-		reset-gpios = <&gpio4 RK_PA0 GPIO_ACTIVE_HIGH>;
+		reset-gpios = <&gpio2 RK_PB6 GPIO_ACTIVE_HIGH>;
 		rockchip,camera-module-index = <0>;
 		rockchip,camera-module-facing = "back";
-		rockchip,camera-module-name = "RADXA-CAMERA-13M";
+		rockchip,camera-module-name = "RADXA-CAMERA-13M-214";
 		rockchip,camera-module-lens-name = "DEFAULT";
-		lens-focus = <&dw9714>;
+		lens-focus = <&dw9714_0>;
 		port {
 			imx214_out0: endpoint {
 				remote-endpoint = <&mipidphy0_in_ucam0>;
@@ -143,7 +143,7 @@
 
 	port {
 		mipi_lvds2_sditf: endpoint {
-			remote-endpoint = <&isp0_vir0>;
+			remote-endpoint = <&isp0_vir2>;
 		};
 	};
 };
@@ -160,14 +160,14 @@
 	status = "okay";
 };
 
-&rkisp0_vir0 {
+&rkisp0_vir2 {
 	status = "okay";
 
 	port {
 		#address-cells = <1>;
 		#size-cells = <0>;
 
-		isp0_vir0: endpoint@0 {
+		isp0_vir2: endpoint@0 {
 			reg = <0>;
 			remote-endpoint = <&mipi_lvds2_sditf>;
 		};
