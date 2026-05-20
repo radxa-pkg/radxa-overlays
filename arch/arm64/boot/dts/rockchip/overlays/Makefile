@@ -589,6 +589,7 @@ dtb-$(CONFIG_CPU_RK3588) += \
 	radxa-cm5-io-radxa-display-8hd.dtbo \
 	radxa-cm5-io-radxa-camera-4k.dtbo \
 	radxa-cm5-io-radxa-camera-8m.dtbo \
+	radxa-cm5-io-radxa-camera-13m-214.dtbo \
 	radxa-cm5-io-radxa-display-10fhd.dtbo \
 	radxa-cm5-io-radxa-display-10hd.dtbo \
 	radxa-cm5-io-radxa-display-8hd.dtbo \
@@ -615,6 +616,8 @@ dtb-$(CONFIG_CPU_RK3588) += \
 	rock-5-itx-radxa-camera-4k-on-cam1.dtbo \
 	rock-5-itx-radxa-camera-8m-219-on-cam0.dtbo \
 	rock-5-itx-radxa-camera-8m-219-on-cam1.dtbo \
+	rock-5-itx-radxa-camera-13m-214-on-cam0.dtbo \
+	rock-5-itx-radxa-camera-13m-214-on-cam1.dtbo \
 	rock-5-itx-radxa-display-8hd-on-lcd0.dtbo \
 	rock-5-itx-radxa-display-8hd-on-lcd1.dtbo \
 	rock-5-itx-radxa-display-10fhd-on-lcd0.dtbo \
@@ -628,6 +631,7 @@ dtb-$(CONFIG_CPU_RK3588) += \
 	rock-5a-okdo-5mp-camera.dtbo \
 	rock-5a-radxa-camera-4k.dtbo \
 	rock-5a-radxa-camera-8m-219.dtbo \
+	rock-5a-radxa-camera-13m-214.dtbo \
 	rock-5a-radxa-display-10fhd.dtbo \
 	rock-5a-raspi-7inch-touchscreen.dtbo \
 	rock-5a-rpi-camera-v1_3.dtbo \
@@ -647,6 +651,8 @@ dtb-$(CONFIG_CPU_RK3588) += \
 	rock-5b-plus-cam1-radxa-camera-8m-219.dtbo \
 	rock-5b-plus-cam0-radxa-camera-4k.dtbo \
 	rock-5b-plus-cam1-radxa-camera-4k.dtbo \
+	rock-5b-plus-cam0-radxa-camera-13m-214.dtbo \
+	rock-5b-plus-cam1-radxa-camera-13m-214.dtbo \
 	rock-5b-plus-cam0-rpi-camera-v1p3.dtbo \
 	rock-5b-plus-cam1-rpi-camera-v1p3.dtbo \
 	rock-5b-plus-cam0-rpi-camera-v2.dtbo \
@@ -680,6 +686,7 @@ dtb-$(CONFIG_CPU_RK3588) += \
 	rock-5t-cam0-rpi-camera-v2.dtbo \
 	rock-5t-cam1-rpi-camera-v2.dtbo \
 	rock-5d-radxa-camera-4k.dtbo \
+	rock-5d-radxa-camera-13m-214.dtbo \
 	rock-5t-radxa-display-8hd.dtbo \
 	rock-5t-radxa-display-10fhd.dtbo \
 	rock-5t-radxa-display-10hd.dtbo

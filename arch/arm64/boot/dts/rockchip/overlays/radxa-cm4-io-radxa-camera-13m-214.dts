@@ -22,6 +22,17 @@
 	#address-cells = <1>;
 	#size-cells = <0>;
 
+	dw9714: dw9714@c {
+		compatible = "dongwoon,dw9714";
+		status = "okay";
+		reg = <0x0c>;
+		rockchip,vcm-start-current = <10>;
+		rockchip,vcm-rated-current = <85>;
+		rockchip,vcm-step-mode = <3>;
+		rockchip,camera-module-index = <0>;
+		rockchip,camera-module-facing = "back";
+	};
+
 	imx214: imx214@10 {
 		status = "okay";
 		compatible = "sony,imx214";
@@ -37,7 +48,7 @@
 		rockchip,camera-module-facing = "back";
 		rockchip,camera-module-name = "RADXA-CAMERA-13M";
 		rockchip,camera-module-lens-name = "DEFAULT";
-
+		lens-focus = <&dw9714>;
 		port {
 			imx214_out0: endpoint {
 				remote-endpoint = <&mipidphy3_in_ucam3>;
