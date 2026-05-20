@@ -1,0 +1,21 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title ="Enable DisplayPort MST mode";
+		compatible = "radxa,cm4-io";
+		category = "display";
+		exclusive = "dp1_in_vp2", "dsi_in_vp2";
+		description = "Enable DisplayPort MST mode.
+The MST mode only supports USB-C interfaces and requires the use of monitors compatible with MST.";
+	};
+};
+
+&dp1 {
+	status = "okay";
+};
+
+&dp1_in_vp2 {
+	status = "okay";
+};
