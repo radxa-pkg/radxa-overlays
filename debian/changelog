@@ -1,3 +1,23 @@
+radxa-overlays (0.2.24) noble; urgency=medium
+
+  [ Xinming Chen ]
+  * fix: radxa-cm3i-io: correct 10fhd regulator name
+  * fix: change pca9555 configuration
+  * fix: remove cm3-io/cm3-rpi-cm4-io taco overlay
+  * fix: change cm3-io backlight & regulator configuration
+
+  [ ZHANG Yuntian ]
+  * Update pkg.conf.template
+
+  [ Stephen Chen ]
+  * feat: add sc8280xp-radxa-dragon-q8b-fpc-pcie dtso
+
+  [ Ken Wang ]
+  * feat: add imx214
+  * feat: enable dp mst mode for cm4io
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Thu, 21 May 2026 11:59:56 +0000
+
 radxa-overlays (0.2.23) noble; urgency=medium
 
   [ ZHANG Yuntian ]
