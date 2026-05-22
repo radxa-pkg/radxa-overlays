@@ -9,11 +9,13 @@
 / {
     metadata {
         title = "Enable spidev on SPI14 over CS0";
-        compatible = "radxa,dragon-q6a";
+        compatible = "radxa,dragon-q6a", "radxa,cm-q64-rpi-cm5-io";
         category = "misc";
         exclusive = "spi14", "uart14", "i2c14", "gpio56", "gpio57", "gpio58", "gpio59";
-        description = "Enable spidev on SPI14 over CS0. 
-On Radxa Dragon Q6A, this is pin 22(mosi), 33(miso), 36(cs0), 37(sclk).";
+		description = "Enable spidev on SPI14 over CS0.
+On Radxa Dragon Q6A and
+Radxa CM-Q64 Raspberry Pi Compute Module 5 IO Board,
+this is pin 22(mosi), 33(miso), 36(cs0), 37(sclk).";
     };
 };
 

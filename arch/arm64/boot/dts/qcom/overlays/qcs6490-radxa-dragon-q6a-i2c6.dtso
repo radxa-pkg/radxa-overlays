@@ -9,11 +9,13 @@
 / {
 	metadata {
 		title = "Enable I2C6";
-		compatible = "radxa,dragon-q6a";
+		compatible = "radxa,dragon-q6a", "radxa,cm-q64-rpi-cm5-io";
 		category = "misc";
 		exclusive = "uart6","i2c6","spi6","gpio24","gpio25";
-		description = "Enable I2C6. 
-On Radxa Dragon Q6A, this is pin 5(scl), 3(sda).";
+		description = "Enable I2C6.
+On Radxa Dragon Q6A and
+Radxa CM-Q64 Raspberry Pi Compute Module 5 IO Board,
+this is pin 5(scl), 3(sda).";
 	};
 };
 

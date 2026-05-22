@@ -12,10 +12,12 @@
 / {
     metadata {
         title = "Enable Waveshare 3.5inch RPi LCD (C) on SPI12";
-        compatible = "radxa,dragon-q6a";
+        compatible = "radxa,dragon-q6a", "radxa,cm-q64-rpi-cm5-io";
         category = "misc";
         exclusive = "spi12", "uart12", "i2c12", "gpio48", "gpio49", "gpio50", "gpio51", "gpio55", "gpio57", "gpio27", "gpio29";
-        description = "Enable Waveshare 3.5inch RPi LCD (C) on SPI12.";
+        description = "Enable Waveshare 3.5inch RPi LCD (C) on SPI12.
+Supports Radxa Dragon Q6A and
+Radxa CM-Q64 Raspberry Pi Compute Module 5 IO Board.";
     };
 };
 
