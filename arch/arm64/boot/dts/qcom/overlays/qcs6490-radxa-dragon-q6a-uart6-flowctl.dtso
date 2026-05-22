@@ -9,11 +9,13 @@
 / {
     metadata {
         title = "Enable UART6 with Flow Control";
-        compatible = "radxa,dragon-q6a";
+        compatible = "radxa,dragon-q6a", "radxa,cm-q64-rpi-cm5-io";
         category = "misc";
         exclusive = "uart6","i2c6","spi6","gpio24","gpio25","gpio26","gpio27";
-        description = "Enable UART6 with Flow Control. 
-On Radxa Dragon Q6A, this is pin  3(cts), 5(rts),16(tx), 18(rx).";
+        description = "Enable UART6 with Flow Control.
+On Radxa Dragon Q6A and
+Radxa CM-Q64 Raspberry Pi Compute Module 5 IO Board,
+this is pin 3(cts), 5(rts), 16(tx), 18(rx).";
     };
 };
 

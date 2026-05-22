@@ -9,11 +9,13 @@
 / {
 	metadata {
 		title = "Enable I2C14";
-		compatible = "radxa,dragon-q6a";
+		compatible = "radxa,dragon-q6a", "radxa,cm-q64-rpi-cm5-io";
 		category = "misc";
 		exclusive = "uart14","i2c14","spi14","gpio56","gpio57";
-		description = "Enable I2C14. 
-On Radxa Dragon Q6A, this is pin 22(scl), 33(sda).";
+		description = "Enable I2C14.
+On Radxa Dragon Q6A and
+Radxa CM-Q64 Raspberry Pi Compute Module 5 IO Board,
+this is pin 22(scl), 33(sda).";
 	};
 };
 
