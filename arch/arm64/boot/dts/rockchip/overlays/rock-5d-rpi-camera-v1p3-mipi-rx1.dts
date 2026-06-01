@@ -15,7 +15,7 @@
 };
 
 &{/} {
-	clk_cam1_25m: external-camera-clock-25m {
+	clk_cam1_25m: external-camera-clock-25m-1 {
 		compatible = "fixed-clock";
 		clock-frequency = <25000000>;
 		clock-output-names = "clk_cam1_25m";
@@ -30,21 +30,21 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&i2c6m0_xfer>;
 	
-	ov5647: ov5647@36 {
+	ov564_1: ov5647-1@36 {
 		status = "okay";
 		compatible = "ovti,ov5647";
 		reg = <0x36>;
 		clocks = <&clk_cam1_25m>;
 		pwdn-gpios = <&gpio0 RK_PC5 GPIO_ACTIVE_LOW>;
-		clock-names = "ext_cam_clk";
-		rockchip,camera-module-index = <1>;
+		clock-names = "ext_cam_clk_1";
+		rockchip,camera-module-index = <2>;
 		rockchip,camera-module-facing = "back";
 		rockchip,camera-module-name = "rpi-camera-v1p3";
 		rockchip,camera-module-lens-name = "default";
 
 		port {
 			ov5647_out1: endpoint {
-				remote-endpoint = <&mipidcphy0_in_ucam1>;
+				remote-endpoint = <&mipidcphy1_in_ucam1>;
 				data-lanes = <1 2>;
 			};
 		};
@@ -67,7 +67,7 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			mipidcphy0_in_ucam1: endpoint@2 {
+			mipidcphy1_in_ucam1: endpoint@2 {
 				reg = <2>;
 				remote-endpoint = <&ov5647_out1>;
 				data-lanes = <1 2>;
@@ -79,9 +79,9 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			csidcphy0_out: endpoint@0 {
+			csidcphy1_out: endpoint@0 {
 				reg = <0>;
-				remote-endpoint = <&mipi0_csi2_input>;
+				remote-endpoint = <&mipi1_csi2_input>;
 			};
 		};
 	};
@@ -99,9 +99,9 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			mipi0_csi2_input: endpoint@1 {
+			mipi1_csi2_input: endpoint@1 {
 				reg = <1>;
-				remote-endpoint = <&csidcphy0_out>;
+				remote-endpoint = <&csidcphy1_out>;
 			};
 		};
 
@@ -110,9 +110,9 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			mipi0_csi2_output: endpoint@0 {
+			mipi1_csi2_output: endpoint@0 {
 				reg = <0>;
-				remote-endpoint = <&cif_mipi0_in0>;
+				remote-endpoint = <&cif_mipi1_in0>;
 			};
 		};
 	};
@@ -126,8 +126,8 @@
 	status = "okay";
 
 	port {
-		cif_mipi0_in0: endpoint {
-			remote-endpoint = <&mipi0_csi2_output>;
+		cif_mipi1_in0: endpoint {
+			remote-endpoint = <&mipi1_csi2_output>;
 		};
 	};
 };
@@ -136,8 +136,8 @@
 	status = "okay";
 
 	port {
-		mipi_lvds_sditf: endpoint {
-			remote-endpoint = <&isp1_vir0>;
+		mipi_lvds1_sditf: endpoint {
+			remote-endpoint = <&isp1_vir1>;
 		};
 	};
 };
@@ -154,16 +154,16 @@
 	status = "okay";
 };
 
-&rkisp1_vir0 {
+&rkisp1_vir1 {
 	status = "okay";
 
 	port {
 		#address-cells = <1>;
 		#size-cells = <0>;
 
-		isp1_vir0: endpoint@0 {
+		isp1_vir1: endpoint@0 {
 			reg = <0>;
-			remote-endpoint = <&mipi_lvds_sditf>;
+			remote-endpoint = <&mipi_lvds1_sditf>;
 		};
 	};
 };
