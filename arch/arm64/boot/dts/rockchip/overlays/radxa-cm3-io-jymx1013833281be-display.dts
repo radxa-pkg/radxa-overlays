@@ -30,7 +30,7 @@
 		};
 	};
 
-	lcd0_backlight:lcd0-backlight {
+	lcd_backlight:lcd-backlight {
 		status = "okay";
 		compatible = "pwm-backlight";
 		pwms = <&pwm13 0 25000 PWM_POLARITY_INVERTED>;
@@ -61,7 +61,7 @@
 		status = "okay";
 		compatible = "simple-panel-dsi";
 		reg = <0>;
-		backlight = <&lcd0_backlight>;
+		backlight = <&lcd_backlight>;
 
 		power-supply = <&vcc_mipi_lcd0>;
 		reset-gpios = <&gpio4 RK_PA2 GPIO_ACTIVE_LOW>;
