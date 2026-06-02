@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable PCIe";
-		compatible = "radxa,cm3-rpi-cm4-io";
+		compatible = "unknown";
 		category = "misc";
 		description = "Enable PCIe.";
 	};
