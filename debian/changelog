@@ -1,3 +1,21 @@
+radxa-overlays (0.2.25) noble; urgency=medium
+
+  [ Jiali Chen ]
+  * feat: add cm-q64-rpi-cm5-io compatible to q6a overlays
+  * feat: add some cam0 overlays for cm-q64-rpi-cm5-io
+  * feat: radxa-cm-q64-rpi-cm5-io: add Raspberry Pi Touch Display
+  * feat: add WS2812B LED overlay for qcs6490 SPI6 CS0
+
+  [ Ken Wang ]
+  * fix: correct the isp link
+
+  [ Xinming Chen ]
+  * fix: radxa-cm3-rpi-cm4-io: remove pcie overlay.
+  * fix: radxa-cm3-io: set backlight default level correctly.
+  * fix: radxa-cm3-io: set dual-camera link correctly.
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Wed, 03 Jun 2026 03:15:20 +0000
+
 radxa-overlays (0.2.24) noble; urgency=medium
 
   [ Xinming Chen ]
