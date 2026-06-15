@@ -28,7 +28,12 @@
 		pcm-bit-first = "MSB";
 		frame-sync-width = <1>;
 		hp-plug-gpio = <&r_pio PL 11 GPIO_ACTIVE_HIGH>;
+		// 5.15 GPIO config
 		hp-det-gpio = <&pio PB 2 GPIO_ACTIVE_HIGH>;
+		// 6.6 GPIO config
+		irq-gpio = <&pio PB 2 GPIO_ACTIVE_HIGH>;
+		jack-det-gpio = <&r_pio PL 11 GPIO_ACTIVE_HIGH>;
+		jack-det-gpio-level = <0>;
 		jack-det-threshold = <1>;
 		jack-key-det-threshold = <10>;
 		jack-det-debouce-time = <15>;
