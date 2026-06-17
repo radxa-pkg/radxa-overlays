@@ -30,6 +30,7 @@ On Radxa Cubie A7S this is SDA pin 3 & SCL pin 5.
 };
 
 &twi7 {
+	twi-supply = <&reg_dc1sw1>;
 	clock-frequency = <400000>;
 	pinctrl-0 = <&twi7_pins_default>;
 	pinctrl-1 = <&twi7_pins_sleep>;
