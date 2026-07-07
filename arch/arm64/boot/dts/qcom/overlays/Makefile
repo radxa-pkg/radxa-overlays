@@ -23,6 +23,7 @@ dtb-$(CONFIG_ARCH_QCOM) += qcs6490-radxa-cm-q64-rpi-cm5-io-cam0-imx219.dtbo \
 	qcs6490-radxa-dragon-q6a-poe-hat.dtbo \
 	qcs6490-radxa-dragon-q6a-radxa-display-8hd.dtbo \
 	qcs6490-radxa-dragon-q6a-radxa-display-10fhd.dtbo \
+	qcs6490-radxa-dragon-q6a-raspberry-pi-touch-display.dtbo \
 	qcs6490-radxa-dragon-q6a-spi12-waveshare35b.dtbo \
 	qcs6490-radxa-dragon-q6a-spi12-waveshare35c.dtbo \
 	qcs6490-radxa-dragon-q6a-spi6-cs0-spidev.dtbo \
