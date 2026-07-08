@@ -12,6 +12,7 @@ dtb-$(CONFIG_ARCH_QCOM) += qcs6490-radxa-cm-q64-rpi-cm5-io-cam0-imx219.dtbo \
 	qcs6490-radxa-dragon-q6a-cam1-radxa-camera-4k.dtbo \
 	qcs6490-radxa-dragon-q6a-cam1-radxa-camera-13m-214.dtbo \
 	qcs6490-radxa-dragon-q6a-cam2-radxa-camera-8m-219.dtbo \
+	qcs6490-radxa-dragon-q6a-cam3-imx708.dtbo \
 	qcs6490-radxa-dragon-q6a-cam3-radxa-camera-8m-219.dtbo \
 	qcs6490-radxa-dragon-q6a-i2c0.dtbo \
 	qcs6490-radxa-dragon-q6a-i2c2.dtbo \
