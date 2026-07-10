@@ -52,6 +52,25 @@ dtb-$(CONFIG_ARCH_QCOM) += qcs6490-radxa-cm-q64-rpi-cm5-io-cam0-imx219.dtbo \
 	qcs9075-uart20.dtbo \
 	qcs9075-usb0-peripheral.dtbo \
 	sc8280xp-radxa-dragon-q8b-fpc-pcie.dtbo \
+	sc8280xp-i2c4.dtbo \
+	sc8280xp-i2c5.dtbo \
+	sc8280xp-i2c8.dtbo \
+	sc8280xp-i2c9.dtbo \
+	sc8280xp-i2c18.dtbo \
+	sc8280xp-i2c20.dtbo \
+	sc8280xp-spi4-enc28j60.dtbo \
+	sc8280xp-spi4-spidev.dtbo \
+	sc8280xp-spi9-enc28j60.dtbo \
+	sc8280xp-spi9-spidev.dtbo \
+	sc8280xp-spi18-enc28j60.dtbo \
+	sc8280xp-spi18-spidev.dtbo \
+	sc8280xp-spi20-enc28j60.dtbo \
+	sc8280xp-spi20-spidev.dtbo \
+	sc8280xp-uart4.dtbo \
+	sc8280xp-uart6.dtbo \
+	sc8280xp-uart9.dtbo \
+	sc8280xp-uart18.dtbo \
+	sc8280xp-uart20.dtbo \
 	sc8280xp-usb0-peripheral.dtbo \
 	sc8280xp-usb1-peripheral.dtbo \
 
