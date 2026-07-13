@@ -1,0 +1,63 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/clock/rk3308-cru.h>
+
+/ {
+	metadata {
+		title = "Enable MAX97357A on I2S0";
+		compatible = "radxa,rockpis";
+		category = "misc";
+		exclusive = "GPIO0_B7", "GPIO2_A7", "GPIO2_A5", "GPIO2_B1", "i2s0_2ch";
+		description = "Enable MAX97357A on I2S0.
+pin11 for SD(optional).
+pin12 for BCLK.
+pin14 for GAIN(optional).
+pin18 for DIN.
+pin22 for LRC.";
+	};
+};
+
+&{/} {
+	max98357a_codec: max98357a {
+		compatible = "maxim,max98357a";
+		#sound-dai-cells = <0>;
+		sdmode-gpios = <&gpio0 RK_PB7 GPIO_ACTIVE_HIGH>;
+		sdmode-delay = <5>;
+		status = "okay";
+	};
+
+	sound_ext_card: sound-ext-card {
+		compatible = "simple-audio-card";
+		simple-audio-card,format = "i2s";
+		simple-audio-card,mclk-fs = <256>;
+		simple-audio-card,name = "snd_max98357a_dac";
+		#address-cells = <1>;
+		#size-cells = <0>;
+		status = "okay";
+		simple-audio-card,dai-link@0 {
+			reg = <0>;
+			format = "i2s";
+			cpu {
+				sound-dai = <&i2s_8ch_0>;
+			};
+			codec {
+				sound-dai = <&max98357a_codec>;
+			};
+		};
+	};
+};
+
+&i2s_8ch_0 {
+	pinctrl-0 = <&i2s_8ch_0_lrcktx
+		     &i2s_8ch_0_sclktx
+		     &i2s_8ch_0_sdi0
+		     &i2s_8ch_0_sdo0>;
+	status = "okay";
+	#sound-dai-cells = <0>;
+	rockchip,clk-trcm = <1>;
+	assigned-clocks = <&cru SCLK_I2S0_8CH_RX>;
+	assigned-clock-parents = <&cru SCLK_I2S0_8CH_TX_MUX>;
+};
