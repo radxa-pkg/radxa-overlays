@@ -1,0 +1,20 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+
+/ {
+	metadata {
+		title = "Enable EMMC_BUS4 FOR V1.3 NANDFLASH";
+		compatible = "radxa,rockpis";
+		category = "misc";
+		exclusive = "emmc_bus4";
+		description = "Enable EMMC_BUS4 FOR V1.3 NANDFLASH.";
+	};
+};
+
+&emmc {
+	pinctrl-names = "default";
+	pinctrl-0 = <&emmc_bus4 &emmc_clk &emmc_cmd>;
+};
