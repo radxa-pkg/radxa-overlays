@@ -1,3 +1,27 @@
+radxa-overlays (0.2.26) noble; urgency=medium
+
+  [ Feng Zhang ]
+  * fix: add twi-supply for twi2 and twi7 overlays
+  * fix: cubie-a7a: update ac101 sound card jack detection gpio
+
+  [ William Norman ]
+  * feat: add imx577 for radxa vmarc 9075 io
+  * fix: fix  the exclusive for 10 fhd
+  * fix: fix overlay plugin grammar‌
+  * feat: add Raspberry Pi Camera Module 3 for Q6A
+
+  [ ZHANG Yuntian ]
+  * feat: add sc8280xp USB OTG overlays
+
+  [ Xinming Chen ]
+  * feat: rock-pi-s: add i2s max98357a overlays
+  * feat: rock-pi-s: add emmc_bus4 config for nandflash
+
+  [ RadxaSongjun ]
+  * arm64: dts: qcom: add Radxa Dragon Q8B I2C/SPI/UART overlays
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Thu, 16 Jul 2026 03:16:44 +0000
+
 radxa-overlays (0.2.25) noble; urgency=medium
 
   [ Jiali Chen ]
