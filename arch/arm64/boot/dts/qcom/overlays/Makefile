@@ -59,13 +59,13 @@ dtb-$(CONFIG_ARCH_QCOM) += qcs6490-radxa-cm-q64-rpi-cm5-io-cam0-imx219.dtbo \
 	sc8280xp-i2c9.dtbo \
 	sc8280xp-i2c18.dtbo \
 	sc8280xp-i2c20.dtbo \
-	sc8280xp-spi4-enc28j60.dtbo \
+	sc8280xp-radxa-dragon-q8b-spi4-enc28j60.dtbo \
+	sc8280xp-radxa-dragon-q8b-spi9-enc28j60.dtbo \
+	sc8280xp-radxa-dragon-q8b-spi18-enc28j60.dtbo \
+	sc8280xp-radxa-dragon-q8b-spi20-enc28j60.dtbo \
 	sc8280xp-spi4-spidev.dtbo \
-	sc8280xp-spi9-enc28j60.dtbo \
 	sc8280xp-spi9-spidev.dtbo \
-	sc8280xp-spi18-enc28j60.dtbo \
 	sc8280xp-spi18-spidev.dtbo \
-	sc8280xp-spi20-enc28j60.dtbo \
 	sc8280xp-spi20-spidev.dtbo \
 	sc8280xp-uart4.dtbo \
 	sc8280xp-uart6.dtbo \
