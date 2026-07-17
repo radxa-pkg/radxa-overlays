@@ -31,10 +31,10 @@ jobs:
           for VENDOR in amlogic rockchip allwinner qcom
           do
             OVERLAY_PATH="arch/arm64/boot/dts/$VENDOR/overlays"
-            for i in "$OVERLAY_PATH"/*.dts
+            for i in "$OVERLAY_PATH"/*.dts{,o}
             do
               OVERLAY_NAME="$(basename "$i")"
-              OVERLAY_NAME="${OVERLAY_NAME/.dts}.dtbo"
+              OVERLAY_NAME="${OVERLAY_NAME/.dts*}.dtbo"
               if ! grep "$OVERLAY_NAME" "${OVERLAY_PATH}/Makefile"* >/dev/null 2>/dev/null
               then
                 echo "$OVERLAY_NAME is not included in $VENDOR Makefile!"
@@ -50,35 +50,33 @@ jobs:
           sudo apt install -y --no-install-recommends device-tree-compiler
           sudo dpkg --add-architecture arm64
           case "${{ matrix.version }}" in
+            linux-stable)
+              exit 0
+              ;;
             linux-rk2312)
-              wget https://github.com/radxa-pkg/linux-rk2312/releases/download/6.1.43-15/linux-headers-6.1.43-15-rk2312_6.1.43-15-3176a44da_arm64.deb
-              sudo apt install ./linux-headers-*.deb
+              KERNEL_HEADERS_URL=https://github.com/radxa-pkg/linux-rk2312/releases/download/6.1.43-26/linux-headers-6.1.43-26-rk2312_6.1.43-26_arm64.deb
               ;;
             linux-rk2410)
-              wget https://github.com/radxa-pkg/linux-rk2410/releases/download/6.1.84-1/linux-headers-6.1.84-1-rk2410_6.1.84-1-3bf163742_arm64.deb
-              sudo apt install ./linux-headers-*.deb
+              KERNEL_HEADERS_URL=https://github.com/radxa-pkg/linux-rk2410/releases/download/6.1.84-8/linux-headers-6.1.84-8-rk2410_6.1.84-8_arm64.deb
               ;;
             linux-rk2410-nocsf)
-              wget https://github.com/radxa-pkg/linux-rk2410-nocsf/releases/download/6.1.84-5/linux-headers-6.1.84-5-rk2410-nocsf_6.1.84-5_arm64.deb
-              sudo apt install ./linux-headers-*.deb
+              KERNEL_HEADERS_URL=https://github.com/radxa-pkg/linux-rk2410-nocsf/releases/download/6.1.84-18/linux-headers-6.1.84-18-rk2410-nocsf_6.1.84-18_arm64.deb
               ;;
             linux-aw2501)
-              wget https://github.com/radxa-pkg/linux-aw2501/releases/download/5.15.147-2/linux-headers-5.15.147-2-aw2501_5.15.147-2_arm64.deb
-              sudo apt install ./linux-headers-*.deb
+              KERNEL_HEADERS_URL=https://github.com/radxa-pkg/linux-aw2501/releases/download/5.15.147-20/linux-headers-5.15.147-20-aw2501_5.15.147-20_arm64.deb
               ;;
             linux-a733)
-              wget https://github.com/radxa-pkg/linux-a733/releases/download/5.15.147-2/linux-headers-5.15.147-2-a733_5.15.147-2_arm64.deb
-              sudo apt install ./linux-headers-*.deb
+              KERNEL_HEADERS_URL=https://github.com/radxa-pkg/linux-a733/releases/download/5.15.147-21/linux-headers-5.15.147-21-a733_5.15.147-21_arm64.deb
               ;;
             linux-qcom)
-              wget https://github.com/radxa-pkg/linux-qcom/releases/download/6.16.7-1/linux-headers-6.16.7-1-qcom_6.16.7-1_arm64.deb
-              sudo apt install ./linux-headers-*.deb
+              KERNEL_HEADERS_URL=https://github.com/radxa-pkg/linux-qcom/releases/download/7.0.11-3/linux-headers-7.0.11-3-qcom_7.0.11-3_arm64.deb
               ;;
             linux-qc2509)
-              wget https://github.com/radxa-pkg/linux-qc2509/releases/download/6.8.12-4/linux-headers-6.8.12-4-qc2509_6.8.12-4_arm64.deb
-              sudo apt install ./linux-headers-*.deb
+              KERNEL_HEADERS_URL=https://github.com/radxa-pkg/linux-qc2509/releases/download/6.8.12-5/linux-headers-6.8.12-5-qc2509_6.8.12-5_arm64.deb
               ;;
           esac
+          wget "$KERNEL_HEADERS_URL"
+          sudo apt install ./linux-headers-*.deb
       - name: Build
         shell: bash
         run: |
@@ -87,25 +85,25 @@ jobs:
               make build-dtbo -j$(nproc)
               ;;
             linux-rk2312)
-              make build-dtbo -j$(nproc) KERNELRELEASE=6.1.43-15-rk2312 CONFIG_ARCH_MESON=n CONFIG_CPU_RK3528=rockchip CONFIG_CPU_RK3588=rockchip CONFIG_ARCH_SUNXI=n CONFIG_ARCH_QCOM=n
+              make build-dtbo -j$(nproc) KERNELRELEASE=6.1.43-26-rk2312 CONFIG_ARCH_MESON=n CONFIG_CPU_RK3528=rockchip CONFIG_CPU_RK3588=rockchip CONFIG_ARCH_SUNXI=n CONFIG_ARCH_QCOM=n
               ;;
             linux-rk2410)
-              make build-dtbo -j$(nproc) KERNELRELEASE=6.1.84-1-rk2410 CONFIG_ARCH_MESON=n CONFIG_CPU_RK3588=rockchip CONFIG_ARCH_SUNXI=n CONFIG_ARCH_QCOM=n
+              make build-dtbo -j$(nproc) KERNELRELEASE=6.1.84-8-rk2410 CONFIG_ARCH_MESON=n CONFIG_CPU_RK3588=rockchip CONFIG_ARCH_SUNXI=n CONFIG_ARCH_QCOM=n
               ;;
             linux-rk2410-nocsf)
-              make build-dtbo -j$(nproc) KERNELRELEASE=6.1.84-5-rk2410-nocsf CONFIG_ARCH_MESON=n CONFIG_CPU_RK3568=rockchip CONFIG_CPU_RK3576=rockchip CONFIG_ARCH_SUNXI=n CONFIG_ARCH_QCOM=n
+              make build-dtbo -j$(nproc) KERNELRELEASE=6.1.84-18-rk2410-nocsf CONFIG_ARCH_MESON=n CONFIG_CPU_RK3568=rockchip CONFIG_CPU_RK3576=rockchip CONFIG_ARCH_SUNXI=n CONFIG_ARCH_QCOM=n
               ;;
             linux-aw2501)
-              make build-dtbo -j$(nproc) KERNELRELEASE=5.15.147-2-aw2501 CONFIG_ARCH_SUNXI=allwinner CONFIG_ARCH_SUN55IW3=allwinner CONFIG_ARCH_QCOM=n
+              make build-dtbo -j$(nproc) KERNELRELEASE=5.15.147-20-aw2501 CONFIG_ARCH_SUNXI=allwinner CONFIG_ARCH_SUN55IW3=allwinner CONFIG_ARCH_QCOM=n
               ;;
             linux-a733)
-              make build-dtbo -j$(nproc) KERNELRELEASE=5.15.147-2-a733 CONFIG_ARCH_SUNXI=allwinner CONFIG_ARCH_SUN60IW2=allwinner CONFIG_ARCH_QCOM=n
+              make build-dtbo -j$(nproc) KERNELRELEASE=5.15.147-21-a733 CONFIG_ARCH_SUNXI=allwinner CONFIG_ARCH_SUN60IW2=allwinner CONFIG_ARCH_QCOM=n
               ;;
             linux-qcom)
-              make build-dtbo -j$(nproc) KERNELRELEASE=6.16.7-1-qcom
+              make build-dtbo -j$(nproc) KERNELRELEASE=7.0.11-3-qcom
               ;;
             linux-qc2509)
-              make build-dtbo -j$(nproc) KERNELRELEASE=6.8.12-4-qc2509
+              make build-dtbo -j$(nproc) KERNELRELEASE=6.8.12-5-qc2509
               ;;
           esac
       - name: Upload artifacts
