@@ -8,7 +8,7 @@
 
 / {
 	metadata {
-		title = "Enable ENC28J60 on SPI20";
+		title = "Enable spidev on SPI20";
 		compatible = "radxa,dragon-q8b";
 		category = "misc";
 		exclusive = "spi20", "uart20", "i2c20", "gpio87", "gpio88", "gpio89", "gpio90";
