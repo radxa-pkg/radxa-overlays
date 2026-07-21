@@ -8,7 +8,7 @@
 
 / {
 	metadata {
-		title = "Enable ENC28J60 on SPI9";
+		title = "Enable spidev on SPI9";
 		compatible = "radxa,dragon-q8b";
 		category = "misc";
 		exclusive = "spi9", "uart9", "i2c9", "gpio41", "gpio42", "gpio43", "gpio44";
