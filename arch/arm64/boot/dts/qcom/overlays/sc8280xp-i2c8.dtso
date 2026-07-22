@@ -13,7 +13,7 @@
 		category = "misc";
 		exclusive = "spi8", "uart8", "i2c8", "gpio43", "gpio44";
 		description = "Enable I2C8.
-On Radxa Dragon Q8B, this is pin 27(scl), 28(sda).";
+On Radxa Dragon Q8B, this is pin 27(sda), 28(scl).";
 	};
 };
 
