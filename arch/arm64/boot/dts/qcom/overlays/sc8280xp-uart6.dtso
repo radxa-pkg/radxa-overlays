@@ -13,7 +13,7 @@
 		category = "misc";
 		exclusive = "spi6", "uart6", "i2c6", "gpio156", "gpio157";
 		description = "Enable UART6.
-On Radxa Dragon Q8B, this is pin 31(tx), 29(rx).";
+On Radxa Dragon Q8B, this is pin 32(tx), 29(rx).";
 	};
 };
 
