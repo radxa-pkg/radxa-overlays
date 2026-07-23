@@ -8,15 +8,12 @@
 / {
 	metadata {
 		title = "Enable MAX97357A on I2S0";
-		compatible = "radxa,rockpis";
+		compatible = "radxa,rockpis", "radxa,rock-s0";
 		category = "misc";
 		exclusive = "GPIO0_B7", "GPIO2_A7", "GPIO2_A5", "GPIO2_B1", "i2s0_2ch";
 		description = "Enable MAX97357A on I2S0.
-pin11 for SD(optional).
-pin12 for BCLK.
-pin14 for GAIN(optional).
-pin18 for DIN.
-pin22 for LRC.";
+On Radxa ROCK PI S V1.3 this is pin11 for SD(optional), pin12 for BCLK, pin14 for GAIN(optional), pin18 for DIN, pin22 for LRC.
+On Radxa ROCK S0 V1.2 this is pin27 for SD(optional), pin38 for BCLK, pin34 for GAIN(optional), pin12 for DIN, pin40 for LRC.";
 	};
 };
 
