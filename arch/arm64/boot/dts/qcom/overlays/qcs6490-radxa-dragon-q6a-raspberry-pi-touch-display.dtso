@@ -1,0 +1,159 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2026 Radxa Computer (Shenzhen) Co., Ltd.
+ */
+
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+	metadata {
+		title = "Enable Raspberry Pi Touch Display";
+		compatible = "radxa,dragon-q6a";
+		category = "display";
+		exclusive = "mdss_dsi";
+		description = "Enable Raspberry Pi Touch Display (7-inch).";
+	};
+};
+
+&{/} {
+	vcc_3v3_lcd: vcc-3v3-lcd-regulator {
+		compatible = "regulator-fixed";
+		regulator-name = "vcc_3v3_lcd";
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		gpio = <&tlmm 80 GPIO_ACTIVE_HIGH>;
+		enable-active-high;
+		regulator-boot-on;
+		regulator-always-on;
+		vin-supply = <&vcc_3v3>;
+	};
+
+	bridge_reg: bridge-regulator {
+		compatible = "regulator-fixed";
+		regulator-name = "bridge-reg";
+		vin-supply = <&display_reg>;
+		gpio = <&display_reg 0 0>;
+		enable-active-high;
+	};
+
+	panel {
+		compatible = "raspberrypi,7inch-dsi";
+		power-supply = <&display_reg>;
+		backlight = <&display_reg>;
+
+		port {
+			panel_in: endpoint {
+				remote-endpoint = <&bridge_out>;
+			};
+		};
+	};
+};
+
+&mdss {
+	status = "okay";
+};
+
+&mdss_dsi {
+	vdda-supply = <&vreg_l6b_1p2>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+	status = "okay";
+
+	bridge@0 {
+		compatible = "toshiba,tc358762";
+		reg = <0>;
+		vddc-supply = <&bridge_reg>;
+
+		ports {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			port@0 {
+				reg = <0>;
+
+				panel_in_dsi1: endpoint {
+					remote-endpoint = <&mdss_dsi0_out>;
+				};
+			};
+
+			port@1 {
+				reg = <1>;
+
+				bridge_out: endpoint {
+					remote-endpoint = <&panel_in>;
+				};
+			};
+		};
+	};
+};
+
+&mdss_dsi0_out {
+	data-lanes = <0>;
+	remote-endpoint = <&panel_in_dsi1>;
+};
+
+&mdss_dsi_phy {
+	vdds-supply = <&vreg_l10c_0p88>;
+	status = "okay";
+};
+
+&qupv3_id_1 {
+	status = "okay";
+};
+
+&i2c13 {
+	clock-frequency = <100000>;
+	qcom,enable-gsi-dma;
+	status = "okay";
+
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	display_reg: regulator@45 {
+		compatible = "raspberrypi,7inch-touchscreen-panel-regulator";
+		reg = <0x45>;
+		gpio-controller;
+		#gpio-cells = <2>;
+	};
+
+	touch-controller@38 {
+		compatible = "edt,edt-ft5406";
+		reg = <0x38>;
+		vcc-supply = <&display_reg>;
+		reset-gpios = <&display_reg 1 1>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&ts_int_conn>;
+		interrupt-parent = <&tlmm>;
+		interrupts = <29 IRQ_TYPE_EDGE_FALLING>;
+		touchscreen-size-x = <800>;
+		touchscreen-size-y = <480>;
+		touchscreen-inverted-x;
+		touchscreen-inverted-y;
+	};
+};
+
+&tlmm {
+	lcd_panel_reset: lcd-panel-reset-state {
+		pins = "gpio44";
+		function = "gpio";
+		drive-strength = <2>;
+		bias-pull-down;
+	};
+
+	ts_int_conn: ts-int-conn-state {
+		pins = "gpio29";
+		function = "gpio";
+		bias-disable;
+	};
+
+	ts_rst_conn: ts-rst-conn-state {
+		pins = "gpio105";
+		function = "gpio";
+		drive-strength = <2>;
+		bias-disable;
+	};
+};
