@@ -1,3 +1,24 @@
+radxa-overlays (0.2.28) noble; urgency=medium
+
+  [ Songjun Li ]
+  * arm64: dts: qcom: fix SPI spidev overlay titles
+
+  [ Stephen Chen ]
+  * fix: correct sc8280xp i2c8 and uart6 pin descriptions
+
+  [ Xinming Chen ]
+  * feat: add rock-s0 max98357a support
+
+  [ Feng Zhang ]
+  * overlay: a7a: fix missing reg property in dsi0 port@1
+  * overlay: a7z: add support for Cubie A7Z V2.0
+  * fix: correct the Radxa 8HD name in the Makefile
+
+  [ dependabot[bot] ]
+  * chore(deps): bump actions/checkout from 6 to 7
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Fri, 31 Jul 2026 02:39:40 +0000
+
 radxa-overlays (0.2.27) noble; urgency=medium
 
   [ ZHANG Yuntian ]
