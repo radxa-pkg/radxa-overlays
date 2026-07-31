@@ -1,0 +1,33 @@
+jobs:
+  rebase:
+    permissions:
+      pull-requests: "write"
+    runs-on: "ubuntu-latest"
+    steps:
+    - name: "Rebase PRs"
+      uses: "actions/github-script@v9"
+      with:
+        github-token: "${{secrets.PR_WRITE_TOKEN}}"
+        script: |
+          const { data: pulls } = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open",
+          });
+          const prs = pulls.filter(pr =>
+              pr.user.login === 'dependabot[bot]' ||
+              pr.user.login === 'dependabot'
+          );
+          for (const pr of prs) {
+              await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: pr.number,
+                  body: "@dependabot rebase"
+              });
+          }
+    timeout-minutes: 10
+name: "Dependabot rebase PRs"
+"on":
+  workflow_dispatch: {}
+permissions: {}

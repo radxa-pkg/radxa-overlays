@@ -5,11 +5,11 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
     - name: "Checkout"
-      uses: "actions/checkout@v6"
+      uses: "actions/checkout@v7"
       with:
         fetch-depth: 0
         submodules: "recursive"
-        token: "${{secrets.GIT_PUSH_TOKEN}}"
+        token: "${{secrets.CODE_WRITE_TOKEN}}"
     - if: "github.event.inputs.update == 'true'"
       name: "Update submodules"
       run: |

@@ -9,7 +9,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
     - name: "Checkout"
-      uses: "actions/checkout@v6"
+      uses: "actions/checkout@v7"
       with:
         fetch-depth: 0
     - name: "Install Nix"
@@ -52,6 +52,7 @@ jobs:
     - if: "github.event_name != 'pull_request'"
       name: "Deploy to GitHub Pages"
       uses: "actions/deploy-pages@v5"
+    timeout-minutes: 30
 name: "Deploy documentation"
 "on":
   merge_group: {}

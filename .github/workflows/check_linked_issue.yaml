@@ -9,6 +9,7 @@ jobs:
     steps:
     - name: "Check linked issues"
       uses: "nearform-actions/github-action-check-linked-issues@v1"
+    timeout-minutes: 10
 name: "Check linked issues"
 "on":
   pull_request_target:
