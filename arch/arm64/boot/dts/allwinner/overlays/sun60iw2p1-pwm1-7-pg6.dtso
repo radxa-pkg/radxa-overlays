@@ -1,0 +1,33 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable PWM1-7";
+		compatible = "radxa,cm-a7-rpi-cm5-io";
+		category = "misc";
+		exclusive = "PG6";
+		description = "Enable PWM1 channel 7 on physical pin 32 (PG6).";
+	};
+};
+
+&pio {
+	pwm1_7_pins_active: pwm1-7-pins-active {
+		pins = "PG6";
+		function = "pwm1_7";
+		drive-strength = <10>;
+	};
+
+	pwm1_7_pins_sleep: pwm1-7-pins-sleep {
+		pins = "PG6";
+		function = "gpio_in";
+		bias-pull-down;
+	};
+};
+
+&pwm1_7 {
+	pinctrl-names = "active", "sleep";
+	pinctrl-0 = <&pwm1_7_pins_active>;
+	pinctrl-1 = <&pwm1_7_pins_sleep>;
+	status = "okay";
+};

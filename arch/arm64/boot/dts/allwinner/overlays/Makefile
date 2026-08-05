@@ -27,17 +27,29 @@ dtb-$(CONFIG_ARCH_SUN55IW3) += \
 	cubie-a5e-radxa-display-10fhd.dtbo 
 
 dtb-$(CONFIG_ARCH_SUN60IW2) += \
+	cm-a7-rpi-cm5-io-radxa-camera-8m-219.dtbo \
+	cm-a7-rpi-cm5-io-waveshare-camera-4k-415.dtbo \
 	sun60iw2p1-i2s0-2ch.dtbo \
+	sun60iw2p1-i2s1-2ch.dtbo \
 	sun60iw2p1-i2s4-2ch.dtbo \
 	sun60iw2p1-pwm1-1.dtbo \
 	sun60iw2p1-pwm1-2.dtbo \
 	sun60iw2p1-pwm1-3.dtbo \
 	sun60iw2p1-pwm1-6.dtbo \
 	sun60iw2p1-pwm1-7.dtbo \
+	sun60iw2p1-pwm1-7-pg6.dtbo \
+	sun60iw2p1-pwm1-8.dtbo \
+	sun60iw2p1-pwm1-9.dtbo \
+	sun60iw2p1-s-pwm0-2.dtbo \
+	sun60iw2p1-s-spi0-spidev.dtbo \
+	sun60iw2p1-spi1-cs0-cs1-spidev.dtbo \
 	sun60iw2p1-spi1-spidev.dtbo \
 	sun60iw2p1-spi3-spidev.dtbo \
+	sun60iw2p1-twi0.dtbo \
 	sun60iw2p1-twi2.dtbo \
+	sun60iw2p1-twi4.dtbo \
 	sun60iw2p1-twi7.dtbo \
+	sun60iw2p1-uart1-full.dtbo \
 	sun60iw2p1-uart2.dtbo \
 	sun60iw2p1-uart3.dtbo \
 	sun60iw2p1-uart4.dtbo \

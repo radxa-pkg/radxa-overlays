@@ -1,0 +1,33 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable S-PWM0-2";
+		compatible = "radxa,cm-a7-rpi-cm5-io";
+		category = "misc";
+		exclusive = "PM0";
+		description = "Enable low-power-domain S-PWM0 channel 2 on physical pin 16 (PM0).";
+	};
+};
+
+&r_pio {
+	s_pwm0_2_pins_active: s-pwm0-2-pins-active {
+		pins = "PM0";
+		function = "s_pwm0_2";
+		drive-strength = <10>;
+	};
+
+	s_pwm0_2_pins_sleep: s-pwm0-2-pins-sleep {
+		pins = "PM0";
+		function = "gpio_in";
+		bias-pull-down;
+	};
+};
+
+&s_pwm0_2 {
+	pinctrl-names = "active", "sleep";
+	pinctrl-0 = <&s_pwm0_2_pins_active>;
+	pinctrl-1 = <&s_pwm0_2_pins_sleep>;
+	status = "okay";
+};

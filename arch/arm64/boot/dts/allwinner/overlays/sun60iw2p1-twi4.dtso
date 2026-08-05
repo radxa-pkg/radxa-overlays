@@ -1,0 +1,36 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable TWI4";
+		compatible = "radxa,cm-a7-rpi-cm5-io";
+		category = "misc";
+		exclusive = "twi4", "PE10", "PE11";
+		description = "Enable TWI4 SDA on physical pin 27 (PE11/ID_SD) and SCL on physical pin 28 (PE10/ID_SC).";
+	};
+};
+
+&pio {
+	twi4_pins_default: twi4-pins-default {
+		pins = "PE11", "PE10";
+		function = "twi4";
+		drive-strength = <10>;
+		bias-pull-up;
+	};
+
+	twi4_pins_sleep: twi4-pins-sleep {
+		pins = "PE11", "PE10";
+		function = "gpio_in";
+	};
+};
+
+&twi4 {
+	twi-supply = <&reg_bldo1>;
+	clock-frequency = <400000>;
+	pinctrl-0 = <&twi4_pins_default>;
+	pinctrl-1 = <&twi4_pins_sleep>;
+	pinctrl-names = "default", "sleep";
+	twi_drv_used = <1>;
+	status = "okay";
+};

@@ -1,0 +1,57 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/spi/sunxi-spi.h>
+
+/ {
+	metadata {
+		title = "Enable spidev on S-SPI0";
+		compatible = "radxa,cm-a7-rpi-cm5-io";
+		category = "misc";
+		exclusive = "r_spi", "PM0", "PM1", "PM2", "PM3";
+		description = "Enable the low-power-domain S-SPI0 controller: CS0/CLK/MOSI/MISO on physical pins 16/11/13/15.";
+	};
+};
+
+&r_pio {
+	s_spi0_pins_default: s-spi0-pins-default {
+		pins = "PM1", "PM2", "PM3";
+		function = "s_spi0";
+		drive-strength = <10>;
+	};
+
+	s_spi0_pins_cs: s-spi0-pins-cs {
+		pins = "PM0";
+		function = "s_spi0";
+		drive-strength = <10>;
+		bias-pull-up;
+	};
+
+	s_spi0_pins_sleep: s-spi0-pins-sleep {
+		pins = "PM0", "PM1", "PM2", "PM3";
+		function = "gpio_in";
+		drive-strength = <10>;
+	};
+};
+
+&r_spi {
+	#address-cells = <1>;
+	#size-cells = <0>;
+	clock-frequency = <50000000>;
+	pinctrl-0 = <&s_spi0_pins_default &s_spi0_pins_cs>;
+	pinctrl-1 = <&s_spi0_pins_sleep>;
+	pinctrl-names = "default", "sleep";
+	sunxi,spi-num-cs = <1>;
+	sunxi,spi-bus-mode = <SUNXI_SPI_BUS_MASTER>;
+	sunxi,spi-cs-mode = <SUNXI_SPI_CS_AUTO>;
+	status = "okay";
+
+	spidev@0 {
+		compatible = "rohm,dh2228fv";
+		reg = <0>;
+		spi-max-frequency = <50000000>;
+		spi-rx-bus-width = <1>;
+		spi-tx-bus-width = <1>;
+		status = "okay";
+	};
+};

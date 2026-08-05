@@ -1,0 +1,33 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable PWM1-9";
+		compatible = "radxa,cm-a7-rpi-cm5-io";
+		category = "misc";
+		exclusive = "PG10";
+		description = "Enable PWM1 channel 9 on physical pin 36 (PG10).";
+	};
+};
+
+&pio {
+	pwm1_9_pins_active: pwm1-9-pins-active {
+		pins = "PG10";
+		function = "pwm1_9";
+		drive-strength = <10>;
+	};
+
+	pwm1_9_pins_sleep: pwm1-9-pins-sleep {
+		pins = "PG10";
+		function = "gpio_in";
+		bias-pull-down;
+	};
+};
+
+&pwm1_9 {
+	pinctrl-names = "active", "sleep";
+	pinctrl-0 = <&pwm1_9_pins_active>;
+	pinctrl-1 = <&pwm1_9_pins_sleep>;
+	status = "okay";
+};
