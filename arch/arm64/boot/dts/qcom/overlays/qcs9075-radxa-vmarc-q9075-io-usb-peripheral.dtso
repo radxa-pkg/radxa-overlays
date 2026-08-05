@@ -1,0 +1,46 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2026 Radxa Computer (Shenzhen) Co., Ltd.
+ */
+
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+
+/ {
+	metadata {
+		title = "Set OTG port to Peripheral mode";
+		compatible = "radxa,vmarc-q9075-io";
+		category = "misc";
+		exclusive = "usb_0";
+		description = "Set OTG port to Peripheral mode.
+Use this when you want to connect to another computer
+on Radxa VMARC Q9075 IO Board.";
+	};
+
+	usb0_peripheral_vbus: usb0-peripheral-vbus {
+		compatible = "regulator-fixed";
+		regulator-name = "usb0_peripheral_vbus";
+		regulator-min-microvolt = <5000000>;
+		regulator-max-microvolt = <5000000>;
+	};
+};
+
+&usb_0 {
+	dr_mode = "peripheral";
+	vbus_dwc3-supply = <&usb0_peripheral_vbus>;
+};
+
+&vcc5v0_usb30_otg_regulator {
+	status = "disabled";
+};
+
+&pmm8654au_2_gpios {
+	usb0_peripheral_vbus_disable_hog: usb0-peripheral-vbus-disable-hog {
+		gpio-hog;
+		gpios = <4 GPIO_ACTIVE_HIGH>;
+		output-low;
+		line-name = "usb0-peripheral-vbus-disable";
+	};
+};
