@@ -9,7 +9,7 @@
 / {
     metadata {
         title = "Enable spidev on SPI16 over CS0";
-        compatible = "radxa,vmarc-q9075-io";
+        compatible = "unknown";
         category = "misc";
         exclusive = "spi16", "uart16", "i2c16", "gpio86", "gpio87", "gpio88", "gpio89";
         description = "Enable spidev on SPI16 over CS0.";

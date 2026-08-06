@@ -9,7 +9,7 @@
 / {
     metadata {
         title = "Enable UART16 with Flow Control";
-        compatible = "radxa,vmarc-q9075-io";
+        compatible = "unknown";
         category = "misc";
         exclusive = "spi16", "uart16", "i2c16", "gpio86", "gpio87", "gpio88", "gpio89";
         description = "Enable UART16 with Flow Control.

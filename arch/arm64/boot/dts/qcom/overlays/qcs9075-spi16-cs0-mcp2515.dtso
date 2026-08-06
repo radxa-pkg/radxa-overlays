@@ -11,7 +11,7 @@
 / {
 	metadata {
 		title = "Enable MCP2515 on SPI16 CS0";
-		compatible = "radxa,vmarc-q9075-io";
+		compatible = "unknown";
 		category = "misc";
 		exclusive = "GPIO86", "GPIO87", "GPIO88", "GPIO89", "GPIO90";
 		description = "Enable MCP2515 with 8MHz external clock on SPI16 over CS0.
