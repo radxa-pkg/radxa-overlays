@@ -9,7 +9,7 @@
 / {
     metadata {
         title = "Enable UART16";
-        compatible = "radxa,vmarc-q9075-io";
+        compatible = "unknown";
         category = "misc";
         exclusive = "i2c16", "spi16", "uart16", "gpio88", "gpio89";
         description = "Enable UART16.
