@@ -47,6 +47,7 @@ dtb-$(CONFIG_ARCH_QCOM) += qcs6490-radxa-cm-q64-rpi-cm5-io-cam0-imx219.dtbo \
 	qcs9075-i2c18.dtbo \
 	qcs9075-radxa-vmarc-q9075-io-cam1-imx577.dtbo \
 	qcs9075-radxa-vmarc-q9075-io-cam2-ov9281.dtbo \
+	qcs9075-radxa-vmarc-q9075-io-enable-b-key.dtbo \
 	qcs9075-radxa-vmarc-q9075-io-radxa-display-10fhd.dtbo \
 	qcs9075-radxa-vmarc-q9075-io-usb-peripheral.dtbo \
 	qcs9075-spi16-cs0-enc28j60.dtbo \

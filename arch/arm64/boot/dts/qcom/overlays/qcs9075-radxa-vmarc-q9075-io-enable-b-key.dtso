@@ -1,0 +1,34 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2026 Radxa Computer (Shenzhen) Co., Ltd.
+ */
+
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+
+/ {
+	metadata {
+		title = "Switch USB from M.2 E-key to M.2 B-key";
+		compatible = "radxa,vmarc-q9075-io";
+		category = "misc";
+		exclusive = "switch-to-ekey-usb-regulator",
+			"pmm8654au_2_gpio11";
+		description = "Switch USB from M.2 E-key to M.2 B-key.
+Enable this if you need to use WWAN modules.";
+	};
+};
+
+&switch_to_ekey_usb_regulator {
+	status = "disabled";
+};
+
+&pmm8654au_2_gpios {
+	bkey_usb_select_hog: bkey-usb-select-hog {
+		gpio-hog;
+		gpios = <11 GPIO_ACTIVE_HIGH>;
+		output-low;
+		line-name = "bkey-usb-select";
+	};
+};
