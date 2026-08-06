@@ -42,6 +42,7 @@ dtb-$(CONFIG_ARCH_QCOM) += qcs6490-radxa-cm-q64-rpi-cm5-io-cam0-imx219.dtbo \
 	qcs6490-radxa-dragon-q6a-uart14.dtbo \
 	qcs6490-radxa-dragon-q6a-usb-peripheral.dtbo \
 	qcs9075-enable-dp.dtbo \
+	qcs9075-enable-edp.dtbo \
 	qcs9075-i2c16.dtbo \
 	qcs9075-i2c18.dtbo \
 	qcs9075-radxa-vmarc-q9075-io-cam1-imx577.dtbo \

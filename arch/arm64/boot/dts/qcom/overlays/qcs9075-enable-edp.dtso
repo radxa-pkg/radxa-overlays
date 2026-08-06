@@ -1,0 +1,115 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2026 Radxa Computer (Shenzhen) Co., Ltd.
+ */
+
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/clock/qcom,sa8775p-gcc.h>
+
+/ {
+	metadata {
+		title = "Enable eDP output";
+		compatible = "radxa,vmarc-q9075-io";
+		category = "display";
+		exclusive = "mdss0", "mdss0_dp1", "mdss0_dp1_out",
+			"mdss0_edp1_phy", "gpio66", "gpio67", "gpio84";
+		description = "Enable eDP output.";
+	};
+};
+
+&{/} {
+	vcc_edp_en_regulator: vcc-edp-en-regulator {
+		compatible = "regulator-fixed";
+		regulator-name = "vcc_edp_en";
+		gpio = <&tlmm 67 GPIO_ACTIVE_HIGH>;
+		enable-active-high;
+		pinctrl-names = "default";
+		pinctrl-0 = <&vcc_edp_en>;
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		regulator-always-on;
+	};
+
+	vcc_edp_bl_en_regulator: vcc-edp-bl-en-regulator {
+		compatible = "regulator-fixed";
+		regulator-name = "vcc_edp_bl_en";
+		gpio = <&tlmm 66 GPIO_ACTIVE_HIGH>;
+		enable-active-high;
+		pinctrl-names = "default";
+		pinctrl-0 = <&vcc_edp_bl_en>;
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		regulator-always-on;
+	};
+
+	edp_pwm: pwm {
+		compatible = "clk-pwm";
+		#pwm-cells = <2>;
+		clocks = <&gcc GCC_GP3_CLK>;
+		gpios = <&tlmm 84 GPIO_ACTIVE_HIGH>;
+
+		pinctrl-names = "default", "gpio";
+		pinctrl-0 = <&edp_bl_pwm_clk_state>;
+		pinctrl-1 = <&edp_bl_pwm_gpio_state>;
+	};
+
+	edp-backlight {
+		compatible = "pwm-backlight";
+		pwms = <&edp_pwm 0 25000>;
+		brightness-levels = <0 255>;
+		num-interpolated-steps = <255>;
+		default-brightness-level = <255>;
+		power-supply = <&vcc_edp_bl_en_regulator>;
+		status = "okay";
+	};
+};
+
+&mdss0 {
+	status = "okay";
+};
+
+&mdss0_dp1 {
+	status = "okay";
+};
+
+&mdss0_dp1_out {
+	data-lanes = <0 1 2 3>;
+	link-frequencies = /bits/ 64 <1620000000 2700000000 5400000000 8100000000>;
+};
+
+&mdss0_edp1_phy {
+	status = "okay";
+};
+
+&tlmm {
+	vcc_edp_en: vcc-edp-en {
+		pins = "gpio67";
+		function = "gpio";
+		drive-strength = <2>;
+		bias-disable;
+	};
+
+	vcc_edp_bl_en: vcc-edp-bl-en {
+		pins = "gpio66";
+		function = "gpio";
+		drive-strength = <2>;
+		bias-disable;
+	};
+
+	edp_bl_pwm_clk_state: edp-bl-pwm-clk-state {
+		pins = "gpio84";
+		function = "gcc_gp3";
+		drive-strength = <2>;
+		bias-disable;
+	};
+
+	edp_bl_pwm_gpio_state: edp-bl-pwm-gpio-state {
+		pins = "gpio84";
+		function = "gpio";
+		drive-strength = <2>;
+		bias-disable;
+	};
+};
