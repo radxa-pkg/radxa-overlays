@@ -1,0 +1,59 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2026 Radxa Computer (Shenzhen) Co., Ltd.
+ */
+
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Switch display from HDMI to DisplayPort";
+		compatible = "radxa,vmarc-q9075-io";
+		category = "display";
+		exclusive = "mdss0", "mdss0_dp0", "mdss0_dsi0",
+			"mdss0_edp_phy", "mdss1", "mdss1_dp0",
+			"mdss1_dp0_out", "mdss1_edp_phy", "gpio104";
+		description = "Switch display from HDMI to DisplayPort.";
+	};
+};
+
+&mdss0 {
+	status = "disabled";
+};
+
+&mdss0_dp0 {
+	status = "disabled";
+};
+
+&mdss0_edp_phy {
+	status = "disabled";
+};
+
+&mdss1 {
+	status = "okay";
+};
+
+&mdss1_dp0 {
+	pinctrl-0 = <&dp2_hot_plug_det>;
+	pinctrl-names = "default";
+
+	status = "okay";
+};
+
+&mdss1_dp0_out {
+	data-lanes = <0 1 2 3>;
+	link-frequencies = /bits/ 64 <1620000000 2700000000 5400000000 8100000000>;
+};
+
+&mdss1_edp_phy {
+	status = "okay";
+};
+
+&tlmm {
+	dp2_hot_plug_det: dp2-hot-plug-det-state {
+		pins = "gpio104";
+		function = "edp2_hot";
+		bias-disable;
+	};
+};
