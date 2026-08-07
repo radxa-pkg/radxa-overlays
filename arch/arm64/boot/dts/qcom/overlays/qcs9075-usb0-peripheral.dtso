@@ -9,7 +9,7 @@
 / {
 	metadata {
 		title = "Set OTG port to Peripheral mode";
-		compatible = "qcom,qcs9075";
+		compatible = "radxa,airbox-q900";
 		category = "misc";
 		exclusive = "usb_0";
 		description = "Set OTG port to Peripheral mode.
