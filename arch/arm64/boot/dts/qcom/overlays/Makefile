@@ -49,6 +49,8 @@ dtb-$(CONFIG_ARCH_QCOM) += qcs6490-radxa-cm-q64-rpi-cm5-io-cam0-imx219.dtbo \
 	qcs9075-spi16-cs0-enc28j60.dtbo \
 	qcs9075-spi16-cs0-mcp2515.dtbo \
 	qcs9075-spi16-cs0-spidev.dtbo \
+	qcs9075-spi-gpio-cs0-enc28j60.dtbo \
+	qcs9075-spi-gpio-cs0-spidev.dtbo \
 	qcs9075-uart16-flow-control.dtbo \
 	qcs9075-uart16.dtbo \
 	qcs9075-uart20.dtbo \

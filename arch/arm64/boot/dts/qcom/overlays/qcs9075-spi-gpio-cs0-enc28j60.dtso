@@ -1,0 +1,55 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2026 Radxa Computer (Shenzhen) Co., Ltd.
+ */
+
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+	metadata {
+		title = "Enable ENC28J60 on GPIO bitbang SPI";
+		compatible = "radxa,vmarc-q9075-io";
+		category = "misc";
+		exclusive = "gpio13", "gpio14", "gpio15", "gpio16", "gpio95";
+		description = "Enable Microchip ENC28J60 SPI Ethernet controller using spi-gpio bitbang over CS0.
+On Radxa VMARC Q9075 IO, the interrupt pin is pin 27.";
+	};
+};
+
+&{/} {
+    gpio_spi: spi {
+        compatible = "spi-gpio";
+        pinctrl-names = "default";
+        pinctrl-0 = <&spi_pins>;
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        sck-gpios  = <&tlmm 13 GPIO_ACTIVE_HIGH>;
+        miso-gpios = <&tlmm 14 GPIO_ACTIVE_HIGH>;
+        mosi-gpios = <&tlmm 15 GPIO_ACTIVE_HIGH>;
+        cs-gpios = <&tlmm 16 GPIO_ACTIVE_HIGH>;
+        num-chipselects = <1>;
+
+		ethernet: enc28j60@0 {
+			compatible = "microchip,enc28j60";
+			reg = <0>;
+			spi-max-frequency = <20000000>;
+			status = "okay";
+			interrupt-names = "enc28j60_irq";
+			interrupts-extended = <&tlmm 95 IRQ_TYPE_LEVEL_LOW>;
+		};
+    };
+};
+
+&tlmm {
+    spi_pins: spi-pins {
+        pins = "gpio13", "gpio14", "gpio15", "gpio16";
+        function = "gpio";
+        drive-strength = <2>;
+        bias-disable;
+    };
+};
