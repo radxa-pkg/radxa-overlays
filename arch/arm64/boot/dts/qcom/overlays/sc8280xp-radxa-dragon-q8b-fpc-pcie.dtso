@@ -19,6 +19,7 @@
 &pcie3a_port0 {
 	pcie@0,0 {
 		pcie@2,0 {
+			radxa,force-enable-pcie;
 			status = "okay";
 		};
 	};
