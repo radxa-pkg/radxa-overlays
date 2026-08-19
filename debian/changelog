@@ -1,3 +1,27 @@
+radxa-overlays (0.2.29) noble; urgency=medium
+
+  [ William Norman ]
+  * feat: add imx577 for Radxa VMARC Q9075 IO
+  * feat: add ov9281 for Radxa VMARC Q9075 IO
+  * feat: add usb-peripheral for Radxa VMARC Q9075 IO
+  * fix: restrict OTG peripheral overlay to Airbox Q900
+  * fix: disable i2c16 and spi16 uart16
+  * feat: add spi-gpio for Radxa VMARC-Q9075 IO
+  * fix: force enable FPC PCIe in BIOS for Q8B
+
+  [ Xinming Chen ]
+  * feat: add rock-5b imx577 support
+  * feat: add rock-5c imx577 support
+
+  [ Songjun Li ]
+  * fix: correct sc8280xp uart6 pin description for V1.3
+  * feat: add radxa display 10fhd for Radxa VMARC Q9075 IO
+  * feat: add DisplayPort overlay for Radxa VMARC Q9075 IO
+  * feat: add eDP overlay for Radxa VMARC Q9075 IO
+  * feat: add M.2 B-key USB overlay for Radxa VMARC Q9075 IO
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Wed, 19 Aug 2026 06:49:22 +0000
+
 radxa-overlays (0.2.28) noble; urgency=medium
 
   [ Songjun Li ]
