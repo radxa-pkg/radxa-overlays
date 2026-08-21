@@ -1,0 +1,33 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable PWM1-8";
+		compatible = "radxa,cm-a7-rpi-cm5-io";
+		category = "misc";
+		exclusive = "PG7";
+		description = "Enable PWM1 channel 8 on physical pin 33 (PG7).";
+	};
+};
+
+&pio {
+	pwm1_8_pins_active: pwm1-8-pins-active {
+		pins = "PG7";
+		function = "pwm1_8";
+		drive-strength = <10>;
+	};
+
+	pwm1_8_pins_sleep: pwm1-8-pins-sleep {
+		pins = "PG7";
+		function = "gpio_in";
+		bias-pull-down;
+	};
+};
+
+&pwm1_8 {
+	pinctrl-names = "active", "sleep";
+	pinctrl-0 = <&pwm1_8_pins_active>;
+	pinctrl-1 = <&pwm1_8_pins_sleep>;
+	status = "okay";
+};

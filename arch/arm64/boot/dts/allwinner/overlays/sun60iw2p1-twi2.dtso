@@ -4,13 +4,15 @@
 / {
 	metadata {
 		title = "Enable TWI2";
-		compatible = "radxa,cubie-a7a", "radxa,cubie-a7z", "radxa,cubie-a7s";
+		compatible = "radxa,cubie-a7a", "radxa,cubie-a7z", "radxa,cubie-a7s",
+			     "radxa,cm-a7-rpi-cm5-io";
 		category = "misc";
 		exclusive = "twi2", "PD17", "PD16";
 		description = "Enable TWI2.
 On Radxa Cubie A7A this is SDA pin 27 & SCL pin 28.
 On Radxa Cubie A7Z this is SDA pin 27 & SCL pin 28.
 On Radxa Cubie A7S this is SDA pin 27 & SCL pin 28.
+On Radxa CM-A7 with RPi CM5 IO Board this is SDA pin 3 & SCL pin 5.
 ";
     };
 };

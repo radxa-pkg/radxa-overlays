@@ -1,0 +1,88 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable I2S1";
+		compatible = "radxa,cm-a7-rpi-cm5-io";
+		category = "misc";
+		exclusive = "i2s1_plat", "i2s1_mach", "PG10", "PG11", "PG12", "PG13", "PG14";
+		description = "Enable an I2S1 two-channel dummy sound card with MCLK/BCLK/LRCK/DIN/DOUT on physical pins 36/12/35/38/40.";
+	};
+};
+
+&pio {
+	i2s1_pins_a: i2s1-pins-a {
+		pins = "PG10";
+		function = "i2s1_mclk";
+		allwinner,drive = <1>;
+		bias-disable;
+	};
+
+	i2s1_pins_b: i2s1-pins-b {
+		pins = "PG11";
+		function = "i2s1_bclk";
+		allwinner,drive = <1>;
+		bias-disable;
+	};
+
+	i2s1_pins_c: i2s1-pins-c {
+		pins = "PG12";
+		function = "i2s1_lrck";
+		allwinner,drive = <1>;
+		bias-disable;
+	};
+
+	i2s1_pins_d: i2s1-pins-d {
+		pins = "PG13";
+		function = "i2s1_dout0";
+		allwinner,drive = <1>;
+		bias-pull-down;
+	};
+
+	i2s1_pins_e: i2s1-pins-e {
+		pins = "PG14";
+		function = "i2s1_din0";
+		allwinner,drive = <1>;
+		bias-pull-down;
+	};
+
+	i2s1_pins_f: i2s1-pins-f {
+		pins = "PG10", "PG11", "PG12", "PG13", "PG14";
+		function = "io_disabled";
+		allwinner,drive = <1>;
+		bias-disable;
+	};
+};
+
+&i2s1_plat {
+	tdm-num = <1>;
+	tx-pin = <0>;
+	rx-pin = <0>;
+	tx-hub-en;
+	rx-sync-en;
+	pinctrl-used;
+	pinctrl-names = "default", "sleep";
+	pinctrl-0 = <&i2s1_pins_a &i2s1_pins_b &i2s1_pins_c
+		     &i2s1_pins_d &i2s1_pins_e>;
+	pinctrl-1 = <&i2s1_pins_f>;
+	status = "okay";
+};
+
+&i2s1_mach {
+	soundcard-mach,format = "i2s";
+	soundcard-mach,frame-master = <&i2s1_cpu>;
+	soundcard-mach,bitclock-master = <&i2s1_cpu>;
+	soundcard-mach,slot-num = <2>;
+	soundcard-mach,slot-width = <32>;
+	status = "okay";
+
+	i2s1_cpu: soundcard-mach,cpu {
+		sound-dai = <&i2s1_plat>;
+		soundcard-mach,pll-fs = <1>;
+		soundcard-mach,mclk-fs = <0>;
+	};
+
+	i2s1_codec: soundcard-mach,codec {
+	};
+};

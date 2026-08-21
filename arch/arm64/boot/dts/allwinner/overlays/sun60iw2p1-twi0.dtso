@@ -1,0 +1,36 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable TWI0";
+		compatible = "radxa,cm-a7-rpi-cm5-io";
+		category = "misc";
+		exclusive = "twi0", "PG8", "PG9";
+		description = "Enable TWI0 SCL on physical pin 29 (PG8) and SDA on physical pin 31 (PG9).";
+	};
+};
+
+&pio {
+	twi0_pins_default: twi0-pins-default {
+		pins = "PG8", "PG9";
+		function = "twi0";
+		drive-strength = <10>;
+		bias-pull-up;
+	};
+
+	twi0_pins_sleep: twi0-pins-sleep {
+		pins = "PG8", "PG9";
+		function = "gpio_in";
+	};
+};
+
+&twi0 {
+	twi-supply = <&reg_bldo5>;
+	clock-frequency = <400000>;
+	pinctrl-0 = <&twi0_pins_default>;
+	pinctrl-1 = <&twi0_pins_sleep>;
+	pinctrl-names = "default", "sleep";
+	twi_drv_used = <1>;
+	status = "okay";
+};

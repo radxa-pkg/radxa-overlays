@@ -1,0 +1,33 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable UART1 with Hardware Flow Control";
+		compatible = "radxa,cm-a7-rpi-cm5-io";
+		category = "misc";
+		exclusive = "PG6", "PG7", "PG8", "PG9", "uart1";
+		description = "Enable UART1 TX/RX on physical pins 32/33 and RTS/CTS on physical pins 29/31.";
+	};
+};
+
+&pio {
+	uart1_pins_active: uart1-pins-active {
+		pins = "PG6", "PG7", "PG8", "PG9";
+		function = "uart1";
+		drive-strength = <10>;
+	};
+
+	uart1_pins_sleep: uart1-pins-sleep {
+		pins = "PG6", "PG7", "PG8", "PG9";
+		function = "io_disabled";
+		drive-strength = <10>;
+	};
+};
+
+&uart1 {
+	pinctrl-names = "default", "sleep";
+	pinctrl-0 = <&uart1_pins_active>;
+	pinctrl-1 = <&uart1_pins_sleep>;
+	status = "okay";
+};
