@@ -11,13 +11,13 @@
         title = "Enable UART20";
         compatible = "radxa,vmarc-q9075-io";
         category = "misc";
-        exclusive = "spi18", "uart20", "i2c18", "gpio95", "gpio96";
+        exclusive = "spi20", "uart20", "i2c20", "gpio95", "gpio96";
         description = "Enable UART20.
 On Radxa VMARC Q9075 IO, this is pin 27(tx) & pin 28(rx).";
     };
 };
 
-&spi18 {
+&spi20 {
 	status = "disabled";
 };
 
@@ -29,6 +29,6 @@ On Radxa VMARC Q9075 IO, this is pin 27(tx) & pin 28(rx).";
 	pinctrl-names = "default";
 };
 
-&i2c18 {
+&i2c20 {
 	status = "disabled";
 };
