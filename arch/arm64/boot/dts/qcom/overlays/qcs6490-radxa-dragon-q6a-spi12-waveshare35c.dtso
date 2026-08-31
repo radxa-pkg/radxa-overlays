@@ -44,7 +44,7 @@ Radxa CM-Q64 Raspberry Pi Compute Module 5 IO Board.";
 };
 
 &ili9486 {
-	reset-gpios = <&tlmm 57 GPIO_ACTIVE_LOW>;
+	reset-gpios = <&tlmm 57 GPIO_ACTIVE_HIGH>;
 	dc-gpios = <&tlmm 27 GPIO_ACTIVE_HIGH>;
 };
 
