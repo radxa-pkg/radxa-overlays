@@ -13,11 +13,11 @@
 
 / {
 	metadata {
-		title = "Enable Raspiberry Pi 7-inch Touchscreen";
+		title = "Enable Raspberry Pi 7-inch Touchscreen 2";
 		compatible = "radxa,dragon-q6a";
 		category = "display";
 		exclusive = "mdss_dsi";
-		description = "Enable Raspiberry Pi 7-inch Touchscreen.";
+		description = "Enable Raspberry Pi 7-inch Touchscreen 2.";
 	};
 };
 
