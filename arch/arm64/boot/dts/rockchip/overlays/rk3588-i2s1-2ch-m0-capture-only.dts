@@ -1,0 +1,47 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable I2S1-M0 capture-only dummy sound card";
+		compatible = "radxa,rock-5a", "radxa,rock-5c";
+		category = "misc";
+		exclusive = "GPIO4_A1", "GPIO4_A2", "GPIO4_A5", "i2s1_8ch";
+		description = "Enable I2S1-M0 capture-only dummy sound card.
+On Radxa ROCK 5A this is pin38 for SDI0, pin36 for LRCK, pin12 for SCLK.
+On Radxa ROCK 5C this is pin38 for SDI0, pin36 for LRCK, pin12 for SCLK.";
+	};
+};
+
+&{/} {
+	i2s1_capture_dummy_codec: i2s1-capture-dummy-codec {
+		compatible = "rockchip,dummy-codec";
+		#sound-dai-cells = <0>;
+	};
+
+	i2s1_capture_sound: i2s1-capture-sound {
+		compatible = "simple-audio-card";
+		simple-audio-card,format = "i2s";
+		simple-audio-card,name = "i2s1-capture";
+		simple-audio-card,bitclock-master = <&i2s1_capture_dai>;
+		simple-audio-card,frame-master = <&i2s1_capture_dai>;
+
+		simple-audio-card,cpu {
+			sound-dai = <&i2s1_8ch>;
+		};
+
+		i2s1_capture_dai: simple-audio-card,codec {
+			sound-dai = <&i2s1_capture_dummy_codec>;
+		};
+	};
+};
+
+&i2s1_8ch {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2s1m0_lrck &i2s1m0_sclk &i2s1m0_sdi0>;
+	rockchip,capture-only;
+	dmas = <&dmac0 3>;
+	dma-names = "rx";
+	rockchip,i2s-rx-wait-time-ms = <500>;
+};
