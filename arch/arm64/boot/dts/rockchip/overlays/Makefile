@@ -482,6 +482,7 @@ dtb-$(CONFIG_CLK_RK3588) += \
 	rk3588-i2c8-m2.dtbo \
 	rk3588-i2c8-m4.dtbo \
 	rk3588-i2s1-8ch-m0.dtbo \
+	rk3588-i2s1-2ch-m0-capture-only.dtbo \
 	rk3588-i2s2-2ch-m1.dtbo \
 	rk3588-i2s2-2ch-m1-hifiberry-dac.dtbo \
 	rk3588-mali-enable.dtbo \
@@ -637,6 +638,7 @@ dtb-$(CONFIG_CPU_RK3588) += \
 	rock-5a-radxa-camera-2m-ar0234.dtbo \
 	rock-5a-radxa-camera-8m-219.dtbo \
 	rock-5a-radxa-camera-13m-214.dtbo \
+	rock-5a-radxa-hdmi-in-4k-rk628.dtbo \
 	rock-5a-radxa-display-10fhd.dtbo \
 	rock-5a-raspi-7inch-touchscreen.dtbo \
 	rock-5a-rpi-camera-v1_3.dtbo \
