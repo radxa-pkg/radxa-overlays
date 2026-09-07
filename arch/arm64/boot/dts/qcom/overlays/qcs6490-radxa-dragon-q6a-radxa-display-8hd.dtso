@@ -14,7 +14,7 @@
 / {
 	metadata {
 		title = "Enable Radxa Display 8HD AD002";
-		compatible = "radxa,dragon-q6a";
+		compatible = "unknown";
 		category = "display";
 		exclusive = "mdss_dsi";
 		description = "Enable Radxa Display 8HD AD002.";
