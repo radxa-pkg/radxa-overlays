@@ -1,0 +1,11 @@
+/dts-v1/;
+/plugin/;
+
+#define RK628_CAM1_I2C i2c6
+#include "rk3588-radxa-hdmi-in-4k-rk628-cam1.dtsi"
+
+/ {
+	metadata {
+		compatible = "radxa,rock-5t-industrial";
+	};
+};

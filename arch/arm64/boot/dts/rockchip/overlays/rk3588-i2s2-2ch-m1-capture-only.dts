@@ -4,12 +4,15 @@
 / {
 	metadata {
 		title = "Enable I2S2-M1 capture-only dummy sound card";
-		compatible = "radxa,rock-5b", "radxa,rock-5b-plus";
+		compatible = "radxa,rock-5b", "radxa,rock-5b-plus", "radxa,rock-5t", "radxa,rock-5t-industrial";
 		category = "misc";
 		exclusive = "GPIO3_B5", "GPIO3_B6", "GPIO3_B2", "i2s2_2ch";
 		description = "Enable I2S2-M1 capture-only dummy sound card in slave mode.
 On Radxa ROCK 5B this is pin38 for SDI0, pin35 for LRCK, pin12 for SCLK.
-On Radxa ROCK 5B+ this is pin38 for SDI0, pin35 for LRCK, pin12 for SCLK.";
+On Radxa ROCK 5B+ this is pin38 for SDI0, pin35 for LRCK, pin12 for SCLK.
+On Radxa ROCK 5T this is pin38 for SDI0, pin35 for LRCK, pin12 for SCLK.
+On Radxa ROCK 5T Industrial this is pin38 for SDI0, pin35 for LRCK, pin12 for SCLK.
+";
 	};
 };
 
