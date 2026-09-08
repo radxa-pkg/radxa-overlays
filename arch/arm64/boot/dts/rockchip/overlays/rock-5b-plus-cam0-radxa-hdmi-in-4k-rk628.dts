@@ -1,0 +1,10 @@
+#include "rock-5b-radxa-hdmi-in-4k-rk628.dts"
+
+/ {
+	metadata {
+		title = "Enable Radxa 4K HDMI IN to MIPI CSI-2 Adapter on CAM0";
+		compatible = "radxa,rock-5b-plus";
+		description = "Enable Radxa 4K HDMI IN to MIPI CSI-2 Adapter on CAM0.
+To capture audio, also enable the 'I2S2-M1 capture-only dummy sound card' overlay.";
+	};
+};

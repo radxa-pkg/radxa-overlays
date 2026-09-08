@@ -7,7 +7,7 @@
 		compatible = "radxa,rock-5a", "radxa,rock-5c";
 		category = "misc";
 		exclusive = "GPIO4_A1", "GPIO4_A2", "GPIO4_A5", "i2s1_8ch";
-		description = "Enable I2S1-M0 capture-only dummy sound card.
+		description = "Enable I2S1-M0 capture-only dummy sound card in slave mode.
 On Radxa ROCK 5A this is pin38 for SDI0, pin36 for LRCK, pin12 for SCLK.
 On Radxa ROCK 5C this is pin38 for SDI0, pin36 for LRCK, pin12 for SCLK.";
 	};

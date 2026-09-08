@@ -1,0 +1,24 @@
+#include "rock-5a-radxa-hdmi-in-4k-rk628.dts"
+
+/ {
+	metadata {
+		compatible = "radxa,rock-5b";
+		exclusive = "csi2_dphy0", "GPIO1_B0", "GPIO4_A0", "GPIO1_A7";
+		description = "Enable Radxa 4K HDMI IN to MIPI CSI-2 Adapter.
+To capture audio, also enable the 'I2S2-M1 capture-only dummy sound card' overlay.";
+	};
+};
+
+&rk628_csi {
+	interrupt-parent = <&gpio1>;
+	interrupts = <RK_PB0 IRQ_TYPE_LEVEL_HIGH>;
+	reset-gpios = <&gpio4 RK_PA0 GPIO_ACTIVE_LOW>;
+	plugin-det-gpios = <&gpio1 RK_PA7 GPIO_ACTIVE_LOW>;
+};
+
+&rk628_pin {
+	rockchip,pins =
+		<1 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>,
+		<4 RK_PA0 RK_FUNC_GPIO &pcfg_pull_none>,
+		<1 RK_PA7 RK_FUNC_GPIO &pcfg_pull_none>;
+};
