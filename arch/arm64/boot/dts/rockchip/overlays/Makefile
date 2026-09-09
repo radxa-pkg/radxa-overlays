@@ -389,6 +389,7 @@ dtb-$(CONFIG_CLK_RK3576) += \
 	rk3576-pwm2-ch2-m1.dtbo \
 	rk3576-pwm2-ch3-m1.dtbo \
 	rk3576-pwm2-ch7-m2.dtbo \
+	rk3576-sai2-2ch-m0-capture-only.dtbo \
 	rk3576-spi1-m0-cs0-spidev.dtbo \
 	rk3576-spi1-m0-cs1-spidev.dtbo \
 	rk3576-spi2-m1-cs0-spidev.dtbo \
@@ -432,6 +433,7 @@ dtb-$(CONFIG_CPU_RK3576) += \
 	rock-4d-radxa-camera-13m-214.dtbo \
 	rock-4d-radxa-camera-4k.dtbo \
 	rock-4d-radxa-camera-8m-219.dtbo \
+	rock-4d-radxa-hdmi-in-4k-rk628.dtbo \
 	rock-4d-radxa-display-8hd.dtbo \
 	rock-4d-radxa-display-10fhd.dtbo \
 	rock-4d-radxa-display-10hd.dtbo \
