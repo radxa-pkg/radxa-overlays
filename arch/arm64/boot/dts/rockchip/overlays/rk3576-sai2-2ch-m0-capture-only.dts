@@ -1,0 +1,46 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable SAI2-M0 capture-only dummy sound card";
+		compatible = "radxa,rock-4d";
+		category = "misc";
+		exclusive = "GPIO1_D1", "GPIO1_D2", "GPIO1_D3", "sai2";
+		description = "Enable SAI2-M0 capture-only dummy sound card in slave mode.
+On Radxa ROCK 4D this is pin38 for SDI, pin35 for LRCK, pin12 for SCLK.
+";
+	};
+};
+
+&{/} {
+	sai2_capture_dummy_codec: sai2-capture-dummy-codec {
+		compatible = "rockchip,dummy-codec";
+		#sound-dai-cells = <0>;
+	};
+
+	sai2_capture_sound: sai2-capture-sound {
+		compatible = "simple-audio-card";
+		simple-audio-card,format = "i2s";
+		simple-audio-card,name = "sai2-capture";
+		simple-audio-card,bitclock-master = <&sai2_capture_dai>;
+		simple-audio-card,frame-master = <&sai2_capture_dai>;
+
+		simple-audio-card,cpu {
+			sound-dai = <&sai2>;
+		};
+
+		sai2_capture_dai: simple-audio-card,codec {
+			sound-dai = <&sai2_capture_dummy_codec>;
+		};
+	};
+};
+
+&sai2 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&sai2m0_lrck &sai2m0_sclk &sai2m0_sdi>;
+	dmas = <&dmac1 1>;
+	dma-names = "rx";
+	rockchip,sai-rx-wait-time-ms = <500>;
+};
