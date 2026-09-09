@@ -223,6 +223,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-i2c4-m0.dtbo \
 	rk3568-i2c5-m0.dtbo \
 	rk3568-i2s3-m0.dtbo \
+	rk3568-i2s3-2ch-m0-capture-only.dtbo \
 	rk3568-mali-enable.dtbo \
 	rk3568-npu-disable.dtbo \
 	rk3568-npu-enable.dtbo \
@@ -306,7 +307,9 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rock-3c-raspberrypi-7inch-touchscreen.dtbo \
 	rock-3c-rpi-camera-v1p3.dtbo \
 	rock-3c-rpi-camera-v2.dtbo \
-	rock-3c-radxa-camera-8m.dtbo
+	rock-3c-radxa-camera-8m.dtbo \
+	rock-3c-radxa-hdmi-in-4k-rk628.dtbo \
+	# end of list
 
 dtb-$(CONFIG_CPU_RK3568) += \
 	radxa-cm3-io-e23-i2c2-m0-pca9555.dtbo \
