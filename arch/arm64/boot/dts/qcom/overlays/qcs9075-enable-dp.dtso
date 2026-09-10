@@ -50,6 +50,10 @@
 	status = "okay";
 };
 
+&{/sound/dp0-dai-link/codec} {
+	sound-dai = <&mdss1_dp0>;
+};
+
 &tlmm {
 	dp2_hot_plug_det: dp2-hot-plug-det-state {
 		pins = "gpio104";
