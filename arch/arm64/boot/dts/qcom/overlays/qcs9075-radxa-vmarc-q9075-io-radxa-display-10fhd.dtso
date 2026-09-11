@@ -59,8 +59,12 @@
 	backlight_dsi: backlight-dsi {
 		compatible = "pwm-backlight";
 		pwms = <&lcd_pwm 0 25000>;
-		brightness-levels = <0 255>;
-		num-interpolated-steps = <255>;
+		brightness-levels = <
+			0 129 591 1443 2717 4438
+			6629 9305 12482 16174 20393 25151
+			30457 36321 42753 49761 57352 65535
+		>;
+		num-interpolated-steps = <15>;
 		default-brightness-level = <250>;
 		power-supply = <&lcd_backlight_regulator>;
 	};
