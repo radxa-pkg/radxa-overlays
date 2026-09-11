@@ -6,11 +6,11 @@
 
 / {
 	metadata {
-		title = "Enable Radxa Camera 2M AR0234";
+		title = "Enable Radxa Camera 2M AR0234 with RAW10 format";
 		compatible = "radxa,rock-5a", "radxa,rock-5c";
 		category = "camera";
 		exclusive = "csi2_dphy0", "GPIO1_D2";
-		description = "Enable Radxa Camera AR0234.";
+		description = "Enable Radxa Camera 2M AR0234 with RAW10 format.";
 	};
 };
 
@@ -32,7 +32,7 @@
 			ar0234_out0: endpoint {
 				remote-endpoint = <&mipidphy0_in_ucam1>;
 				data-lanes = <1 2 3 4>;
-				link-frequencies = /bits/ 64 <360000000>;
+				link-frequencies = /bits/ 64 <450000000>;
 			};
 		};
 	};
