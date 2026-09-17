@@ -7,32 +7,25 @@
 /plugin/;
 
 #include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+#include <dt-bindings/interrupt-controller/arm-gic.h>
 #include <dt-bindings/clock/qcom,sa8775p-camcc.h>
+#include <dt-bindings/clock/qcom,sa8775p-gcc.h>
+#include <dt-bindings/interconnect/qcom,icc.h>
+#include <dt-bindings/interconnect/qcom,sa8775p-rpmh.h>
+#include <dt-bindings/power/qcom-rpmpd.h>
+#include <dt-bindings/msm-camera.h>
+
+#include "sa8775p-camera.dtsi"
 
 / {
 	metadata {
 		title = "Enable OV9281 camera on CAM2";
 		compatible = "radxa,vmarc-q9075-io";
 		category = "camera";
-		exclusive = "cam_cci0", "cci0", "gpio39", "gpio72", "gpio99";
+		exclusive = "cam_cci0", "cam_csiphy0", "cci0", "gpio39",
+			    "gpio72", "gpio99";
 		description = "Enable OV9281 camera on CAM2";
-	};
-};
-
-&soc {
-	cam_ov9281_vio: cam-ov9281-vio-regulator {
-		compatible = "regulator-fixed";
-		regulator-name = "cam_ov9281_vio";
-		regulator-min-microvolt = <1800000>;
-		regulator-max-microvolt = <1800000>;
-		regulator-boot-on;
-		regulator-always-on;
-	};
-
-	qcom,cam-res-mgr {
-		compatible = "qcom,cam-res-mgr";
-		status = "ok";
-		gpios-shared = <518 519 520 521>;
 	};
 };
 
@@ -52,12 +45,101 @@
 	};
 };
 
+&soc {
+	cam_ov9281_vio: cam-ov9281-vio-regulator {
+		compatible = "regulator-fixed";
+		regulator-name = "cam_ov9281_vio";
+		regulator-min-microvolt = <1800000>;
+		regulator-max-microvolt = <1800000>;
+		regulator-boot-on;
+		regulator-always-on;
+	};
+
+	qcom,cam-res-mgr {
+		compatible = "qcom,cam-res-mgr";
+		status = "ok";
+		gpios-shared = <518 519 520 521>;
+	};
+
+	qcom,cam-req-mgr {
+		status = "okay";
+	};
+
+	qcom,cam-sync {
+		status = "okay";
+	};
+
+	qcom,cam_smmu {
+		status = "okay";
+	};
+
+	qcom,cam-cdm-intf {
+		status = "okay";
+	};
+
+	qcom,rt-cdm0 {
+		status = "okay";
+	};
+
+	qcom,rt-cdm1 {
+		status = "okay";
+	};
+
+	qcom,rt-cdm2 {
+		status = "okay";
+	};
+
+	qcom,rt-cdm3 {
+		status = "okay";
+	};
+
+	qcom,cam-isp {
+		status = "okay";
+	};
+};
+
+&cam_cpas {
+	status = "okay";
+};
+
+&cam_icp {
+	status = "okay";
+};
+
+&cam_icp_firmware {
+	status = "okay";
+};
+
+&cam_ipe0 {
+	status = "okay";
+};
+
+&cam_csid0 {
+	status = "okay";
+};
+
+&cam_vfe0 {
+	status = "okay";
+};
+
+&cam_csid1 {
+	status = "okay";
+};
+
+&cam_vfe1 {
+	status = "okay";
+};
+
 &camcc {
 	status = "okay";
 };
 
 &cci0 {
 	status = "disabled";
+};
+
+&cam_csiphy0 {
+	status = "okay";
 };
 
 &cam_cci0 {
@@ -81,9 +163,9 @@
 		gpio-no-mux = <0>;
 		pinctrl-names = "cam_default", "cam_suspend";
 		pinctrl-0 = <&cam_sensor_mclk0_active
-			     &cam0_ov9281_ctrl_default>;
+				&cam0_ov9281_ctrl_default>;
 		pinctrl-1 = <&cam_sensor_mclk0_suspend
-			     &cam0_ov9281_ctrl_suspend>;
+				&cam0_ov9281_ctrl_suspend>;
 		gpios = <&tlmm 72 GPIO_ACTIVE_HIGH>,
 			<&tlmm 39 GPIO_ACTIVE_HIGH>,
 			<&tlmm 99 GPIO_ACTIVE_HIGH>;
@@ -91,8 +173,7 @@
 		gpio-custom1 = <2>;
 		gpio-req-tbl-num = <0 1 2>;
 		gpio-req-tbl-flags = <1 0 0>;
-		gpio-req-tbl-label = "CAM_MCLK0",
-				     "CAMIF_RESET0",
+		gpio-req-tbl-label = "CAM_MCLK0", "CAMIF_RESET0",
 				     "CAM_CUSTOM1";
 		cci-master = <0>;
 		cci-device = <0>;
