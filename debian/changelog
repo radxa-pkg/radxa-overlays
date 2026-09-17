@@ -1,3 +1,24 @@
+radxa-overlays (0.2.31) noble; urgency=medium
+
+  [ carbon ]
+  * feat: add RK628 HDMI input overlays for ROCK 5A and ROCK 5C
+  * feat: add RK628 HDMI input overlays for ROCK 5B and ROCK 5B+
+  * feat: add RK628 HDMI input overlays for ROCK 5T and ROCK 5T Industrial
+  * feat: add RK628 HDMI input overlays for ROCK 4D
+  * feat: add RK628 HDMI input overlays for ROCK 3C and Radxa ZERO 3
+
+  [ Xinming Chen ]
+  * feat: add ROCK 5C AR0234 RAW8 and RAW10 overlays
+
+  [ William Norman ]
+  * fix: switch VMARC DP audio codec in overlay
+  * feat: add Raspberry Pi 7-inch Touchscreen for Q6A
+
+  [ liangyuanjin ]
+  * feat: add OmniVision OV9281 camera support for ROCK 4D
+
+ -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Thu, 17 Sep 2026 08:37:24 +0000
+
 radxa-overlays (0.2.30) noble; urgency=medium
 
   [ Peng Liu ]
