@@ -8,15 +8,24 @@
 
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/interrupt-controller/irq.h>
+#include <dt-bindings/interrupt-controller/arm-gic.h>
 #include <dt-bindings/pinctrl/qcom,pmic-gpio.h>
 #include <dt-bindings/clock/qcom,sa8775p-camcc.h>
+#include <dt-bindings/clock/qcom,sa8775p-gcc.h>
+#include <dt-bindings/interconnect/qcom,icc.h>
+#include <dt-bindings/interconnect/qcom,sa8775p-rpmh.h>
+#include <dt-bindings/power/qcom-rpmpd.h>
+#include <dt-bindings/msm-camera.h>
+
+#include "sa8775p-camera.dtsi"
 
 / {
 	metadata {
 		title = "Enable IMX577 camera on CAM1";
 		compatible = "radxa,vmarc-q9075-io";
 		category = "camera";
-		exclusive = "cam_cci2", "cci2", "cci3", "gpio59", "gpio74";
+		exclusive = "cam_cci2", "cam_csiphy2", "cci2", "cci3", "gpio36",
+			    "gpio39", "gpio59", "gpio74";
 		description = "Enable IMX577 camera sensor on CAM1.";
 	};
 };
@@ -27,9 +36,91 @@
 		status = "ok";
 		gpios-shared = <518 519 520 521>;
 	};
+
+	qcom,cam-req-mgr {
+		status = "okay";
+	};
+
+	qcom,cam-sync {
+		status = "okay";
+	};
+
+	qcom,cam_smmu {
+		status = "okay";
+	};
+
+	qcom,cam-cdm-intf {
+		status = "okay";
+	};
+
+	qcom,rt-cdm0 {
+		status = "okay";
+	};
+
+	qcom,rt-cdm1 {
+		status = "okay";
+	};
+
+	qcom,rt-cdm2 {
+		status = "okay";
+	};
+
+	qcom,rt-cdm3 {
+		status = "okay";
+	};
+
+	qcom,cam-isp {
+		status = "okay";
+	};
+};
+
+&cam_cpas {
+	status = "okay";
+};
+
+&cam_icp {
+	status = "okay";
+};
+
+&cam_icp_firmware {
+	status = "okay";
+};
+
+&cam_ipe0 {
+	status = "okay";
+};
+
+&cam_csid0 {
+	status = "okay";
+};
+
+&cam_vfe0 {
+	status = "okay";
+};
+
+&cam_csid1 {
+	status = "okay";
+};
+
+&cam_vfe1 {
+	status = "okay";
 };
 
 &tlmm {
+	cam_power_enable_hog: cam-power-enable-hog {
+		gpio-hog;
+		gpios = <39 GPIO_ACTIVE_HIGH>;
+		output-high;
+		line-name = "camera-power-enable";
+	};
+
+	cam1_imx577_pwdn_hog: cam1-imx577-pwdn-hog {
+		gpio-hog;
+		gpios = <36 GPIO_ACTIVE_HIGH>;
+		output-high;
+		line-name = "camera-imx577-pwdn";
+	};
+
 	cam1_imx577_reset_default: cam1-imx577-reset-default-state {
 		pins = "gpio59";
 		function = "gpio";
@@ -57,6 +148,10 @@
 	status = "disabled";
 };
 
+&cam_csiphy2 {
+	status = "okay";
+};
+
 &cam_cci2 {
 	status = "okay";
 
@@ -74,16 +169,15 @@
 		gpio-no-mux = <0>;
 		pinctrl-names = "cam_default", "cam_suspend";
 		pinctrl-0 = <&cam_sensor_mclk2_active
-			     &cam1_imx577_reset_default>;
+				&cam1_imx577_reset_default>;
 		pinctrl-1 = <&cam_sensor_mclk2_suspend
-			     &cam1_imx577_reset_suspend>;
+				&cam1_imx577_reset_suspend>;
 		gpios = <&tlmm 74 GPIO_ACTIVE_HIGH>,
 			<&tlmm 59 GPIO_ACTIVE_HIGH>;
 		gpio-reset = <1>;
 		gpio-req-tbl-num = <0 1>;
 		gpio-req-tbl-flags = <1 0>;
-		gpio-req-tbl-label = "CAMIF_MCLK2",
-				     "CAM_RESET2";
+		gpio-req-tbl-label = "CAMIF_MCLK2", "CAM_RESET2";
 		sensor-mode = <0>;
 		cci-master = <0>;
 		clocks = <&camcc CAM_CC_MCLK2_CLK>;
@@ -112,16 +206,15 @@
 		gpio-no-mux = <0>;
 		pinctrl-names = "cam_default", "cam_suspend";
 		pinctrl-0 = <&cam_sensor_mclk2_active
-			     &cam1_imx577_reset_default>;
+				&cam1_imx577_reset_default>;
 		pinctrl-1 = <&cam_sensor_mclk2_suspend
-			     &cam1_imx577_reset_suspend>;
+				&cam1_imx577_reset_suspend>;
 		gpios = <&tlmm 74 GPIO_ACTIVE_HIGH>,
 			<&tlmm 59 GPIO_ACTIVE_HIGH>;
 		gpio-reset = <1>;
 		gpio-req-tbl-num = <0 1>;
 		gpio-req-tbl-flags = <1 0>;
-		gpio-req-tbl-label = "CAM_MCLK2",
-				     "CAMIF_RESET2";
+		gpio-req-tbl-label = "CAM_MCLK2", "CAMIF_RESET2";
 		cci-master = <0>;
 		cci-device = <2>;
 		clocks = <&camcc CAM_CC_MCLK2_CLK>;
