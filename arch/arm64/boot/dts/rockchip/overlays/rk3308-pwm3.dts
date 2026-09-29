@@ -17,7 +17,7 @@ On Radxa ROCK S this is pin 28.";
 
 &pwm3 {
 	status = "okay";
-	pinctrl-names = "default";
+	pinctrl-names = "active";
 	pinctrl-0 = <&pwm3_pin>;
 };
 

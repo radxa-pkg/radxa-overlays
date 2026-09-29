@@ -14,6 +14,6 @@ On ROCK S0 this is pin 32.";
 
 &pwm10 {
 	status = "okay";
-	pinctrl-names = "default";
+	pinctrl-names = "active";
 	pinctrl-0 = <&pwm10_pin>;
 };
