@@ -6,7 +6,7 @@
 		title = "Enable PWM7";
 		compatible = "radxa,rock-s0";
 		category = "misc";
-		exclusive = "GPIO0_C0";
+		exclusive = "GPIO2_B0";
 		description = "Enable PWM7.
 On ROCK S0 this is pin 26.";
 	};
@@ -14,6 +14,6 @@ On ROCK S0 this is pin 26.";
 
 &pwm7 {
 	status = "okay";
-	pinctrl-names = "default";
+	pinctrl-names = "active";
 	pinctrl-0 = <&pwm7_pin>;
 };

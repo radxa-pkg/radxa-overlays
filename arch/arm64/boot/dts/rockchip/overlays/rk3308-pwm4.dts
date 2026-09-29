@@ -14,6 +14,6 @@ On ROCK S0 this is pin 16.";
 
 &pwm4 {
 	status = "okay";
-	pinctrl-names = "default";
+	pinctrl-names = "active";
 	pinctrl-0 = <&pwm4_pin>;
 };
