@@ -6,7 +6,7 @@
 / {
 	metadata {
 		title = "Enable PDM-M2";
-		compatible = "radxa,rockpis", "radxa,rock-s0";
+		compatible = "unknown";
 		category = "misc";
 		exclusive = "GPIO2_A6", "GPIO2_B5","GPIO2_B6", "GPIO2_B7", "GPIO2_C0", "i2s_8ch_0";
 		description = "Enable PDM-M2.
