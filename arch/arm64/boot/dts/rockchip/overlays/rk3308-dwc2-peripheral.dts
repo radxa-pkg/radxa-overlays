@@ -1,0 +1,17 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Set USB OTG port to Peripheral mode";
+		compatible = "radxa,rockpis", "radxa,rock-s0", "radxa,rcore-rk3308-io";
+		category = "misc";
+		exclusive = "usb20_otg-dr_mode";
+		description = "Set USB OTG port to Peripheral mode.";
+	};
+};
+
+&usb20_otg {
+	status = "okay";
+	dr_mode = "peripheral";
+};

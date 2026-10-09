@@ -27,6 +27,8 @@ dtb-$(CONFIG_CLK_RK3308) += \
 	radxa-s0-ext-antenna.dtbo \
 	rk3308-bs-opp-1008.dtbo \
 	rk3308-bs-opp-1296.dtbo \
+	rk3308-dwc2-host.dtbo \
+	rk3308-dwc2-peripheral.dtbo \
 	rk3308-i2c0.dtbo \
 	rk3308-i2c1.dtbo \
 	rk3308-i2c2.dtbo \
