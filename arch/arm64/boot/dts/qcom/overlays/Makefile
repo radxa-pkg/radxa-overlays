@@ -44,24 +44,6 @@ dtb-$(CONFIG_ARCH_QCOM) += qcs6490-radxa-cm-q64-rpi-cm5-io-cam0-imx219.dtbo \
 	qcs6490-radxa-dragon-q6a-uart14-flowctl.dtbo \
 	qcs6490-radxa-dragon-q6a-uart14.dtbo \
 	qcs6490-radxa-dragon-q6a-usb-peripheral.dtbo \
-	qcs9075-enable-dp.dtbo \
-	qcs9075-enable-edp.dtbo \
-	qcs9075-i2c16.dtbo \
-	qcs9075-i2c18.dtbo \
-	qcs9075-radxa-vmarc-q9075-io-cam1-imx577.dtbo \
-	qcs9075-radxa-vmarc-q9075-io-cam2-ov9281.dtbo \
-	qcs9075-radxa-vmarc-q9075-io-enable-b-key.dtbo \
-	qcs9075-radxa-vmarc-q9075-io-radxa-display-10fhd.dtbo \
-	qcs9075-radxa-vmarc-q9075-io-usb-peripheral.dtbo \
-	qcs9075-spi16-cs0-enc28j60.dtbo \
-	qcs9075-spi16-cs0-mcp2515.dtbo \
-	qcs9075-spi16-cs0-spidev.dtbo \
-	qcs9075-spi-gpio-cs0-enc28j60.dtbo \
-	qcs9075-spi-gpio-cs0-spidev.dtbo \
-	qcs9075-uart16-flow-control.dtbo \
-	qcs9075-uart16.dtbo \
-	qcs9075-uart20.dtbo \
-	qcs9075-usb0-peripheral.dtbo \
 	sc8280xp-radxa-dragon-q8b-fpc-pcie.dtbo \
 	sc8280xp-i2c4.dtbo \
 	sc8280xp-i2c5.dtbo \
@@ -84,6 +66,28 @@ dtb-$(CONFIG_ARCH_QCOM) += qcs6490-radxa-cm-q64-rpi-cm5-io-cam0-imx219.dtbo \
 	sc8280xp-uart20.dtbo \
 	sc8280xp-usb0-peripheral.dtbo \
 	sc8280xp-usb1-peripheral.dtbo \
+
+# QCS9075 overlays require the qc2509 vendor kernel.
+ifneq ($(filter %-qc2509,$(KERNELRELEASE)),)
+dtb-$(CONFIG_ARCH_QCOM) += qcs9075-enable-dp.dtbo \
+	qcs9075-enable-edp.dtbo \
+	qcs9075-i2c16.dtbo \
+	qcs9075-i2c18.dtbo \
+	qcs9075-radxa-vmarc-q9075-io-cam1-imx577.dtbo \
+	qcs9075-radxa-vmarc-q9075-io-cam2-ov9281.dtbo \
+	qcs9075-radxa-vmarc-q9075-io-enable-b-key.dtbo \
+	qcs9075-radxa-vmarc-q9075-io-radxa-display-10fhd.dtbo \
+	qcs9075-radxa-vmarc-q9075-io-usb-peripheral.dtbo \
+	qcs9075-spi16-cs0-enc28j60.dtbo \
+	qcs9075-spi16-cs0-mcp2515.dtbo \
+	qcs9075-spi16-cs0-spidev.dtbo \
+	qcs9075-spi-gpio-cs0-enc28j60.dtbo \
+	qcs9075-spi-gpio-cs0-spidev.dtbo \
+	qcs9075-uart16-flow-control.dtbo \
+	qcs9075-uart16.dtbo \
+	qcs9075-uart20.dtbo \
+	qcs9075-usb0-peripheral.dtbo
+endif
 
 targets += $(dtb-y)
 
