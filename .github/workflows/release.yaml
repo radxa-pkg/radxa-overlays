@@ -23,7 +23,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install --no-install-recommends -y git-buildpackage
           export DEBEMAIL="dev@radxa.com"
-          export DEBFULLNAME='"Radxa Computer Co., Ltd"'
+          export DEBFULLNAME='"Radxa Computer (Shenzhen) Co., Ltd."'
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git branch -m GITHUB_RUNNER || true
@@ -40,17 +40,26 @@ jobs:
         runCmd: |
           set -euo pipefail
           make deb
-    - id: "artifacts_path"
-      name: "Workaround actions/upload-artifact#176"
+    - name: "Check pkg.conf"
       run: |
-        echo "artifacts_path=$(realpath ..)" | tee -a "$GITHUB_OUTPUT"
+        if [[ -e pkg.conf ]]; then
+            jq 'true' pkg.conf
+        fi
+        if [[ -e pkg.conf.template ]]; then
+            jq 'true' pkg.conf.template
+        fi
+      shell: "bash"
+    - name: "Workaround actions/upload-artifact#176"
+      run: |
+        mv ../*.deb ./
       shell: "bash"
     - name: "Upload artifacts"
       uses: "actions/upload-artifact@v7"
       with:
         name: "${{ github.event.repository.name }}"
         path: |
-          ${{ steps.artifacts_path.outputs.artifacts_path }}/*.deb
+          *.deb
+          pkg.conf
     - id: "distro_check"
       name: "Check if the latest version is releasable"
       run: |
@@ -105,6 +114,7 @@ jobs:
         fail_on_unmatched_files: false
         files: |
           .artifacts/**/*.deb
+          .artifacts/pkg.conf
           pkg.conf
           VERSION
         prerelease: false
