@@ -1,3 +1,23 @@
+radxa-overlays (0.2.32) noble; urgency=medium
+
+  [ William Norman ]
+  * feat: add sa8775p-camera dtsi
+  * fix: make imx577 overlay self-contained for VMARC Q9075 IO
+  * fix: make ov9281 overlay self-contained for VMARC Q9075 IO
+  * fix: fix brightness-levels for VMARC 10FHD backlight
+
+  [ Xinming Chen ]
+  * feat: add ROCK 3A/3B AR0234 RAW8 and RAW10 overlays
+  * fix: correct RK3308 PWM pinctrl states and exclusive pins
+  * fix: remove RK3308 from GPU disable overlay
+  * feat: add RK3308 USB role selection overlays
+  * fix: mark RK3308 PDM-M2 overlay as unsupported
+
+  [ Stephen Chen ]
+  * fix: only build qcs9075 dtso with linux-qc2509 tree
+
+ -- "Radxa Computer (Shenzhen) Co., Ltd." <dev@radxa.com>  Wed, 14 Oct 2026 02:33:00 +0000
+
 radxa-overlays (0.2.31) noble; urgency=medium
 
   [ carbon ]
