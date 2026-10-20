@@ -17,7 +17,11 @@
 		compatible = "radxa,dragon-q6a";
 		category = "display";
 		exclusive = "mdss_dsi";
-		description = "Enable Raspberry Pi 7-inch Touchscreen.";
+		description = "Enable Raspberry Pi 7-inch Touchscreen.
+The display requires an external 5V power supply
+with a common ground.
+This uses pin 11 (GPIO_29) on the 40-pin header
+for INT.";
 	};
 };
 
