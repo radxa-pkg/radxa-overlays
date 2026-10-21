@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable TWI0";
-		compatible = "radxa,cm-a7-rpi-cm5-io";
+		compatible = "unknown";
 		category = "misc";
 		exclusive = "twi0", "PG8", "PG9";
 		description = "Enable TWI0 SCL on physical pin 29 (PG8) and SDA on physical pin 31 (PG9).";
