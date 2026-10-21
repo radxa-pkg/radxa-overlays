@@ -59,6 +59,7 @@
 	tdm-num = <1>;
 	tx-pin = <0>;
 	rx-pin = <0>;
+	rxfifo-pinmap = <0 0>;
 	tx-hub-en;
 	rx-sync-en;
 	pinctrl-used;
