@@ -11,7 +11,7 @@
 / {
 	metadata {
 		title ="Enable Radxa Display 10FHD";
-		compatible = "radxa,cm4-io", "radxa,rock-4d";
+		compatible = "radxa,cm4-io";
 		category = "display";
 		exclusive = "GPIO0_D1", "GPIO2_A7", "GPIO2_D2", "GPIO2_D5", "GPIO2_D6", "GPIO3_A0", "dsi", "i2c0", "pwm1_6ch_1";
 		description = "Enable Radxa Display 10FHD.";
