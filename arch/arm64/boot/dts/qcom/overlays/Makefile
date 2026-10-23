@@ -6,6 +6,7 @@ dtb-$(CONFIG_ARCH_QCOM) += qcs6490-radxa-cm-q64-rpi-cm5-io-cam0-imx219.dtbo \
 	qcs6490-radxa-cm-q64-rpi-cm5-io-cam0-imx415.dtbo \
 	qcs6490-radxa-cm-q64-rpi-cm5-io-cam0-imx577.dtbo \
 	qcs6490-radxa-cm-q64-rpi-cm5-io-cam0-imx708.dtbo \
+	qcs6490-radxa-cm-q64-rpi-cm5-io-cam0-ar0234.dtbo \
 	qcs6490-radxa-cm-q64-rpi-cm5-io-raspberry-pi-touch-display-2.dtbo \
 	qcs6490-radxa-cm-q64-rpi-cm5-io-raspberry-pi-touch-display.dtbo \
 	qcs6490-radxa-cm-q64-rpi-cm5-io-swap-usb3-dp-ports.dtbo \
