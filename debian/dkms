@@ -3,6 +3,11 @@ PACKAGE_VERSION="#MODULE_VERSION#"
 DEST_MODULE_LOCATION[0]="/updates/dkms"
 BUILT_MODULE_NAME[0]="radxa-overlays"
 AUTOINSTALL="yes"
+PRE_BUILD="dkms.post_install --prepare $kernel_source_dir"
+MAKE[0]="make -C $kernel_source_dir M=$dkms_tree/$PACKAGE_NAME/$PACKAGE_VERSION/build DTC_INCLUDE=$kernel_source_dir/include"
+if [ ! -x "$kernel_source_dir/scripts/dtc/dtc" ]; then
+    MAKE[0]="${MAKE[0]} DTC=/usr/bin/dtc"
+fi
 POST_BUILD="dkms.post_build $kernelver $arch"
 POST_INSTALL="dkms.post_install $kernelver $arch"
 POST_REMOVE="dkms.post_remove $kernelver $arch"

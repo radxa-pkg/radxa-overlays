@@ -446,7 +446,8 @@ dtb-$(CONFIG_CPU_RK3576) += \
 	rock-4d-radxa-display-10fhd.dtbo \
 	rock-4d-radxa-display-10hd.dtbo \
 	rock-4d-rpi-camera-v1_3.dtbo \
-	rock-4d-rpi-camera-v2.dtbo
+	rock-4d-rpi-camera-v2.dtbo \
+	rock-4d-rpi-camera-v3.dtbo
 
 dtb-$(CONFIG_CLK_RK3588) += \
 	radxa-nx5-io-okdo-camera-5mp-cam0.dtbo \
