@@ -439,6 +439,8 @@ dtb-$(CONFIG_CPU_RK3576) += \
 	rock-4d-omnivision-ov9281-camera-1m.dtbo \
 	rock-4d-radxa-25w-poe.dtbo \
 	rock-4d-radxa-camera-13m-214.dtbo \
+	rock-4d-radxa-camera-2m-ar0234-2lane-8bit.dtbo \
+	rock-4d-radxa-camera-2m-ar0234-4lane-10bit.dtbo \
 	rock-4d-radxa-camera-4k.dtbo \
 	rock-4d-radxa-camera-8m-219.dtbo \
 	rock-4d-radxa-hdmi-in-4k-rk628.dtbo \
