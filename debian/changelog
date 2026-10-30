@@ -1,3 +1,22 @@
+radxa-overlays (0.2.33) UNRELEASED; urgency=medium
+
+  [ Songjun Li ]
+  * arm64: dts: qcom: Clarify Q6A touchscreen description
+
+  [ Feng Zhang ]
+  * fix: select DIN0 for CM-A7 I2S1 capture
+  * fix: mark CM-A7 TWI0 overlay as unsupported
+
+  [ Wang Yongsen ]
+  * arm64: dts: allwinner: add A7A Raspberry Pi 7-inch display
+  * arm64: dts: allwinner: add A7Z Raspberry Pi 7-inch display
+  * arm64: dts: allwinner: add A7Z Raspberry Pi 7 inch Touch Display 2
+
+  [ ZHANG Yuntian ]
+  * fix: clarify source license
+
+ -- "Radxa Computer (Shenzhen) Co., Ltd." <dev@radxa.com>  Fri, 30 Oct 2026 10:59:34 +0000
+
 radxa-overlays (0.2.32) noble; urgency=medium
 
   [ William Norman ]
