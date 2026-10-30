@@ -60,6 +60,7 @@ dtb-$(CONFIG_ARCH_SUN60IW2) += \
 	cubie-a7a-radxa-camera-8m-219.dtbo \
 	cubie-a7a-radxa-camera-13m-214.dtbo \
 	cubie-a7a-radxa-camera-4k-415.dtbo \
+	cubie-a7a-radxa-hdmi-in-4k-rk628.dtbo \
 	cubie-a7a-radxa-display-8hd.dtbo \
 	cubie-a7a-radxa-display-10fhd.dtbo \
 	cubie-a7z-raspi-7inch-touchscreen.dtbo \
