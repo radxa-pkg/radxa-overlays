@@ -2,6 +2,14 @@ Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: radxa-overlays
 Source: https://github.com/radxa-pkg/radxa-overlays
 
+Files: debian/radxa-overlays.c
+Copyright: © 2025 Radxa Computer Co., Ltd
+License: GPL-2
+
+Files: arch/**
+Copyright: © 2025 Radxa Computer Co., Ltd
+License: GPL-2, unless otherwise noted in the source (ex. qcom overlays)
+
 Files: *
 Copyright: © 2025 Radxa Computer Co., Ltd
 License: GPL-3+
