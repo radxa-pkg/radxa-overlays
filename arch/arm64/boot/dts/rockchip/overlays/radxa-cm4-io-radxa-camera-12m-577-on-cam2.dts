@@ -1,0 +1,184 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/power/rk3576-power.h>
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+
+/ {
+	metadata {
+		title = "Enable Radxa Camera 12M 577 on CAM2 (15-pin)";
+		compatible = "radxa,cm4-io";
+		category = "camera";
+		exclusive = "GPIO2_D1", "csi2_dphy2", "i2c0";
+		description = "Enable Radxa Camera 12M 577 on CAM2 (15-pin)";
+	};
+};
+
+&{/} {
+	imx577_cam2_power: imx577-cam2-power {
+		compatible = "regulator-fixed";
+		regulator-name = "imx577_cam2_power";
+		regulator-always-on;
+		startup-delay-us = <250000>;
+		enable-active-high;
+		gpio = <&gpio2 RK_PD1 GPIO_ACTIVE_HIGH>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&imx577_cam2_power_pin>;
+	};
+};
+
+&i2c0 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c0m1_xfer>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	imx577_2: imx577@1a {
+		status = "okay";
+		compatible = "sony,imx577";
+		reg = <0x1a>;
+		power-domains = <&power RK3576_PD_VI>;
+		rockchip,camera-module-index = <1>;
+		rockchip,camera-module-facing = "back";
+		rockchip,camera-module-name = "RADXA-CAMERA-12M";
+		rockchip,camera-module-lens-name = "default";
+
+		port {
+			imx577_out2: endpoint {
+				remote-endpoint = <&mipidphy2_in_ucam2>;
+				data-lanes = <1 2>;
+			};
+		};
+	};
+};
+
+&csi2_dphy0_hw {
+	status = "okay";
+};
+
+&csi2_dphy1_hw {
+	status = "okay";
+};
+
+&csi2_dphy2 {
+	status = "okay";
+
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		port@0 {
+			reg = <0>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			mipidphy2_in_ucam2: endpoint@2 {
+				reg = <2>;
+				remote-endpoint = <&imx577_out2>;
+				data-lanes = <1 2>;
+			};
+		};
+
+		port@1 {
+			reg = <1>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			csidphy2_out: endpoint@0 {
+				reg = <0>;
+				remote-endpoint = <&mipi2_csi2_input>;
+			};
+		};
+	};
+};
+
+&mipi2_csi2 {
+	status = "okay";
+
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		port@0 {
+			reg = <0>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			mipi2_csi2_input: endpoint@1 {
+				reg = <1>;
+				remote-endpoint = <&csidphy2_out>;
+			};
+		};
+
+		port@1 {
+			reg = <1>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			mipi2_csi2_output: endpoint@0 {
+				reg = <0>;
+				remote-endpoint = <&cif_mipi_in2>;
+			};
+		};
+	};
+};
+
+&rkcif {
+	status = "okay";
+};
+
+&rkcif_mmu {
+	status = "okay";
+};
+
+&rkcif_mipi_lvds2 {
+	status = "okay";
+
+	port {
+		cif_mipi_in2: endpoint {
+			remote-endpoint = <&mipi2_csi2_output>;
+		};
+	};
+};
+
+&rkcif_mipi_lvds2_sditf {
+	status = "okay";
+
+	port {
+		mipi_lvds2_sditf: endpoint {
+			remote-endpoint = <&isp_vir2>;
+		};
+	};
+};
+
+&rkisp_mmu {
+	status = "okay";
+};
+
+&rkisp {
+	status = "okay";
+};
+
+&rkisp_vir2 {
+	status = "okay";
+
+	port {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		isp_vir2: endpoint@0 {
+			reg = <0>;
+			remote-endpoint = <&mipi_lvds2_sditf>;
+		};
+	};
+};
+
+&pinctrl {
+	camera {
+		imx577_cam2_power_pin: imx577-cam2-power-pin {
+			rockchip,pins = <2 RK_PD1 RK_FUNC_GPIO &pcfg_pull_up>;
+		};
+	};
+};
