@@ -1,0 +1,362 @@
+// SPDX-License-Identifier: GPL-2.0
+
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/display/sunxi-lcd.h>
+
+/* This standard DSI flag is not defined in sunxi-lcd.h. */
+#define MIPI_DSI_MODE_LPM (1 << 11)
+
+/ {
+	metadata {
+		title = "Enable Raspberry Pi 7-inch Display 2";
+		compatible = "radxa,cubie-a7z";
+		category = "display";
+		exclusive = "dlcd0", "dsi0", "dsi0combophy", "twi2",
+			    "PD0", "PD1", "PD2", "PD3", "PD4", "PD5", "PD6", "PD7", "PD8", "PD9",
+			    "PD16", "PD17";
+		description = "Enable Raspberry Pi 7-inch Display 2.
+Connect DSI0 and supply the display with 5V.";
+	};
+};
+
+&{/} {
+	rpi7_v2_backlight: backlight-rpi7-v2 {
+		compatible = "pwm-backlight";
+		pwms = <&rpi7_v2_mcu 0 255 0>;
+		brightness-levels = <0 31>;
+		num-interpolated-steps = <31>;
+		default-brightness-level = <31>;
+	};
+
+	rpi7_v2_touch_power: regulator-rpi7-v2-touch {
+		compatible = "regulator-fixed";
+		regulator-name = "rpi7-v2-touch";
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		vin-supply = <&reg_dc1sw1>;
+		gpio = <&rpi7_v2_mcu 1 GPIO_ACTIVE_HIGH>;
+		enable-active-high;
+		startup-delay-us = <50000>;
+	};
+};
+
+&dsi0combophy {
+	status = "okay";
+};
+
+&dlcd0 {
+	status = "okay";
+};
+
+&dsi0 {
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
+	pinctrl-0 = <&dsi0_4lane_pins_a>;
+	pinctrl-1 = <&dsi0_4lane_pins_b>;
+	pinctrl-names = "active", "sleep";
+
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		port@1 {
+			reg = <1>;
+			rpi7_v2_dsi_out: endpoint {
+				remote-endpoint = <&rpi7_v2_panel_input>;
+			};
+		};
+	};
+
+	rpi7_v2_panel: panel@0 {
+		compatible = "allwinner,virtual-panel";
+		reg = <0>;
+		status = "okay";
+		power-num = <2>;
+		power0-supply = <&reg_dc1sw1>;
+		power1-supply = <&reg_bldo2>;
+		power-delay-ms = <5>;
+		gpio-num = <0>;
+		reset-gpios = <&rpi7_v2_mcu 0 GPIO_ACTIVE_LOW>;
+		reset-on-sequence = <1 20 0 20>;
+		reset-off-sequence = <1 20>;
+		backlight = <&rpi7_v2_backlight>;
+		width-mm = <90>;
+		height-mm = <151>;
+		dsi,flags = <(MIPI_DSI_MODE_VIDEO | MIPI_DSI_MODE_LPM)>;
+		dsi,lanes = <2>;
+		dsi,format = <0>;
+
+		/* Raspberry Pi panel-ilitek-ili9881c: rpi_7inch_init and prepare. */
+		panel-init-sequence = [
+			39 00 04 FF 98 81 03
+			15 00 02 01 00
+			15 00 02 02 00
+			15 00 02 03 73
+			15 00 02 04 00
+			15 00 02 05 00
+			15 00 02 06 0A
+			15 00 02 07 00
+			15 00 02 08 00
+			15 00 02 09 61
+			15 00 02 0A 00
+			15 00 02 0B 00
+			15 00 02 0C 01
+			15 00 02 0D 00
+			15 00 02 0E 00
+			15 00 02 0F 61
+			15 00 02 10 61
+			15 00 02 11 00
+			15 00 02 12 00
+			15 00 02 13 00
+			15 00 02 14 00
+			15 00 02 15 00
+			15 00 02 16 00
+			15 00 02 17 00
+			15 00 02 18 00
+			15 00 02 19 00
+			15 00 02 1A 00
+			15 00 02 1B 00
+			15 00 02 1C 00
+			15 00 02 1D 00
+			15 00 02 1E 40
+			15 00 02 1F 80
+			15 00 02 20 06
+			15 00 02 21 01
+			15 00 02 22 00
+			15 00 02 23 00
+			15 00 02 24 00
+			15 00 02 25 00
+			15 00 02 26 00
+			15 00 02 27 00
+			15 00 02 28 33
+			15 00 02 29 03
+			15 00 02 2A 00
+			15 00 02 2B 00
+			15 00 02 2C 00
+			15 00 02 2D 00
+			15 00 02 2E 00
+			15 00 02 2F 00
+			15 00 02 30 00
+			15 00 02 31 00
+			15 00 02 32 00
+			15 00 02 33 00
+			15 00 02 34 04
+			15 00 02 35 00
+			15 00 02 36 00
+			15 00 02 37 00
+			15 00 02 38 3C
+			15 00 02 39 00
+			15 00 02 3A 00
+			15 00 02 3B 00
+			15 00 02 3C 00
+			15 00 02 3D 00
+			15 00 02 3E 00
+			15 00 02 3F 00
+			15 00 02 40 00
+			15 00 02 41 00
+			15 00 02 42 00
+			15 00 02 43 00
+			15 00 02 44 00
+			15 00 02 50 10
+			15 00 02 51 32
+			15 00 02 52 54
+			15 00 02 53 76
+			15 00 02 54 98
+			15 00 02 55 BA
+			15 00 02 56 10
+			15 00 02 57 32
+			15 00 02 58 54
+			15 00 02 59 76
+			15 00 02 5A 98
+			15 00 02 5B BA
+			15 00 02 5C DC
+			15 00 02 5D FE
+			15 00 02 5E 00
+			15 00 02 5F 0E
+			15 00 02 60 0F
+			15 00 02 61 0C
+			15 00 02 62 0D
+			15 00 02 63 06
+			15 00 02 64 07
+			15 00 02 65 02
+			15 00 02 66 02
+			15 00 02 67 02
+			15 00 02 68 02
+			15 00 02 69 01
+			15 00 02 6A 00
+			15 00 02 6B 02
+			15 00 02 6C 15
+			15 00 02 6D 14
+			15 00 02 6E 02
+			15 00 02 6F 02
+			15 00 02 70 02
+			15 00 02 71 02
+			15 00 02 72 02
+			15 00 02 73 02
+			15 00 02 74 02
+			15 00 02 75 0E
+			15 00 02 76 0F
+			15 00 02 77 0C
+			15 00 02 78 0D
+			15 00 02 79 06
+			15 00 02 7A 07
+			15 00 02 7B 02
+			15 00 02 7C 02
+			15 00 02 7D 02
+			15 00 02 7E 02
+			15 00 02 7F 01
+			15 00 02 80 00
+			15 00 02 81 02
+			15 00 02 82 14
+			15 00 02 83 15
+			15 00 02 84 02
+			15 00 02 85 02
+			15 00 02 86 02
+			15 00 02 87 02
+			15 00 02 88 02
+			15 00 02 89 02
+			15 00 02 8A 02
+			39 00 04 FF 98 81 04
+			15 00 02 6C 15
+			15 00 02 6E 2A
+			15 00 02 6F 33
+			15 00 02 3B 98
+			15 00 02 3A 94
+			15 00 02 8D 14
+			15 00 02 87 BA
+			15 00 02 26 76
+			15 00 02 B2 D1
+			15 00 02 B5 06
+			15 00 02 38 01
+			15 00 02 39 00
+			39 00 04 FF 98 81 01
+			15 00 02 22 0A
+			15 00 02 31 00
+			15 00 02 53 7D
+			15 00 02 55 8F
+			15 00 02 40 33
+			15 00 02 50 96
+			15 00 02 51 96
+			15 00 02 60 23
+			15 00 02 A0 08
+			15 00 02 A1 1D
+			15 00 02 A2 2A
+			15 00 02 A3 10
+			15 00 02 A4 15
+			15 00 02 A5 28
+			15 00 02 A6 1C
+			15 00 02 A7 1D
+			15 00 02 A8 7E
+			15 00 02 A9 1D
+			15 00 02 AA 29
+			15 00 02 AB 6B
+			15 00 02 AC 1A
+			15 00 02 AD 18
+			15 00 02 AE 4B
+			15 00 02 AF 20
+			15 00 02 B0 27
+			15 00 02 B1 50
+			15 00 02 B2 64
+			15 00 02 B3 39
+			15 00 02 C0 08
+			15 00 02 C1 1D
+			15 00 02 C2 2A
+			15 00 02 C3 10
+			15 00 02 C4 15
+			15 00 02 C5 28
+			15 00 02 C6 1C
+			15 00 02 C7 1D
+			15 00 02 C8 7E
+			15 00 02 C9 1D
+			15 00 02 CA 29
+			15 00 02 CB 6B
+			15 00 02 CC 1A
+			15 00 02 CD 18
+			15 00 02 CE 4B
+			15 00 02 CF 20
+			15 00 02 D0 27
+			15 00 02 D1 50
+			15 00 02 D2 64
+			15 00 02 D3 39
+			39 00 04 FF 98 81 00
+			15 00 02 35 00
+			05 78 01 11
+			05 00 01 29
+		];
+
+		display-timings {
+			native-mode = <&rpi7_v2_timing>;
+
+			rpi7_v2_timing: timing0 {
+				clock-frequency = <83330000>;
+				hactive = <720>;
+				vactive = <1280>;
+				hsync-len = <33>;
+				hback-porch = <50>;
+				hfront-porch = <239>;
+				vsync-len = <2>;
+				vback-porch = <30>;
+				vfront-porch = <20>;
+				hsync-active = <0>;
+				vsync-active = <0>;
+				de-active = <0>;
+				pixelclk-active = <0>;
+			};
+		};
+
+		port {
+			rpi7_v2_panel_input: endpoint {
+				remote-endpoint = <&rpi7_v2_dsi_out>;
+			};
+		};
+	};
+};
+
+&twi2 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+	clock-frequency = <100000>;
+	pinctrl-0 = <&twi2_pins_default>;
+	pinctrl-1 = <&twi2_pins_sleep>;
+	pinctrl-names = "default", "sleep";
+	twi_drv_used = <0>;
+	no_suspend = <1>;
+	twi-supply = <&reg_bldo2>;
+	status = "okay";
+
+	rpi7_v2_mcu: regulator@45 {
+		compatible = "raspberrypi,touchscreen-panel-regulator-v2";
+		reg = <0x45>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		#pwm-cells = <3>;
+	};
+
+	/* The Goodix driver polls when no interrupt is provided. */
+	touchscreen@5d {
+		compatible = "goodix,gt911";
+		reg = <0x5d>;
+		AVDD28-supply = <&rpi7_v2_touch_power>;
+		touchscreen-size-x = <720>;
+		touchscreen-size-y = <1280>;
+		status = "okay";
+	};
+};
+
+&pio {
+	twi2_pins_default: twi2@0 {
+		pins = "PD16", "PD17";
+		function = "twi2";
+		drive-strength = <10>;
+		bias-pull-up;
+	};
+
+	twi2_pins_sleep: twi2@1 {
+		pins = "PD16", "PD17";
+		function = "gpio_in";
+	};
+};
