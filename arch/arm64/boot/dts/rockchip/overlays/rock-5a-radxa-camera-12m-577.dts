@@ -1,7 +1,6 @@
 /dts-v1/;
 /plugin/;
 
-#include <dt-bindings/clock/rk3588-cru.h>
 #include <dt-bindings/power/rk3588-power.h>
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/pinctrl/rockchip.h>
@@ -37,10 +36,6 @@
 		status = "okay";
 		compatible = "sony,imx577";
 		reg = <0x1a>;
-		clocks = <&cru CLK_MIPI_CAMARAOUT_M2>;
-		clock-names = "xvclk";
-		pinctrl-names = "default";
-		pinctrl-0 = <&mipim0_camera2_clk>;
 		power-domains = <&power RK3588_PD_VI>;
 		reset-gpios = <&gpio1 RK_PD2 GPIO_ACTIVE_HIGH>;
 		rockchip,camera-module-index = <0>;
