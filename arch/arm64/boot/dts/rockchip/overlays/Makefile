@@ -414,6 +414,9 @@ dtb-$(CONFIG_CPU_RK3576) += \
 	radxa-cm4-io-dp-mst.dtbo \
 	radxa-cm4-io-okdo-5mp-camera-on-cam1.dtbo \
 	radxa-cm4-io-okdo-5mp-camera-on-cam2.dtbo \
+	radxa-cm4-io-radxa-camera-12m-577-on-cam1.dtbo \
+	radxa-cm4-io-radxa-camera-12m-577-on-cam2.dtbo \
+	radxa-cm4-io-radxa-camera-12m-577-on-cam3.dtbo \
 	radxa-cm4-io-radxa-camera-13m-214.dtbo \
 	radxa-cm4-io-radxa-camera-4k.dtbo \
 	radxa-cm4-io-radxa-camera-8m-219-on-cam1.dtbo \
