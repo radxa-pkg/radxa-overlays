@@ -1,0 +1,116 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable Raspberry Pi 7-inch Touchscreen";
+		compatible = "radxa,rock-4d";
+		category = "display";
+		exclusive = "dsi";
+		description = "Enable Raspberry Pi 7-inch Touchscreen.";
+	};
+};
+
+&dsi {
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
+	rockchip,lane-rate = <605>;
+
+	dsi0_panel: dsi-panel@0 {
+		compatible = "raspits,tc358762";
+		reg = <0x0>;
+		status = "okay";
+		rockchip,lane-rate = <600>;
+
+		display_timings0: display-timings {
+			native-mode = <&dsi0_timing>;
+
+			dsi0_timing: timing0 {
+				clock-frequency = <26000000>;
+				hactive = <800>;
+				vactive = <480>;
+
+				hsync-len = <85>;
+				hback-porch = <55>;
+				hfront-porch = <42>;
+
+				vsync-len = <12>;
+				vback-porch = <7>;
+				vfront-porch = <10>;
+
+				hsync-active = <0>;
+				vsync-active = <0>;
+				de-active = <0>;
+				pixelclk-active = <0>;
+			};
+		};
+
+		ports {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			port@0 {
+				reg = <0>;
+				panel_in_dsi: endpoint {
+					remote-endpoint = <&dsi_out_panel>;
+				};
+			};
+		};
+	};
+
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		port@1 {
+			reg = <1>;
+			dsi_out_panel: endpoint {
+				remote-endpoint = <&panel_in_dsi>;
+			};
+		};
+	};
+};
+
+&mipidcphy0 {
+	status = "okay";
+};
+
+&route_dsi {
+	status = "okay";
+	connect = <&vp2_out_dsi>;
+};
+
+&vp2_out_dsi {
+	status = "okay";
+};
+
+&dsi_in_vp2 {
+	status = "okay";
+};
+
+&vp1_out_dsi {
+	status = "disabled";
+};
+
+&dsi_in_vp1 {
+	status = "disabled";
+};
+
+&i2c0 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c0m1_xfer>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	raspits_ft5426: raspits_ft5426@38 {
+		compatible = "raspits_ft5426";
+		reg = <0x38>;
+	};
+
+	rockpi_mcu: rockpi-mcu@45 {
+		compatible = "rockpi_mcu";
+		reg = <0x45>;
+	};
+};
