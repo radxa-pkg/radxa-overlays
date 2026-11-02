@@ -1,0 +1,87 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable RK628F I2S audio capture";
+		compatible = "radxa,cubie-a7a";
+		category = "misc";
+		exclusive = "i2s4_plat", "i2s4_mach", "PK0", "PK2", "PK3";
+		description = "Enable RK628F I2S audio capture
+Receive stereo I2S from RK628F on the 40-pin header.
+Pin 12 BCLK, pin 35 LRCK, pin 38 DIN and pin 39 GND.
+RK628F supplies both clocks. Two 32-bit slots; no MCLK or DOUT connection.
+Requires compatible signal levels and enabled RK628F audio output.
+";
+	};
+};
+
+&{/} {
+	sensor_detect {
+		i2s-enable-default;
+	};
+};
+
+&pio {
+	rk628_i2s4_bclk: rk628-i2s4-bclk-pins {
+		pins = "PK0";
+		function = "i2s4_bclk";
+		allwinner,drive = <1>;
+		bias-disable;
+	};
+
+	rk628_i2s4_lrck: rk628-i2s4-lrck-pins {
+		pins = "PK2";
+		function = "i2s4_lrck";
+		allwinner,drive = <1>;
+		bias-disable;
+	};
+
+	rk628_i2s4_din: rk628-i2s4-din-pins {
+		pins = "PK3";
+		function = "i2s4_din0";
+		allwinner,drive = <1>;
+		bias-pull-down;
+	};
+
+	rk628_i2s4_sleep: rk628-i2s4-sleep-pins {
+		pins = "PK0", "PK2", "PK3";
+		function = "io_disabled";
+		allwinner,drive = <1>;
+		bias-disable;
+	};
+};
+
+&i2s4_plat {
+	tdm-num = <4>;
+	rx-pin = <0>;
+	rxfifo-pinmap = <0 0>;
+	rxfifo-chmap = <0 1>;
+	pinctrl-used;
+	pinctrl-names = "default", "sleep";
+	pinctrl-0 = <&rk628_i2s4_bclk &rk628_i2s4_lrck &rk628_i2s4_din>;
+	pinctrl-1 = <&rk628_i2s4_sleep>;
+	status = "okay";
+};
+
+&i2s4_mach {
+	soundcard-mach,name = "rk628hdmiin";
+	soundcard-mach,format = "i2s";
+	/* The external bridge supplies BCLK and LRCK; A733 receives them. */
+	soundcard-mach,bitclock-master = <&rk628_i2s4_codec>;
+	soundcard-mach,frame-master = <&rk628_i2s4_codec>;
+	soundcard-mach,capture-only;
+	soundcard-mach,slot-num = <2>;
+	soundcard-mach,slot-width = <32>;
+	status = "okay";
+
+	soundcard-mach,cpu {
+		sound-dai = <&i2s4_plat>;
+		soundcard-mach,pll-fs = <1>;
+		soundcard-mach,mclk-fs = <0>;
+	};
+
+	rk628_i2s4_codec: soundcard-mach,codec {
+	};
+};
