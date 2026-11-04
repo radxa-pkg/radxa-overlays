@@ -1,0 +1,86 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include "rk3576-csi2_dphy2.dtsi"
+
+/ {
+	metadata {
+		title ="Enable Raspberry Pi Camera v3 on CAM0";
+		compatible = "radxa,nx4-c200";
+		category = "camera";
+		exclusive = "GPIO3_D0", "GPIO4_A6", "csi2_dphy2", "i2c4@1a";
+		description = "Enable Raspberry Pi Camera v3 on CAM0.";
+	};
+};
+
+&{/} {
+	camera0_i2c_sel: camera0-i2c-sel {
+		compatible = "regulator-fixed";
+		regulator-name = "camera0_i2c_sel";
+		regulator-always-on;
+		regulator-boot-on;
+		enable-active-low;
+		gpio = <&gpio4 RK_PA6 GPIO_ACTIVE_LOW>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&cam0_i2c_sel_gpio>;
+	};
+
+	camera0_pwdn_gpio: camera0-pwdn-gpio {
+		compatible = "regulator-fixed";
+		regulator-name = "camera0_pwdn_gpio";
+		regulator-always-on;
+		regulator-boot-on;
+		enable-active-high;
+		gpio = <&gpio3 RK_PD0 GPIO_ACTIVE_HIGH>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&cam0_pwdn_gpio>;
+	};
+
+	clk_cam0_24m: external-camera0-clock-24m {
+		compatible = "fixed-clock";
+		clock-frequency = <24000000>;
+		clock-output-names = "clk_cam0_24m";
+		#clock-cells = <0>;
+	};
+};
+
+&i2c4 {
+	status = "okay";
+	pinctrl-0 = <&i2c4m2_xfer>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	imx708: imx708@1a {
+		status = "okay";
+		compatible = "sony,imx708";
+		reg = <0x1a>;
+		clocks = <&clk_cam0_24m>;
+		clock-names = "inclk";
+		rockchip,camera-module-index = <0>;
+		rockchip,camera-module-facing = "back";
+		rockchip,camera-module-name = "rpi-camera-v3";
+		rockchip,camera-module-lens-name = "default";
+
+		port {
+			mipidphy2_out0: endpoint {
+				remote-endpoint = <&mipidphy2_in_ucam0>;
+				data-lanes = <1 2>;
+				link-frequencies = /bits/ 64 <450000000>;
+			};
+		};
+	};
+};
+
+&pinctrl {
+	camera {
+		cam0_pwdn_gpio: cam0-pwdn-gpio {
+			rockchip,pins = <3 RK_PD0 RK_FUNC_GPIO &pcfg_pull_up>;
+		};
+
+		cam0_i2c_sel_gpio: cam0-i2c-sel-gpio {
+			rockchip,pins = <4 RK_PA6 RK_FUNC_GPIO &pcfg_pull_up>;
+		};
+	};
+};
