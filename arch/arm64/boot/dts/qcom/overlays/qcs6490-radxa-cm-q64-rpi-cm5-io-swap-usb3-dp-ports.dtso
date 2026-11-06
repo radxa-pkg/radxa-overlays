@@ -1,0 +1,32 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2025 Radxa Computer (Shenzhen) Co., Ltd.
+ */
+
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Swap USB3/DP ports";
+		compatible = "radxa,cm-q64-rpi-cm5-io";
+		category = "misc";
+		exclusive = "usb_1_qmpphy_out_dp";
+		description = "Swap the USB3 and DP ports.
+Use this when you want to swap USB3 signal
+on Raspberry Pi Compute Module 5 IO Board upper USB3 port.";
+	};
+};
+
+
+&usb_1_qmpphy_out_dp {
+	reg = <0>;
+
+	data-lanes = <2 3>;
+};
+
+&usb_1_qmpphy_out_usb {
+	reg = <1>;
+
+	data-lanes = <0 1>;
+};

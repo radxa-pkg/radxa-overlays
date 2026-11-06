@@ -154,18 +154,3 @@
 		bias-disable;
 	};
 };
-
-&pm8350c_gpios {
-	lcd_bl_pwm: dsi-lcd-bl-pwm-state {
-		pins = "gpio8";
-		function = "func1";
-		bias-disable;
-		qcom,drive-strength = <PMIC_GPIO_STRENGTH_LOW>;
-		output-low;
-		power-source = <0>;
-	};
-};
-
-&pm8350c_pwm {
-	status = "okay";
-};
