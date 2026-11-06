@@ -66,6 +66,8 @@ Radxa CM-Q64 Raspberry Pi Compute Module 5 IO Board.";
 };
 
 &venus {
+	firmware-name = "qcom/vpu/vpu20_p1.mbn";
+
 	iommus = <&apps_smmu 0x2180 0x20>,
 		 <&apps_smmu 0x2184 0x20>;
 
