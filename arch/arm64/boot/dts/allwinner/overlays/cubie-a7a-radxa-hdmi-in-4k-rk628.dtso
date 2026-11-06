@@ -1,0 +1,177 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/gpio/sun4i-gpio.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+	metadata {
+		title = "Enable Radxa 4K HDMI IN to MIPI CSI-2 Adapter";
+		compatible = "radxa,cubie-a7a";
+		category = "camera";
+		exclusive = "vind0", "csi1", "PE3", "PE4", "PE8", "PE9", "PE15";
+		description = "Enable Radxa 4K HDMI IN to MIPI CSI-2 Adapter.
+Enable RK628F HDMI capture through the 31-pin 4-lane CSI connector.
+Requires the RK628F VIN driver.
+Audio is not connected through this connector.
+";
+	};
+};
+
+&{/} {
+	sensor_detect {
+		reset-gpios = <&pio PE 9 GPIO_ACTIVE_LOW>;
+		hotplug-gpios = <&pio PE 15 GPIO_ACTIVE_LOW>;
+		interrupt-gpios = <&pio PE 8 GPIO_ACTIVE_HIGH>;
+		irq-trigger-type = <IRQ_TYPE_LEVEL_HIGH>;
+		continues-clk = <1>;
+		hpd-output-inverted = <0>;
+		/* A7A RX clock delay taps for 700/1300 Mbps, respectively. */
+		allwinner,rx-clock-deskew = <7 15>;
+	};
+};
+
+&vind0 {
+	csi_top = <704000000>;
+	csi_isp = <704000000>;
+	vind_mclkpin-supply = <&reg_bldo1>;
+	vind_mclkpin_vol = <1800000>;
+	vind_mcsipin-supply = <&reg_bldo1>;
+	vind_mcsipin_vol = <1800000>;
+	vind_mipipin-supply = <&reg_bldo1>;
+	vind_mipipin_vol = <1800000>;
+	status = "okay";
+};
+
+&csi1 {
+	/* MIPI input does not use the parallel CSI pins on port K. */
+	pinctrl-0 = <>;
+	pinctrl-1 = <>;
+	status = "okay";
+};
+
+&mipi1 {
+	pinctrl-0 = <>;
+	pinctrl-1 = <>;
+	status = "okay";
+};
+
+/* Keep the software TDM entity; UYVY bypasses its RAW processing. */
+&tdm0 {
+	work_mode = <0>;
+	status = "okay";
+};
+
+/* ISP4 selects the hardware YUV bypass, without Bayer ISP processing. */
+&isp10 {
+	work_mode = <0>;
+	status = "okay";
+};
+
+&scaler00 {
+	work_mode = <0>;
+	status = "okay";
+};
+
+/* VIPP0's interrupt handler also references its virtual channel objects. */
+&scaler01 {
+	status = "okay";
+};
+
+&scaler02 {
+	status = "okay";
+};
+
+&scaler03 {
+	status = "okay";
+};
+
+/* The base DTS leaves these virtual scalers enabled without their logic VIPP. */
+&scaler11 {
+	status = "disabled";
+};
+
+&scaler12 {
+	status = "disabled";
+};
+
+&scaler13 {
+	status = "disabled";
+};
+
+&scaler21 {
+	status = "disabled";
+};
+
+&scaler22 {
+	status = "disabled";
+};
+
+&scaler23 {
+	status = "disabled";
+};
+
+&scaler31 {
+	status = "disabled";
+};
+
+&scaler32 {
+	status = "disabled";
+};
+
+&scaler33 {
+	status = "disabled";
+};
+
+&sensor0 {
+	sensor0_mname = "rk628f_mipi";
+	sensor0_twi_addr = <0xa0>;
+	sensor0_twi_cci_id = <3>;
+	/* RK628F uses its oscillator; the driver never enables a SoC MCLK. */
+	sensor0_pos = "rear";
+	sensor0_isp_used = <0>;
+	sensor0_fmt = <0>;
+	sensor0_stby_mode = <0>;
+	sensor0_vflip = <0>;
+	sensor0_hflip = <0>;
+	status = "okay";
+};
+
+&vinc00 {
+	vinc0_csi_sel = <1>;
+	vinc0_mipi_sel = <1>;
+	vinc0_isp_sel = <4>;
+	vinc0_isp_tx_ch = <0>;
+	vinc0_tdm_rx_sel = <0>;
+	vinc0_rear_sensor_sel = <0>;
+	vinc0_front_sensor_sel = <0>;
+	vinc0_sensor_list = <0>;
+	work_mode = <0>;
+	status = "okay";
+};
+
+&twi3 {
+	clock-frequency = <400000>;
+	pinctrl-0 = <&rk628_twi3_default>;
+	pinctrl-1 = <&rk628_twi3_sleep>;
+	pinctrl-names = "default", "sleep";
+	twi_drv_used = <1>;
+	no_suspend = <1>;
+	twi-supply = <&reg_bldo1>;
+	status = "okay";
+};
+
+&pio {
+	rk628_twi3_default: rk628-twi3-default {
+		pins = "PE3", "PE4";
+		function = "twi3";
+		drive-strength = <10>;
+		bias-pull-up;
+	};
+
+	rk628_twi3_sleep: rk628-twi3-sleep {
+		pins = "PE3", "PE4";
+		function = "gpio_in";
+	};
+};
