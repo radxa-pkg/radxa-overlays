@@ -1,6 +1,36 @@
 #!/usr/bin/env bash
 set -e
 
+# PRE_BUILD runs this entrypoint in the disposable DKMS build copy.
+if [[ ${1:-} == "--prepare" ]]; then
+	set -u
+	kernel_source_dir=${2:?Missing target kernel headers directory}
+	test -d "$kernel_source_dir/include"
+	test -d arch/arm64/boot/dts
+
+	if [[ ! -f "$kernel_source_dir/include/dt-bindings/power/rk3576-power.h" &&
+		-f "$kernel_source_dir/include/dt-bindings/power/rockchip,rk3576-power.h" ]]; then
+		find arch/arm64/boot/dts -type f \( -name '*.dts' -o -name '*.dtso' -o -name '*.dtsi' \) \
+			-exec sed -i 's@<dt-bindings/power/rk3576-power.h>@<dt-bindings/power/rockchip,rk3576-power.h>@g' {} +
+	fi
+
+	# Newer Kbuild uses .dtso; preserve native files when both names exist.
+	for rules in "$kernel_source_dir/scripts/Makefile.dtbs" "$kernel_source_dir/scripts/Makefile.lib"; do
+		if [[ -f $rules ]] && grep -q '%\.dtbo:.*%\.dtso' "$rules"; then
+			find arch/arm64/boot/dts -type f -name '*.dts' -exec sh -eu -c '
+                for source do
+                    target=${source%.dts}.dtso
+                    if [ ! -e "$target" ] && [ ! -L "$target" ]; then
+                        ln -s "$(basename "$source")" "$target"
+                    fi
+                done
+            ' sh {} +
+			break
+		fi
+	done
+	exit 0
+fi
+
 kernelver="$1"
 arch="$2"
 base_dir="${PWD%/*}/$kernelver/$arch/module/arch/arm64/boot/dts"
@@ -28,5 +58,12 @@ do
 done
 
 if command -v rsetup &>/dev/null; then
-    rsetup rebuild_overlays "$kernelver"
+	running_kernel="$(uname -r)"
+	# /boot/dtbo is shared: another installed kernel must not overwrite it.
+	# Image-building chroots do not contain the host kernel's modules.
+	if [[ $kernelver == "$running_kernel" ]] || [[ ! -d "/lib/modules/$running_kernel" ]]; then
+		rsetup rebuild_overlays "$kernelver"
+	else
+		echo "Keeping shared overlays for running kernel '$running_kernel'; skipping refresh for '$kernelver'."
+	fi
 fi

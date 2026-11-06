@@ -5,6 +5,7 @@
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/pinctrl/rockchip.h>
 #include <dt-bindings/pwm/pwm.h>
+#include <generated/uapi/linux/version.h>
 
 / {
 	metadata {
@@ -98,13 +99,18 @@
 
 	dsi_panel: panel@0 {
 		status = "okay";
-		compatible = "radxa,display-8hd";
 		reg = <0>;
-		backlight = <&dsi_backlight>;
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 12, 0)
+		compatible = "radxa,display-8hd-ad002";
+		reset-gpios = <&gpio3 RK_PA0 GPIO_ACTIVE_LOW>;
 
+#else
+		compatible = "radxa,display-8hd";
+		reset-gpios = <&gpio3 RK_PA0 GPIO_ACTIVE_HIGH>;
+#endif
+		backlight = <&dsi_backlight>;
 		vdd-supply = <&vcc_lcd_mipi>;
 		vccio-supply = <&vcc_1v8_s0>;
-		reset-gpios = <&gpio3 RK_PA0 GPIO_ACTIVE_HIGH>;
 		pinctrl-names = "default";
 		pinctrl-0 = <&dsi_lcd_rst_gpio>;
 

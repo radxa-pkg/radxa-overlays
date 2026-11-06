@@ -1,0 +1,128 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+
+/ {
+	metadata {
+		title = "Enable Raspberry Pi 7-inch Touchscreen 2";
+		compatible = "radxa,rock-4d";
+		category = "display";
+		exclusive = "GPIO2_B1", "dsi", "i2c0";
+		description = "Enable Raspberry Pi 7-inch Touchscreen 2.";
+	};
+};
+
+&{/} {
+	rpi_display_power: regulator-rpi-display {
+		compatible = "regulator-fixed";
+		regulator-name = "rpi-display";
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		gpio = <&gpio2 RK_PB1 GPIO_ACTIVE_HIGH>;
+		enable-active-high;
+		regulator-always-on;
+		startup-delay-us = <100000>;
+		vin-supply = <&vcc_3v3_s0>;
+	};
+
+	rpi_display_backlight: backlight-rpi-display {
+		compatible = "pwm-backlight";
+		power-supply = <&rpi_display_power>;
+		pwms = <&rpi_display_mcu 0 255 0>;
+	};
+
+	rpi_touch_power: regulator-rpi-touch {
+		compatible = "regulator-fixed";
+		gpio = <&rpi_display_mcu 1 GPIO_ACTIVE_HIGH>;
+		regulator-name = "rpi-touch";
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		startup-delay-us = <50000>;
+		enable-active-high;
+		vin-supply = <&rpi_display_power>;
+	};
+};
+
+&dsi {
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	rpi_display_panel: panel@0 {
+		compatible = "raspberrypi,dsi-7inch", "ilitek,ili9881c";
+		reg = <0>;
+		power-supply = <&rpi_display_power>;
+		reset-gpios = <&rpi_display_mcu 0 GPIO_ACTIVE_LOW>;
+		backlight = <&rpi_display_backlight>;
+
+		port {
+			rpi_panel_in: endpoint {
+				remote-endpoint = <&rpi_dsi_out>;
+			};
+		};
+	};
+
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		port@1 {
+			reg = <1>;
+			rpi_dsi_out: endpoint {
+				remote-endpoint = <&rpi_panel_in>;
+			};
+		};
+	};
+};
+
+&mipidcphy0 {
+	status = "okay";
+};
+
+&route_dsi {
+	status = "okay";
+	connect = <&vp2_out_dsi>;
+};
+
+&vp2_out_dsi {
+	status = "okay";
+};
+
+&dsi_in_vp2 {
+	status = "okay";
+};
+
+&vp1_out_dsi {
+	status = "disabled";
+};
+
+&dsi_in_vp1 {
+	status = "disabled";
+};
+
+&i2c0 {
+	status = "okay";
+	clock-frequency = <100000>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c0m1_xfer>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	rpi_display_mcu: regulator@45 {
+		compatible = "raspberrypi,touchscreen-panel-regulator-v2";
+		reg = <0x45>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		#pwm-cells = <3>;
+	};
+
+	touchscreen@5d {
+		compatible = "goodix,gt911";
+		reg = <0x5d>;
+		AVDD28-supply = <&rpi_touch_power>;
+		touchscreen-size-x = <720>;
+		touchscreen-size-y = <1280>;
+	};
+};

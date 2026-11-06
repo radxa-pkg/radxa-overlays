@@ -4,7 +4,13 @@
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/interrupt-controller/irq.h>
 #include <dt-bindings/pinctrl/rockchip.h>
+#include <generated/uapi/linux/version.h>
+
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 12, 0)
+#include <dt-bindings/power/rockchip,rk3576-power.h>
+#else
 #include <dt-bindings/power/rk3576-power.h>
+#endif
 
 / {
 	metadata {

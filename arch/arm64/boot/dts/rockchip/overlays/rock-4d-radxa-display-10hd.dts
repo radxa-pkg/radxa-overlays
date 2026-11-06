@@ -5,6 +5,7 @@
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/pinctrl/rockchip.h>
 #include <dt-bindings/pwm/pwm.h>
+#include <generated/uapi/linux/version.h>
 
 / {
 	metadata {
@@ -104,7 +105,14 @@
 
 		vdd-supply = <&vcc_lcd_mipi>;
 		vccio-supply = <&vcc_1v8_s0>;
+		/*
+		 * uses logical 0 on Linux 6.12+ and logical 1 on the 6.1 BSP.
+		 */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 12, 0)
+		reset-gpios = <&gpio3 RK_PA0 GPIO_ACTIVE_LOW>;
+#else
 		reset-gpios = <&gpio3 RK_PA0 GPIO_ACTIVE_HIGH>;
+#endif
 		pinctrl-names = "default";
 		pinctrl-0 = <&dsi_lcd_rst_gpio>;
 
