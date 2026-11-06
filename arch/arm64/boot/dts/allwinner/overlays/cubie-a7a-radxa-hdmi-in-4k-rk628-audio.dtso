@@ -4,11 +4,11 @@
 
 / {
 	metadata {
-		title = "Enable RK628F I2S audio capture";
+		title = "Enable Radxa 4K HDMI IN to MIPI CSI-2 Adapter (I2S audio)";
 		compatible = "radxa,cubie-a7a";
 		category = "misc";
 		exclusive = "i2s4_plat", "i2s4_mach", "PK0", "PK2", "PK3";
-		description = "Enable RK628F I2S audio capture
+		description = "Enable Radxa 4K HDMI IN to MIPI CSI-2 Adapter (I2S audio).
 Receive stereo I2S from RK628F on the 40-pin header.
 Pin 12 BCLK, pin 35 LRCK, pin 38 DIN and pin 39 GND.
 RK628F supplies both clocks. Two 32-bit slots; no MCLK or DOUT connection.

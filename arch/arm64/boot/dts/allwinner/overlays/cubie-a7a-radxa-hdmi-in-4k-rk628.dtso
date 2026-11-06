@@ -11,7 +11,7 @@
 		compatible = "radxa,cubie-a7a";
 		category = "camera";
 		exclusive = "vind0", "csi1", "PE3", "PE4", "PE8", "PE9", "PE15";
-		description = "Enable Radxa 4K HDMI IN to MIPI CSI-2 Adapter
+		description = "Enable Radxa 4K HDMI IN to MIPI CSI-2 Adapter.
 Enable RK628F HDMI capture through the 31-pin 4-lane CSI connector.
 Requires the RK628F VIN driver.
 Audio is not connected through this connector.
