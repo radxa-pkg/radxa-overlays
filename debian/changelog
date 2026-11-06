@@ -1,4 +1,4 @@
-radxa-overlays (0.2.33) UNRELEASED; urgency=medium
+radxa-overlays (0.2.33) noble; urgency=medium
 
   [ Songjun Li ]
   * arm64: dts: qcom: Clarify Q6A touchscreen description
@@ -11,11 +11,21 @@ radxa-overlays (0.2.33) UNRELEASED; urgency=medium
   * arm64: dts: allwinner: add A7A Raspberry Pi 7-inch display
   * arm64: dts: allwinner: add A7Z Raspberry Pi 7-inch display
   * arm64: dts: allwinner: add A7Z Raspberry Pi 7 inch Touch Display 2
+  * arm64: dts: allwinner: add A7A Raspberry Pi 7 inch Touch Display 2
 
   [ ZHANG Yuntian ]
   * fix: clarify source license
 
- -- "Radxa Computer (Shenzhen) Co., Ltd." <dev@radxa.com>  Fri, 30 Oct 2026 10:59:34 +0000
+  [ Xinming Chen ]
+  * feat: add ROCK 4D AR0234 camera overlays
+  * feat: add ROCK 4D IMX577 camera overlays
+  * feat: add CM4 IMX577 overlays for CAM1, CAM2 and CAM3
+  * fix: remove unused IMX577 clock setup on ROCK 5A/5C
+
+  [ Xilin Wu ]
+  * feat: add RK628 HDMI input overlays for Dragon Q6A
+
+ -- "Radxa Computer (Shenzhen) Co., Ltd." <dev@radxa.com>  Fri, 06 Nov 2026 03:17:07 +0000
 
 radxa-overlays (0.2.32) noble; urgency=medium
 
