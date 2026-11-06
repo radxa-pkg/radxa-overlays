@@ -1,0 +1,40 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2026 Radxa Computer (Shenzhen) Co., Ltd.
+ */
+
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+#include <dt-bindings/clock/qcom,camcc-sc7280.h>
+#include <dt-bindings/clock/qcom,gcc-sc7280.h>
+#include <dt-bindings/interconnect/qcom,icc.h>
+#include <dt-bindings/interconnect/qcom,sc7280.h>
+#include <dt-bindings/regulator/qcom,rpmh-regulator.h>
+#include <dt-bindings/power/qcom,rpmhpd.h>
+#include "qcs6490-camera.dtsi"
+
+&{/reserved-memory} {
+	camera_mem: camera@84300000 {
+		reg = <0x0 0x84300000 0x0 0x500000>;
+		no-map;
+	};
+};
+
+/* Mainline CAMSS/CCI and CAMX use the same hardware. */
+&cci0 { status = "disabled"; };
+&cci1 { status = "disabled"; };
+&camss { status = "disabled"; };
+
+&soc {
+	/* Required for sensor GPIO ownership in the CAMX driver. */
+	qcom,cam-res-mgr {
+		compatible = "qcom,cam-res-mgr";
+		status = "okay";
+	};
+	/* Provides /dev/dma_heap/qcom,system for CAMX/FastRPC. */
+	qcom,dma-heaps {
+		compatible = "qcom,dma-heaps";
+	};
+};
+
+/* Keep all IFE/CSID nodes enabled: CamX InitCaps needs the full table. */
