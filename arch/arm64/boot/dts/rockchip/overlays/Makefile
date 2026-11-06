@@ -446,6 +446,7 @@ dtb-$(CONFIG_CPU_RK3576) += \
 	rock-4d-radxa-display-10fhd.dtbo \
 	rock-4d-radxa-display-10hd.dtbo \
 	rock-4d-raspberrypi-7inch-touchscreen.dtbo \
+	rock-4d-raspberrypi-7inch-touchscreen-2.dtbo \
 	rock-4d-rpi-camera-v1_3.dtbo \
 	rock-4d-rpi-camera-v2.dtbo \
 	rock-4d-rpi-camera-v3.dtbo
