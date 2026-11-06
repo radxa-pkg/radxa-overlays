@@ -1,0 +1,12 @@
+#include "rk3588-dwc3-host.dtso"
+
+/ {
+	metadata {
+		compatible = "radxa,cm5-io";
+	};
+};
+
+&vbus5v0_typec {
+	regulator-always-on;
+        regulator-boot-on;
+};
