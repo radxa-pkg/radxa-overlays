@@ -287,6 +287,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rock-3a-pice2.dtbo \
 	rock-3a-radxa-5inch-touchscreen.dtbo \
 	rock-3a-radxa-25w-poe.dtbo \
+	rock-3a-radxa-hdmi-in-4k-rk628.dtbo \
 	rock-3a-sata0.dtbo \
 	rock-3a-sata1.dtbo \
 	rock-3a-sata2.dtbo \
