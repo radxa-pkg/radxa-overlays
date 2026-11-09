@@ -21,6 +21,7 @@ dtb-$(CONFIG_ARCH_SUN55IW3) += \
 	sun55iw3p1-usbc0-host.dtbo \
 	cubie-a5e-enable-usb3.dtbo \
 	cubie-a5e-raspberry-pi-7-inch-touchscreen.dtbo \
+	cubie-a5e-raspberry-pi-7-inch-touchscreen-2.dtbo \
 	cubie-a5e-radxa-camera-8m-219.dtbo \
 	cubie-a5e-radxa-camera-13m-214.dtbo \
 	cubie-a5e-radxa-camera-4k-415.dtbo \
