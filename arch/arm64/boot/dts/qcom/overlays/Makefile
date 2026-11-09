@@ -1,4 +1,8 @@
 # SPDX-License-Identifier: GPL-2.0
+# Standalone builds provide KERNELRELEASE instead of Kbuild version variables.
+VERSION ?= $(word 1,$(subst ., ,$(KERNELRELEASE)))
+PATCHLEVEL ?= $(word 2,$(subst ., ,$(KERNELRELEASE)))
+
 # dtso can only build on kernel >= 6.2
 # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=363547d2191cbc32ca954ba75d72908712398ff2
 ifeq ($(shell [ $(VERSION) -gt 6 ] || ( [ $(VERSION) -eq 6 ] && [ $(PATCHLEVEL) -ge 2 ] ) && echo 0), 0)
