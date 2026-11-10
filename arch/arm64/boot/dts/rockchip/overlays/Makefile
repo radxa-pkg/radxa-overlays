@@ -304,6 +304,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rock-3b-hdmi-and-sharp-lq133t1jw01-edp-lcd.dtbo \
 	rock-3b-radxa-5inch-touchscreen.dtbo \
 	rock-3b-radxa-25w-poe.dtbo \
+	rock-3b-radxa-hdmi-in-4k-rk628.dtbo \
 	rock-3b-raspberrypi-7inch-touchscreen.dtbo \
 	rock-3b-sata2.dtbo \
 	rock-3c-okdo-5mp-camera.dtbo \
