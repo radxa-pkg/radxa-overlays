@@ -19,8 +19,8 @@
 	imx577_cam2_power: imx577-cam2-power {
 		compatible = "regulator-fixed";
 		regulator-name = "imx577_cam2_power";
-		regulator-always-on;
 		startup-delay-us = <250000>;
+		off-on-delay-us = <20000>;
 		enable-active-high;
 		gpio = <&gpio2 RK_PD1 GPIO_ACTIVE_HIGH>;
 		pinctrl-names = "default";
@@ -40,6 +40,7 @@
 		compatible = "sony,imx577";
 		reg = <0x1a>;
 		power-domains = <&power RK3576_PD_VI>;
+		avdd-supply = <&imx577_cam2_power>;
 		rockchip,camera-module-index = <1>;
 		rockchip,camera-module-facing = "back";
 		rockchip,camera-module-name = "RADXA-CAMERA-12M";
