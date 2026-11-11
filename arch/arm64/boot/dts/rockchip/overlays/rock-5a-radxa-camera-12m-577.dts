@@ -10,7 +10,7 @@
 		title = "Enable Radxa Camera 12M 577";
 		compatible = "radxa,rock-5a", "radxa,rock-5c";
 		category = "camera";
-		exclusive = "GPIO1_D2","GPIO1_D3","csi2_dphy0","i2c3";
+		exclusive = "GPIO1_D3", "csi2_dphy0", "i2c3";
 		description = "Enable Radxa Camera 12M 577.";
 	};
 };
@@ -19,7 +19,8 @@
 	camera_power_gpio: camera-power-gpio {
 		compatible = "regulator-fixed";
 		regulator-name = "camera_power_gpio";
-		regulator-always-on;
+		startup-delay-us = <250000>;
+		off-on-delay-us = <20000>;
 		enable-active-high;
 		gpio = <&gpio1 RK_PD3 GPIO_ACTIVE_HIGH>;
 		pinctrl-names = "default";
@@ -37,7 +38,7 @@
 		compatible = "sony,imx577";
 		reg = <0x1a>;
 		power-domains = <&power RK3588_PD_VI>;
-		reset-gpios = <&gpio1 RK_PD2 GPIO_ACTIVE_HIGH>;
+		avdd-supply = <&camera_power_gpio>;
 		rockchip,camera-module-index = <0>;
 		rockchip,camera-module-facing = "back";
 		rockchip,camera-module-name = "RADXA-CAMERA-12M";
