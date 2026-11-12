@@ -1,4 +1,4 @@
-#include "radxa-nx4-c200-radxa-camera-8m-219-on-cam0.dts"
+#include "radxa-nx4-c200-radxa-camera-8m-219-on-cam0.dtso"
 
 / {
 	metadata {

@@ -1,6 +1,8 @@
 /dts-v1/;
 /plugin/;
 
+#include <dt-bindings/thermal/thermal.h>
+
 / {
 	metadata {
 		title = "Enable Arm Mali GPU driver";
@@ -19,4 +21,12 @@ This will disable opensource Panthor driver";
 &gpu_mali {
 	status = "okay";
 	mali-supply = <&vdd_gpu_s0>;
+};
+
+&little_core_thermal {
+	cooling-maps {
+		map2 {
+			cooling-device = <&gpu_mali THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
+		};
+	};
 };
