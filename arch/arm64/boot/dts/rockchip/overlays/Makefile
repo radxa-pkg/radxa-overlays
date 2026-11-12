@@ -441,6 +441,8 @@ dtb-$(CONFIG_CPU_RK3576) += \
 	radxa-nx4-c200-rpi-camera-v1p3-on-cam1.dtbo \
 	radxa-nx4-c200-rpi-camera-v2-on-cam0.dtbo \
 	radxa-nx4-c200-rpi-camera-v2-on-cam1.dtbo \
+	radxa-nx4-c200-rpi-camera-v3-on-cam0.dtbo \
+	radxa-nx4-c200-rpi-camera-v3-on-cam1.dtbo \
 	rk3576-can0-m3.dtbo \
 	rk3576-can1-m1.dtbo \
 	rk3576-can1-m2.dtbo \
@@ -459,7 +461,8 @@ dtb-$(CONFIG_CPU_RK3576) += \
 	rock-4d-radxa-display-10fhd.dtbo \
 	rock-4d-radxa-display-10hd.dtbo \
 	rock-4d-rpi-camera-v1_3.dtbo \
-	rock-4d-rpi-camera-v2.dtbo
+	rock-4d-rpi-camera-v2.dtbo \
+	rock-4d-rpi-camera-v3.dtbo
 endif
 
 dtb-$(CONFIG_CLK_RK3588) += \
