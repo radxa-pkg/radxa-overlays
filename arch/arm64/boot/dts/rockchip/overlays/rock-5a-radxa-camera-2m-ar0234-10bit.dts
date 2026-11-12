@@ -9,8 +9,21 @@
 		title = "Enable Radxa Camera 2M AR0234 with RAW10 format";
 		compatible = "radxa,rock-5a", "radxa,rock-5c";
 		category = "camera";
-		exclusive = "csi2_dphy0";
+		exclusive = "GPIO1_D3", "csi2_dphy0", "i2c3";
 		description = "Enable Radxa Camera 2M AR0234 with RAW10 format.";
+	};
+};
+
+&{/} {
+	camera_pwdn_gpio: camera-pwdn-gpio {
+		compatible = "regulator-fixed";
+		regulator-name = "camera_pwdn_gpio";
+		regulator-always-on;
+		regulator-boot-on;
+		enable-active-high;
+		gpio = <&gpio1 RK_PD3 GPIO_ACTIVE_HIGH>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&cam_pwdn_gpio>;
 	};
 };
 
@@ -150,6 +163,14 @@
 		isp0_vir0: endpoint@0 {
 			reg = <0>;
 			remote-endpoint = <&mipi_lvds2_sditf>;
+		};
+	};
+};
+
+&pinctrl {
+	camera {
+		cam_pwdn_gpio: cam-pwdn-gpio {
+			rockchip,pins = <1 RK_PD3 RK_FUNC_GPIO &pcfg_pull_up>;
 		};
 	};
 };
