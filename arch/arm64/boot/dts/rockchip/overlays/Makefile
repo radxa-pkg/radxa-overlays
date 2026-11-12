@@ -613,6 +613,8 @@ dtb-$(CONFIG_CPU_RK3588) += \
 	radxa-cm5-io-radxa-display-8hd.dtbo \
 	radxa-cm5-io-radxa-camera-4k.dtbo \
 	radxa-cm5-io-radxa-camera-8m.dtbo \
+	radxa-cm5-io-radxa-camera-12m-577-2lane.dtbo \
+	radxa-cm5-io-radxa-camera-12m-577-4lane.dtbo \
 	radxa-cm5-io-radxa-camera-13m-214.dtbo \
 	radxa-cm5-io-radxa-display-10fhd.dtbo \
 	radxa-cm5-io-radxa-display-10hd.dtbo \
