@@ -314,6 +314,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rock-3c-rpi-camera-v1p3.dtbo \
 	rock-3c-rpi-camera-v2.dtbo \
 	rock-3c-radxa-camera-8m.dtbo \
+	rock-3c-radxa-camera-12m-577.dtbo \
 	rock-3c-radxa-hdmi-in-4k-rk628.dtbo \
 	# end of list
 

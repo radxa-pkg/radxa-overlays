@@ -1,0 +1,132 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+
+/ {
+	metadata {
+		title = "Enable Radxa Camera 12M 577";
+		compatible = "radxa,rock-3c";
+		category = "camera";
+		exclusive = "GPIO0_C4", "GPIO3_C6", "csi2_dphy0", "i2c2";
+		description = "Enable Radxa Camera 12M 577.";
+	};
+};
+
+&{/} {
+	vcc_camera: vcc-camera {
+		status = "okay";
+		compatible = "regulator-fixed";
+		regulator-name = "vcc_camera";
+		gpio = <&gpio0 RK_PC4 GPIO_ACTIVE_HIGH>;
+		enable-active-high;
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		startup-delay-us = <250000>;
+		off-on-delay-us = <20000>;
+	};
+
+	camera_pwdn_gpio: camera-pwdn-gpio {
+		status = "okay";
+		compatible = "regulator-fixed";
+		regulator-name = "camera_pwdn_gpio";
+		regulator-always-on;
+		regulator-boot-on;
+		enable-active-high;
+		gpio = <&gpio3 RK_PC6 GPIO_ACTIVE_HIGH>;
+	};
+};
+
+&i2c2 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c2m1_xfer>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	imx577: imx577@1a {
+		status = "okay";
+		compatible = "sony,imx577";
+		reg = <0x1a>;
+		avdd-supply = <&vcc_camera>;
+		rockchip,camera-module-index = <0>;
+		rockchip,camera-module-facing = "back";
+		rockchip,camera-module-name = "RADXA-CAMERA-12M";
+		rockchip,camera-module-lens-name = "default";
+
+		port {
+			imx577_out: endpoint {
+				remote-endpoint = <&mipi_in_ucam0>;
+				data-lanes = <1 2>;
+				link-frequencies = /bits/ 64 <450000000>;
+			};
+		};
+	};
+};
+
+&csi2_dphy_hw {
+	status = "okay";
+};
+
+&csi2_dphy0 {
+	status = "okay";
+
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		port@0 {
+			reg = <0>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			mipi_in_ucam0: endpoint@1 {
+				reg = <1>;
+				remote-endpoint = <&imx577_out>;
+				data-lanes = <1 2>;
+			};
+		};
+
+		port@1 {
+			reg = <1>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			dphy0_out: endpoint@1 {
+				reg = <1>;
+				remote-endpoint = <&isp0_in>;
+			};
+		};
+	};
+};
+
+&rkisp_vir0 {
+	status = "okay";
+
+	port {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		isp0_in: endpoint@0 {
+			reg = <0>;
+			remote-endpoint = <&dphy0_out>;
+		};
+	};
+};
+
+&rkisp {
+	status = "okay";
+};
+
+&rkisp_mmu {
+	status = "okay";
+};
+
+&rkcif_mmu {
+	status = "okay";
+};
+
+&rkcif {
+	status = "okay";
+};
