@@ -633,6 +633,8 @@ dtb-$(CONFIG_CPU_RK3588) += \
 	radxa-cm5-rpi-cm4-io-rpi-camera-v2-cam1.dtbo \
 	radxa-cm5-rpi-cm4-io-okdo-5mp-cam0.dtbo \
 	radxa-cm5-rpi-cm4-io-okdo-5mp-cam1.dtbo \
+	radxa-cm5-rpi-cm4-io-radxa-camera-2m-ar0234-cam0-10bit.dtbo \
+	radxa-cm5-rpi-cm4-io-radxa-camera-2m-ar0234-cam1-10bit.dtbo \
 	radxa-cm5-rpi-cm4-io-radxa-camera-8m-219-cam0.dtbo \
 	radxa-cm5-rpi-cm4-io-radxa-camera-8m-219-cam1.dtbo \
 	radxa-cm5-rpi-cm4-io-radxa-camera-12m-577-cam0.dtbo \
