@@ -14,6 +14,19 @@
 	};
 };
 
+&{/} {
+	ar0234_4lane_pwdn: ar0234-4lane-pwdn {
+		compatible = "regulator-fixed";
+		regulator-name = "ar0234_4lane_pwdn";
+		regulator-always-on;
+		regulator-boot-on;
+		enable-active-high;
+		gpio = <&gpio3 RK_PD0 GPIO_ACTIVE_HIGH>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&ar0234_4lane_pwdn_pin>;
+	};
+};
+
 &i2c5 {
 	status = "okay";
 	pinctrl-names = "default";
@@ -25,7 +38,6 @@
 		status = "okay";
 		compatible = "onnn,ar0234cs";
 		reg = <0x10>;
-		reset-gpios = <&gpio3 RK_PD0 GPIO_ACTIVE_HIGH>;
 		rockchip,camera-module-index = <0>;
 		rockchip,camera-module-facing = "back";
 		rockchip,camera-module-name = "default";
@@ -158,6 +170,14 @@
 		isp_vir1: endpoint@0 {
 			reg = <0>;
 			remote-endpoint = <&mipi_lvds1_sditf>;
+		};
+	};
+};
+
+&pinctrl {
+	camera {
+		ar0234_4lane_pwdn_pin: ar0234-4lane-pwdn-pin {
+			rockchip,pins = <3 RK_PD0 RK_FUNC_GPIO &pcfg_pull_up>;
 		};
 	};
 };
