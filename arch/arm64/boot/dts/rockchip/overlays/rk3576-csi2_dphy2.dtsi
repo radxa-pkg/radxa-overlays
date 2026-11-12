@@ -119,7 +119,7 @@
 	};
 };
 
-&rkisp_vir0_sditf {
+&rkisp_vir2_sditf {
 	status = "okay";
 };
 
@@ -131,6 +131,6 @@
 	status = "okay";
 };
 
-&rkvpss_vir0 {
+&rkvpss_vir2 {
 	status = "okay";
 };
