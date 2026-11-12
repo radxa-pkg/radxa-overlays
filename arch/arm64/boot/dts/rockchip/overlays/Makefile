@@ -374,6 +374,8 @@ dtb-$(CONFIG_CPU_RK3568) += \
 	rock-3c-radxa-display-8hd.dtbo \
 	rock-3c-radxa-display-10hd.dtbo
 
+# dtso can only build on kernel >= 6.2
+ifeq ($(shell [ $(VERSION) -gt 6 ] || ( [ $(VERSION) -eq 6 ] && [ $(PATCHLEVEL) -ge 2 ] ) && echo 0), 0)
 dtb-$(CONFIG_CLK_RK3576) += \
 	rk3576-disable-fiq-debugger.dtbo \
 	rk3576-dwc3-host.dtbo \
@@ -447,6 +449,7 @@ dtb-$(CONFIG_CPU_RK3576) += \
 	rock-4d-radxa-display-10hd.dtbo \
 	rock-4d-rpi-camera-v1_3.dtbo \
 	rock-4d-rpi-camera-v2.dtbo
+endif
 
 dtb-$(CONFIG_CLK_RK3588) += \
 	radxa-nx5-io-okdo-camera-5mp-cam0.dtbo \
@@ -716,10 +719,12 @@ dtb-$(CONFIG_CPU_RK3588) += \
 	rock-5t-radxa-display-10fhd.dtbo \
 	rock-5t-radxa-display-10hd.dtbo
 
+ifeq ($(shell [ $(VERSION) -gt 6 ] || ( [ $(VERSION) -eq 6 ] && [ $(PATCHLEVEL) -ge 2 ] ) && echo 0), 0)
 dtb-$(CONFIG_ARCH_ROCKCHIP) += \
 	rockchip-gpu-disable.dtbo \
 	rockchip-watchdog.dtbo \
 	rockchip-uart-dma.dtbo
+endif
 
 dtbotxt-$(CONFIG_ARCH_ROCKCHIP) += \
 	README.overlays
@@ -728,3 +733,7 @@ targets += $(dtb-y) $(dtbotxt-y)
 
 always-y		:= $(dtb-y) $(dtbotxt-y)
 clean-files		:= *.dtbo *.scr
+
+# Packaged headers may omit DTC and its include-prefixes directory.
+DTC ?= /usr/bin/dtc
+override DTC_INCLUDE := $(srctree)/include
