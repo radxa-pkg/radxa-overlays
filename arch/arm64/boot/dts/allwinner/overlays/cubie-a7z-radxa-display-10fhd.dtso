@@ -135,7 +135,7 @@
 	pinctrl-names = "default", "sleep";
 	twi_drv_used = <1>;
 	no_suspend = <1>;
-	twi-supply = <&reg_dc1sw1>;
+	twi-supply = <&reg_bldo2>;
 	status = "okay";
 
 	gt9271@5d {
