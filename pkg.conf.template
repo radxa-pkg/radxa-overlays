@@ -1,14 +1,8 @@
 {
   "*": {
     "Releases": [
-      "buster",
-      "buster-test",
-      "bullseye",
-      "bullseye-test",
-      "bookworm",
-      "bookworm-test",
-      "sid",
-      "sid-test",
+      "rk3576-trixie",
+      "rk3576-trixie-test",
       "a527-trixie",
       "a527-trixie-test",
       "a733-trixie",                                                                                                                                
