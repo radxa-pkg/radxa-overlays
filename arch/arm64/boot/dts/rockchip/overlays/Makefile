@@ -640,6 +640,8 @@ dtb-$(CONFIG_CPU_RK3588) += \
 	rock-5-itx-hdmi1-8k.dtbo \
 	rock-5-itx-okdo-5mp-camera-on-cam0.dtbo \
 	rock-5-itx-okdo-5mp-camera-on-cam1.dtbo \
+	rock-5-itx-radxa-camera-2m-ar0234-10bit-on-cam0.dtbo \
+	rock-5-itx-radxa-camera-2m-ar0234-10bit-on-cam1.dtbo \
 	rock-5-itx-radxa-camera-4k-on-cam0.dtbo \
 	rock-5-itx-radxa-camera-4k-on-cam1.dtbo \
 	rock-5-itx-radxa-camera-8m-219-on-cam0.dtbo \
