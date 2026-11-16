@@ -1,6 +1,8 @@
 {
   "*": {
     "Releases": [
+      "bookworm",
+      "bookworm-test",
       "rk3576-trixie",
       "rk3576-trixie-test",
       "a527-trixie",
