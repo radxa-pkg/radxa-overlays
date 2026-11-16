@@ -29,6 +29,7 @@ dtb-$(CONFIG_ARCH_SUN55IW3) += \
 	cubie-a5e-radxa-display-10fhd.dtbo 
 
 dtb-$(CONFIG_ARCH_SUN60IW2) += \
+	cm-a7-rpi-cm5-io-raspberry-pi-7-inch-touchscreen.dtbo \
 	cm-a7-rpi-cm5-io-radxa-camera-8m-219.dtbo \
 	cm-a7-rpi-cm5-io-waveshare-camera-4k-415.dtbo \
 	sun60iw2p1-i2s0-2ch.dtbo \
