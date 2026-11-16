@@ -1,0 +1,218 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/gpio/sun4i-gpio.h>
+#include <dt-bindings/display/sunxi-lcd.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/*
+ * These flags are missing from the sunxi-lcd.h DT bindings.
+ * Match drm_mipi_dsi.h, whose C declarations cannot be included in DTS.
+ */
+#define MIPI_DSI_MODE_VIDEO_SYNC_PULSE (1 << 2)
+#define MIPI_DSI_MODE_VIDEO_HSE (1 << 4)
+#define MIPI_DSI_MODE_LPM (1 << 11)
+
+/ {
+	metadata {
+		title = "Enable Raspberry Pi 7-inch Display";
+		compatible = "radxa,cm-a7-rpi-cm5-io";
+		category = "display";
+		exclusive = "dlcd0", "dsi0", "dsi0combophy", "twi4", "PG0",
+			    "PD0", "PD1", "PD2", "PD3", "PD4", "PD5", "PD6", "PD7", "PD8", "PD9",
+			    "PE10", "PE11";
+		description = "Enable Raspberry Pi 7-inch Display.
+Connect J16 (CAM/DISP1, A733 DSI0) using a 22-to-15-pin display cable.
+Fit J6 jumpers 1-2 and 3-4 for TWI4 and supply the display with 5V/GND
+Connect touch INT to J8 physical pin 7 (PG0); use 3.3V GPIO_VREF.";
+	};
+};
+
+&{/} {
+	/* Power the ATTINY-controlled supply before releasing the bridge reset. */
+	rpi7_bridge_power: regulator-rpi7-bridge {
+		compatible = "regulator-fixed";
+		regulator-name = "rpi7-bridge";
+		vin-supply = <&rpi7_power>;
+		gpio = <&rpi7_power 0 GPIO_ACTIVE_HIGH>;
+		enable-active-high;
+	};
+
+	rpi7_panel: panel-rpi7 {
+		compatible = "allwinner,panel-dsi";
+		status = "okay";
+		/* Keep the SoM display rail on independently of the PE-bank I2C bus. */
+		power-num = <2>;
+		power0-supply = <&reg_bldo2>;
+		power1-supply = <&rpi7_bridge_power>;
+		power-delay-ms = <100>;
+		gpio-num = <0>;
+		backlight = <&rpi7_power>;
+		width-mm = <154>;
+		height-mm = <86>;
+		dsi,flags = <(MIPI_DSI_MODE_VIDEO | MIPI_DSI_MODE_VIDEO_SYNC_PULSE |
+			      MIPI_DSI_MODE_VIDEO_HSE | MIPI_DSI_MODE_LPM)>;
+		dsi,lanes = <1>;
+		dsi,format = <0>;
+
+		/* TC358762 generic writes: little-endian 16-bit address, 32-bit value. */
+		panel-init-sequence = [
+			29 00 06 10 02 03 00 00 00 /* DSI_LANEENABLE: clock and lane 0 */
+			29 00 06 64 01 05 00 00 00 /* PPI_D0S_CLRSIPOCOUNT */
+			29 00 06 68 01 05 00 00 00 /* PPI_D1S_CLRSIPOCOUNT */
+			29 00 06 44 01 00 00 00 00 /* PPI_D0S_ATMR */
+			29 00 06 48 01 00 00 00 00 /* PPI_D1S_ATMR */
+			29 00 06 14 01 03 00 00 00 /* PPI_LPTXTIMECNT */
+			29 00 06 50 04 00 00 00 00 /* SPICMR */
+			29 00 06 20 04 50 01 1A 00 /* LCDCTRL: match the working TC358762 driver */
+			29 64 06 64 04 0F 04 00 00 /* SYSCTRL */
+			29 00 06 04 01 01 00 00 00 /* PPI_STARTPPI */
+			29 64 06 04 02 01 00 00 00 /* DSI_STARTDSI */
+		];
+
+		display-timings {
+			native-mode = <&rpi7_timing>;
+
+			rpi7_timing: timing0 {
+				clock-frequency = <30000000>;
+				hactive = <800>;
+				vactive = <480>;
+				/* Keep 978 x 511 total; non-Burst HSA needs 10 packet overhead bytes. */
+				hsync-len = <4>;
+				hback-porch = <43>;
+				hfront-porch = <131>;
+				vsync-len = <2>;
+				vback-porch = <22>;
+				vfront-porch = <7>;
+				hsync-active = <0>;
+				vsync-active = <0>;
+				de-active = <0>;
+				pixelclk-active = <0>;
+			};
+		};
+
+		port {
+			rpi7_panel_in: endpoint {
+				remote-endpoint = <&rpi7_panel_output>;
+			};
+		};
+	};
+};
+
+&dsi0combophy {
+	status = "okay";
+};
+
+&dlcd0 {
+	status = "okay";
+};
+
+&dsi0 {
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
+	pinctrl-0 = <&dsi0_4lane_pins_a>;
+	pinctrl-1 = <&dsi0_4lane_pins_b>;
+	pinctrl-names = "active", "sleep";
+
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		port@1 {
+			reg = <1>;
+			rpi7_dsi_out: endpoint {
+				remote-endpoint = <&rpi7_panel_input>;
+			};
+		};
+	};
+
+	panel@0 {
+		compatible = "allwinner,virtual-panel";
+		status = "okay";
+		reg = <0>;
+
+		ports {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			port@0 {
+				reg = <0>;
+				#address-cells = <1>;
+				#size-cells = <0>;
+
+				rpi7_panel_input: endpoint@0 {
+					reg = <0>;
+					remote-endpoint = <&rpi7_dsi_out>;
+				};
+			};
+
+			port@1 {
+				reg = <1>;
+				rpi7_panel_output: endpoint {
+					remote-endpoint = <&rpi7_panel_in>;
+				};
+			};
+		};
+	};
+};
+
+&twi4 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+	clock-frequency = <100000>;
+	pinctrl-0 = <&rpi7_twi4_pins_default>;
+	pinctrl-1 = <&rpi7_twi4_pins_sleep>;
+	pinctrl-names = "default", "sleep";
+	/* Use engine mode for the ATTINY controller's separate I2C transactions. */
+	twi_drv_used = <0>;
+	no_suspend = <1>;
+	/* VCC-PE follows the board\'s 3.3V GPIO_VREF supply. */
+	twi-supply = <&reg_dc1sw2>;
+	status = "okay";
+
+	rpi7_power: regulator@45 {
+		compatible = "raspberrypi,7inch-touchscreen-panel-regulator";
+		reg = <0x45>;
+		gpio-controller;
+		#gpio-cells = <2>;
+	};
+
+	/* J8 pin 7 (GPIO4 on CM5 IO) is A733 PG0. */
+	touchscreen@38 {
+		compatible = "edt,edt-ft5406";
+		reg = <0x38>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&rpi7_touch_irq>;
+		interrupt-parent = <&pio>;
+		interrupts = <PG 0 IRQ_TYPE_EDGE_FALLING>;
+		vcc-supply = <&rpi7_power>;
+		reset-gpios = <&rpi7_power 1 GPIO_ACTIVE_LOW>;
+		touchscreen-size-x = <800>;
+		touchscreen-size-y = <480>;
+		touchscreen-inverted-x;
+		touchscreen-inverted-y;
+		status = "okay";
+	};
+};
+
+&pio {
+	rpi7_touch_irq: rpi7-touch-irq {
+		pins = "PG0";
+		function = "irq";
+		bias-pull-up;
+	};
+
+	rpi7_twi4_pins_default: rpi7-twi4-active {
+		pins = "PE10", "PE11";
+		function = "twi4";
+		drive-strength = <10>;
+		bias-pull-up;
+	};
+
+	rpi7_twi4_pins_sleep: rpi7-twi4-sleep {
+		pins = "PE10", "PE11";
+		function = "gpio_in";
+	};
+};
