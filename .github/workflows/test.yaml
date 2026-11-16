@@ -69,7 +69,7 @@ jobs:
               KERNEL_HEADERS_URL=https://github.com/radxa-pkg/linux-a733/releases/download/5.15.147-21/linux-headers-5.15.147-21-a733_5.15.147-21_arm64.deb
               ;;
             linux-qcom)
-              KERNEL_HEADERS_URL=https://github.com/radxa-pkg/linux-qcom/releases/download/7.0.11-3/linux-headers-7.0.11-3-qcom_7.0.11-3_arm64.deb
+              KERNEL_HEADERS_URL=https://github.com/radxa-pkg/linux-qcom/releases/download/7.0.11-9/linux-headers-7.0.11-9-qcom_7.0.11-9_arm64.deb
               ;;
             linux-qc2509)
               KERNEL_HEADERS_URL=https://github.com/radxa-pkg/linux-qc2509/releases/download/6.8.12-5/linux-headers-6.8.12-5-qc2509_6.8.12-5_arm64.deb
@@ -100,7 +100,7 @@ jobs:
               make build-dtbo -j$(nproc) KERNELRELEASE=5.15.147-21-a733 CONFIG_ARCH_SUNXI=allwinner CONFIG_ARCH_SUN60IW2=allwinner CONFIG_ARCH_QCOM=n
               ;;
             linux-qcom)
-              make build-dtbo -j$(nproc) KERNELRELEASE=7.0.11-3-qcom
+              make build-dtbo -j$(nproc) KERNELRELEASE=7.0.11-9-qcom
               ;;
             linux-qc2509)
               make build-dtbo -j$(nproc) KERNELRELEASE=6.8.12-5-qc2509
