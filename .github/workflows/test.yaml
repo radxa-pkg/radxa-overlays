@@ -13,7 +13,6 @@ jobs:
     strategy:
       matrix:
         version:
-          - linux-stable
           - linux-rk2312
           - linux-rk2410
           - linux-rk2410-nocsf
@@ -50,9 +49,6 @@ jobs:
           sudo apt install -y --no-install-recommends device-tree-compiler
           sudo dpkg --add-architecture arm64
           case "${{ matrix.version }}" in
-            linux-stable)
-              exit 0
-              ;;
             linux-rk2312)
               KERNEL_HEADERS_URL=https://github.com/radxa-pkg/linux-rk2312/releases/download/6.1.43-26/linux-headers-6.1.43-26-rk2312_6.1.43-26_arm64.deb
               ;;
@@ -81,9 +77,6 @@ jobs:
         shell: bash
         run: |
           case "${{ matrix.version }}" in
-            linux-stable)
-              make build-dtbo -j$(nproc)
-              ;;
             linux-rk2312)
               make build-dtbo -j$(nproc) KERNELRELEASE=6.1.43-26-rk2312 CONFIG_ARCH_MESON=n CONFIG_CPU_RK3528=rockchip CONFIG_CPU_RK3588=rockchip CONFIG_ARCH_SUNXI=n CONFIG_ARCH_QCOM=n
               ;;
