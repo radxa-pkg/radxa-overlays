@@ -1,3 +1,66 @@
+radxa-overlays (0.2.34) noble; urgency=medium
+
+  [ Wang Yongsen ]
+  * arm64: dts: allwinner: add A5E Raspberry Pi 7-inch v1 display
+  * arm64: dts: allwinner: add A5E Raspberry Pi 7-inch Touch Display 2
+  * Revert "fix: cubie-a7a: radxa display: correct power supply"
+  * fix(overlays): restore BLDO2 as the A7Z display TWI supply
+  * feat: add CM-A7 Raspberry Pi CM5 IO 7-inch display
+  * feat: add CM-A7 Raspberry Pi CM5 IO 7-inch display 2
+
+  [ Jerry Liang ]
+  * feat: add ROCK 3A  Radxa 4K HDMI IN to MIPI CSI-2 Adapter overlays
+  * feat: add ROCK 3B  Radxa 4K HDMI IN to MIPI CSI-2 Adapter overlays
+
+  [ Feng Zhang ]
+  * feat(overlays): add Cubie A7A RK628F HDMI capture overlays
+
+  [ Xinming Chen ]
+  * fix: update IMX577 power and GPIO configuration on ROCK 5B
+  * feat: add ROCK 5B+ IMX577 camera overlays
+  * feat: add ROCK 5B+ AR0234 camera overlays
+  * feat: add ROCK 5B AR0234 camera overlay
+  * feat: add ROCK 5T AR0234 camera overlays
+  * feat: add ROCK 5T IMX577 camera overlays
+  * feat: add CM5 IO IMX577 camera overlays
+  * feat: add CM5 IO AR0234 camera overlays
+  * feat: add ROCK 5 ITX IMX577 camera overlays
+  * feat: add ROCK 5 ITX AR0234 camera overlays
+  * feat: add ROCK 3C IMX577 camera overlay
+  * feat: add ROCK 3C AR0234 camera overlay
+  * feat: add CM5 RPi CM4 IO IMX577 camera overlays
+  * feat: add CM5 RPi CM4 IO AR0234 camera overlays
+  * fix: correct IMX577 power and GPIO configuration on ROCK 5A/5C
+  * fix: correct IMX577 power sequencing on ROCK 4D
+  * fix: correct IMX577 power sequencing on CM4 IO
+  * fix: remove unused AR0234 reset GPIOs on ROCK 3A/3B
+  * fix: remove unused AR0234 reset GPIOs on ROCK 5A/5C
+  * fix: restore AR0234 PWDN control on ROCK 3A/3B
+  * fix: correct AR0234 PWDN control on ROCK 4D
+  * fix: add AR0234 PWDN control on ROCK 5A/5C
+
+  [ Peng Liu ]
+  * arm64: dts: rockchip: support RK3576 dtso overlays
+  * arm64: dts: rockchip: adapt RK3576 overlays to Linux 6.12
+  * arm64: dts: rockchip: add Raspberry Pi Camera V3 overlays
+  * arm64: dts: rockchip: add Raspberry Pi 7-inch touchscreens for ROCK 4D
+  * arm64: dts: rockchip: limit 10FHD overlay to CM4 IO
+  * feat: update overlay repository targets
+
+  [ Songjun Li ]
+  * fix: correct Raspberry Pi Touch Display 2 overlay for Q6A
+
+  [ Chongbiao Chen ]
+  * feat: add Q6A CAMX overlay for CAM1, CAM2 and CAM3
+  * fix: derive QCOM kernel version from KERNELRELEASE
+  * ci: update QCOM kernel to 7.0.11-9
+
+  [ ZHANG Yuntian ]
+  * fix: only build CAMX overlay on supported kernel
+  * fix: add back Debian 12 repo
+
+ -- "Radxa Computer (Shenzhen) Co., Ltd." <dev@radxa.com>  Mon, 16 Nov 2026 08:40:51 +0000
+
 radxa-overlays (0.2.33) noble; urgency=medium
 
   [ Songjun Li ]
