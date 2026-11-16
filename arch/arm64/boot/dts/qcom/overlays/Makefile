@@ -15,7 +15,6 @@ dtb-$(CONFIG_ARCH_QCOM) += qcs6490-radxa-cm-q64-rpi-cm5-io-cam0-imx219.dtbo \
 	qcs6490-radxa-dragon-q6a-cam1-imx577.dtbo \
 	qcs6490-radxa-dragon-q6a-cam1-radxa-4k-hdmi-in-rk628.dtbo \
 	qcs6490-radxa-dragon-q6a-cam1-radxa-camera-4k.dtbo \
-	qcs6490-radxa-dragon-q6a-camx-multi.dtbo \
 	qcs6490-radxa-dragon-q6a-cam1-radxa-camera-13m-214.dtbo \
 	qcs6490-radxa-dragon-q6a-cam2-radxa-camera-8m-219.dtbo \
 	qcs6490-radxa-dragon-q6a-cam3-imx708.dtbo \
@@ -72,6 +71,12 @@ dtb-$(CONFIG_ARCH_QCOM) += qcs6490-radxa-cm-q64-rpi-cm5-io-cam0-imx219.dtbo \
 	sc8280xp-uart20.dtbo \
 	sc8280xp-usb0-peripheral.dtbo \
 	sc8280xp-usb1-peripheral.dtbo \
+
+# CAMX is provided by DKMS; its DT binding header is not in every kernel.
+# Standalone builds use KSRC, while in-tree Kbuild uses srctree.
+ifneq ($(wildcard $(if $(KSRC),$(KSRC),$(srctree))/include/dt-bindings/camera/msm-camera.h),)
+dtb-$(CONFIG_ARCH_QCOM) += qcs6490-radxa-dragon-q6a-camx-multi.dtbo
+endif
 
 # QCS9075 overlays require the qc2509 vendor kernel.
 ifneq ($(filter %-qc2509,$(KERNELRELEASE)),)
