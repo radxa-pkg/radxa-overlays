@@ -193,9 +193,6 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	radxa-cm3s-io-csi1-rpi-camera-v1p3.dtbo \
 	radxa-cm3s-io-csi1-rpi-camera-v2.dtbo \
 	radxa-cm3s-io-csi1-radxa-camera-8m.dtbo \
-	radxa-cm4-rpi-cm4-io-radxa-camera-8m-219-cam0.dtbo \
-	radxa-cm4-rpi-cm4-io-radxa-camera-8m-219-cam1.dtbo \
-	radxa-cm4-rpi-cm4-io-raspberrypi-7inch-touchscreen.dtbo \
 	rk3568-can0-m0.dtbo \
 	rk3568-can1-m0.dtbo \
 	rk3568-can1-m1.dtbo \
@@ -435,6 +432,9 @@ dtb-$(CONFIG_CPU_RK3576) += \
 	radxa-cm4-io-rpi-camera-v1p3-on-cam2.dtbo \
 	radxa-cm4-io-rpi-camera-v2-on-cam1.dtbo \
 	radxa-cm4-io-rpi-camera-v2-on-cam2.dtbo \
+	radxa-cm4-rpi-cm4-io-radxa-camera-8m-219-cam0.dtbo \
+	radxa-cm4-rpi-cm4-io-radxa-camera-8m-219-cam1.dtbo \
+	radxa-cm4-rpi-cm4-io-raspberrypi-7inch-touchscreen.dtbo \
 	radxa-nx4-c200-radxa-camera-8m-219-on-cam0.dtbo \
 	radxa-nx4-c200-radxa-camera-8m-219-on-cam1.dtbo \
 	radxa-nx4-c200-rpi-camera-v1p3-on-cam0.dtbo \
