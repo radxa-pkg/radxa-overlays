@@ -55,13 +55,10 @@ dtb-$(CONFIG_ARCH_MESON) += \
 	radxa-zero2-radxa-25w-poe.dtbo \
 	radxa-zero2-radxa-display-8hd.dtbo
 
-dtbotxt-$(CONFIG_ARCH_MESON) += \
-	README.overlays
+targets += $(dtb-y)
 
-targets += $(dtb-y) $(dtbotxt-y)
-
-always-y		:= $(dtb-y) $(dtbotxt-y)
-clean-files		:= *.dtbo *.scr
+always-y		:= $(dtb-y)
+clean-files		:= *.dtbo
 
 # HACK: fix build dtbo from dkms using kernel header
 DTC						?=	/usr/bin/dtc

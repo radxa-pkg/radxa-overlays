@@ -80,7 +80,7 @@ dtb-$(CONFIG_ARCH_SUN60IW2) += \
 targets += $(dtb-y)
 
 always-y		:= $(dtb-y)
-clean-files		:= *.dtbo *.scr
+clean-files		:= *.dtbo
 
 # HACK: fix build dtbo from dkms using kernel header
 DTC						?=	/usr/bin/dtc
