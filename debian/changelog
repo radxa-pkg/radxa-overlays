@@ -1,3 +1,11 @@
+radxa-overlays (0.2.35) noble; urgency=medium
+
+  [ ZHANG Yuntian ]
+  * feat: add linux-rk2606 test
+  * fix: use dtso with linux-rk2606
+
+ -- "Radxa Computer (Shenzhen) Co., Ltd." <dev@radxa.com>  Tue, 17 Nov 2026 03:53:07 +0000
+
 radxa-overlays (0.2.34) noble; urgency=medium
 
   [ Wang Yongsen ]
