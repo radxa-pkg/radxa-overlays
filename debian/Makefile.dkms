@@ -1,5 +1,2 @@
-subdir-y += arch/arm64/boot/dts/allwinner/overlays
-subdir-y += arch/arm64/boot/dts/amlogic/overlays
-subdir-y += arch/arm64/boot/dts/rockchip/overlays
-subdir-y += arch/arm64/boot/dts/qcom/overlays
+subdir-y += arch/arm64/boot/dts
 obj-m := radxa-overlays.o
