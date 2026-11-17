@@ -1,8 +1,4 @@
 # SPDX-License-Identifier: GPL-2.0
-# dtso can only build on kernel >= 6.2
-# https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=363547d2191cbc32ca954ba75d72908712398ff2
-ifeq ($(shell [ $(VERSION) -gt 6 ] || ( [ $(VERSION) -eq 6 ] && [ $(PATCHLEVEL) -ge 2 ] ) && echo 0), 0)
-
 dtb-$(CONFIG_ARCH_SUN55IW3) += \
 	sun55iw3p1-pwm0-7.dtbo \
 	sun55iw3p1-spi1-enc28j60.dtbo \
@@ -86,4 +82,8 @@ clean-files		:= *.dtbo
 DTC						?=	/usr/bin/dtc
 override DTC_INCLUDE	:=	$(srctree)/include
 
+# Kernels before 6.2 only provide a .dts-to-.dtbo rule.
+ifeq ($(shell [ $(VERSION) -lt 6 ] || ( [ $(VERSION) -eq 6 ] && [ $(PATCHLEVEL) -lt 2 ] ) && echo 0), 0)
+$(obj)/%.dtbo: $(src)/%.dtso $(DTC) FORCE
+	$(call if_changed_dep,dtc)
 endif

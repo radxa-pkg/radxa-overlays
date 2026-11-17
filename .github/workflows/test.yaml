@@ -17,11 +17,13 @@ jobs:
           - linux-rk2312
           - linux-rk2410
           - linux-rk2410-nocsf
-          - linux-aw2501
+          - linux-rk2606
           - linux-a733
+          - linux-aw2501
+          - linux-aw2511
+          - linux-aw2607
           - linux-qcom
           - linux-qc2509
-          - linux-rk2606
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -67,20 +69,26 @@ jobs:
             linux-rk2410-nocsf)
               KERNEL_HEADERS_URL=https://github.com/radxa-pkg/linux-rk2410-nocsf/releases/download/6.1.84-18/linux-headers-6.1.84-18-rk2410-nocsf_6.1.84-18_arm64.deb
               ;;
-            linux-aw2501)
-              KERNEL_HEADERS_URL=https://github.com/radxa-pkg/linux-aw2501/releases/download/5.15.147-20/linux-headers-5.15.147-20-aw2501_5.15.147-20_arm64.deb
+            linux-rk2606)
+              KERNEL_HEADERS_URL=https://github.com/radxa-pkg/linux-rk2606/releases/download/0.1.0-1/linux-headers-0.1.0-1-rk2606_0.1.0-1_arm64.deb
               ;;
             linux-a733)
               KERNEL_HEADERS_URL=https://github.com/radxa-pkg/linux-a733/releases/download/5.15.147-21/linux-headers-5.15.147-21-a733_5.15.147-21_arm64.deb
+              ;;
+            linux-aw2501)
+              KERNEL_HEADERS_URL=https://github.com/radxa-pkg/linux-aw2501/releases/download/5.15.147-20/linux-headers-5.15.147-20-aw2501_5.15.147-20_arm64.deb
+              ;;
+            linux-aw2511)
+              KERNEL_HEADERS_URL=https://github.com/radxa-pkg/linux-aw2511/releases/download/6.6.98-6/linux-headers-6.6.98-6-aw2511_6.6.98-6_arm64.deb
+              ;;
+            linux-aw2607)
+              KERNEL_HEADERS_URL=https://github.com/radxa-pkg/linux-aw2607/releases/download/6.6.98-1/linux-headers-6.6.98-1-aw2607_6.6.98-1_arm64.deb
               ;;
             linux-qcom)
               KERNEL_HEADERS_URL=https://github.com/radxa-pkg/linux-qcom/releases/download/7.0.11-9/linux-headers-7.0.11-9-qcom_7.0.11-9_arm64.deb
               ;;
             linux-qc2509)
               KERNEL_HEADERS_URL=https://github.com/radxa-pkg/linux-qc2509/releases/download/6.8.12-5/linux-headers-6.8.12-5-qc2509_6.8.12-5_arm64.deb
-              ;;
-            linux-rk2606)
-              KERNEL_HEADERS_URL=https://github.com/radxa-pkg/linux-rk2606/releases/download/0.1.0-1/linux-headers-0.1.0-1-rk2606_0.1.0-1_arm64.deb
               ;;
           esac
           wget "$KERNEL_HEADERS_URL"
