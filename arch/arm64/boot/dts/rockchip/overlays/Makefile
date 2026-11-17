@@ -281,7 +281,7 @@ dtb-$(CONFIG_CLK_RK3568) += \
 	rk3568-uart9-m1.dtbo \
 	rk3568-w1-gpio3-a5.dtbo \
 	rk3568-w1-gpio3-d1.dtbo \
-	rock-3a-pice2.dtbo \
+	rock-3a-pcie2.dtbo \
 	rock-3a-radxa-5inch-touchscreen.dtbo \
 	rock-3a-radxa-25w-poe.dtbo \
 	rock-3a-radxa-hdmi-in-4k-rk628.dtbo \
