@@ -21,6 +21,7 @@ jobs:
           - linux-a733
           - linux-qcom
           - linux-qc2509
+          - linux-rk2606
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -74,6 +75,9 @@ jobs:
             linux-qc2509)
               KERNEL_HEADERS_URL=https://github.com/radxa-pkg/linux-qc2509/releases/download/6.8.12-5/linux-headers-6.8.12-5-qc2509_6.8.12-5_arm64.deb
               ;;
+            linux-rk2606)
+              KERNEL_HEADERS_URL=https://github.com/radxa-pkg/linux-rk2606/releases/download/0.1.0-1/linux-headers-0.1.0-1-rk2606_0.1.0-1_arm64.deb
+              ;;
           esac
           wget "$KERNEL_HEADERS_URL"
           sudo apt install ./linux-headers-*.deb
@@ -104,6 +108,9 @@ jobs:
               ;;
             linux-qc2509)
               make build-dtbo -j$(nproc) KERNELRELEASE=6.8.12-5-qc2509
+              ;;
+            linux-rk2606)
+              make build-dtbo -j$(nproc) KERNELRELEASE=0.1.0-1-rk2606
               ;;
           esac
       - name: Upload artifacts
