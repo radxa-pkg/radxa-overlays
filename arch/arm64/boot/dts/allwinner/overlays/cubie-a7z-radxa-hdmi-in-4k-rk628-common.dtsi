@@ -1,0 +1,151 @@
+// SPDX-License-Identifier: (GPL-2.0+ OR MIT) AND GPL-2.0-only
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/gpio/sun4i-gpio.h>
+
+&vind0 {
+	csi_top = <704000000>;
+	csi_isp = <704000000>;
+	vind_mclkpin-supply = <&reg_bldo1>;
+	vind_mclkpin_vol = <1800000>;
+	vind_mcsipin-supply = <&reg_bldo1>;
+	vind_mcsipin_vol = <1800000>;
+	vind_mipipin-supply = <&reg_bldo1>;
+	vind_mipipin_vol = <1800000>;
+	status = "okay";
+};
+
+/* Keep the software TDM entities; UYVY bypasses their RAW processing. */
+&tdm0 {
+	work_mode = <0>;
+	status = "okay";
+};
+
+/* Enable each complete VIPP group only when its camera is selected. */
+&scaler00 {
+	status = "disabled";
+};
+
+&scaler01 {
+	status = "disabled";
+};
+
+&scaler02 {
+	status = "disabled";
+};
+
+&scaler03 {
+	status = "disabled";
+};
+
+&scaler10 {
+	status = "disabled";
+};
+
+&scaler11 {
+	status = "disabled";
+};
+
+&scaler12 {
+	status = "disabled";
+};
+
+&scaler13 {
+	status = "disabled";
+};
+
+&scaler20 {
+	status = "disabled";
+};
+
+&scaler21 {
+	status = "disabled";
+};
+
+&scaler22 {
+	status = "disabled";
+};
+
+&scaler23 {
+	status = "disabled";
+};
+
+&scaler30 {
+	status = "disabled";
+};
+
+&scaler31 {
+	status = "disabled";
+};
+
+&scaler32 {
+	status = "disabled";
+};
+
+&scaler33 {
+	status = "disabled";
+};
+
+&pio {
+	rk628_i2s0_bclk: rk628-i2s0-bclk-pins {
+		pins = "PB5";
+		function = "i2s0_bclk";
+		allwinner,drive = <1>;
+		bias-disable;
+	};
+
+	rk628_i2s0_lrck: rk628-i2s0-lrck-pins {
+		pins = "PB6";
+		function = "i2s0_lrck";
+		allwinner,drive = <1>;
+		bias-disable;
+	};
+
+	rk628_i2s0_din: rk628-i2s0-din-pins {
+		pins = "PB8";
+		function = "i2s0_din0";
+		allwinner,drive = <1>;
+		bias-pull-down;
+	};
+
+	rk628_i2s0_sleep: rk628-i2s0-sleep-pins {
+		pins = "PB5", "PB6", "PB8";
+		function = "io_disabled";
+		allwinner,drive = <1>;
+		bias-disable;
+	};
+};
+
+&i2s0_plat {
+	tdm-num = <0>;
+	/* The BSP parses tx-pin even for capture-only links. */
+	tx-pin = <0>;
+	rx-pin = <0>;
+	rxfifo-pinmap = <0 0>;
+	rxfifo-chmap = <0 1>;
+	pinctrl-used;
+	pinctrl-names = "default", "sleep";
+	pinctrl-0 = <&rk628_i2s0_bclk &rk628_i2s0_lrck &rk628_i2s0_din>;
+	pinctrl-1 = <&rk628_i2s0_sleep>;
+	status = "okay";
+};
+
+&i2s0_mach {
+	soundcard-mach,name = "rk628hdmiin";
+	soundcard-mach,format = "i2s";
+	soundcard-mach,bitclock-master = <&rk628_i2s0_codec>;
+	soundcard-mach,frame-master = <&rk628_i2s0_codec>;
+	soundcard-mach,capture-only;
+	soundcard-mach,slot-num = <2>;
+	soundcard-mach,slot-width = <32>;
+	status = "okay";
+
+	soundcard-mach,cpu {
+		sound-dai = <&i2s0_plat>;
+		soundcard-mach,pll-fs = <1>;
+		soundcard-mach,mclk-fs = <0>;
+	};
+
+	rk628_i2s0_codec: soundcard-mach,codec {
+	};
+};
