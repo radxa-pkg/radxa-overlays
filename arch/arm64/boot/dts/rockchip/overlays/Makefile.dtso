@@ -63,6 +63,7 @@ dtb-$(CONFIG_CPU_RK3576) += \
 	radxa-cm4-io-radxa-hdmi-in-4k-rk628-cam3.dtbo \
 	radxa-cm4-rpi-cm4-io-radxa-camera-8m-219-cam0.dtbo \
 	radxa-cm4-rpi-cm4-io-radxa-camera-8m-219-cam1.dtbo \
+	radxa-cm4-rpi-cm4-io-raspberrypi-7inch-touchscreen-2.dtbo \
 	radxa-cm4-rpi-cm4-io-raspberrypi-7inch-touchscreen.dtbo \
 	radxa-nx4-c200-radxa-camera-8m-219-on-cam0.dtbo \
 	radxa-nx4-c200-radxa-camera-8m-219-on-cam1.dtbo \
