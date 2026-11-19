@@ -1,0 +1,128 @@
+// SPDX-License-Identifier: (GPL-2.0+ or MIT)
+
+/dts-v1/;
+/plugin/;
+
+/ {
+	metadata {
+		title = "Enable Radxa 4K HDMI IN to MIPI CSI-2 Adapter on CAM1 with I2S audio";
+		compatible = "radxa,cubie-a7z";
+		category = "camera";
+		exclusive = "vind0", "csi1", "mipi1", "PE8", "PE9", "PE3", "PE4",
+			    "i2s0_plat", "i2s0_mach", "PB5", "PB6", "PB8";
+		description = "Enable Radxa 4K HDMI IN to MIPI CSI-2 Adapter on CAM1 with I2S audio.
+Capture HDMI video through the 31-pin 4-lane CAM1 connector on Cubie A7Z V2.0
+and stereo I2S audio through the 40-pin header. Select the connected camera port
+to capture video on /dev/video0.
+Pin 12 BCLK, pin 35 LRCK, pin 38 DIN and pin 39 GND.
+RK628F supplies both clocks and uses two 32-bit slots.
+Requires the RK628F VIN driver with polling and internal HDMI 5V detection.
+";
+	};
+};
+
+#include "cubie-a7z-radxa-hdmi-in-4k-rk628-common.dtsi"
+
+&{/} {
+	sensor_detect {
+		i2s-enable-default;
+		power-gpios = <&pio PE 8 GPIO_ACTIVE_HIGH>;
+		reset-gpios = <&pio PE 9 GPIO_ACTIVE_LOW>;
+		/* The adapter's DET and INT signals are not wired through CSI. */
+		poll-interval-ms = <200>;
+		rockchip,plugin-det-gpio0-a7;
+		continues-clk = <1>;
+		hpd-output-inverted = <0>;
+		/* Receiver clock deskew for 700/1300 Mbps links. */
+		allwinner,rx-clock-deskew = <7 15>;
+	};
+};
+
+&csi1 {
+	/* MIPI input does not use the parallel CSI pinctrl states. */
+	pinctrl-0 = <>;
+	pinctrl-1 = <>;
+	status = "okay";
+};
+
+&mipi1 {
+	pinctrl-0 = <>;
+	pinctrl-1 = <>;
+	status = "okay";
+};
+
+/* ISP4 selects an independent YUV bypass, without Bayer processing. */
+&isp10 {
+	work_mode = <0>;
+	status = "okay";
+};
+
+&scaler00 {
+	work_mode = <0>;
+	status = "okay";
+};
+
+/* The VIPP interrupt handler also references all virtual channel objects. */
+&scaler01 {
+	status = "okay";
+};
+
+&scaler02 {
+	status = "okay";
+};
+
+&scaler03 {
+	status = "okay";
+};
+
+&sensor0 {
+	sensor0_mname = "rk628f_mipi";
+	sensor0_twi_addr = <0xa0>;
+	sensor0_twi_cci_id = <3>;
+	/* RK628F uses its oscillator; no SoC MCLK is enabled. */
+	sensor0_pos = "rear";
+	sensor0_isp_used = <0>;
+	sensor0_fmt = <0>;
+	sensor0_stby_mode = <0>;
+	sensor0_vflip = <0>;
+	sensor0_hflip = <0>;
+	status = "okay";
+};
+
+&vinc00 {
+	vinc0_csi_sel = <1>;
+	vinc0_mipi_sel = <1>;
+	vinc0_isp_sel = <4>;
+	vinc0_isp_tx_ch = <0>;
+	vinc0_tdm_rx_sel = <0>;
+	vinc0_rear_sensor_sel = <0>;
+	vinc0_front_sensor_sel = <0>;
+	vinc0_sensor_list = <0>;
+	work_mode = <0>;
+	status = "okay";
+};
+
+&twi3 {
+	clock-frequency = <400000>;
+	pinctrl-0 = <&rk628_cam1_twi3_default>;
+	pinctrl-1 = <&rk628_cam1_twi3_sleep>;
+	pinctrl-names = "default", "sleep";
+	twi_drv_used = <1>;
+	no_suspend = <1>;
+	twi-supply = <&reg_bldo1>;
+	status = "okay";
+};
+
+&pio {
+	rk628_cam1_twi3_default: rk628-cam1-twi3-default {
+		pins = "PE3", "PE4";
+		function = "twi3";
+		drive-strength = <10>;
+		bias-pull-up;
+	};
+
+	rk628_cam1_twi3_sleep: rk628-cam1-twi3-sleep {
+		pins = "PE3", "PE4";
+		function = "gpio_in";
+	};
+};
