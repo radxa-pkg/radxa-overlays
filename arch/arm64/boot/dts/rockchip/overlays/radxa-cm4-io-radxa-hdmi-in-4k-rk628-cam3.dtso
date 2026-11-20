@@ -1,0 +1,152 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/power/rockchip,rk3576-power.h>
+
+/ {
+	metadata {
+		title = "Enable Radxa HDMI IN to MIPI CSI-2 Adapter on CAM3 (4-lane)";
+		compatible = "radxa,cm4-io";
+		category = "camera";
+		exclusive = "GPIO3_C5", "GPIO4_A4", "GPIO4_A6", "csi2_dphy3", "i2c5";
+		description = "Enable Radxa 4K HDMI IN to MIPI CSI-2 Adapter on the CAM3 4-lane CSI connector.
+For audio, also enable the 'SAI2-M0 capture-only dummy sound card' overlay.
+";
+	};
+};
+
+&i2c5 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c5m3_xfer>;
+	clock-frequency = <400000>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	rk628_csi3: rk628-csi@50 {
+		compatible = "rockchip,rk628-csi-v4l2";
+		reg = <0x50>;
+		power-domains = <&power RK3576_PD_VI>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&rk628_pin1>;
+		interrupt-parent = <&gpio3>;
+		interrupts = <RK_PC5 IRQ_TYPE_LEVEL_HIGH>;
+		reset-gpios = <&gpio4 RK_PA4 GPIO_ACTIVE_LOW>;
+		plugin-det-gpios = <&gpio4 RK_PA6 GPIO_ACTIVE_LOW>;
+		continues-clk = <1>;
+		rockchip,camera-module-index = <2>;
+		rockchip,camera-module-facing = "back";
+		rockchip,camera-module-name = "HDMI-MIPI1";
+		rockchip,camera-module-lens-name = "RK628-CSI";
+
+		port {
+			hdmiin_out1: endpoint {
+				remote-endpoint = <&hdmi2mipi_in1>;
+				data-lanes = <1 2 3 4>;
+			};
+		};
+	};
+};
+
+&csi2_dphy0_hw {
+	status = "okay";
+};
+
+&csi2_dphy1_hw {
+	status = "okay";
+};
+
+&csi2_dphy3 {
+	status = "okay";
+
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		port@0 {
+			reg = <0>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			hdmi2mipi_in1: endpoint@1 {
+				reg = <1>;
+				remote-endpoint = <&hdmiin_out1>;
+				data-lanes = <1 2 3 4>;
+			};
+		};
+
+		port@1 {
+			reg = <1>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			csidphy3_out: endpoint@0 {
+				reg = <0>;
+				remote-endpoint = <&mipi3_csi2_input>;
+			};
+		};
+	};
+};
+
+&mipi3_csi2 {
+	status = "okay";
+
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		port@0 {
+			reg = <0>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			mipi3_csi2_input: endpoint@1 {
+				reg = <1>;
+				remote-endpoint = <&csidphy3_out>;
+			};
+		};
+
+		port@1 {
+			reg = <1>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			mipi3_csi2_output: endpoint@0 {
+				reg = <0>;
+				remote-endpoint = <&cif_mipi3_in0>;
+			};
+		};
+	};
+};
+
+&rkcif {
+	status = "okay";
+};
+
+&rkcif_mipi_lvds3 {
+	status = "okay";
+
+	port {
+		cif_mipi3_in0: endpoint {
+			remote-endpoint = <&mipi3_csi2_output>;
+		};
+	};
+};
+
+&rkcif_mmu {
+	status = "okay";
+};
+
+&pinctrl {
+	hdmiin {
+		rk628_pin1: rk628-pin1 {
+			rockchip,pins =
+				<3 RK_PC5 RK_FUNC_GPIO &pcfg_pull_none>,
+				<4 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>,
+				<4 RK_PA6 RK_FUNC_GPIO &pcfg_pull_none>;
+		};
+	};
+};

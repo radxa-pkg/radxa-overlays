@@ -51,12 +51,33 @@ dtb-$(CONFIG_CPU_RK3576) += \
 	radxa-cm4-io-radxa-display-10fhd.dtbo \
 	radxa-cm4-io-radxa-display-10hd.dtbo \
 	radxa-cm4-io-raspberrypi-7inch-touchscreen.dtbo \
+	radxa-cm4-io-raspberrypi-7inch-touchscreen-2.dtbo \
 	radxa-cm4-io-rpi-camera-v1p3-on-cam1.dtbo \
 	radxa-cm4-io-rpi-camera-v1p3-on-cam2.dtbo \
 	radxa-cm4-io-rpi-camera-v2-on-cam1.dtbo \
 	radxa-cm4-io-rpi-camera-v2-on-cam2.dtbo \
+	radxa-cm4-io-rpi-camera-v3-on-cam1.dtbo \
+	radxa-cm4-io-rpi-camera-v3-on-cam2.dtbo \
+	radxa-cm4-io-radxa-hdmi-in-rk628-2lane-cam1.dtbo \
+	radxa-cm4-io-radxa-hdmi-in-rk628-2lane-cam2.dtbo \
+	radxa-cm4-io-radxa-hdmi-in-4k-rk628-cam3.dtbo \
+	radxa-cm4-rpi-cm4-io-radxa-camera-12m-577-cam0.dtbo \
+	radxa-cm4-rpi-cm4-io-radxa-camera-12m-577-cam1.dtbo \
+	radxa-cm4-rpi-cm4-io-radxa-camera-13m-214-cam0.dtbo \
+	radxa-cm4-rpi-cm4-io-radxa-camera-13m-214-cam1.dtbo \
+	radxa-cm4-rpi-cm4-io-radxa-camera-4k-cam0.dtbo \
+	radxa-cm4-rpi-cm4-io-radxa-camera-4k-cam1.dtbo \
 	radxa-cm4-rpi-cm4-io-radxa-camera-8m-219-cam0.dtbo \
 	radxa-cm4-rpi-cm4-io-radxa-camera-8m-219-cam1.dtbo \
+	radxa-cm4-rpi-cm4-io-rpi-camera-v1p3-cam0.dtbo \
+	radxa-cm4-rpi-cm4-io-rpi-camera-v1p3-cam1.dtbo \
+	radxa-cm4-rpi-cm4-io-rpi-camera-v2-cam0.dtbo \
+	radxa-cm4-rpi-cm4-io-rpi-camera-v2-cam1.dtbo \
+	radxa-cm4-rpi-cm4-io-rpi-camera-v3-cam0.dtbo \
+	radxa-cm4-rpi-cm4-io-rpi-camera-v3-cam1.dtbo \
+	radxa-cm4-rpi-cm4-io-radxa-hdmi-in-rk628-2lane-cam0.dtbo \
+	radxa-cm4-rpi-cm4-io-radxa-hdmi-in-4k-rk628-cam1.dtbo \
+	radxa-cm4-rpi-cm4-io-raspberrypi-7inch-touchscreen-2.dtbo \
 	radxa-cm4-rpi-cm4-io-raspberrypi-7inch-touchscreen.dtbo \
 	radxa-nx4-c200-radxa-camera-8m-219-on-cam0.dtbo \
 	radxa-nx4-c200-radxa-camera-8m-219-on-cam1.dtbo \
@@ -66,6 +87,8 @@ dtb-$(CONFIG_CPU_RK3576) += \
 	radxa-nx4-c200-rpi-camera-v2-on-cam1.dtbo \
 	radxa-nx4-c200-rpi-camera-v3-on-cam0.dtbo \
 	radxa-nx4-c200-rpi-camera-v3-on-cam1.dtbo \
+	radxa-nx4-c200-radxa-hdmi-in-4k-rk628-cam0.dtbo \
+	radxa-nx4-c200-radxa-hdmi-in-4k-rk628-cam1.dtbo \
 	rk3576-can0-m3.dtbo \
 	rk3576-can1-m1.dtbo \
 	rk3576-can1-m2.dtbo \
