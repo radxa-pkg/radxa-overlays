@@ -1,0 +1,161 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/power/rockchip,rk3576-power.h>
+
+/ {
+	metadata {
+		title = "Enable Radxa HDMI IN to MIPI CSI-2 Adapter on CAM1 (4-lane)";
+		compatible = "radxa,nx4-c200";
+		category = "camera";
+		exclusive = "GPIO3_D6", "GPIO4_A6", "csi2_dcphy0", "i2c4";
+		description = "Enable Radxa 4K HDMI IN to MIPI CSI-2 Adapter on the CAM1 4-lane CSI connector.
+To capture audio, also enable the 'SAI2-M0 capture-only dummy sound card' overlay.
+";
+	};
+
+	camera1_i2c_sel: camera1-i2c-sel {
+		compatible = "regulator-fixed";
+		regulator-name = "camera1_i2c_sel";
+		regulator-always-on;
+		regulator-boot-on;
+		enable-active-high;
+		gpio = <&gpio4 RK_PA6 GPIO_ACTIVE_HIGH>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&cam1_i2c_sel_gpio>;
+	};
+};
+
+&i2c4 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c4m2_xfer>;
+	clock-frequency = <400000>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	rk628_csi1: rk628-csi@50 {
+		compatible = "rockchip,rk628-csi-v4l2";
+		reg = <0x50>;
+		power-domains = <&power RK3576_PD_VI>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&rk628_cam1_reset>;
+		/* INT and DET are not routed; the driver uses I2C polling. */
+		reset-gpios = <&gpio3 RK_PD6 GPIO_ACTIVE_LOW>;
+		continues-clk = <1>;
+		rockchip,camera-module-index = <1>;
+		rockchip,camera-module-facing = "back";
+		rockchip,camera-module-name = "HDMI-MIPI1";
+		rockchip,camera-module-lens-name = "RK628-CSI";
+
+		port {
+			hdmiin_out1: endpoint {
+				remote-endpoint = <&hdmi2mipi_in1>;
+				data-lanes = <1 2 3 4>;
+			};
+		};
+	};
+};
+
+&csi2_dphy0_hw {
+	status = "okay";
+};
+
+&csi2_dphy1_hw {
+	status = "okay";
+};
+
+&csi2_dcphy0 {
+	status = "okay";
+
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		port@0 {
+			reg = <0>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			hdmi2mipi_in1: endpoint@1 {
+				reg = <1>;
+				remote-endpoint = <&hdmiin_out1>;
+				data-lanes = <1 2 3 4>;
+			};
+		};
+
+		port@1 {
+			reg = <1>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			csidcphy0_out: endpoint@0 {
+				reg = <0>;
+				remote-endpoint = <&mipi0_csi2_input>;
+			};
+		};
+	};
+};
+
+&mipi0_csi2 {
+	status = "okay";
+
+	ports {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		port@0 {
+			reg = <0>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			mipi0_csi2_input: endpoint@1 {
+				reg = <1>;
+				remote-endpoint = <&csidcphy0_out>;
+			};
+		};
+
+		port@1 {
+			reg = <1>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			mipi0_csi2_output: endpoint@0 {
+				reg = <0>;
+				remote-endpoint = <&cif_mipi0_in0>;
+			};
+		};
+	};
+};
+
+&rkcif_mipi_lvds {
+	status = "okay";
+
+	port {
+		cif_mipi0_in0: endpoint {
+			remote-endpoint = <&mipi0_csi2_output>;
+		};
+	};
+};
+
+&rkcif {
+	status = "okay";
+};
+
+&rkcif_mmu {
+	status = "okay";
+};
+
+&pinctrl {
+	camera {
+		rk628_cam1_reset: rk628-cam1-reset {
+			rockchip,pins = <3 RK_PD6 RK_FUNC_GPIO &pcfg_pull_none>;
+		};
+
+		cam1_i2c_sel_gpio: cam1-i2c-sel-gpio {
+			rockchip,pins = <4 RK_PA6 RK_FUNC_GPIO &pcfg_pull_up>;
+		};
+	};
+};

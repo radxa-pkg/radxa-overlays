@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable SAI2-M0 capture-only dummy sound card";
-		compatible = "radxa,cm4-rpi-cm4-io", "radxa,cm4-io", "radxa,rock-4d";
+		compatible = "radxa,cm4-rpi-cm4-io", "radxa,cm4-io", "radxa,nx4-c200", "radxa,rock-4d";
 		category = "misc";
 		exclusive = "sai2";
 		description = "Enable a 2-channel SAI2-M0 capture-only dummy sound card in slave mode.
