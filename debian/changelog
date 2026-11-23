@@ -1,3 +1,29 @@
+radxa-overlays (0.2.38) noble; urgency=medium
+
+  [ carbon ]
+  * fix: enable the csi supply for rk628 on rock 3c
+
+  [ Feng Zhang ]
+  * feat(overlays): add RK628F HDMI capture with I2S audio on Cubie A7Z V2.0
+
+  [ Peng Liu ]
+  * fix: correct CM4 IO display panel settings
+  * fix: correct Raspberry Pi spelling in CM4 IO touchscreen overlay
+  * feat: add Raspberry Pi 7-inch Touchscreen 2 for CM4 IO
+  * feat: add Raspberry Pi Camera V3 overlays for CM4 IO
+  * feat: add RK628 HDMI input overlays for CM4 IO
+  * feat: add Raspberry Pi 7-inch Touchscreen 2 for RPI CM4 IO
+  * feat: add Raspberry Pi Camera V1.3 overlays for RPI CM4 IO
+  * feat: add Raspberry Pi Camera V2 overlays for RPI CM4 IO
+  * feat: add Raspberry Pi Camera V3 overlays for RPI CM4 IO
+  * feat: add Radxa Camera 12M 577 overlays for RPI CM4 IO
+  * feat: add Radxa Camera 13M 214 overlays for RPI CM4 IO
+  * feat: add Radxa Camera 4K overlays for RPI CM4 IO
+  * feat: add RK628 HDMI input overlays for RPI CM4 IO
+  * feat: add RK628 HDMI input overlays for NX4 C200
+
+ -- "Radxa Computer (Shenzhen) Co., Ltd." <dev@radxa.com>  Mon, 23 Nov 2026 06:42:56 +0000
+
 radxa-overlays (0.2.37) noble; urgency=medium
 
   [ ZHANG Yuntian ]
