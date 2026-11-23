@@ -51,7 +51,18 @@ pre_build:
 	chmod +x debian/rules
 
 .PHONY: main_build
-main_build:
+main_build: build-man
+
+PANDOC ?= pandoc
+
+SRC-MAN		:=	man
+SRCS-MAN	:=	$(wildcard $(SRC-MAN)/*.md)
+MANS		:=	$(SRCS-MAN:.md=)
+.PHONY: build-man
+build-man: $(MANS)
+
+$(SRC-MAN)/%: $(SRC-MAN)/%.md
+	$(PANDOC) "$<" -o "$@" --from markdown-smart --to man -s
 
 .PHONY: post_build
 post_build:
@@ -89,17 +100,27 @@ translate:
 distclean: clean
 
 .PHONY: clean
-clean: clean-deb
+clean: clean-deb clean-man
 
 .PHONY: clean-deb
 clean-deb:
 	rm -rf debian/.debhelper debian/$(PROJECT)*/ debian/tmp/ debian/debhelper-build-stamp debian/files debian/*.debhelper.log debian/*.*.debhelper debian/*.substvars
+
+.PHONY: clean-man
+clean-man:
+	rm -rf $(MANS)
+
+.PHONY: clean-submodule
+clean-submodule:
+	git submodule deinit -f .
+	git submodule update --init
 
 #
 # Release
 #
 .PHONY: dch
 dch: debian/changelog
+	DEBEMAIL="dev@radxa.com" DEBFULLNAME='"Radxa Computer (Shenzhen) Co., Ltd."' \
 	gbp dch --ignore-branch --multimaint-merge --release --spawn-editor=never \
 	--git-log='--no-merges --perl-regexp --invert-grep --grep=^(chore:\stemplates\sgenerated)' \
 	--dch-opt=--upstream --commit --commit-msg="feat: release %(version)s"
