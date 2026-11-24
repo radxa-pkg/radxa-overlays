@@ -26,6 +26,7 @@ dtb-$(CONFIG_ARCH_QCOM) += qcs6490-radxa-cm-q64-rpi-cm5-io-cam0-imx219.dtbo \
 	qcs6490-radxa-dragon-q6a-i2c12.dtbo \
 	qcs6490-radxa-dragon-q6a-i2c14.dtbo \
 	qcs6490-radxa-dragon-q6a-kvm.dtbo \
+	qcs6490-radxa-dragon-q6a-pmic-rtc.dtbo \
 	qcs6490-radxa-dragon-q6a-poe-hat.dtbo \
 	qcs6490-radxa-dragon-q6a-radxa-display-8hd.dtbo \
 	qcs6490-radxa-dragon-q6a-radxa-display-8hd-2lane.dtbo \
