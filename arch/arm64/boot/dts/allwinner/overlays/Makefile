@@ -43,6 +43,7 @@ dtb-$(CONFIG_ARCH_SUN60IW2) += \
 	sun60iw2p1-s-pwm0-2.dtbo \
 	sun60iw2p1-s-spi0-spidev.dtbo \
 	sun60iw2p1-spi1-cs0-cs1-spidev.dtbo \
+	sun60iw2p1-spi1-cs0-mcp2515-8mhz.dtbo \
 	sun60iw2p1-spi1-spidev.dtbo \
 	sun60iw2p1-spi3-spidev.dtbo \
 	sun60iw2p1-twi0.dtbo \
