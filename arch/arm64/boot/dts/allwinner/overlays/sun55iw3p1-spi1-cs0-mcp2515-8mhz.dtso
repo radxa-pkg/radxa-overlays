@@ -1,0 +1,80 @@
+// SPDX-License-Identifier: GPL-2.0
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/spi/sunxi-spi.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+#include <dt-bindings/gpio/sun4i-gpio.h>
+
+/ {
+	metadata {
+		title = "Enable MCP2515 (8 MHz) on SPI1 CS0";
+		compatible = "radxa,cubie-a5e";
+		category = "misc";
+		exclusive = "spi1", "PB11", "PB12", "PB13", "PB14", "PL13";
+		description = "Enable MCP2515 (8 MHz) on SPI1 CS0.
+MOSI=19 MISO=21 SCK=23 CS0=24 INT=22 (PL13).";
+	};
+};
+
+&{/} {
+	mcp2515_spi1_osc: mcp2515-spi1-oscillator {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <8000000>;
+	};
+};
+
+&pio {
+	mcp2515_spi1_pins: mcp2515-spi1-pins {
+		pins = "PB12", "PB13", "PB14";
+		function = "spi1";
+		drive-strength = <10>;
+	};
+
+	mcp2515_spi1_cs: mcp2515-spi1-cs {
+		pins = "PB11";
+		function = "spi1";
+		drive-strength = <10>;
+		bias-pull-up;
+	};
+
+	mcp2515_spi1_sleep: mcp2515-spi1-sleep {
+		pins = "PB11", "PB12", "PB13", "PB14";
+		function = "gpio_in";
+	};
+};
+
+&r_pio {
+	mcp2515_spi1_irq: mcp2515-spi1-irq {
+		pins = "PL13";
+		function = "gpio_in";
+		bias-pull-up;
+	};
+};
+
+&spi1 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+	clock-frequency = <50000000>;
+	pinctrl-names = "default", "sleep";
+	pinctrl-0 = <&mcp2515_spi1_pins &mcp2515_spi1_cs>;
+	pinctrl-1 = <&mcp2515_spi1_sleep>;
+	sunxi,spi-num-cs = <1>;
+	sunxi,spi-bus-mode = <SUNXI_SPI_BUS_MASTER>;
+	/* Keep native CS asserted across all transfers in an SPI message. */
+	sunxi,spi-cs-mode = <SUNXI_SPI_CS_SOFT>;
+	status = "okay";
+
+	can@0 {
+		compatible = "microchip,mcp2515";
+		reg = <0>;
+		clocks = <&mcp2515_spi1_osc>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&mcp2515_spi1_irq>;
+		interrupt-parent = <&r_pio>;
+		interrupts = <PL 13 IRQ_TYPE_LEVEL_LOW>;
+		spi-max-frequency = <2000000>;
+		status = "okay";
+	};
+};
