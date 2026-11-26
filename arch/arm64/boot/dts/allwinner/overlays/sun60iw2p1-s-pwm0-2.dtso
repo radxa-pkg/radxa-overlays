@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable S-PWM0-2";
-		compatible = "radxa,cm-a7-rpi-cm5-io";
+		compatible = "radxa,cm-a73-rpi-cm5-io";
 		category = "misc";
 		exclusive = "PM0";
 		description = "Enable low-power-domain S-PWM0 channel 2 on physical pin 16 (PM0).";

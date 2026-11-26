@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable PWM1-7";
-		compatible = "radxa,cm-a7-rpi-cm5-io";
+		compatible = "radxa,cm-a73-rpi-cm5-io";
 		category = "misc";
 		exclusive = "PG6";
 		description = "Enable PWM1 channel 7 on physical pin 32 (PG6).";
