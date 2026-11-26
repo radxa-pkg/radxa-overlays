@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0
 dtb-$(CONFIG_ARCH_SUN55IW3) += \
 	sun55iw3p1-pwm0-7.dtbo \
+	sun55iw3p1-spi1-cs0-mcp2515-8mhz.dtbo \
 	sun55iw3p1-spi1-enc28j60.dtbo \
 	sun55iw3p1-spi1-spidev.dtbo \
 	sun55iw3p1-spi2-spidev.dtbo \
@@ -43,6 +44,7 @@ dtb-$(CONFIG_ARCH_SUN60IW2) += \
 	sun60iw2p1-s-pwm0-2.dtbo \
 	sun60iw2p1-s-spi0-spidev.dtbo \
 	sun60iw2p1-spi1-cs0-cs1-spidev.dtbo \
+	sun60iw2p1-spi1-cs0-mcp2515-8mhz.dtbo \
 	sun60iw2p1-spi1-spidev.dtbo \
 	sun60iw2p1-spi3-spidev.dtbo \
 	sun60iw2p1-twi0.dtbo \
