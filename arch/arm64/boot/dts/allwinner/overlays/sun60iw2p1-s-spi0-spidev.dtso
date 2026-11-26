@@ -6,7 +6,7 @@
 / {
 	metadata {
 		title = "Enable spidev on S-SPI0";
-		compatible = "radxa,cm-a7-rpi-cm5-io";
+		compatible = "radxa,cm-a73-rpi-cm5-io";
 		category = "misc";
 		exclusive = "r_spi", "PM0", "PM1", "PM2", "PM3";
 		description = "Enable the low-power-domain S-SPI0 controller: CS0/CLK/MOSI/MISO on physical pins 16/11/13/15.";

@@ -17,7 +17,7 @@
 / {
 	metadata {
 		title = "Enable Raspberry Pi 7-inch Display";
-		compatible = "radxa,cm-a7-rpi-cm5-io";
+		compatible = "radxa,cm-a73-rpi-cm5-io";
 		category = "display";
 		exclusive = "dlcd0", "dsi0", "dsi0combophy", "twi4", "PG0",
 			    "PD0", "PD1", "PD2", "PD3", "PD4", "PD5", "PD6", "PD7", "PD8", "PD9",

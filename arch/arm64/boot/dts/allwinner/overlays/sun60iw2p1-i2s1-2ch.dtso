@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable I2S1";
-		compatible = "radxa,cm-a7-rpi-cm5-io";
+		compatible = "radxa,cm-a73-rpi-cm5-io";
 		category = "misc";
 		exclusive = "i2s1_plat", "i2s1_mach", "PG10", "PG11", "PG12", "PG13", "PG14";
 		description = "Enable an I2S1 two-channel dummy sound card with MCLK/BCLK/LRCK/DIN/DOUT on physical pins 36/12/35/38/40.";

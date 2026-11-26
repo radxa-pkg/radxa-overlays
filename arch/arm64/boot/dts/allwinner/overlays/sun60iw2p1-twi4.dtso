@@ -4,7 +4,7 @@
 / {
 	metadata {
 		title = "Enable TWI4";
-		compatible = "radxa,cm-a7-rpi-cm5-io";
+		compatible = "radxa,cm-a73-rpi-cm5-io";
 		category = "misc";
 		exclusive = "twi4", "PE10", "PE11";
 		description = "Enable TWI4 SDA on physical pin 27 (PE11/ID_SD) and SCL on physical pin 28 (PE10/ID_SC).";

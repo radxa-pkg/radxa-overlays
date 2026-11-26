@@ -6,7 +6,7 @@
 / {
 	metadata {
 		title = "Enable dual-CS spidev on SPI1";
-		compatible = "radxa,cm-a7-rpi-cm5-io";
+		compatible = "radxa,cm-a73-rpi-cm5-io";
 		category = "misc";
 		exclusive = "spi1", "PD10", "PD11", "PD12", "PD13", "PD15";
 		description = "Enable SPI1 MOSI/MISO/CLK on physical pins 19/21/23 and native CS0/CS1 on physical pins 24/26.";

@@ -8,7 +8,7 @@
 / {
 	metadata {
 		title = "Enable Radxa Camera 8M 219";
-		compatible = "radxa,cm-a7-rpi-cm5-io";
+		compatible = "radxa,cm-a73-rpi-cm5-io";
 		category = "camera";
 		exclusive = "vind0", "csi0", "PE1", "PE3", "PE4";
 		description = "Enable Radxa Camera 8M IMX219.";
